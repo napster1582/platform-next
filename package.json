@@ -1,6 +1,6 @@
 {
   "name": "platform-v2",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "author": "",
   "license": "ISC",
@@ -15,6 +15,9 @@
     "web:check:watch": "pnpm --filter web check:watch",
     "web:test": "pnpm --filter web test",
     "web:test:unit": "pnpm --filter web test:unit",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prettier": "prettier --write ."
@@ -27,8 +30,8 @@
   },
   "devDependencies": {
     "@iconify/json": "^2.2.46",
-    "@typescript-eslint/eslint-plugin": "^5.14.0",
-    "@typescript-eslint/parser": "^5.14.0",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
     "@unocss/core": "^0.50.7",
     "@unocss/preset-icons": "^0.50.7",
     "@unocss/preset-tagify": "^0.50.7",
@@ -36,15 +39,16 @@
     "@unocss/preset-web-fonts": "^0.50.7",
     "@unocss/reset": "^0.50.7",
     "@unocss/transformer-directives": "^0.50.7",
-    "eslint": "^8.10.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
+    "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "lint-staged": "^13.2.1",
-    "prettier": "^2.5.1",
+    "prettier": "^2.8.7",
     "simple-git-hooks": "^2.8.1",
     "typescript": "^5.0.4",
     "unocss": "^0.50.7",
     "vite": "^4.2.1",
+    "vitepress": "1.0.0-alpha.65",
     "vitest": "^0.29.8"
   }
 }
