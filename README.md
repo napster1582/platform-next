@@ -30,31 +30,31 @@
 
 4. Ejecutar aplicaciones.
 
-- Api: [http://localhost:3000](http://localhost:3000)
+- Api (NestJS): [http://localhost:3000](http://localhost:3000)
 
     ```sh
     pnpm api:dev
     ```
 
-- Cms: [http://localhost:3001](http://localhost:3001)
+- Cms (ExpressJS): [http://localhost:3001](http://localhost:3001)
 
     ```sh
     pnpm cms:dev
     ```
 
-- Admin: [http://localhost:4200](http://localhost:4200)
+- Admin (Angular): [http://localhost:4200](http://localhost:4200)
 
     ```sh
     pnpm admin:dev
     ```
 
-- Web [http://localhost:4201](http://localhost:4201)
+- Web (Sveltekit): [http://localhost:4201](http://localhost:4201)
 
     ```sh
     pnpm web:dev
     ```
 
-- Docs: [http://localhost:4202](http://localhost:4202)
+- Docs (Vitepress): [http://localhost:4202](http://localhost:4202)
 
     ```sh
     pnpm docs:dev
