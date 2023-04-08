@@ -16,7 +16,7 @@
     pnpm install
     ```
 
-2. Iniciar contenedores de docker en el entorno `development`.
+2. Iniciar contenedores de docker.
 
     ```sh
     docker-compose up -d
@@ -30,38 +30,56 @@
 
 4. Ejecutar aplicaciones.
 
-- API: [http://localhost:3000](http://localhost:3000)
+- Api: [http://localhost:3000](http://localhost:3000)
 
     ```sh
-    pnpm api:start
+    pnpm api:dev
     ```
 
-- CMS: [http://localhost:4201](http://localhost:4201)
+- Cms: [http://localhost:3001](http://localhost:3001)
 
     ```sh
-    pnpm cms:start
+    pnpm cms:dev
     ```
 
-- WEB [http://localhost:4200](http://localhost:4200)
+- Admin: [http://localhost:4200](http://localhost:4200)
 
     ```sh
-    pnpm web:start
+    pnpm admin:dev
+    ```
+
+- Web [http://localhost:4201](http://localhost:4201)
+
+    ```sh
+    pnpm web:dev
+    ```
+
+- Docs: [http://localhost:4202](http://localhost:4202)
+
+    ```sh
+    pnpm docs:dev
     ```
 
 ## Docker
 
 ### Compilar imágenes
 
-**API:**
+**Api:**
 
 ```bash
 docker build -t jinen-api -f Dockerfile.api .
 ```
 
-**CMS:**
+**Cms:**
 
 ```bash
 docker build -t jinen-cms -f Dockerfile.cms .
+```
+
+**Admin:**
+
+```bash
+docker build -t jinen-admin -f Dockerfile.admin .
 ```
 
 **Web:**
@@ -82,10 +100,32 @@ docker run -p 3000:3000 --env-file envs/development.env -d jinen-api
 docker run -p 3000:3000 --env-file envs/production.env -d jinen-api
 ```
 
+**Cms:**
+
+```bash
+# Development
+docker run -p 3001:3001 --env-file envs/development.env -d jinen-cms
+
+# Production
+docker run -p 3001:3001 --env-file envs/production.env -d jinen-cms
+```
+
+**Admin (nginx):**
+
+```bash
+docker run -p 4200:80 -d jinen-admin
+```
+
 **Web (nginx):**
 
 ```bash
-docker run -p 4200:80 -d jinen-web
+docker run -p 4201:80 -d jinen-web
+```
+
+**Docs (nginx):**
+
+```bash
+docker run -p 4202:80 -d jinen-docs
 ```
 
 ## Kubernetes
