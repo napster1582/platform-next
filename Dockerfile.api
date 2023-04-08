@@ -1,0 +1,27 @@
+# Base image
+FROM node:18-alpine 
+
+# Set the working directory
+WORKDIR /usr/apps/api
+
+# Install pnpm package manager
+RUN npm i -g pnpm
+
+# Copy package.json, pnpm-lock.yaml, and the entire workspace
+COPY package.json pnpm-lock.yaml ./
+COPY . .
+
+# Install dependencies, build the app, and remove dev dependencies
+RUN pnpm install --frozen-lockfile && \
+    pnpm api:build && \
+    pnpm prune --prod && \
+    rm -rf /root/.pnpm-store
+
+# Set the working directory for the production image
+WORKDIR /usr/src/app/dist/apps/api
+
+# Expose port 3000
+EXPOSE 3000
+
+# Start the NestJS server
+CMD ["node", "main.js"]
