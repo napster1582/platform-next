@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "prisma.prisma",
+    "svelte.svelte-vscode",
+    "ardenivanov.svelte-intellisense",
+    "antfu.unocss",
+    "zixuanchen.vitest-explorer",
+    "ms-playwright.playwright",
+    "antfu.iconify",
+    "afzalsayed96.icones"
+  ]
+}

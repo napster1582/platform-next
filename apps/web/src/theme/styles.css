@@ -1,0 +1,9 @@
+@import '@unocss/reset/sanitize/reduce-motion.css';
+@import '@unocss/reset/tailwind.css';
+
+/* base */
+@import './01-base/font.css';
+@import './01-base/document.css';
+@import './01-base/heading.css';
+
+/* components */
