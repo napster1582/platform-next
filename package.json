@@ -8,6 +8,9 @@
   "main": "index.js",
   "scripts": {
     "cms:dev": "pnpm --filter cms dev",
+    "cms:start": "pnpm --filter cms start",
+    "cms:build": "pnpm --filter cms build",
+    "cms:strapi": "pnpm --filter cms strapi",
     "web:dev": "pnpm --filter web dev",
     "web:build": "pnpm --filter web dev",
     "web:preview": "pnpm --filter web preview",

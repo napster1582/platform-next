@@ -12,53 +12,53 @@
 
 1. Instalar `node_modules`.
 
-    ```sh
-    pnpm install
-    ```
+   ```sh
+   pnpm install
+   ```
 
 2. Iniciar contenedores de docker.
 
-    ```sh
-    docker-compose up -d
-    ```
+   ```sh
+   docker-compose up -d
+   ```
 
 3. Crear o actualizar base de datos en el entorno `development`.
 
-    ```sh
-    pnpm prisma:development:push
-    ```
+   ```sh
+   pnpm prisma:development:push
+   ```
 
 4. Ejecutar aplicaciones.
 
 - Api (NestJS): [http://localhost:3000](http://localhost:3000)
 
-    ```sh
-    pnpm api:dev
-    ```
+  ```sh
+  pnpm api:dev
+  ```
 
 - Cms (ExpressJS): [http://localhost:3001](http://localhost:3001)
 
-    ```sh
-    pnpm cms:dev
-    ```
+  ```sh
+  pnpm cms:dev
+  ```
 
 - Admin (Angular): [http://localhost:4200](http://localhost:4200)
 
-    ```sh
-    pnpm admin:dev
-    ```
+  ```sh
+  pnpm admin:dev
+  ```
 
 - Web (Sveltekit): [http://localhost:4201](http://localhost:4201)
 
-    ```sh
-    pnpm web:dev
-    ```
+  ```sh
+  pnpm web:dev
+  ```
 
 - Docs (Vitepress): [http://localhost:4202](http://localhost:4202)
 
-    ```sh
-    pnpm docs:dev
-    ```
+  ```sh
+  pnpm docs:dev
+  ```
 
 ## Docker
 
