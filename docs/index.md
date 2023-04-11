@@ -8,7 +8,7 @@ titleTemplate: Portal de documentación
 hero:
   name: 'Jinen'
   text: 'Portal de documentación'
-  tagline: Versátil · Robusto · Alto rendimiento
+  tagline: Sencillo, potente y rápido. Conozca el marco moderno de desarrollo.
   actions:
     - theme: brand
       text: Comenzar
