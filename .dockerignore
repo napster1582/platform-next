@@ -41,6 +41,19 @@ build
 # Ignore k8s files
 /charts
 
+# Ignore documentation files
+CHANGELOG
+LICENSE
+AUTHORS
+CONTRIBUTORS
+
+# Ignore version control files
+.git
+.gitignore
+.svn
+.hg
+.bzr
+
 # Ignore OS-specific files
 .DS_Store
 Thumbs.db
