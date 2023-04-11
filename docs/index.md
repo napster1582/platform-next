@@ -2,17 +2,20 @@
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
+title: Jinen
+titleTemplate: Portal de documentación
+
 hero:
   name: 'Jinen'
   text: 'Portal de documentación'
   tagline: Versátil · Robusto · Alto rendimiento
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Comenzar
+      link: /guide/what-is-jinen
     - theme: alt
-      text: Postman
-      link: /postman-collection
+      text: Ver en GitHub
+      link: https://github.com/JinenGroup/platform-v2
 
 features:
   - icon: <icon-ph:share-network-duotone class="text-3xl">

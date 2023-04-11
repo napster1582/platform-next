@@ -1,0 +1,1 @@
+# SemVer (Versionado semántico)

@@ -66,25 +66,25 @@
 
 **Api:**
 
-```bash
+```sh
 docker build -t jinen-api -f Dockerfile.api .
 ```
 
 **Cms:**
 
-```bash
+```sh
 docker build -t jinen-cms -f Dockerfile.cms .
 ```
 
 **Admin:**
 
-```bash
+```sh
 docker build -t jinen-admin -f Dockerfile.admin .
 ```
 
 **Web:**
 
-```bash
+```sh
 docker build -t jinen-web -f Dockerfile.web .
 ```
 
@@ -92,7 +92,7 @@ docker build -t jinen-web -f Dockerfile.web .
 
 **Api:**
 
-```bash
+```sh
 # Development
 docker run -p 3000:3000 --env-file envs/development.env -d jinen-api
 
@@ -102,7 +102,7 @@ docker run -p 3000:3000 --env-file envs/production.env -d jinen-api
 
 **Cms:**
 
-```bash
+```sh
 # Development
 docker run -p 3001:3001 --env-file envs/development.env -d jinen-cms
 
@@ -112,19 +112,19 @@ docker run -p 3001:3001 --env-file envs/production.env -d jinen-cms
 
 **Admin (nginx):**
 
-```bash
+```sh
 docker run -p 4200:80 -d jinen-admin
 ```
 
 **Web (nginx):**
 
-```bash
+```sh
 docker run -p 4201:80 -d jinen-web
 ```
 
 **Docs (nginx):**
 
-```bash
+```sh
 docker run -p 4202:80 -d jinen-docs
 ```
 
