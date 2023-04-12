@@ -11,11 +11,26 @@ export default defineConfig({
     lastUpdated: true,
     cleanUrls: true,
 
+    markdown: {
+        theme: {
+            light: 'vitesse-light',
+            dark: 'vitesse-dark',
+        },
+    },
+
     themeConfig: {
         nav: nav(),
         sidebar: sidebarGuide(),
-        editLink: editLink(),
         socialLinks: socialLinks(),
+        editLink: editLink(),
+        outline: {
+            label: 'En esta página',
+        },
+        docFooter: {
+            prev: 'Anterior',
+            next: 'Siguiente',
+        },
+        lastUpdatedText: 'Última actualización',
     },
 });
 
@@ -53,7 +68,7 @@ function sidebarGuide(): DefaultTheme.Sidebar {
             text: 'Introducción',
             items: [
                 { text: 'Qué es Jinen?', link: '/guide/what-is-jinen' },
-                { text: 'Comenzar', link: '/guide/getting-started' },
+                { text: 'Primeros pasos', link: '/guide/getting-started' },
                 { text: 'Guía de contribución', link: '/guide/contributing' },
             ],
         },
@@ -90,6 +105,26 @@ function socialLinks(): DefaultTheme.SocialLink[] {
     return [
         {
             icon: 'github',
+            link: 'https://github.com/JinenGroup/platform-v2',
+        },
+        {
+            icon: 'discord',
+            link: 'https://github.com/JinenGroup/platform-v2',
+        },
+        {
+            icon: 'twitter',
+            link: 'https://github.com/JinenGroup/platform-v2',
+        },
+        {
+            icon: 'linkedin',
+            link: 'https://github.com/JinenGroup/platform-v2',
+        },
+        {
+            icon: 'facebook',
+            link: 'https://github.com/JinenGroup/platform-v2',
+        },
+        {
+            icon: 'instagram',
             link: 'https://github.com/JinenGroup/platform-v2',
         },
     ];

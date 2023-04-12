@@ -42,7 +42,7 @@ Para cada aplicación, se debe crear un flujo de trabajo que contemple las sigui
 3. Subida del contenedor a un registro de contenedores (Docker Hub, por ejemplo).
 4. Despliegue del contenedor en el clúster de Kubernetes correspondiente.
 
-::: info
+::: warning
 Para el etiquetado del contenedor en entornos de no producción, se debe utilizar la variable GITHUB_SHA para obtener el SHA del último commit. En caso de que el despliegue sea a una rama de producción, se recomienda utilizar un Git tag en lugar del SHA del commit para identificar de manera clara la versión desplegada.
 :::
 
