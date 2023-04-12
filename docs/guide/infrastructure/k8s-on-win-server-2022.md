@@ -52,4 +52,4 @@ Este comando creará un cluster de Kubernetes local utilizando Docker Desktop. U
 
 ## Conclusión
 
-En este documento se explicó como crear un cluster de Kubernetes local en Windows Server 2022 y como comenzar a ejecutar aplicaciones en él.
+En esta guía se explicó como crear un cluster de Kubernetes local en Windows Server 2022 y como comenzar a ejecutar aplicaciones en él.

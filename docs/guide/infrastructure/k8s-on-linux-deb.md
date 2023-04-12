@@ -7,7 +7,7 @@ Antes de comenzar, hay que asegurarse de que el servidor cumpla con los siguient
 - Servidor con sistema operativo GNU/Linux y distro basada en Debian.
 - Acceso root al servidor.
 - Procesador de 64 bits
-- Al menos 8 GB de RAM
+- Al menos 4 GB de RAM
 - Internet habilitado para descargar los componentes necesarios
 
 ### Paso 1: Instalar Docker
@@ -39,56 +39,36 @@ Kubernetes utiliza contenedores Docker, por lo que es necesario instalar Docker 
     sudo docker run hello-world
     ```
 
-### Paso 2: Instalar Kubernetes
+## Paso 2: Instalar kubectl
 
-Para instalar Kubernetes en el servidor, se puede utilizar Minikube, una herramienta que permite crear un clúster de Kubernetes en un solo nodo. A continuación, se detallan los pasos para instalar Minikube:
+kubectl es una herramienta de línea de comandos para interactuar con clusters de Kubernetes. Para instalar kubectl en WSL 2, se deben seguir los siguientes pasos:
 
-1. Descargar e instalar Minikube:
-
-    ```sh
-    curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
-    && sudo install minikube-linux-amd64 /usr/local/bin/minikube
-    ```
-
-2. Instalar el controlador de hipervisor para Minikube:
-
-    ::: code-group
-
-    ```sh [VirtualBox]
-    sudo apt-get install virtualbox
-    ```
-
-    ```sh [KVM]
-    sudo apt-get install libvirt-daemon-system libvirt-clients kvm qemu-kvm && sudo usermod -aG libvirt $(whoami) && newgrp libvirt
-    ```
-
-    :::
-
-3. Iniciar Minikube:
+1. Descargar el archivo binario de kubectl utilizando el siguiente comando:
 
     ```sh
-    minikube start --driver=<driver>
+    curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
     ```
 
-    Donde `<driver>` es el nombre del controlador de hipervisor a utilizar (por ejemplo, virtualbox o kvm2).
-
-4. Verificar que el clúster de Kubernetes se haya creado correctamente:
+2. Mover el archivo binario de kubectl a un directorio en el PATH de Ubuntu utilizando el siguiente comando:
 
     ```sh
-    kubectl get nodes
+    sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
     ```
 
-    Esto debería mostrar la información del nodo en el clúster de Kubernetes.
+3. Verificar que kubectl esté instalado y funcionando correctamente utilizando el siguiente comando:
 
-### Configurar Kubernetes
+    ```sh
+    kubectl version --client
+    ```
 
-Una vez instalado Kubernetes, se puede configurar según las necesidades del proyecto. A continuación, se detallan algunos aspectos a tener en cuenta:
+## Paso 3: Crear un cluster de Kubernetes
 
-- Se pueden crear y administrar contenedores a través de la línea de comandos de Kubernetes (`kubectl`).
-- Los recursos de Kubernetes, como los pods y los servicios, se definen en archivos de configuración YAML.
-- Es recomendable utilizar herramientas como Helm para instalar y administrar aplicaciones en Kubernetes de forma más eficiente.
-- Se puede utilizar un panel de control como Kubernetes Dashboard para visualizar y administrar el clúster de Kubernetes de forma gráfica.
+Una vez que Docker y kubectl están instalados en WSL 2, se puede crear un cluster de Kubernetes utilizando el siguiente comando en la terminal de Ubuntu:
+
+```sh
+kubectl cluster up
+```
 
 ## Conclusión
 
-En este documento se explicó como crear un cluster de Kubernetes local en distros basadas en Debian y como comenzar a ejecutar aplicaciones en él.
+En esta guía se explicó como crear un cluster de Kubernetes local en distros basadas en Debian y como comenzar a ejecutar aplicaciones en él.
