@@ -89,7 +89,15 @@ function sidebarGuide(): DefaultTheme.Sidebar {
                 { text: 'SemVer', link: '/guide/infrastructure/semver' },
                 { text: 'Git', link: '/guide/infrastructure/git' },
                 { text: 'Docker', link: '/guide/infrastructure/docker' },
-                { text: 'Kubernetes', link: '/guide/infrastructure/k8s' },
+                { text: 'Kubernetes (K8S)', link: '/guide/infrastructure/k8s' },
+                {
+                    text: 'K8S en Linux (Debian based)',
+                    link: '/guide/infrastructure/k8s-on-linux-deb',
+                },
+                {
+                    text: 'K8S en Windows Server 2022',
+                    link: '/guide/infrastructure/k8s-on-windows-server-2022',
+                },
                 { text: 'CI/CD', link: '/guide/infrastructure/ci-cd' },
                 { text: 'Devcontainers', link: '/guide/infrastructure/devcontainers' },
                 { text: 'NGINX', link: '/guide/infrastructure/nginx' },

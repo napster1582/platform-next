@@ -1,6 +1,36 @@
-# Kubernetes
+# Kubernetes (K8S)
 
 [Kubernetes](https://kubernetes.io/) es un sistema de orquestación de contenedores de código abierto que permite automatizar el despliegue, la escalabilidad y la gestión de aplicaciones en contenedores. En este proyecto, se utiliza Kubernetes para orquestar y gestionar los contenedores de las diferentes aplicaciones.
+
+## Tipos de objetos en Kubernetes
+
+- **Pod**: Es la unidad básica de despliegue en Kubernetes. Un pod es un contenedor o conjunto de contenedores que se ejecutan en un mismo host y comparten un mismo espacio de red y almacenamiento. Cada pod tiene su propia dirección IP y puede tener uno o varios contenedores que se ejecutan en el mismo espacio de nombres.
+
+- **Service**: Es un objeto de Kubernetes que define un conjunto de pods y una política de acceso a ellos. Un service permite acceder a un conjunto de pods de manera transparente, independientemente de su ubicación en el clúster. Los servicios se utilizan para abstraer la red subyacente y permitir que los pods se comuniquen entre sí sin tener que conocer sus direcciones IP.
+
+- **Ingress**: Es un objeto de Kubernetes que proporciona una capa adicional de abstracción para el acceso a servicios dentro del clúster. Un ingress expone servicios HTTP y HTTPS en una dirección IP y un puerto específicos y se utiliza para enrutar el tráfico externo a los servicios internos en función de reglas de configuración definidas.
+
+- **ConfigMap**: Es un objeto de Kubernetes que se utiliza para almacenar datos de configuración en formato clave-valor o como archivos de configuración. Las ConfigMaps se utilizan para separar la configuración de las aplicaciones del código fuente y permitir que se actualice de manera independiente.
+
+- **Secret**: Es un objeto de Kubernetes que se utiliza para almacenar datos sensibles, como claves privadas, contraseñas y tokens de autenticación, de manera segura en el clúster. Los secretos se pueden montar como archivos en los pods y se utilizan para proporcionar información confidencial a las aplicaciones.
+
+- **Volume**: Es un objeto de Kubernetes que se utiliza para proporcionar almacenamiento persistente a los contenedores en los pods. Un volumen es un directorio que existe en el host o en un sistema de almacenamiento externo y que se monta en un contenedor. Los volúmenes se utilizan para almacenar datos que deben persistir después de que el pod se detiene o se elimina.
+
+- **Deployment**: Es un objeto de Kubernetes que se utiliza para desplegar y actualizar aplicaciones en el clúster. Un deployment define la especificación de un conjunto de pods y su réplica, así como la política de actualización y reversión.
+
+- **StatefulSet**: Es un objeto de Kubernetes que se utiliza para desplegar aplicaciones que requieren identificadores únicos y un estado persistente, como bases de datos y sistemas de archivos distribuidos. Un StatefulSet asegura que cada instancia del pod tenga un nombre y una identidad únicos, y que mantenga su estado a través de las actualizaciones y escalados.
+
+- **Job**: Es un objeto que se utiliza para ejecutar tareas de manera ad-hoc o programada en el clúster. Un job crea uno o varios pods que se ejecutan hasta que se completa la tarea especificada y luego se eliminan.
+
+- **CronJob**: Es un objeto que se utiliza para programar tareas de manera periódica en el clúster. Un cronjob crea un job en función de un patrón de cron y lo ejecuta de manera programada.
+
+- **DaemonSet**: Es un objeto que se utiliza para desplegar un conjunto de pods en cada nodo del clúster. Un DaemonSet se utiliza para implementar aplicaciones que deben ejecutarse en cada nodo, como agentes de monitoreo y controladores de red.
+
+- **PersistentVolume**: Es un objeto que se utiliza para representar un volumen de almacenamiento en el clúster que puede ser utilizado por los pods. Un PersistentVolume se puede utilizar para proporcionar almacenamiento persistente a los pods y se puede configurar para utilizar diferentes tipos de almacenamiento, como discos en la nube, sistemas de archivos en red y dispositivos de almacenamiento locales.
+
+- **Namespace**: Es un objeto que se utiliza para crear espacios lógicos en el clúster y separar los recursos por aplicación, equipo o entorno. Un Namespace permite a los usuarios y equipos trabajar en el clúster de manera aislada y segura.
+
+- **HorizontalPodAutoscaler**: Es un objeto que se utiliza para escalar automáticamente el número de réplicas de un deployment o un StatefulSet en función de la carga de trabajo. Un HorizontalPodAutoscaler utiliza métricas como el uso de CPU y memoria para ajustar el número de réplicas de los pods y garantizar un rendimiento óptimo de la aplicación.
 
 ## Estructura del proyecto
 
@@ -112,90 +142,3 @@ Cada aplicación tendrá su propia carpeta con un Dockerfile para construir la i
 También tendrá una carpeta k8s en la raíz del proyecto que contendrá los recursos comunes de Kubernetes, como el espacio de nombres, secretos, ConfigMaps y servicios para la base de datos PostgreSQL.
 
 Además, utilizamos la herramienta kustomize para gestionar las diferentes configuraciones de Kubernetes para los entornos de desarrollo, stage y producción.
-
-## Prerrequisitos
-
-- Servidor on-premise con sistema operativo Linux.
-- Acceso root al servidor.
-- Se recomienda al menos 2 CPUs y 4 GB de RAM.
-
-## Instalar y configurar Kubernetes en el servidor on-premise
-
-### Instalar Docker
-
-Kubernetes utiliza contenedores Docker, por lo que es necesario instalar Docker en el servidor. Para instalar Docker, siga los siguientes pasos:
-
-1. Agregar la clave GPG oficial de Docker:
-
-    ```sh
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-    ```
-
-2. Agregue el repositorio de Docker a las fuentes de apt-get:
-
-    ```sh
-    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-    ```
-
-3. Actualizar la lista de paquetes e instalar Docker:
-
-    ```sh
-    sudo apt-get update
-    sudo apt-get install docker-ce
-    ```
-
-4. Verificar que Docker esté instalado correctamente:
-
-    ```sh
-    sudo docker run hello-world
-    ```
-
-### Instalar Kubernetes
-
-Para instalar Kubernetes en el servidor on-premise, se puede utilizar Minikube, una herramienta que permite crear un clúster de Kubernetes en un solo nodo. A continuación, se detallan los pasos para instalar Minikube:
-
-1. Descargar e instalar Minikube:
-
-    ```sh
-    curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
-    && sudo install minikube-linux-amd64 /usr/local/bin/minikube
-    ```
-
-2. Instalar el controlador de hipervisor para Minikube:
-
-    ::: code-group
-
-    ```sh [VirtualBox]
-    sudo apt-get install virtualbox
-    ```
-
-    ```sh [KVM]
-    sudo apt-get install libvirt-daemon-system libvirt-clients kvm qemu-kvm && sudo usermod -aG libvirt $(whoami) && newgrp libvirt
-    ```
-
-    :::
-
-3. Iniciar Minikube:
-
-    ```sh
-    minikube start --driver=<driver>
-    ```
-
-    Donde `<driver>` es el nombre del controlador de hipervisor a utilizar (por ejemplo, virtualbox o kvm2).
-
-4. Verificar que el clúster de Kubernetes se haya creado correctamente:
-
-    ```sh
-    kubectl get nodes
-    ```
-
-    Esto debería mostrar la información del nodo en el clúster de Kubernetes.
-
-### Configurar Kubernetes
-
-Una vez instalado Kubernetes, se puede configurar según las necesidades del proyecto. A continuación, se detallan algunos aspectos a tener en cuenta:
-
-- Se pueden crear y administrar contenedores a través de la línea de comandos de Kubernetes (`kubectl`).
-- Los recursos de Kubernetes, como los pods y los servicios, se definen en archivos de configuración YAML.
-- Es recomendable utilizar herramientas como Helm para instalar y administrar aplicaciones en Kubernetes de forma más eficiente.
-- Se puede utilizar un panel de control como Kubernetes Dashboard para visualizar y administrar el clúster de Kubernetes de forma gráfica.
