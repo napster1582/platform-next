@@ -57,6 +57,10 @@ function nav(): DefaultTheme.NavItem[] {
                     text: 'Notas de versión',
                     link: 'https://github.com/JinenGroup/platform-v2/releases',
                 },
+                {
+                    text: 'Guía de contribución',
+                    link: 'https://github.com/JinenGroup/platform-v2/blob/main/CONTRIBUTING.md',
+                },
             ],
         },
     ];
@@ -69,7 +73,6 @@ function sidebarGuide(): DefaultTheme.Sidebar {
             items: [
                 { text: 'Qué es Jinen?', link: '/guide/what-is-jinen' },
                 { text: 'Primeros pasos', link: '/guide/getting-started' },
-                { text: 'Guía de contribución', link: '/guide/contributing' },
             ],
         },
         {
