@@ -1,4 +1,5 @@
 import { sveltekit } from '@sveltejs/kit/vite';
+import path from 'path';
 import {
     extractorSvelte,
     presetIcons,
@@ -13,6 +14,11 @@ import UnoCss from 'unocss/vite';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, './src'),
+        },
+    },
     plugins: [
         sveltekit(),
         UnoCss({
@@ -41,7 +47,6 @@ export default defineConfig({
             transformers: [transformerDirectives(), transformerVariantGroup()],
         }),
     ],
-
     test: {
         include: ['src/**/*.{test,spec}.{js,ts}'],
     },
