@@ -19,18 +19,17 @@ export default defineConfig({
     },
 
     themeConfig: {
+        // layout
         nav: nav(),
         sidebar: sidebarGuide(),
         socialLinks: socialLinks(),
+        footer: footer(),
+
+        // outline
         editLink: editLink(),
-        outline: {
-            label: 'En esta página',
-        },
-        docFooter: {
-            prev: 'Anterior',
-            next: 'Siguiente',
-        },
-        lastUpdatedText: 'Última actualización',
+        outline: outline(),
+        docFooter: docFooter(),
+        lastUpdatedText: lastUpdatedText(),
     },
 });
 
@@ -87,10 +86,13 @@ function sidebarGuide(): DefaultTheme.Sidebar {
             text: 'Infraestructura',
             items: [
                 { text: 'Introducción', link: '/guide/infrastructure/intro' },
+                { text: 'SemVer', link: '/guide/infrastructure/semver' },
                 { text: 'Git', link: '/guide/infrastructure/git' },
                 { text: 'Docker', link: '/guide/infrastructure/docker' },
                 { text: 'Kubernetes', link: '/guide/infrastructure/k8s' },
                 { text: 'CI/CD', link: '/guide/infrastructure/ci-cd' },
+                { text: 'Devcontainers', link: '/guide/infrastructure/devcontainers' },
+                { text: 'NGINX', link: '/guide/infrastructure/nginx' },
                 { text: 'Seguridad', link: '/guide/infrastructure/security' },
             ],
         },
@@ -131,4 +133,29 @@ function socialLinks(): DefaultTheme.SocialLink[] {
             link: 'https://github.com/JinenGroup/platform-v2',
         },
     ];
+}
+
+function footer(): DefaultTheme.Footer {
+    return {
+        message: 'Jinen',
+        copyright: 'Copyright © 2023-presente',
+    };
+}
+
+function outline(): DefaultTheme.Outline {
+    return {
+        label: 'En esta página',
+        level: 'deep',
+    };
+}
+
+function docFooter(): DefaultTheme.DocFooter {
+    return {
+        prev: 'Anterior',
+        next: 'Siguiente',
+    };
+}
+
+function lastUpdatedText(): string {
+    return 'Última actualización';
 }
