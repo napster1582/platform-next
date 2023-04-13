@@ -58,15 +58,22 @@ kubectl es una herramienta de línea de comandos para interactuar con clusters d
 3. Verificar que kubectl esté instalado y funcionando correctamente utilizando el siguiente comando:
 
     ```sh
-    kubectl version --client
+    kubectl version --client --output=yaml
     ```
 
-## Paso 3: Crear un cluster de Kubernetes
+## Paso 3: Instalar minikube e iniciar un cluster
 
-Una vez que Docker y kubectl están instalados en WSL 2, se puede crear un cluster de Kubernetes utilizando el siguiente comando en la terminal de Ubuntu:
+Instalar minikube
 
 ```sh
-kubectl cluster up
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+```
+
+Una vez que minikube esté instalado en linux, se puede crear un cluster de Kubernetes utilizando el siguiente comando en la terminal de Ubuntu:
+
+```sh
+minikube start
 ```
 
 ## Conclusión
