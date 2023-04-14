@@ -7,11 +7,12 @@
   "keywords": [],
   "main": "index.js",
   "scripts": {
+    "postinstall": "npx simple-git-hooks",
     "cms:dev": "pnpm --filter cms dev",
     "cms:start": "pnpm --filter cms start",
     "cms:build": "pnpm --filter cms build",
     "web:dev": "pnpm --filter web dev",
-    "web:build": "pnpm --filter web dev",
+    "web:build": "pnpm --filter web build",
     "web:preview": "pnpm --filter web preview",
     "web:check": "pnpm --filter web check",
     "web:check:watch": "pnpm --filter web check:watch",
