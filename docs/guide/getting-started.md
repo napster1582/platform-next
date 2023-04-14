@@ -1,6 +1,6 @@
 # Comenzar
 
-## Prerrequisitos
+## Requisitos previos
 
 - **Node.js**: Es necesario contar con la versión 18 o superior de Node.js. La última versión estable de Node.js puede descargarse desde el sitio web oficial [nodejs.org](https://nodejs.org/).
 

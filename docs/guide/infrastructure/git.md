@@ -35,7 +35,7 @@ Los Git Tags son marcadores que se pueden utilizar para etiquetar puntos especí
 Para crear un Git Tag, se puede utilizar el siguiente comando:
 
 ```sh
-git tag <nombretag>
+git tag <nombre-tag>
 ```
 
 Por ejemplo, para crear un tag para un lanzamiento llamado "v1.0.0", se puede utilizar el siguiente comando:
@@ -67,5 +67,5 @@ git tag --sort=-creatordate
 Se puede ver información detallada sobre un Git Tag específico utilizando el siguiente comando:
 
 ```sh
-git show <nombretag>
+git show <nombre-tag>
 ```

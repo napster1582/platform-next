@@ -10,7 +10,6 @@
     "cms:dev": "pnpm --filter cms dev",
     "cms:start": "pnpm --filter cms start",
     "cms:build": "pnpm --filter cms build",
-    "cms:strapi": "pnpm --filter cms strapi",
     "web:dev": "pnpm --filter web dev",
     "web:build": "pnpm --filter web dev",
     "web:preview": "pnpm --filter web preview",
@@ -29,7 +28,7 @@
     "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
-    "*": "eslint --fix"
+    "*": "pnpm lint:fix"
   },
   "devDependencies": {
     "@iconify/json": "^2.2.46",
