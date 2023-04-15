@@ -41,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^17.6.1",
     "@culur/stylelint-config": "^1.2.0",
     "@iconify/json": "^2.2.46",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
@@ -52,12 +53,14 @@
     "@unocss/preset-web-fonts": "^0.50.7",
     "@unocss/reset": "^0.50.7",
     "@unocss/transformer-directives": "^0.50.7",
+    "commitlint": "^17.6.1",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-svelte3": "^4.0.0",
     "lint-staged": "^13.2.1",
     "prettier": "^2.8.7",
+    "prettier-plugin-svelte": "^2.10.0",
     "simple-git-hooks": "^2.8.1",
     "stylelint": "^15.4.0",
     "typescript": "^5.0.4",
