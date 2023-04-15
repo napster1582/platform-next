@@ -8,7 +8,7 @@
     import type { LogoSource } from '../../../../../pkg/core-shared/src';
 
     export let src: LogoSource;
-    export let cssClass = 'w-6em h-6em';
+    export let cssClass = 'w-[20px] h-[20px]';
     export let loading: 'eager' | 'lazy' = 'eager';
 
     const staticSourceResolver = new Map<LogoSource, string>([
