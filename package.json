@@ -28,8 +28,7 @@
     "prettier": "prettier --write"
   },
   "simple-git-hooks": {
-    "*.{js,jsx,ts,tsx}": "pnpm eslint:fix",
-    "*.{svelte,vue,tsx,css,pcss,less,scss,sass}": "pnpm stylelint:fix"
+    "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,vue,svelte}": [

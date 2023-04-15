@@ -15,7 +15,6 @@ importers:
       '@unocss/preset-web-fonts': ^0.50.7
       '@unocss/reset': ^0.50.7
       '@unocss/transformer-directives': ^0.50.7
-      cross-env: ^7.0.3
       eslint: ^8.38.0
       eslint-config-prettier: ^8.8.0
       eslint-plugin-prettier: ^4.2.1
@@ -40,7 +39,6 @@ importers:
       '@unocss/preset-web-fonts': 0.50.7
       '@unocss/reset': 0.50.7
       '@unocss/transformer-directives': 0.50.7
-      cross-env: 7.0.3
       eslint: 8.38.0
       eslint-config-prettier: 8.8.0_eslint@8.38.0
       eslint-plugin-prettier: 4.2.1_mrzcadguhkbme6yx3ehduvsjxu
