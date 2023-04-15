@@ -8,6 +8,7 @@
     import backdropInstagram from '$lib/assets/images/TMP_backdrop_1.jpg';
     import backdropLinkedin from '$lib/assets/images/TMP_backdrop_2.jpg';
     import backdropTwitter from '$lib/assets/images/TMP_backdrop_3.jpg';
+    import { Link } from '../link';
 
     const socialNetworks = [
         {
@@ -42,7 +43,7 @@
 >
     {#each socialNetworks as network}
         <div class="group h-56 -skew-x-6 rounded-xl overflow-hidden">
-            <a
+            <Link
                 href={network.link}
                 target="_blank"
                 style="background-image: url({network.backdrop})"
@@ -54,7 +55,7 @@
                     alt="Síguenos en {network.name}"
                     class="object-cover w-24 group-hover:scale-130 transition-transform duration-400"
                 />
-            </a>
+            </Link>
         </div>
     {/each}
 </div>

@@ -5,11 +5,11 @@
     import logoJinen from '$lib/assets/logos/jinen.png';
     import logoNavyHorizontal from '$lib/assets/logos/navy_horizontal.png';
     import logoNavyVertical from '$lib/assets/logos/navy_vertical.png';
-    import type { LogoSource } from '../../../../../pkg/core-shared/src';
+    import type { LogoSource } from '../../../../../../pkg/core-shared/src';
 
     export let src: LogoSource;
-    export let cssClass = 'w-[20px] h-[20px]';
     export let loading: 'eager' | 'lazy' = 'eager';
+    export let className = 'w-[20px] h-[20px]';
 
     const staticSourceResolver = new Map<LogoSource, string>([
         ['jinen', logoJinen],
@@ -26,6 +26,6 @@
 <img
     src={staticSourceResolver.get(src)}
     alt="Logotipo de institución/compañía"
-    class="object-contain {cssClass}"
+    class="object-contain {className}"
     {loading}
 />

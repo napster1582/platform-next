@@ -1,24 +1,25 @@
 <script lang="ts">
-    import Logo from './Logo.svelte';
-    import Navbar from './Navbar.svelte';
+    import { Link } from '../link';
+    import { Logo } from '../logo';
+    import { Navbar } from '../navbar';
 </script>
 
 <header class="jinen-header-0">
     <div class="container flex-between py-2">
         <div class="flex items-center gap-4">
-            <a href="/">
+            <Link href="/">
                 <Logo
                     src="jinen"
-                    cssClass="w-16"
+                    className="w-[48px]"
                 />
-            </a>
+            </Link>
 
-            <a href="/">
+            <Link href="/">
                 <Logo
                     src="navy_horizontal"
-                    cssClass="w-44"
+                    className="w-[136px]"
                 />
-            </a>
+            </Link>
         </div>
 
         <Navbar />

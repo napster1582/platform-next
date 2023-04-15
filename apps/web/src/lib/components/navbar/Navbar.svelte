@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { Link } from '../link';
+
     // TODO: localize
     const navbarItems = [
         {
@@ -18,6 +20,6 @@
 
 <div class="flex items-center gap-6 text-inherit">
     {#each navbarItems as item}
-        <a href={item.link}>{item.name}</a>
+        <Link href={item.link}>{item.name}</Link>
     {/each}
 </div>

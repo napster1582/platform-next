@@ -1,5 +1,5 @@
 <script>
-    import Logo from './Logo.svelte';
+    import Logo from '../logo/Logo.svelte';
 </script>
 
 <footer class="jinen-footer-0">
