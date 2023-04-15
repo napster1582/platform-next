@@ -1,9 +1,10 @@
 <script lang="ts">
-    import Footer from './Footer.svelte';
-    import Header from './Header.svelte';
+    import Footer from '$lib/components/Footer.svelte';
+    import Header from '$lib/components/Header.svelte';
+    import Menu from '$lib/components/Menu.svelte';
+    import SocialNetworks from '$lib/components/SocialNetworks.svelte';
+    import Logo from '$lib/components/Logo.svelte';
     import Hero from './Hero.svelte';
-    import Menu from './Menu.svelte';
-    import SocialNetworks from './SocialNetworks.svelte';
 </script>
 
 <main>
