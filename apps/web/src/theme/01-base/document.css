@@ -11,10 +11,12 @@ html {
 html.dark {
     @apply bg-slate-900;
     @apply text-slate-400;
+
     color-scheme: dark;
 }
 
 html.dark.phantom {
-    background: radial-gradient(theme('colors.indigo.900'), theme('colors.black'));
     @apply text-indigo-400;
+
+    background: radial-gradient(theme('colors.indigo.900'), theme('colors.black'));
 }

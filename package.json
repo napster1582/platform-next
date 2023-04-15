@@ -21,17 +21,28 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "prettier": "prettier --write ."
+    "eslint": "eslint .",
+    "eslint:fix": "eslint . --fix",
+    "stylelint": "stylelint **/*.{svelte,vue,tsx,css,pcss,less,scss,sass} --quiet-deprecation-warnings",
+    "stylelint:fix": "stylelint **/*.{svelte,vue,tsx,css,pcss,less,scss,sass} --quiet-deprecation-warnings --fix",
+    "prettier": "prettier --write"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged"
+    "*.{js,jsx,ts,tsx}": "pnpm eslint:fix",
+    "*.{svelte,vue,tsx,css,pcss,less,scss,sass}": "pnpm stylelint:fix"
   },
   "lint-staged": {
-    "*": "pnpm lint:fix"
+    "*.{js,jsx,ts,tsx,vue,svelte}": [
+      "pnpm eslint:fix",
+      "pnpm prettier"
+    ],
+    "*.{svelte,vue,tsx,css,pcss,less,scss,sass}": [
+      "pnpm stylelint:fix",
+      "pnpm prettier"
+    ]
   },
   "devDependencies": {
+    "@culur/stylelint-config": "^1.2.0",
     "@iconify/json": "^2.2.46",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
@@ -48,6 +59,7 @@
     "lint-staged": "^13.2.1",
     "prettier": "^2.8.7",
     "simple-git-hooks": "^2.8.1",
+    "stylelint": "^15.4.0",
     "typescript": "^5.0.4",
     "unocss": "^0.50.7",
     "vite": "^4.2.1",
