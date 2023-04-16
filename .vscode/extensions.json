@@ -9,7 +9,6 @@
     "antfu.unocss",
     "zixuanchen.vitest-explorer",
     "ms-playwright.playwright",
-    "antfu.iconify",
-    "afzalsayed96.icones"
+    "antfu.iconify"
   ]
 }
