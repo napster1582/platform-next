@@ -1,9 +1,14 @@
-@import url('@unocss/reset/sanitize/reduce-motion.css');
-@import url('@unocss/reset/tailwind.css');
-
 /* base */
-@import url('./01-base/font.css');
-@import url('./01-base/document.css');
-@import url('./01-base/heading.css');
+@import './tailwind/base.css';
+@import './01-base/document.css';
+@import './01-base/font.css';
+@import './01-base/heading.css';
 
 /* components */
+@import './tailwind/components.css';
+
+/* utilities */
+@import './tailwind/utilities.css';
+@import './03-utilities/border.css';
+@import './03-utilities/flexbox.css';
+@import './03-utilities/icon.css';

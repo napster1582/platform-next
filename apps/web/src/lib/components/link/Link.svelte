@@ -17,7 +17,7 @@
     {target}
     {rel}
     {title}
-    class="text-sm hover:underline {className}"
+    class="hover:underline {className}"
     {...$$restProps}
     aria-disabled={disabled ? 'true' : undefined}
     class:disabled

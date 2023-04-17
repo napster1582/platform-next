@@ -1,4 +1,6 @@
-html {
-    @apply font-sans;
-    @apply font-light;
+@layer base {
+    html {
+        @apply font-sans;
+        @apply font-light;
+    }
 }

@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { Link } from '../link';
+
     import iconFacebook from '$lib/assets/icons/facebook.png';
     import iconInstagram from '$lib/assets/icons/instagram.png';
     import iconLinkedin from '$lib/assets/icons/linkedin.png';
@@ -8,7 +10,6 @@
     import backdropInstagram from '$lib/assets/images/TMP_backdrop_1.jpg';
     import backdropLinkedin from '$lib/assets/images/TMP_backdrop_2.jpg';
     import backdropTwitter from '$lib/assets/images/TMP_backdrop_3.jpg';
-    import { Link } from '../link';
 
     const socialNetworks = [
         {
@@ -39,21 +40,21 @@
 </script>
 
 <div
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 bg-blue-900 rounded-xl p-12 gap-18 md:gap-9 lg:gap-18 my-24"
+    class="lg:gap-18 my-24 grid grid-cols-1 gap-16 rounded-xl bg-blue-900 p-12 md:grid-cols-2 md:gap-8 lg:grid-cols-4"
 >
     {#each socialNetworks as network}
-        <div class="group h-56 -skew-x-6 rounded-xl overflow-hidden">
+        <div class="group h-56 -skew-x-6 overflow-hidden rounded-xl">
             <Link
                 href={network.link}
                 target="_blank"
                 style="background-image: url({network.backdrop})"
-                class="h-full w-full bg-center bg-cover grid place-items-center group-hover:invert transition-filter duration-400"
+                class="transition-filter duration-400 grid h-full w-full place-items-center bg-cover bg-center group-hover:invert"
             >
                 <!-- TODO: agregar link + locale para el atributo alt -->
                 <img
                     src={network.icon}
                     alt="Síguenos en {network.name}"
-                    class="object-cover w-24 group-hover:scale-130 transition-transform duration-400"
+                    class="group-hover:scale-130 duration-400 w-24 object-cover transition-transform"
                 />
             </Link>
         </div>

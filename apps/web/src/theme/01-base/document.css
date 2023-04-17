@@ -1,22 +1,24 @@
-html,
-body {
-    @apply h-full;
-}
+@layer base {
+    html,
+    body {
+        @apply h-full;
+    }
 
-html {
-    @apply bg-slate-50;
-    @apply text-slate-950;
-}
+    html {
+        @apply bg-white;
+        @apply text-zinc-950;
+    }
 
-html.dark {
-    @apply bg-slate-900;
-    @apply text-slate-400;
+    html.dark {
+        color-scheme: dark;
 
-    color-scheme: dark;
-}
+        @apply bg-zinc-900;
+        @apply text-zinc-400;
+    }
 
-html.dark.phantom {
-    @apply text-indigo-400;
+    html.dark.phantom {
+        background: radial-gradient(theme('colors.indigo.900'), theme('colors.black'));
 
-    background: radial-gradient(theme('colors.indigo.900'), theme('colors.black'));
+        @apply text-indigo-400;
+    }
 }

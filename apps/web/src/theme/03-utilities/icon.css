@@ -1,0 +1,5 @@
+@layer utilities {
+    [class^='icon-'] {
+        @apply inline-block align-middle;
+    }
+}

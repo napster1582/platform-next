@@ -16,6 +16,8 @@ const config = {
         alias: {
             lib: 'src/lib',
             'lib/*': 'src/lib/*',
+            '@theme': 'src/theme',
+            '@theme/*': 'src/theme/*',
         },
     },
 };

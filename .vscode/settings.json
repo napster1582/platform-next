@@ -7,6 +7,8 @@
   "[markdown]": {
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
-  "unocss.root": "apps/web",
-  "vsicons.presets.nestjs": true
+  "files.associations": {
+    "*.css": "postcss"
+  },
+  "unocss.root": "apps/web"
 }
