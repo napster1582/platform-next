@@ -1,3 +1,4 @@
+export * from './carousel';
 export * from './cta';
 export * from './footer';
 export * from './header';
