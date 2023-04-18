@@ -59,7 +59,7 @@
 
     <section
         id="section-schedule"
-        class="relative mb-36"
+        class="relative"
     >
         <div class="abstract-container container">
             <SectionSchedule />
