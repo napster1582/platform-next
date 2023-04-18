@@ -21,13 +21,18 @@
 </script>
 
 <section>
-    <SectionTitle tag="h3">Escuelas de capacitación</SectionTitle>
+    <SectionTitle
+        tag="h3"
+        mode="ligth"
+    >
+        Escuelas de capacitación
+    </SectionTitle>
 
     <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {#each schools as school, i}
             <div class="relative">
                 <Badge
-                    color="blue"
+                    color="yellow"
                     class="absolute -top-2 left-2 ml-4">{school.acronym}</Badge
                 >
 
@@ -59,18 +64,6 @@
     </div>
 
     <div class="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
-        <Video
-            src="https://www.shutterstock.com/shutterstock/videos/1075977254/preview/stock-footage-the-united-stares-navy-destroyer-transits-istanbul-strait-towards-the-mediterranean-in-istanbul.webm"
-            controls
-            trackSrc="schools.mp4"
-            class="w-full rounded-3xl"
-        />
-        <Video
-            src="https://www.shutterstock.com/shutterstock/videos/1075977254/preview/stock-footage-the-united-stares-navy-destroyer-transits-istanbul-strait-towards-the-mediterranean-in-istanbul.webm"
-            controls
-            trackSrc="schools.mp4"
-            class="w-full rounded-3xl"
-        />
         <Video
             src="https://www.shutterstock.com/shutterstock/videos/1075977254/preview/stock-footage-the-united-stares-navy-destroyer-transits-istanbul-strait-towards-the-mediterranean-in-istanbul.webm"
             controls

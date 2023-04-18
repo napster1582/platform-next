@@ -143,7 +143,12 @@
 </script>
 
 <section>
-    <SectionTitle tag="h3">Agenda de eventos académicos y científicos</SectionTitle>
+    <SectionTitle
+        tag="h3"
+        mode="dark"
+    >
+        Agenda de eventos académicos y científicos
+    </SectionTitle>
 
     <Tabs contentClass="p-4 mt-4 rounded-xl">
         {#each years as year}

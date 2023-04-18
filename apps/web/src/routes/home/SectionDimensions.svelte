@@ -6,27 +6,42 @@
 </script>
 
 <section>
-    <SectionTitle tag="h3">Dimensiones de la educación</SectionTitle>
+    <SectionTitle
+        tag="h3"
+        mode="dark"
+    >
+        Dimensiones de la educación
+    </SectionTitle>
 
     <Alert
-        color="dark"
-        class="border-base border"
+        color="yellow"
+        class="rounded-br-full rounded-tl-full"
     >
-        <img
-            slot="icon"
-            src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Student%20Medium%20Skin%20Tone.png"
-            alt="Student Medium Skin Tone"
-            width="125"
-            height="125"
-        />
+        <svelte:fragment slot="icon">
+            <img
+                src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Woman%20Student%20Medium%20Skin%20Tone.png"
+                alt="Woman Student Medium Skin Tone"
+                width="125"
+                height="125"
+            />
+            <img
+                src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Student%20Medium%20Skin%20Tone.png"
+                alt="Student Medium Skin Tone"
+                width="125"
+                height="125"
+            />
+        </svelte:fragment>
 
         <span class="text-xl">
-            <strong class="font-medium">ADN Institucional:</strong>
-            El marino Colombiano debe ser ético, lider y competente.
+            <div class="mb-4">
+                <strong class="font-medium">ADN Institucional</strong>
+            </div>
+
+            <span> El marino Colombiano debe ser ético, lider y competente. </span>
         </span>
     </Alert>
 
-    <div class="mt-12 grid grid-cols-1 gap-x-6 gap-y-12 lg:grid-cols-2">
+    <div class="mt-36 grid grid-cols-1 gap-x-6 gap-y-12 lg:grid-cols-2">
         <img
             src={imageDna}
             alt="Representación de los valores del marino Colombiano y la dimensión de la educación"
