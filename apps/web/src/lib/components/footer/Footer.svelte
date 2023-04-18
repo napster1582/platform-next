@@ -1,28 +1,43 @@
 <script>
+    import { Footer, FooterLink, FooterLinkGroup } from 'flowbite-svelte';
+    import Link from '../link/Link.svelte';
     import Logo from '../logo/Logo.svelte';
 </script>
 
-<footer class="jinen-footer-0">
-    <div class="block flex-col gap-4 lg:flex">
-        <p class="text-center text-2xl">Jefatura integral de Educación Naval</p>
+<Footer
+    footerType="logo"
+    class="bg-zinc-100 text-gray-500"
+>
+    <div class="sm:flex sm:items-center sm:justify-between">
+        <div class="flex items-center gap-6">
+            <Link href="#">
+                <Logo
+                    src="bicentennial"
+                    className="w-[100px]"
+                />
+            </Link>
 
-        <p class="text-center text-lg">
-            Avenida Ciudad de Cali # 51 - 66 Oficina 305 Edificio World Business Center - WBC Bogotá
-            D.C. - Colombia
-        </p>
+            <Link href="#">
+                <Logo
+                    src="navy_vertical"
+                    className="w-[100px]"
+                />
+            </Link>
+        </div>
+        <FooterLinkGroup ulClass="flex flex-wrap items-center mb-6 text-sm sm:mb-0">
+            <FooterLink href="/about">Función</FooterLink>
+            <FooterLink href="#">Política de privacidad</FooterLink>
+            <FooterLink href="#">Contacto</FooterLink>
+        </FooterLinkGroup>
     </div>
 
-    <div class="lg:order-0 order-1 inline-flex">
-        <Logo
-            src="bicentennial"
-            className="w-[100px]"
-        />
-        <Logo
-            src="navy_vertical"
-            className="w-[100px]"
-        />
-    </div>
-</footer>
+    <hr class="mx-auto my-6 border-gray-200 lg:my-8" />
+
+    <address class="text-center text-inherit">
+        Avenida Ciudad de Cali # 51 - 66 Oficina 305 Edificio World Business Center - WBC Bogotá
+        D.C. - Colombia
+    </address>
+</Footer>
 
 <style lang="postcss">
     .jinen-footer-0 {

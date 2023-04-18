@@ -1,38 +1,78 @@
 <script>
-    import { Link } from '../link';
-    import { Logo } from '../logo';
-    import { Navbar } from '../navbar';
+    import {
+        Button,
+        Chevron,
+        Dropdown,
+        DropdownItem,
+        Navbar,
+        NavBrand,
+        NavHamburger,
+        NavLi,
+        NavUl,
+    } from 'flowbite-svelte';
+    import Logo from '../logo/Logo.svelte';
+    import { navbarItems } from './store';
+
+    $: items = $navbarItems;
 </script>
 
-<header class="jinen-header-0">
-    <div class="flex-between container flex-wrap gap-4 py-2">
-        <div class="flex items-center gap-4">
-            <Link href="/">
-                <Logo
-                    src="jinen"
-                    className="w-[70px]"
-                />
-            </Link>
+<Navbar
+    let:hidden
+    let:toggle
+    color="form"
+>
+    <NavBrand href="/">
+        <Logo
+            src="jinen"
+            className="w-[70px]"
+        />
+        <span class="ml-2 max-w-[200px] self-center text-xl font-semibold dark:text-white">
+            Jefatura integral de educación naval
+        </span>
+    </NavBrand>
 
-            <Link href="/">
-                <Logo
-                    src="navy_horizontal"
-                    className="w-[194px]"
-                />
-            </Link>
-        </div>
+    <div class="flex md:order-2">
+        <Button size="sm">Ingresar</Button>
 
-        <Navbar />
+        <NavHamburger on:click={toggle} />
     </div>
-</header>
+
+    <NavUl
+        {hidden}
+        class="order-1"
+    >
+        <NavLi
+            href="/"
+            active={true}>Inicio</NavLi
+        >
+
+        <NavLi
+            id="nav-about"
+            class="cursor-pointer"
+        >
+            <Chevron aligned>Conózcanos</Chevron>
+        </NavLi>
+
+        <Dropdown
+            triggeredBy="#nav-about"
+            class="z-20 w-44"
+        >
+            <DropdownItem href="about">Función</DropdownItem>
+            <DropdownItem href="#">Jefe de la Jefatura</DropdownItem>
+            <DropdownItem href="org">Organización</DropdownItem>
+            <DropdownItem href="diedu">DIEDU</DropdownItem>
+            <DropdownItem href="dicyt">DICYT</DropdownItem>
+            <DropdownItem href="dihin">DIHIN</DropdownItem>
+            <DropdownItem href="anees">ANEES</DropdownItem>
+            <DropdownItem href="oplae">OPLAE</DropdownItem>
+        </Dropdown>
+    </NavUl>
+</Navbar>
 
 <style lang="postcss">
     .jinen-header-0 {
-        @apply bg-blue-900 bg-no-repeat text-white;
-
-        /* 
         background-image: url('$lib/assets/svg/0_header.svg');
         background-size: 100% 100%;
-        background-blend-mode: luminosity; */
+        background-blend-mode: luminosity;
     }
 </style>

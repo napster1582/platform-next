@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { A } from 'flowbite-svelte';
+
     export let href: string;
     export let targetBlank = false;
     export let nofollow = false;
@@ -12,16 +14,15 @@
     $: rel = `${external ? 'noopener noreferrer' : ''}` + `${nofollow ? 'nofollow' : ''}`;
 </script>
 
-<a
+<A
     {href}
     {target}
     {rel}
     {title}
-    class="hover:underline {className}"
+    class={className}
     {...$$restProps}
     aria-disabled={disabled ? 'true' : undefined}
-    class:disabled
     tabIndex={disabled ? -1 : undefined}
 >
     <slot />
-</a>
+</A>
