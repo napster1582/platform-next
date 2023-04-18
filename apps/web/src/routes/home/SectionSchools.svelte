@@ -24,7 +24,7 @@
     <h3 class="mb-12">Escuelas de capacitación</h3>
 
     <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        {#each schools as school}
+        {#each schools as school, i}
             <div class="relative">
                 <Badge
                     color="blue"
@@ -32,6 +32,26 @@
                 >
 
                 <Cta href={school.link}>
+                    <svelte:fragment slot="icon">
+                        {#if i % 2 === 0}
+                            <img
+                                src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Water%20Wave.png"
+                                alt="Water Wave"
+                                width="55"
+                                height="55"
+                                class="mr-3"
+                            />
+                        {:else}
+                            <img
+                                src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Milky%20Way.png"
+                                alt="Milky Way"
+                                width="55"
+                                height="55"
+                                class="mr-3"
+                            />
+                        {/if}
+                    </svelte:fragment>
+
                     {school.title}
                 </Cta>
             </div>

@@ -8,16 +8,22 @@
     <h3 class="mb-12">Dimensiones de la educación</h3>
 
     <Alert
-        accent
         dismissable
+        color="dark"
+        class="border-base border "
     >
-        <span
+        <img
             slot="icon"
-            class="icon-[ph--info-duotone] text-3xl"
+            src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Student%20Medium%20Skin%20Tone.png"
+            alt="Student Medium Skin Tone"
+            width="125"
+            height="125"
         />
 
-        <span class="font-medium">ADN Institucional:</span>
-        <span> El marino Colombiano debe ser ético, lider y competente. </span>
+        <span class="text-xl">
+            <strong class="font-medium">ADN Institucional:</strong>
+            El marino Colombiano debe ser ético, lider y competente.
+        </span>
     </Alert>
 
     <div class="mt-12 grid grid-cols-1 gap-x-6 gap-y-12 lg:grid-cols-2">
