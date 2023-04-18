@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { SectionTitle } from '$lib/components';
     import { Badge, Button, TabItem, Tabs, Timeline, TimelineItem } from 'flowbite-svelte';
 
     const currentYear = new Date().getFullYear();
@@ -131,20 +132,20 @@
     const getStatusColor = (status: string) => {
         if (status === 'completed') return 'green';
         if (status === 'incompleted') return 'red';
-        if (status === 'ongoing') return 'yellow';
+        if (status === 'ongoing') return 'blue';
     };
 
     const getStatusIcon = (status: string) => {
-        if (status === 'completed') return 'icon-[ic--sharp-check-circle]';
-        if (status === 'incompleted') return 'icon-[material-symbols--cancel]';
-        if (status === 'ongoing') return 'icon-[ic--sharp-check-circle]';
+        if (status === 'completed') return 'icon-[ph--check-circle-duotone]';
+        if (status === 'incompleted') return 'icon-[solar--close-circle-bold-duotone]';
+        if (status === 'ongoing') return 'icon-[ri--ship-2-fill]';
     };
 </script>
 
 <section>
-    <h3 class="mb-12">Agenda de eventos académicos y científicos</h3>
+    <SectionTitle tag="h3">Agenda de eventos académicos y científicos</SectionTitle>
 
-    <Tabs>
+    <Tabs contentClass="p-4 mt-4 rounded-xl">
         {#each years as year}
             <TabItem open={year.value === currentYear}>
                 <svelte:fragment slot="title">
@@ -162,9 +163,10 @@
                         >
                             <svelte:fragment slot="icon">
                                 <div
-                                    class="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-{color}-200"
+                                    class="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-white"
+                                    class:animate-ping={event.status === 'ongoing'}
                                 >
-                                    <span class="{icon} text-{color}-400" />
+                                    <span class="{icon} text-{color}-500 text-2xl" />
                                 </div>
                             </svelte:fragment>
 
@@ -177,7 +179,7 @@
                             </p>
 
                             <Button
-                                color="alternative"
+                                color={event.status === 'ongoing' ? 'blue' : 'alternative'}
                                 class="mt-4"
                             >
                                 Conocer más

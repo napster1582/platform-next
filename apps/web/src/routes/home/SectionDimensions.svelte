@@ -2,15 +2,15 @@
     import { Alert, Video } from 'flowbite-svelte';
 
     import imageDna from '$lib/assets/images/section_chart_dna.png';
+    import { SectionTitle } from '$lib/components';
 </script>
 
 <section>
-    <h3 class="mb-12">Dimensiones de la educación</h3>
+    <SectionTitle tag="h3">Dimensiones de la educación</SectionTitle>
 
     <Alert
-        dismissable
         color="dark"
-        class="border-base border "
+        class="border-base border"
     >
         <img
             slot="icon"

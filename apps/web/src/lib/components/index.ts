@@ -6,4 +6,5 @@ export * from './link';
 export * from './logo';
 export * from './menu';
 export * from './navbar';
+export * from './section-title';
 export * from './social-networks';

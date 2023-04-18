@@ -1,6 +1,5 @@
 <script lang="ts">
     import Menu from 'lib/components/menu/Menu.svelte';
-    import SocialNetworks from 'lib/components/social-networks/SocialNetworks.svelte';
     import Hero from './Hero.svelte';
     import SectionDimensions from './SectionDimensions.svelte';
     import SectionSchedule from './SectionSchedule.svelte';
@@ -17,6 +16,4 @@
         <SectionSchools />
         <SectionSchedule />
     </main>
-
-    <SocialNetworks />
 </div>

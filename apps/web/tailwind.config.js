@@ -16,6 +16,11 @@ export default {
     ],
 
     theme: {
+        fontFamily: {
+            sans: ['Raleway', 'sans-serif'],
+            display: ['Raleway', 'sans-serif'],
+            mono: ['Fira Code', 'sans-serif'],
+        },
         container: {
             center: true,
             padding: '1.5rem',

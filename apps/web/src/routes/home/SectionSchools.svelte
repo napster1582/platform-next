@@ -1,5 +1,5 @@
 <script>
-    import { Cta } from '$lib/components';
+    import { Cta, SectionTitle } from '$lib/components';
     import { Badge, Video } from 'flowbite-svelte';
 
     const schools = [
@@ -21,7 +21,7 @@
 </script>
 
 <section>
-    <h3 class="mb-12">Escuelas de capacitación</h3>
+    <SectionTitle tag="h3">Escuelas de capacitación</SectionTitle>
 
     <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {#each schools as school, i}
