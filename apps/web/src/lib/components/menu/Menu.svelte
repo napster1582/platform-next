@@ -1,5 +1,6 @@
 <script>
     import { Navbar, NavHamburger, NavLi, NavUl } from 'flowbite-svelte';
+    import MenuItem from './MenuItem.svelte';
 </script>
 
 <Navbar
@@ -9,7 +10,7 @@
     class="my-12"
 >
     <div class="flex items-center justify-end">
-        Menú
+        <span class="inline-block lg:hidden"> Menú </span>
 
         <NavHamburger on:click={toggle} />
     </div>
@@ -18,10 +19,30 @@
         {hidden}
         class="order-1"
     >
-        <NavLi href="/">SEN</NavLi>
+        <NavLi>
+            <MenuItem>
+                SEN
 
-        <NavLi href="/">SGDOC</NavLi>
+                <svelte:fragment slot="description">Software de educación naval</svelte:fragment>
+            </MenuItem>
+        </NavLi>
+        <NavLi>
+            <MenuItem>
+                SGDOC
 
-        <NavLi href="/">InnovARC</NavLi>
+                <svelte:fragment slot="description"
+                    >Software de gestor de doctrinas
+                </svelte:fragment>
+            </MenuItem>
+        </NavLi>
+        <NavLi>
+            <MenuItem>
+                InnovARC
+
+                <svelte:fragment slot="description">
+                    Modelo de gestión de innovación
+                </svelte:fragment>
+            </MenuItem>
+        </NavLi>
     </NavUl>
 </Navbar>

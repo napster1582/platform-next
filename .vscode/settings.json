@@ -9,6 +9,5 @@
   },
   "files.associations": {
     "*.css": "postcss"
-  },
-  "unocss.root": "apps/web"
+  }
 }

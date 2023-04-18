@@ -40,7 +40,7 @@
 </script>
 
 <div
-    class="lg:gap-18 my-24 grid grid-cols-1 gap-16 rounded-xl bg-blue-900 p-12 md:grid-cols-2 md:gap-8 lg:grid-cols-4"
+    class="lg:gap-18 my-24 grid grid-cols-1 gap-16 rounded-xl bg-zinc-100 p-12 md:grid-cols-2 md:gap-8 lg:grid-cols-4"
 >
     {#each socialNetworks as network}
         <div class="group h-56 -skew-x-6 overflow-hidden rounded-xl">
@@ -48,7 +48,7 @@
                 href={network.link}
                 target="_blank"
                 style="background-image: url({network.backdrop})"
-                class="transition-filter duration-400 grid h-full w-full place-items-center bg-cover bg-center group-hover:invert"
+                class="duration-400 grid h-full w-full transform place-items-center bg-cover bg-center transition-transform group-hover:scale-105"
             >
                 <!-- TODO: agregar link + locale para el atributo alt -->
                 <img

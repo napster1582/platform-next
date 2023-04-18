@@ -7,6 +7,11 @@
     export let disabled = false;
     export let title: string | undefined = undefined;
     export let className = '';
+    export let aClassName = '';
+
+    const conditionalProps: Record<string, unknown> = {};
+
+    if (aClassName) conditionalProps.aClass = aClassName;
 
     $: disabled = href ? disabled : true;
     $: external = href.indexOf('://') !== -1;
@@ -21,6 +26,7 @@
     {title}
     class={className}
     {...$$restProps}
+    {...conditionalProps}
     aria-disabled={disabled ? 'true' : undefined}
     tabIndex={disabled ? -1 : undefined}
 >

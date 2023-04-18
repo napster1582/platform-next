@@ -6,7 +6,7 @@
 
 <Footer
     footerType="logo"
-    class="bg-zinc-100 text-gray-500"
+    class="rounded-none bg-blue-950 text-gray-100"
 >
     <div class="sm:flex sm:items-center sm:justify-between">
         <div class="flex items-center gap-6">
@@ -31,7 +31,7 @@
         </FooterLinkGroup>
     </div>
 
-    <hr class="mx-auto my-6 border-gray-200 lg:my-8" />
+    <hr class="mx-auto my-6 border-gray-700 lg:my-8" />
 
     <address class="text-center text-inherit">
         Avenida Ciudad de Cali # 51 - 66 Oficina 305 Edificio World Business Center - WBC Bogotá

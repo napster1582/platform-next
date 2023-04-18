@@ -33,7 +33,7 @@
 <CarouselTransition
     {images}
     showCaptions={false}
-    showThumbs={true}
+    showThumbs={false}
     showIndicators={true}
     duration={6000}
     transitionType="fade"
