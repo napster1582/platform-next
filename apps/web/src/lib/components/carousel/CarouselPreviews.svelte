@@ -69,12 +69,12 @@
     >
         {#each previews as preview, index}
             <div
-                class="w-full shrink-0 snap-start pl-12 xl:w-[350px] 2xl:w-[450px]"
+                class="w-full shrink-0 snap-start xl:w-[350px] xl:pl-12 2xl:w-[450px]"
                 class:transition-opacity={currentIndex > index && direction === 1}
                 data-index={index}
             >
                 <button
-                    class="group relative h-[450px] w-full skew-y-6 overflow-hidden shadow-2xl shadow-zinc-950 transition-transform hover:skew-y-3 xl:rounded-3xl"
+                    class="group relative h-[450px] w-full overflow-hidden shadow-2xl shadow-zinc-950 transition-transform xl:skew-y-6 xl:rounded-3xl xl:hover:skew-y-3"
                     on:click={() => go(index)}
                 >
                     <div
