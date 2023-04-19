@@ -50,13 +50,33 @@
                 class="z-20 w-44"
             >
                 <DropdownItem href="about">Función</DropdownItem>
-                <DropdownItem href="#">Jefe de la Jefatura</DropdownItem>
-                <DropdownItem href="org">Organización</DropdownItem>
-                <DropdownItem href="diedu">DIEDU</DropdownItem>
+                <DropdownItem
+                    href="#"
+                    class="cursor-not-allowed opacity-20"
+                >
+                    Jefe de la Jefatura
+                </DropdownItem>
+                <DropdownItem
+                    href="#"
+                    class="cursor-not-allowed opacity-20">Organización</DropdownItem
+                >
+                <DropdownItem
+                    href="#"
+                    class="cursor-not-allowed opacity-20">DIEDU</DropdownItem
+                >
                 <DropdownItem href="dicyt">DICYT</DropdownItem>
-                <DropdownItem href="dihin">DIHIN</DropdownItem>
-                <DropdownItem href="anees">ANEES</DropdownItem>
-                <DropdownItem href="oplae">OPLAE</DropdownItem>
+                <DropdownItem
+                    href="#"
+                    class="cursor-not-allowed opacity-20">DIHIN</DropdownItem
+                >
+                <DropdownItem
+                    href="#"
+                    class="cursor-not-allowed opacity-20">ANEES</DropdownItem
+                >
+                <DropdownItem
+                    href="#"
+                    class="cursor-not-allowed opacity-20">OPLAE</DropdownItem
+                >
             </Dropdown>
         </NavUl>
 

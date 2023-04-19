@@ -8,10 +8,10 @@
         tag="h3"
         mode="dark"
     >
-        Sistema de Ciencia, Tecnología e Innovación Naval
+        Sistema de ciencia, tecnología e innovación naval
     </SectionTitle>
 
-    <div class="mt-10 flex justify-center rounded-2xl bg-black p-10">
+    <div class="mt-10 flex justify-center rounded-3xl bg-black p-10">
         <img
             src={imageOrganization}
             alt="Imagen de organizacion"

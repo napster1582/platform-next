@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h4' | 'h6|';
+    export let tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h4' | 'h6';
     export let mode: 'ligth' | 'dark';
 </script>
 

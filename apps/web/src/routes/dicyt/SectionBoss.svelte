@@ -11,13 +11,14 @@
         Director
     </SectionTitle>
 
-    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-12 lg:grid-cols-2">
+    <div class="mt-10 grid grid-cols-1 gap-16 lg:grid-cols-2">
         <img
             src={image}
             alt="Foto jefe de jefatura integral de educación naval"
+            class="rounded-2xl"
         />
 
-        <div class="space-y-3">
+        <div class="prose space-y-3">
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi est, enim
                 perspiciatis cupiditate asperiores excepturi debitis nemo corporis blanditiis
@@ -26,15 +27,18 @@
                 enim dolor aspernatur cupiditate dolore nobis nesciunt quam natus voluptatum
                 quibusdam cum ipsa tenetur a? In tempora possimus sed consequuntur.
             </p>
-            <p />
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi quibusdam saepe corporis
-            soluta cum. Recusandae, eum libero deserunt illum ex natus exercitationem quaerat quidem
-            blanditiis qui hic assumenda. Commodi, vel?
-            <p />
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati nulla nostrum, corrupti
-            facere accusamus officia magni veritatis quae ducimus placeat tempore, consequatur iusto
-            laboriosam distinctio! Unde magni suscipit quaerat culpa.
-            <p />
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi quibusdam saepe
+                corporis soluta cum. Recusandae, eum libero deserunt illum ex natus exercitationem
+                quaerat quidem blanditiis qui hic assumenda. Commodi, vel?
+            </p>
+
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati nulla nostrum,
+                corrupti facere accusamus officia magni veritatis quae ducimus placeat tempore,
+                consequatur iusto laboriosam distinctio! Unde magni suscipit quaerat culpa.
+            </p>
         </div>
     </div>
 </section>

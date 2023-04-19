@@ -8,16 +8,19 @@
         tag="h3"
         mode="dark"
     >
-        Dirección de Ciencia y Tecnología Naval
+        Dirección de ciencia y tecnología naval
     </SectionTitle>
 
     <div class="mt-10">
-        <p>
-            Direccionar el Sistema de Ciencia, Tecnología e Innovación de la Armada Nacional de
-            acuerdo lo establecido en los objetivos estratégicos de la Jefatura, las políticas
-            institucionales y en el Plan de Desarrollo Naval vigente.
-        </p>
-        <div class="flex w-full justify-center py-5">
+        <div class="prose mx-auto">
+            <p>
+                Direccionar el Sistema de Ciencia, Tecnología e Innovación de la Armada Nacional de
+                acuerdo lo establecido en los objetivos estratégicos de la Jefatura, las políticas
+                institucionales y en el Plan de Desarrollo Naval vigente.
+            </p>
+        </div>
+
+        <div class="my-12 flex w-full justify-center">
             <img
                 class="w-44"
                 src={image}

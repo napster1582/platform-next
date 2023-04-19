@@ -2,7 +2,7 @@
     import imageInnovarc from '$lib/assets/images/section_InnovARC.jpg';
     import { Cta, SectionTitle } from '$lib/components';
 
-    const modelOrganizations = [
+    const organizations = [
         { title: 'Gestión de Bancos de proyectos', link: '#' },
         { title: 'Gestión de proyectos I+D+i', link: '#' },
         { title: 'Gestión de Convenios Offset', link: '#' },
@@ -22,40 +22,39 @@
         Modelo de gestión de la Innovación - InnovARC
     </SectionTitle>
 
-    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-12 lg:grid-cols-3">
-        <div class="col-span-2 flex flex-col gap-y-6">
+    <div class="mt-10 grid grid-cols-1 gap-12 xl:grid-cols-3">
+        <div class="xl:col-span-2">
             <img
                 src={imageInnovarc}
                 alt="Imagen de innovARC"
             />
         </div>
-        <div class="grid grid-cols-1 gap-6">
-            {#each modelOrganizations as organization, i}
-                <div class="relative">
-                    <Cta href={organization.link}>
-                        <svelte:fragment slot="icon">
-                            {#if i % 2 === 0}
-                                <img
-                                    src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Water%20Wave.png"
-                                    alt="Water Wave"
-                                    width="55"
-                                    height="55"
-                                    class="mr-3"
-                                />
-                            {:else}
-                                <img
-                                    src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Milky%20Way.png"
-                                    alt="Milky Way"
-                                    width="55"
-                                    height="55"
-                                    class="mr-3"
-                                />
-                            {/if}
-                        </svelte:fragment>
 
-                        {organization.title}
-                    </Cta>
-                </div>
+        <div class="grid grid-cols-1 gap-6">
+            {#each organizations as organization, i}
+                <Cta href={organization.link}>
+                    <svelte:fragment slot="icon">
+                        {#if i % 2 === 0}
+                            <img
+                                src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Water%20Wave.png"
+                                alt="Water Wave"
+                                width="55"
+                                height="55"
+                                class="mr-3"
+                            />
+                        {:else}
+                            <img
+                                src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Milky%20Way.png"
+                                alt="Milky Way"
+                                width="55"
+                                height="55"
+                                class="mr-3"
+                            />
+                        {/if}
+                    </svelte:fragment>
+
+                    {organization.title}
+                </Cta>
             {/each}
         </div>
     </div>

@@ -8,16 +8,17 @@
         tag="h3"
         mode="dark"
     >
-        Jefe de la jefatura integral de Educación Naval
+        Jefe de la jefatura integral de educación naval
     </SectionTitle>
 
-    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-12 lg:grid-cols-2">
+    <div class="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2">
         <img
+            class="rounded-2xl"
             src={image}
             alt="Foto jefe de jefatura integral de educación naval"
         />
 
-        <div class="space-y-3">
+        <div class="prose space-y-3">
             <p>
                 Oficial del cuerpo Ejecutivo Superficie. Ingresó a la Escuela Naval de Cadetes
                 “Almirante Padilla” en enero de 1992; ascendió al grado de Teniente de Corbeta en
@@ -28,16 +29,21 @@
                 la Universidad Politécnica de Catalunya en enero de 2019 con calificación
                 sobresaliente cum laude.
             </p>
-            <p />
-            En su carrera militar, ha pertenecido a diferentes unidades a flote en la Flotilla de Superficie
-            del Caribe y en la Flotilla de Superficie del Pacífico, así como a la Escuela Naval de Cadetes
-            “Almirante Padilla” y a la Escuela Naval de Suboficiales ARC “Barranquilla”. Adicionalmente,
-            se ha desempeñado como Jefe de Operaciones del Buque Escuela ARC “Gloria” y Comandante de
-            los buques ARC “Ariari” y ARC “TFCIM Juan Ricardo Oyola Vera”.
-            <p />
-            Durante los año 2021 y 2022 se desempeñó como Director de Ciencia y Tecnología Naval. Actualmente
-            es el Jefe de la Jefatura Integral de Educación Naval de la Armada Nacional.
-            <p />
+
+            <p>
+                En su carrera militar, ha pertenecido a diferentes unidades a flote en la Flotilla
+                de Superficie del Caribe y en la Flotilla de Superficie del Pacífico, así como a la
+                Escuela Naval de Cadetes “Almirante Padilla” y a la Escuela Naval de Suboficiales
+                ARC “Barranquilla”. Adicionalmente, se ha desempeñado como Jefe de Operaciones del
+                Buque Escuela ARC “Gloria” y Comandante de los buques ARC “Ariari” y ARC “TFCIM Juan
+                Ricardo Oyola Vera”.
+            </p>
+
+            <p>
+                Durante los año 2021 y 2022 se desempeñó como Director de Ciencia y Tecnología
+                Naval. Actualmente es el Jefe de la Jefatura Integral de Educación Naval de la
+                Armada Nacional.
+            </p>
         </div>
     </div>
 </section>

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Menu from 'lib/components/menu/Menu.svelte';
+    import { Menu } from '$lib/components';
     import Hero from './Hero.svelte';
     import SectionDimensions from './SectionDimensions.svelte';
     import SectionSchedule from './SectionSchedule.svelte';
