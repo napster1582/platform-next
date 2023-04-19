@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { onMount } from 'svelte';
     import type { JinenCarouselPreview } from './types';
 
     export let previews: JinenCarouselPreview[];
@@ -8,6 +9,8 @@
 
     let currentIndex = 0;
     let direction = 0;
+
+    onMount(() => scrollToActive());
 
     export function resetState() {
         currentIndex = 0;
@@ -62,63 +65,69 @@
     }
 </script>
 
-<div class="xl:absolute xl:right-0 xl:top-1/2 xl:max-w-[45%] xl:-translate-y-1/2">
-    <div
-        class="flex cursor-grab snap-x snap-mandatory flex-nowrap overflow-x-hidden xl:py-20 xl:pl-6 xl:pr-[100%]"
-        bind:this={containerRef}
-    >
-        {#each previews as preview, index}
-            <div
-                class="w-full shrink-0 snap-start xl:w-[350px] xl:pl-12 2xl:w-[450px]"
-                class:transition-opacity={currentIndex > index && direction === 1}
-                data-index={index}
-            >
-                <button
-                    class="group relative h-[450px] w-full overflow-hidden shadow-2xl shadow-zinc-950 transition-transform xl:skew-y-6 xl:rounded-3xl xl:hover:skew-y-3"
-                    on:click={() => go(index)}
+{#if previews?.length}
+    <div class="xl:absolute xl:right-0 xl:top-1/2 xl:max-w-[45%] xl:-translate-y-1/2">
+        <div
+            class="flex cursor-grab snap-x snap-mandatory flex-nowrap overflow-x-hidden xl:py-20 xl:pl-6 xl:pr-[100%]"
+            bind:this={containerRef}
+        >
+            {#each previews as preview, index}
+                <div
+                    class="w-full shrink-0 snap-start xl:w-[350px] xl:pl-12 2xl:w-[450px]"
+                    class:transition-opacity={currentIndex > index && direction === 1}
+                    data-index={index}
                 >
-                    <div
-                        class="absolute inset-x-0 top-0 z-10 w-full bg-white/10 py-1 text-lg font-semibold capitalize text-white backdrop-blur"
+                    <button
+                        class="group relative h-[450px] w-full overflow-hidden shadow-2xl transition xl:skew-y-6 xl:rounded-3xl xl:hover:skew-y-3 xl:hover:scale-110"
+                        on:click={() => go(index)}
                     >
-                        {preview.title}
-                    </div>
+                        <div
+                            class="absolute inset-x-0 top-0 z-10 w-full bg-white/5 py-1 text-lg font-semibold capitalize text-white backdrop-blur-3xl"
+                        >
+                            {preview.title}
+                        </div>
 
-                    <img
-                        src={preview.backgroundImageUrl}
-                        alt={preview.backgroundImageAlt}
-                        loading="lazy"
-                        class="z-0 h-full w-full object-cover transition-transform duration-[10s]"
-                    />
-                </button>
-            </div>
-        {/each}
-    </div>
-
-    {#if showIndicators}
-        <div class="flex items-baseline justify-between px-3 py-3 xl:mt-6 xl:px-6">
-            <div class="flex gap-3">
-                <button
-                    class="carousel-btn"
-                    on:click={() => goBack()}
-                >
-                    <span class="icon-[material-symbols--line-start-arrow] text-2xl" />
-                </button>
-                <button
-                    class="carousel-btn"
-                    on:click={() => goNext()}
-                >
-                    <span class="icon-[material-symbols--line-end-arrow] text-2xl" />
-                </button>
-            </div>
-
-            <div class="text-lg text-white">
-                <span>{currentIndex + 1}</span>
-                <span>/</span>
-                <span>{previews?.length}</span>
-            </div>
+                        <img
+                            src={preview.backgroundImageUrl}
+                            alt={preview.backgroundImageAlt}
+                            loading="lazy"
+                            class="z-0 h-full w-full object-cover transition-transform duration-[10s] group-hover:blur-none"
+                            class:blur-sm={index !== currentIndex}
+                        />
+                    </button>
+                </div>
+            {/each}
         </div>
-    {/if}
-</div>
+
+        {#if showIndicators}
+            <div class="flex items-baseline justify-between px-3 py-3 xl:mt-6 xl:px-6">
+                <div class="flex gap-3">
+                    {#if previews.length > 1}
+                        <button
+                            class="carousel-btn"
+                            on:click={() => goBack()}
+                        >
+                            <span class="icon-[material-symbols--line-start-arrow] text-2xl" />
+                        </button>
+
+                        <button
+                            class="carousel-btn"
+                            on:click={() => goNext()}
+                        >
+                            <span class="icon-[material-symbols--line-end-arrow] text-2xl" />
+                        </button>
+                    {/if}
+                </div>
+
+                <div class="text-lg text-white">
+                    <span>{currentIndex + 1}</span>
+                    <span>/</span>
+                    <span>{previews?.length}</span>
+                </div>
+            </div>
+        {/if}
+    </div>
+{/if}
 
 <style lang="postcss">
     .carousel-btn {
