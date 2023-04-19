@@ -3,7 +3,7 @@
     import Logo from '../logo/Logo.svelte';
 </script>
 
-<footer class="footer relative bg-black">
+<footer class="footer relative mt-24 bg-black">
     <svg
         class="waves"
         xmlns="http://www.w3.org/2000/svg"
