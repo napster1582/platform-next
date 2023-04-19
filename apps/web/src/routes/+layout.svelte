@@ -10,9 +10,3 @@
 
     <Footer />
 </div>
-
-<style lang="postcss">
-    .app {
-        @apply flex h-screen flex-col;
-    }
-</style>
