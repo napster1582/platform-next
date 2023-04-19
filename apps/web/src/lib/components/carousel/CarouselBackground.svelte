@@ -8,5 +8,5 @@
     {src}
     {loading}
     {alt}
-    class="absolute inset-0 h-full w-full object-cover"
+    class="absolute inset-0 h-full w-full object-cover mix-blend-soft-light"
 />

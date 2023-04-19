@@ -72,11 +72,12 @@
     <CarouselInfo>
         <svelte:fragment slot="indicators">
             {#if showIndicators}
-                <ol class="max-h-[500px] overflow-y-clip border-l border-zinc-800 px-4">
+                <ol class="max-h-[500px] overflow-y-clip border-l border-zinc-800 p-4">
                     {#each items as item, index}
                         <li class="mb-16 text-white">
                             <button
-                                class="rounded-xl border border-white/10 bg-black/40 px-3 py-1.5 text-sm hover:bg-black/20"
+                                class="rounded-xl border border-white/10 bg-black/40 px-3 py-1.5 text-sm hover:scale-110"
+                                class:bg-yellow-900={index === currentIndex}
                                 on:click={() => go(index)}
                             >
                                 {item.name}

@@ -35,7 +35,7 @@
             title: 'Dolor Sit Amet',
             description:
                 'Sunt quidem totam accusantium perferendis aspernatur? Doloremque repellat dignissimos asperiores ducimus, laboriosam vero corporis architecto, culpa labore molestias eos! Omnis, ea sit!',
-            backgroundImageUrl: carousel_1,
+            backgroundImageUrl: carousel_2,
             backgroundImageAlt: 'Carousel item 1',
             previews: [
                 {
