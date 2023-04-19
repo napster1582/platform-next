@@ -1,42 +1,76 @@
 <script lang="ts">
     import carousel_2 from '$lib/assets/images/TMP_backdrop_0.jpg';
     import carousel_3 from '$lib/assets/images/TMP_backdrop_1.jpg';
-    import carousel_0 from '$lib/assets/images/TMP_carousel_0.jpg';
     import carousel_1 from '$lib/assets/images/TMP_carousel_1.jpg';
-    import { Carousel } from '$lib/components';
+    import { Carousel, type JinenCarouselItem } from '$lib/components';
 
-    const images = [
+    const items: JinenCarouselItem[] = [
         {
-            id: 0,
-            name: 'Lorem',
-            imgurl: carousel_0,
+            name: 'CPN',
+            title: 'Lorem',
+            description:
+                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quidem totam accusantium perferendis aspernatur? Doloremque repellat dignissimos asperiores ducimus, laboriosam vero corporis architecto, culpa labore molestias eos! Omnis, ea sit!',
+            backgroundImageUrl: carousel_1,
+            backgroundImageAlt: 'Carousel item 1',
+            previews: [
+                {
+                    title: 'Lorem',
+                    backgroundImageUrl: carousel_2,
+                    backgroundImageAlt: 'Carousel preview item 2',
+                },
+                {
+                    title: 'Ipsum',
+                    backgroundImageUrl: carousel_3,
+                    backgroundImageAlt: 'Carousel preview item 3',
+                },
+                {
+                    title: 'Dolor',
+                    backgroundImageUrl: carousel_1,
+                    backgroundImageAlt: 'Carousel preview item 1',
+                },
+            ],
         },
         {
-            id: 1,
-            name: 'Ipsum',
-            imgurl: carousel_1,
-        },
-        {
-            id: 2,
-            name: 'Ipsum',
-            imgurl: carousel_2,
-        },
-        {
-            id: 3,
-            name: 'Ipsum',
-            imgurl: carousel_3,
+            name: 'LAD',
+            title: 'Dolor Sit Amet',
+            description:
+                'Sunt quidem totam accusantium perferendis aspernatur? Doloremque repellat dignissimos asperiores ducimus, laboriosam vero corporis architecto, culpa labore molestias eos! Omnis, ea sit!',
+            backgroundImageUrl: carousel_1,
+            backgroundImageAlt: 'Carousel item 1',
+            previews: [
+                {
+                    title: 'Dolor',
+                    backgroundImageUrl: carousel_1,
+                    backgroundImageAlt: 'Carousel preview item 1',
+                },
+                {
+                    title: 'Lorem',
+                    backgroundImageUrl: carousel_2,
+                    backgroundImageAlt: 'Carousel preview item 2',
+                },
+                {
+                    title: 'Ipsum',
+                    backgroundImageUrl: carousel_3,
+                    backgroundImageAlt: 'Carousel preview item 3',
+                },
+                {
+                    title: 'Ipsum',
+                    backgroundImageUrl: carousel_3,
+                    backgroundImageAlt: 'Carousel preview item 3',
+                },
+                {
+                    title: 'Dolor',
+                    backgroundImageUrl: carousel_1,
+                    backgroundImageAlt: 'Carousel preview item 1',
+                },
+                {
+                    title: 'Lorem',
+                    backgroundImageUrl: carousel_2,
+                    backgroundImageAlt: 'Carousel preview item 2',
+                },
+            ],
         },
     ];
 </script>
 
-<Carousel />
-
-<!-- <Carousel
-    {images}
-    showCaptions={false}
-    showThumbs={false}
-    showIndicators={true}
-    duration={6000}
-    transitionType="fade"
-    transitionParams={{ delay: 0, duration: 300 }}
-/> -->
+<Carousel {items} />

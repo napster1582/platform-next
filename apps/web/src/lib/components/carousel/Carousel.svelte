@@ -1,50 +1,25 @@
 <script lang="ts">
     import { onDestroy, onMount, tick } from 'svelte';
+    import { fade } from 'svelte/transition';
+    import CarouselBackground from './CarouselBackground.svelte';
     import CarouselInfo from './CarouselInfo.svelte';
     import CarouselPreviews from './CarouselPreviews.svelte';
+    import type { JinenCarouselItem } from './types';
 
-    import carousel_2 from '$lib/assets/images/TMP_backdrop_0.jpg';
-    import carousel_3 from '$lib/assets/images/TMP_backdrop_1.jpg';
-    import carousel_1 from '$lib/assets/images/TMP_carousel_1.jpg';
-
-    export let loop = false;
+    export let items: JinenCarouselItem[];
+    export let autoplay = false;
+    export let showBackground = false;
+    export let showIndicators = true;
+    export let showPreviews = true;
     export let duration = 5000;
-    export let carousel: {
-        name: string;
-        title: string;
-        description: string;
-        background: string;
-        previews: string[];
-    }[] = [
-        {
-            name: 'CPN',
-            title: 'Lorem',
-            description:
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quidem totam accusantium perferendis aspernatur? Doloremque repellat dignissimos asperiores ducimus, laboriosam vero corporis architecto, culpa labore molestias eos! Omnis, ea sit!',
-            background: carousel_1,
-            previews: [carousel_2, carousel_3, carousel_1, carousel_2],
-        },
-        {
-            name: 'LAD',
-            title: 'Ipsum',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-            background: carousel_1,
-            previews: [carousel_2],
-        },
-        {
-            name: 'ENAP',
-            title: 'Dolor',
-            description:
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quidem totam accusantium perferendis aspernatur?',
-            background: carousel_2,
-            previews: [carousel_2, carousel_3],
-        },
-    ];
+
+    let carouselPreviewsRef: CarouselPreviews | null = null;
 
     let currentIndex = 0;
-    let interval: any = undefined;
 
-    onMount(() => loop && resetInterval());
+    let interval: any | null = null;
+
+    onMount(() => autoplay && resetInterval());
 
     onDestroy(() => clearInterval(interval));
 
@@ -57,57 +32,91 @@
     async function go(index: number) {
         currentIndex = index;
 
-        if (loop) {
+        if (autoplay) {
             await tick();
 
             resetInterval();
         }
+
+        carouselPreviewsRef?.resetState();
     }
 
     async function goNext(options?: { isManuallyTriggered: boolean }) {
         currentIndex += 1;
 
-        if (currentIndex === carousel.length) {
+        if (currentIndex === items.length) {
             currentIndex = 0;
         }
 
-        if (loop && options?.isManuallyTriggered) {
+        if (autoplay && options?.isManuallyTriggered) {
             await tick();
+
             resetInterval();
         }
+
+        carouselPreviewsRef?.resetState();
     }
 </script>
 
-<div class="relative w-full overflow-hidden bg-black/95 xl:h-[800px]">
-    <!-- <CarouselBackground
-        src={carousel[currentIndex].background}
-        alt="Carousel item"
-    /> -->
+<div
+    class="carousel-fade-in relative w-full overflow-hidden bg-black/90 xl:h-[800px]"
+    transition:fade
+>
+    {#if showBackground}
+        <CarouselBackground
+            src={items[currentIndex].backgroundImageUrl}
+            alt={items[currentIndex].backgroundImageAlt}
+        />
+    {/if}
 
     <CarouselInfo>
         <svelte:fragment slot="indicators">
-            <ol class="max-h-[500px] overflow-y-clip border-l border-zinc-800 px-4">
-                {#each carousel as item, index}
-                    <li class="mb-16 text-white">
-                        <button
-                            class="rounded-xl border border-white/10 bg-black/40 px-3 py-1.5 text-sm hover:bg-black/20"
-                            on:click={() => go(index)}
-                        >
-                            {item.name}
-                        </button>
-                    </li>
-                {/each}
-            </ol>
+            {#if showIndicators}
+                <ol class="max-h-[500px] overflow-y-clip border-l border-zinc-800 px-4">
+                    {#each items as item, index}
+                        <li class="mb-16 text-white">
+                            <button
+                                class="rounded-xl border border-white/10 bg-black/40 px-3 py-1.5 text-sm hover:bg-black/20"
+                                on:click={() => go(index)}
+                            >
+                                {item.name}
+                            </button>
+                        </li>
+                    {/each}
+                </ol>
+            {/if}
         </svelte:fragment>
 
         <svelte:fragment slot="title">
-            {carousel[currentIndex].title}
+            {items[currentIndex].title}
         </svelte:fragment>
 
         <svelte:fragment slot="description">
-            {carousel[currentIndex].description}
+            {items[currentIndex].description}
         </svelte:fragment>
     </CarouselInfo>
 
-    <CarouselPreviews previews={carousel[currentIndex].previews} />
+    {#if showPreviews}
+        <CarouselPreviews
+            bind:this={carouselPreviewsRef}
+            previews={items[currentIndex].previews}
+            {showIndicators}
+        />
+    {/if}
 </div>
+
+<style>
+    .carousel-fade-in {
+        animation: fade-in 300ms;
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+</style>

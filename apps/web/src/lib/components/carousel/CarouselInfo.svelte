@@ -3,7 +3,6 @@
 </script>
 
 <div class="container relative flex h-full w-full flex-wrap gap-y-6">
-    <!-- CarouselInfo -->
     <div class="flex h-fit w-full items-center py-12 xl:max-w-[50%] xl:self-center xl:pr-6 xl:pt-0">
         <slot name="indicators" />
 
