@@ -1,48 +1,55 @@
 <script>
-    import { Navbar, NavHamburger, NavLi, NavUl } from 'flowbite-svelte';
     import MenuItem from './MenuItem.svelte';
+
+    import iconDirectory from '$lib/assets/icons/_directory.svg';
+    import iconRepository from '$lib/assets/icons/_repository.svg';
+    import logoCednav from '$lib/assets/logos/cednav.png';
+    import logoGetUnderway from '$lib/assets/logos/get_underway.png';
 </script>
 
-<Navbar
-    let:hidden
-    let:toggle
-    color="form"
-    class="my-12"
->
-    <div class="flex items-center justify-end">
-        <span class="inline-block lg:hidden"> Menú </span>
+<div class="container max-w-screen-2xl">
+    <nav class="flex flex-wrap items-center justify-center gap-x-24 gap-y-12">
+        <MenuItem href="#">
+            <svelte:fragment slot="title">SEN</svelte:fragment>
+            <svelte:fragment slot="description">Software de educación naval</svelte:fragment>
+        </MenuItem>
 
-        <NavHamburger on:click={toggle} />
-    </div>
+        <MenuItem href="#">
+            <svelte:fragment slot="title">SGDOC</svelte:fragment>
+            <svelte:fragment slot="description">Software de gestor de doctrinas</svelte:fragment>
+        </MenuItem>
 
-    <NavUl
-        {hidden}
-        class="order-1"
-    >
-        <NavLi>
-            <MenuItem>
-                SEN
+        <MenuItem href="#">
+            <svelte:fragment slot="title">InnovARC</svelte:fragment>
+            <svelte:fragment slot="description">Modelo de gestión de innovación</svelte:fragment>
+        </MenuItem>
 
-                <svelte:fragment slot="description">Software de educación naval</svelte:fragment>
-            </MenuItem>
-        </NavLi>
-        <NavLi>
-            <MenuItem>
-                SGDOC
+        <MenuItem
+            href="#"
+            imageUrl={iconDirectory}
+        >
+            <svelte:fragment slot="description">Directorio de expertos</svelte:fragment>
+        </MenuItem>
 
-                <svelte:fragment slot="description"
-                    >Software de gestor de doctrinas
-                </svelte:fragment>
-            </MenuItem>
-        </NavLi>
-        <NavLi>
-            <MenuItem>
-                InnovARC
+        <MenuItem
+            href="#"
+            imageUrl={iconRepository}
+        >
+            <svelte:fragment slot="description">Repositorio institucional</svelte:fragment>
+        </MenuItem>
 
-                <svelte:fragment slot="description">
-                    Modelo de gestión de innovación
-                </svelte:fragment>
-            </MenuItem>
-        </NavLi>
-    </NavUl>
-</Navbar>
+        <MenuItem
+            href="#"
+            imageUrl={logoGetUnderway}
+        >
+            <svelte:fragment slot="description">Get underway</svelte:fragment>
+        </MenuItem>
+
+        <MenuItem
+            href="#"
+            imageUrl={logoCednav}
+        >
+            <svelte:fragment slot="description">CEDNAV</svelte:fragment>
+        </MenuItem>
+    </nav>
+</div>

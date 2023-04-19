@@ -1,5 +1,6 @@
 /* base */
 @import './tailwind/base.css';
+@import './01-base/variables.css';
 @import './01-base/document.css';
 @import './01-base/font.css';
 @import './01-base/heading.css';

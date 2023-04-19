@@ -78,7 +78,7 @@
                     data-index={index}
                 >
                     <button
-                        class="group relative h-[450px] w-full overflow-hidden shadow-2xl transition xl:skew-y-6 xl:rounded-3xl xl:hover:skew-y-3 xl:hover:scale-110"
+                        class="group relative h-[450px] w-full overflow-hidden shadow-2xl transition xl:skew-y-12 xl:rounded-3xl xl:hover:skew-y-3 xl:hover:scale-110"
                         on:click={() => go(index)}
                     >
                         <div

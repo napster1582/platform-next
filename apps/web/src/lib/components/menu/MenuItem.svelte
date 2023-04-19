@@ -1,5 +1,8 @@
-<script>
+<script lang="ts">
     import Link from '../link/Link.svelte';
+
+    export let href: string;
+    export let imageUrl = '';
 </script>
 
 <Link
@@ -7,27 +10,50 @@
     className="transform hover:scale-105"
     aClassName="no-underline"
 >
-    <div class="menu-item">
-        <slot />
+    <div class="menu-item relative z-10 flex w-[200px] flex-col">
+        <div class="grid h-36 place-items-center pt-7">
+            {#if $$slots.title}
+                <span class="text-3xl font-bold text-blue-900">
+                    <slot name="title" />
+                </span>
+            {/if}
 
-        {#if $$slots.description}
-            <div class="rounded-xl bg-blue-800 p-1.5 text-white">
-                <slot name="description" />
-            </div>
-        {/if}
+            {#if imageUrl}
+                <img
+                    src={imageUrl}
+                    alt="Logo de opción de menú"
+                    class="w-24"
+                />
+            {/if}
+        </div>
+
+        <div class="grid h-36 items-start justify-items-center px-4 pt-6">
+            {#if $$slots.description}
+                <div
+                    class="line-clamp-3 rounded-lg bg-gradient-to-br from-blue-900 to-rose-900 p-2 text-center text-base font-medium text-white"
+                >
+                    <slot name="description" />
+                </div>
+            {/if}
+        </div>
     </div>
 </Link>
 
 <style lang="postcss">
     .menu-item {
-        @apply h-[200px] w-[200px] px-10;
-        @apply grid place-items-center text-center;
-        @apply bg-no-repeat;
-        @apply transform duration-300 ease-in-out hover:scale-105;
+        overflow: visible;
+    }
 
-        @screen md {
-            background-image: url('$lib/assets/svg/0_menu.svg');
-            background-size: 100% 100%;
-        }
+    .menu-item::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        background-image: url('$lib/assets/svg/0_menu.svg');
+        background-position: center;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        transform: scale(1.2);
     }
 </style>

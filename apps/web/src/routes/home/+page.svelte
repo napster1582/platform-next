@@ -8,7 +8,7 @@
 
 <Hero />
 
-<div class="container">
+<div class="container mt-12">
     <Menu />
 </div>
 

@@ -147,6 +147,7 @@
 
     .waves {
         animation: waves-motion 3s ease-out infinite;
+        will-change: transform;
     }
 
     @keyframes waves-motion {
