@@ -30,7 +30,7 @@
         <div class="grid h-36 items-start justify-items-center px-4 pt-6">
             {#if $$slots.description}
                 <div
-                    class="line-clamp-3 rounded-lg bg-gradient-to-br from-blue-900 to-rose-900 p-2 text-center text-base font-medium text-white"
+                    class="line-clamp-3 rounded-lg bg-gradient-to-br from-yellow-300 via-blue-700 to-red-600 p-2 text-center text-base font-semibold text-white"
                 >
                     <slot name="description" />
                 </div>
