@@ -11,7 +11,7 @@
         Director
     </SectionTitle>
 
-    <div class="mt-10 grid grid-cols-1 gap-16 lg:grid-cols-2">
+    <div class="grid grid-cols-1 gap-16 lg:grid-cols-2">
         <img
             src={image}
             alt="Foto jefe de jefatura integral de educación naval"

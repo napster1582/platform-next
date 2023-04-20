@@ -22,7 +22,7 @@
         Modelo de gestión de la Innovación - InnovARC
     </SectionTitle>
 
-    <div class="mt-10 grid grid-cols-1 gap-12 xl:grid-cols-3">
+    <div class="grid grid-cols-1 gap-12 xl:grid-cols-3">
         <div class="xl:col-span-2">
             <img
                 src={imageInnovarc}

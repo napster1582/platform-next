@@ -11,7 +11,7 @@
         Sistema de ciencia, tecnología e innovación naval
     </SectionTitle>
 
-    <div class="mt-10 flex justify-center rounded-3xl bg-black p-10">
+    <div class="flex justify-center rounded-3xl bg-black p-10">
         <img
             src={imageOrganization}
             alt="Imagen de organizacion"

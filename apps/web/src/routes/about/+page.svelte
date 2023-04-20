@@ -5,7 +5,7 @@
 </script>
 
 <div class="container mt-12">
-    <main class="flex flex-col gap-y-12">
+    <main class="flex flex-col gap-y-24">
         <SectionFunction />
         <SectionBoss />
         <SectionOrganization />

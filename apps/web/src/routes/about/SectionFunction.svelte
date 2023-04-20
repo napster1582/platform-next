@@ -12,7 +12,7 @@
         Función
     </SectionTitle>
 
-    <div class="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
         <div class="prose">
             <p>
                 Formar militares integrales con sentido humano e investigativo bajo los principios y

@@ -11,7 +11,7 @@
         Jefe de la jefatura integral de educación naval
     </SectionTitle>
 
-    <div class="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
         <img
             class="rounded-2xl"
             src={image}
