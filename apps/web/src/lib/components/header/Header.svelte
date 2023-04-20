@@ -15,7 +15,8 @@
 
 <header class="header">
     <Navbar
-        navClass="bg-[#1a56db] text-white py-0.5"
+        navClass="bg-inherit text-white py-2 xl:py-0.5"
+        color="none"
         let:hidden
         let:toggle
     >
@@ -33,7 +34,8 @@
         <NavHamburger on:click={toggle} />
         <NavUl
             {hidden}
-            ulClass="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium bg-[#1a56db] border-none"
+            ulClass="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium bg-inherit border-none"
+            nonActiveClass="text-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
         >
             <NavLi
                 href="/home"
@@ -91,11 +93,9 @@
 
 <style lang="postcss">
     .header {
+        @apply bg-[#1a56db];
         @apply sticky inset-x-0 top-0 z-20;
         @apply shadow-xl;
         @apply transition duration-300 ease-linear;
-
-        /* min-height: var(--header-height);
-        transform: translateY(calc(var(--header-height) * -1 - 60px)); */
     }
 </style>
