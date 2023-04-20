@@ -15,7 +15,7 @@
 
 <header class="header">
     <Navbar
-        class="bg-[#0066d0] bg-inherit text-white"
+        navClass="bg-[#1a56db] text-white py-0.5"
         let:hidden
         let:toggle
     >
@@ -31,7 +31,10 @@
             </span>
         </NavBrand>
         <NavHamburger on:click={toggle} />
-        <NavUl {hidden}>
+        <NavUl
+            {hidden}
+            ulClass="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium bg-[#1a56db] border-none"
+        >
             <NavLi
                 href="/home"
                 nonActiveClass="text-white mt-3">Inicio</NavLi
