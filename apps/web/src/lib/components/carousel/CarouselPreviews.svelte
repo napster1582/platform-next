@@ -89,7 +89,7 @@
 
                         <img
                             src={preview.backgroundImageUrl}
-                            alt={preview.backgroundImageAlt}
+                            alt="Carousel preview item"
                             loading="lazy"
                             class="z-0 h-full w-full object-cover transition-transform duration-[10s] group-hover:blur-none"
                             class:blur-sm={index !== currentIndex}

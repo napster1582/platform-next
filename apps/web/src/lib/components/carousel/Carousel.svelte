@@ -1,13 +1,13 @@
 <script lang="ts">
     import { onDestroy, onMount, tick } from 'svelte';
     import { fade } from 'svelte/transition';
-    import CarouselBackground from './CarouselBackground.svelte';
     import CarouselInfo from './CarouselInfo.svelte';
     import CarouselPreviews from './CarouselPreviews.svelte';
     import type { JinenCarouselItem } from './types';
 
     export let items: JinenCarouselItem[];
     export let autoplay = false;
+    export let showPattern = false;
     export let showBackground = false;
     export let showIndicators = true;
     export let showPreviews = true;
@@ -60,15 +60,12 @@
 
 <div
     class="carousel carousel-fade-in relative w-full overflow-hidden xl:h-[800px]"
+    class:with-pattern={showPattern}
+    style={showBackground
+        ? `background-image: url(${items[currentIndex].backgroundImageUrl});`
+        : ''}
     transition:fade
 >
-    {#if showBackground}
-        <CarouselBackground
-            src={items[currentIndex].backgroundImageUrl}
-            alt={items[currentIndex].backgroundImageAlt}
-        />
-    {/if}
-
     <CarouselInfo>
         <svelte:fragment slot="indicators">
             {#if showIndicators}
@@ -109,9 +106,16 @@
 
 <style lang="postcss">
     .carousel {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' width='80' height='80'%3E%3Cpath fill='%23181818' fill-opacity='0.4' d='M14 16H9v-2h5V9.87a4 4 0 1 1 2 0V14h5v2h-5v15.95A10 10 0 0 0 23.66 27l-3.46-2 8.2-2.2-2.9 5a12 12 0 0 1-21 0l-2.89-5 8.2 2.2-3.47 2A10 10 0 0 0 14 31.95V16zm40 40h-5v-2h5v-4.13a4 4 0 1 1 2 0V54h5v2h-5v15.95A10 10 0 0 0 63.66 67l-3.47-2 8.2-2.2-2.88 5a12 12 0 0 1-21.02 0l-2.88-5 8.2 2.2-3.47 2A10 10 0 0 0 54 71.95V56zm-39 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm40-40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM15 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm40 40a2 2 0 1 0 0-4 2 2 0 0 0 0 4z'%3E%3C/path%3E%3C/svg%3E");
+        @apply bg-zinc-950 bg-cover bg-center bg-no-repeat bg-blend-soft-light;
+    }
 
-        @apply bg-black/95;
+    .with-pattern::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' width='80' height='80'%3E%3Cpath fill='%23181818' fill-opacity='0.4' d='M14 16H9v-2h5V9.87a4 4 0 1 1 2 0V14h5v2h-5v15.95A10 10 0 0 0 23.66 27l-3.46-2 8.2-2.2-2.9 5a12 12 0 0 1-21 0l-2.89-5 8.2 2.2-3.47 2A10 10 0 0 0 14 31.95V16zm40 40h-5v-2h5v-4.13a4 4 0 1 1 2 0V54h5v2h-5v15.95A10 10 0 0 0 63.66 67l-3.47-2 8.2-2.2-2.88 5a12 12 0 0 1-21.02 0l-2.88-5 8.2 2.2-3.47 2A10 10 0 0 0 54 71.95V56zm-39 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm40-40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM15 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm40 40a2 2 0 1 0 0-4 2 2 0 0 0 0 4z'%3E%3C/path%3E%3C/svg%3E");
     }
 
     .carousel-fade-in {

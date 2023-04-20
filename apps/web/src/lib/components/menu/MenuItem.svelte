@@ -7,7 +7,7 @@
 
 <Link
     href="#"
-    className="transform hover:scale-105"
+    className="transform hover:scale-110 hover:grayscale active:scale-90 hover:shadow-2xl rounded-2xl transition-transform"
     aClassName="no-underline"
 >
     <div class="menu-item relative z-10 flex w-[200px] flex-col">
