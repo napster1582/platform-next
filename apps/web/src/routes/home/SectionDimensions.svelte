@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Alert, Video } from 'flowbite-svelte';
+    import { Video } from 'flowbite-svelte';
 
     import imageDna from '$lib/assets/images/section_chart_dna.png';
     import { SectionTitle } from '$lib/components';
@@ -13,11 +13,10 @@
         Dimensiones de la educación
     </SectionTitle>
 
-    <Alert
-        color="yellow"
-        class="rounded-br-full rounded-tl-full"
+    <div
+        class="flex flex-wrap items-center gap-8 rounded-br-full rounded-tl-full border border-yellow-300 bg-yellow-50 p-6 text-yellow-900"
     >
-        <svelte:fragment slot="icon">
+        <div class="flex items-center">
             <img
                 src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Woman%20Student%20Medium%20Skin%20Tone.png"
                 alt="Woman Student Medium Skin Tone"
@@ -30,18 +29,16 @@
                 width="125"
                 height="125"
             />
-        </svelte:fragment>
+        </div>
 
-        <span class="text-xl">
-            <div class="mb-4">
-                <strong class="font-medium">ADN Institucional</strong>
-            </div>
+        <blockquote class="text-xl">
+            <strong class="mb-4 block font-medium">ADN Institucional</strong>
 
             <span> El marino Colombiano debe ser ético, lider y competente. </span>
-        </span>
-    </Alert>
+        </blockquote>
+    </div>
 
-    <div class="mt-36 grid grid-cols-1 gap-x-6 gap-y-12 lg:grid-cols-2">
+    <div class="mt-24 grid grid-cols-1 gap-x-6 gap-y-12 lg:grid-cols-2">
         <img
             src={imageDna}
             alt="Representación de los valores del marino Colombiano y la dimensión de la educación"

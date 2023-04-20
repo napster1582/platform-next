@@ -25,7 +25,7 @@
                 className="w-[70px]"
             />
             <span
-                class="ml-2 hidden max-w-[200px] self-center text-xl font-semibold dark:text-white md:inline"
+                class="ml-2 hidden max-w-[200px] self-center text-xl font-semibold capitalize dark:text-white md:inline"
             >
                 Jefatura integral de educación naval
             </span>

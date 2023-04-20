@@ -6,12 +6,18 @@
     const items: JinenCarouselItem[] = [
         {
             name: 'ENAP',
-            title: 'Lorem',
+            title: 'Escuela naval almirante padilla',
             description:
                 'Sunt quidem totam accusantium perferendis aspernatur? Doloremque repellat dignissimos asperiores ducimus, laboriosam vero corporis architecto, culpa labore molestias eos! Omnis, ea sit!',
             backgroundImageUrl: carousel_1,
             backgroundImageAlt: 'Carousel item 1',
             previews: [
+                {
+                    title: 'Dolor',
+                    backgroundImageUrl:
+                        'https://images.pexels.com/photos/811440/pexels-photo-811440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                    backgroundImageAlt: 'Carousel preview item 1',
+                },
                 {
                     title: 'Lorem',
                     backgroundImageUrl:
@@ -34,7 +40,7 @@
         },
         {
             name: 'ENSUB',
-            title: 'Dolor Amet',
+            title: 'Escuela naval de suboficiales ARC "Barranquilla"',
             description:
                 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quidem totam accusantium perferendis aspernatur? Doloremque repellat dignissimos asperiores ducimus, laboriosam vero corporis architecto, culpa labore molestias eos! Omnis, ea sit!',
             backgroundImageUrl: carousel_2,
@@ -55,17 +61,8 @@
             ],
         },
         {
-            name: 'YYYYY',
-            title: 'Amet Dolor',
-            description:
-                'adipisicing elit. laboriosam vero corporis architecto, culpa labore molestias eos! Omnis, ea sit!',
-            backgroundImageUrl: carousel_2,
-            backgroundImageAlt: 'Carousel item 1',
-            previews: [],
-        },
-        {
             name: 'ESFIM',
-            title: 'Sit elit',
+            title: 'Escuela de formación de infantería de marina',
             description:
                 'Dolor sit amet consectetur adipisicing elit. Sunt quidem totam accusantium perferendis aspernatur? Doloremque repellat dignissimos asperiores ducimus, laboriosam vero corporis architecto, culpa labore molestias eos! Omnis, ea sit!',
             backgroundImageUrl: carousel_2,
@@ -99,7 +96,7 @@
         },
         {
             name: 'ANEES',
-            title: 'Sunt quidem',
+            title: 'Academia naval de estudios estratégicos',
             description:
                 'Sit amet dolor ipsum consectetur adipisicing elit. Sunt quidem totam accusantium perferendis aspernatur? Doloremque repellat dignissimos asperiores ducimus, laboriosam vero corporis architecto, culpa labore molestias eos! Omnis, ea sit!',
             backgroundImageUrl: carousel_2,
@@ -108,7 +105,13 @@
                 {
                     title: 'Dolor',
                     backgroundImageUrl:
-                        'https://images.pexels.com/photos/811440/pexels-photo-811440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                        'https://images.pexels.com/photos/14579141/pexels-photo-14579141.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                    backgroundImageAlt: 'Carousel preview item 1',
+                },
+                {
+                    title: 'Dolor',
+                    backgroundImageUrl:
+                        'https://images.pexels.com/photos/1162639/pexels-photo-1162639.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
                     backgroundImageAlt: 'Carousel preview item 1',
                 },
             ],

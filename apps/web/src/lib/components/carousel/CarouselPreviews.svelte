@@ -100,21 +100,21 @@
         </div>
 
         {#if showIndicators}
-            <div class="flex items-baseline justify-between px-3 py-3 xl:mt-6 xl:px-6">
+            <div class="flex items-center justify-between px-3 py-3 xl:mt-6 xl:px-6">
                 <div class="flex gap-3">
                     {#if previews.length > 1}
                         <button
-                            class="carousel-btn"
+                            class="rounded-full bg-white/30 p-2 font-medium text-white hover:bg-white/70 active:scale-90"
                             on:click={() => goBack()}
                         >
-                            <span class="icon-[material-symbols--line-start-arrow] text-2xl" />
+                            <span class="icon-[ic--round-arrow-back-ios] text-2xl" />
                         </button>
 
                         <button
-                            class="carousel-btn"
+                            class="rounded-full bg-white/30 px-2 font-medium text-white hover:bg-white/70 active:scale-90"
                             on:click={() => goNext()}
                         >
-                            <span class="icon-[material-symbols--line-end-arrow] text-2xl" />
+                            <span class="icon-[ic--round-arrow-forward-ios] text-2xl" />
                         </button>
                     {/if}
                 </div>
@@ -130,19 +130,6 @@
 {/if}
 
 <style lang="postcss">
-    .carousel-btn {
-        padding: 10px;
-        border: none;
-        border-radius: 360px;
-        background-color: rgb(0 0 0 / 50%);
-        color: #fff;
-        cursor: pointer;
-    }
-
-    .carousel-btn:active {
-        @apply scale-90;
-    }
-
     .transition-opacity {
         opacity: 0;
         transition-timing-function: ease-in;
