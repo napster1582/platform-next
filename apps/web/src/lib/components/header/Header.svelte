@@ -15,7 +15,7 @@
 
 <header class="header">
     <Navbar
-        class="bg-inherit"
+        class="bg-[#0066d0] bg-inherit text-white"
         let:hidden
         let:toggle
     >
@@ -34,17 +34,16 @@
         <NavUl {hidden}>
             <NavLi
                 href="/home"
-                class="mt-3"
-                active={true}>Inicio</NavLi
+                nonActiveClass="text-white mt-3">Inicio</NavLi
             >
             <NavLi
                 id="nav-about"
-                class="mt-3 cursor-pointer"
+                nonActiveClass="text-white cursor-pointer mt-3"
             >
                 <Chevron aligned>Conózcanos</Chevron>
             </NavLi>
             <NavLi>
-                <Button>
+                <Button color="light">
                     <span class="icon-[solar--login-2-outline] mr-2 text-lg" />
 
                     Ingresar
@@ -90,7 +89,7 @@
 <style lang="postcss">
     .header {
         @apply sticky inset-x-0 top-0 z-20;
-        @apply bg-red-500 shadow-xl backdrop-blur-sm;
+        @apply shadow-xl;
         @apply transition duration-300 ease-linear;
 
         /* min-height: var(--header-height);
