@@ -40,7 +40,7 @@ const HeroBlock: Block = {
                 },
                 {
                     name: 'description',
-                    type: 'text',
+                    type: 'textarea',
                     maxLength: 300,
                 },
                 {

@@ -25,6 +25,11 @@ const MenuBlock: Block = {
                     type: 'text',
                     maxLength: 40,
                 },
+                {
+                    name: 'href',
+                    type: 'text',
+                    required: true,
+                },
             ],
         },
     ],

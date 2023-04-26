@@ -1,14 +1,13 @@
 import path from 'path';
 import { buildConfig } from 'payload/config';
-import Media from './collections/Media';
-import Pages from './collections/Pages';
-import Users from './collections/Users';
-import Footer from './globals/Footer';
+import { Media, Pages, Users } from './collections';
+import { Footer, Header, SocialMedia } from './globals';
 
 export default buildConfig({
     serverURL: 'http://localhost:3000',
     collections: [Users, Media, Pages],
-    globals: [Footer],
+    globals: [Header, Footer, SocialMedia],
+
     typescript: {
         outputFile: path.resolve(__dirname, 'payload-types.ts'),
     },
