@@ -2,7 +2,7 @@ import path from 'path';
 import type { CollectionConfig } from 'payload/types';
 
 const Media: CollectionConfig = {
-    slug: 'media',
+    slug: 'Media',
     labels: {
         singular: 'Multimedia',
         plural: 'Multimedia',

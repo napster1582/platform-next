@@ -7,7 +7,6 @@ export default buildConfig({
     serverURL: 'http://localhost:3000',
     collections: [Users, Media, Pages],
     globals: [Header, Footer, SocialMedia],
-
     typescript: {
         outputFile: path.resolve(__dirname, 'payload-types.ts'),
     },

@@ -45,7 +45,7 @@ const LinkedInBlock: Block = {
 };
 
 const SocialMedia: GlobalConfig = {
-    slug: 'social-media',
+    slug: 'SocialMedia',
     label: 'Redes sociales',
     fields: [
         {

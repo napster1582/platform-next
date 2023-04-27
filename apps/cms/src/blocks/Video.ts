@@ -10,7 +10,7 @@ const VideoBlock: Block = {
         {
             name: 'video',
             type: 'upload',
-            relationTo: 'media',
+            relationTo: 'Media',
             filterOptions: {
                 mimeType: { contains: 'video' },
             },

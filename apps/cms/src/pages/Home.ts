@@ -12,7 +12,7 @@ import {
 } from '../blocks';
 
 const SectionDimensionsBlock: Block = {
-    slug: 'section-dimensions',
+    slug: 'SectionDimensions',
     labels: {
         singular: 'Dimensiones de la educación',
         plural: 'Dimensiones de la educación',
@@ -33,7 +33,7 @@ const SectionDimensionsBlock: Block = {
 };
 
 const SectionSchoolsBlock: Block = {
-    slug: 'section-schools',
+    slug: 'SectionSchools',
     labels: {
         singular: 'Escuelas de capacitación',
         plural: 'Escuelas de capacitación',
@@ -54,7 +54,7 @@ const SectionSchoolsBlock: Block = {
 };
 
 const SectionScheduleBlock: Block = {
-    slug: 'section-schedule',
+    slug: 'SectionSchedule',
     labels: {
         singular: 'Agenda de eventos académicos y científicos',
         plural: 'Agenda de eventos académicos y científicos',
@@ -75,7 +75,7 @@ const SectionScheduleBlock: Block = {
 };
 
 const HomePage: Block = {
-    slug: 'home',
+    slug: 'Home',
     labels: {
         singular: 'Inicio',
         plural: 'Inicio',
@@ -83,6 +83,7 @@ const HomePage: Block = {
     fields: [
         {
             type: 'tabs',
+            label: 'Tabs',
             tabs: [
                 {
                     label: 'Hero',

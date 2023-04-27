@@ -1,13 +1,13 @@
 import { GlobalConfig } from 'payload/types';
 
 const Header: GlobalConfig = {
-    slug: 'header',
+    slug: 'Header',
     label: 'Encabezado',
     fields: [
         {
             name: 'logo',
             type: 'upload',
-            relationTo: 'media',
+            relationTo: 'Media',
             filterOptions: {
                 mimeType: { contains: 'image' },
             },

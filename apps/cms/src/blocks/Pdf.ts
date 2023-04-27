@@ -10,7 +10,7 @@ const PdfBlock: Block = {
         {
             name: 'pdf',
             type: 'upload',
-            relationTo: 'media',
+            relationTo: 'Media',
             filterOptions: {
                 mimeType: { contains: 'application/pdf' },
             },

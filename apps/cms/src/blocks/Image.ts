@@ -10,7 +10,7 @@ const ImageBlock: Block = {
         {
             name: 'image',
             type: 'upload',
-            relationTo: 'media',
+            relationTo: 'Media',
             filterOptions: {
                 mimeType: { contains: 'image' },
             },

@@ -1,7 +1,7 @@
 import { Block } from 'payload/types';
 
 const DicytPage: Block = {
-    slug: 'dicyt',
+    slug: 'Dicyt',
     labels: {
         singular: 'DICYT',
         plural: 'DICYT',

@@ -1,7 +1,7 @@
 import { Block } from 'payload/types';
 
 const AboutPage: Block = {
-    slug: 'about',
+    slug: 'About',
     labels: {
         singular: 'Función',
         plural: 'Funciones',

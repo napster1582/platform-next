@@ -1,7 +1,7 @@
 import { GlobalConfig } from 'payload/types';
 
 const Footer: GlobalConfig = {
-    slug: 'footer',
+    slug: 'Footer',
     label: 'Pie de página',
     fields: [
         {
@@ -11,7 +11,7 @@ const Footer: GlobalConfig = {
                 {
                     name: 'logo',
                     type: 'upload',
-                    relationTo: 'media',
+                    relationTo: 'Media',
                     filterOptions: {
                         mimeType: { contains: 'image' },
                     },
