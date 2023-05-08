@@ -9,6 +9,7 @@ const Examples: CollectionConfig = {
     fields: [
         {
             name: 'someField',
+            label: 'Algún campo',
             type: 'text',
         },
     ],

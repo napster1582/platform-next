@@ -5,6 +5,7 @@ const AboutPage: Block = {
     fields: [
         {
             name: 'prueba',
+            label: 'prueba',
             type: 'text',
         },
     ],

@@ -14,6 +14,7 @@ const HomePage: Block = {
                     fields: [
                         {
                             name: 'hero',
+                            label: 'Hero',
                             type: 'blocks',
                             required: true,
                             blocks: [HeroBlock],
@@ -26,6 +27,7 @@ const HomePage: Block = {
                     fields: [
                         {
                             name: 'menu',
+                            label: 'Menu',
                             type: 'blocks',
                             required: true,
                             blocks: [MenuBlock],

@@ -15,6 +15,7 @@ const Pages: CollectionConfig = {
     fields: [
         {
             name: 'pages',
+            label: 'Páginas',
             type: 'blocks',
             blocks: [HomePage, AboutPage, DicytPage],
         },
