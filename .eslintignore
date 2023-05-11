@@ -11,3 +11,10 @@ __generated__
 pnpm-lock.yaml
 package-lock.json
 yarn.lock
+
+# Ignore test coverage
+**/coverage
+
+# CMS
+/apps/cms/dist/
+/apps/cms/build/

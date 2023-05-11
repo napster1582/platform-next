@@ -6,7 +6,7 @@ import Users from './collections/Users';
 import Footer from './globals/Footer';
 
 export default buildConfig({
-    serverURL: 'http://localhost:3000',
+    serverURL: 'http://localhost:3001',
     collections: [Users, Media, Pages],
     globals: [Footer],
     typescript: {

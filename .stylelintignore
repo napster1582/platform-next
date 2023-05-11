@@ -1,0 +1,8 @@
+# Ignore test coverage
+
+**/coverage
+
+# CMS
+
+/apps/cms/dist/
+/apps/cms/build/

@@ -60,12 +60,12 @@
 
 ## Entornos de desarrollo
 
-### Api
+### Docs
 
 - local: <http://localhost:3000>
-- dev: <https://api.dev.jinen.com>
-- stage: <https://api.stage.jinen.com>
-- prod: <https://api.jinen.com>
+- dev: <https://docs.dev.jinen.com>
+- stage: <https://docs.stage.jinen.com>
+- prod: <https://docs.jinen.com>
 
 ### Cms
 
@@ -74,23 +74,9 @@
 - stage: <https://cms.stage.jinen.com>
 - prod: <https://cms.jinen.com>
 
-### Docs
-
-- local: <http://localhost:4200>
-- dev: <https://docs.dev.jinen.com>
-- stage: <https://docs.stage.jinen.com>
-- prod: <https://docs.jinen.com>
-
-### Admin
-
-- local: <http://localhost:4201>
-- dev: <https://admin.dev.jinen.com>
-- stage: <https://admin.stage.jinen.com>
-- prod: <https://admin.jinen.com>
-
 ### Web
 
-- local: <http://localhost:4202>
+- local: <http://localhost:3002>
 - dev: <https://dev.jinen.com>
 - stage: <https://stage.jinen.com>
 - prod: <https://jinen.com>

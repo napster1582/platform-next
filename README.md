@@ -30,22 +30,16 @@
 
 4. Ejecutar aplicaciones.
 
-- Api (NestJS): [http://localhost:3000](http://localhost:3000)
+- Docs (Vitepress): [http://localhost:3000](http://localhost:3000)
 
   ```sh
-  pnpm api:dev
+  pnpm docs:dev
   ```
 
-- Cms (ExpressJS): [http://localhost:3001](http://localhost:3001)
+  - Cms (ExpressJS): [http://localhost:3001](http://localhost:3001)
 
   ```sh
   pnpm cms:dev
-  ```
-
-- Admin (Angular): [http://localhost:4200](http://localhost:4200)
-
-  ```sh
-  pnpm admin:dev
   ```
 
 - Web (Sveltekit): [http://localhost:4201](http://localhost:4201)
@@ -54,32 +48,20 @@
   pnpm web:dev
   ```
 
-- Docs (Vitepress): [http://localhost:4202](http://localhost:4202)
-
-  ```sh
-  pnpm docs:dev
-  ```
-
 ## Docker
 
 ### Compilar imágenes
 
-**Api:**
+**Docs:**
 
 ```sh
-docker build -t jinen-api -f Dockerfile.api .
+docker build -t jinen-docs -f Dockerfile.docs .
 ```
 
 **Cms:**
 
 ```sh
 docker build -t jinen-cms -f Dockerfile.cms .
-```
-
-**Admin:**
-
-```sh
-docker build -t jinen-admin -f Dockerfile.admin .
 ```
 
 **Web:**
@@ -90,47 +72,23 @@ docker build -t jinen-web -f Dockerfile.web .
 
 ### Ejecutar imágenes
 
-**Api:**
+**Docs:**
 
 ```sh
-# Development
-docker run -p 3000:3000 --env-file envs/development.env -d jinen-api
-
-# Production
-docker run -p 3000:3000 --env-file envs/production.env -d jinen-api
+docker run -p 3000:3000 -d jinen-docs
 ```
 
 **Cms:**
 
 ```sh
-# Development
-docker run -p 3001:3001 --env-file envs/development.env -d jinen-cms
-
-# Production
-docker run -p 3001:3001 --env-file envs/production.env -d jinen-cms
+docker run -p 3001:3001 -d jinen-cms
 ```
 
-**Admin (nginx):**
+**Web:**
 
 ```sh
-docker run -p 4200:80 -d jinen-admin
+docker run -p 3002:3002 -d jinen-web
 ```
-
-**Web (nginx):**
-
-```sh
-docker run -p 4201:80 -d jinen-web
-```
-
-**Docs (nginx):**
-
-```sh
-docker run -p 4202:80 -d jinen-docs
-```
-
-## Kubernetes
-
-> No configurado
 
 ## Guía de contribución
 
