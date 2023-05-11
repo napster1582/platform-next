@@ -81,8 +81,150 @@ pageSections:
   - title: Dimensiones de la educación
   - title: Escuelas de capacitación
   - title: Agenda de eventos académicos y científicos
+    content:
+      - years:
+          - year: 2023
+            events:
+              - title: Festival De Primavera
+                description: >
+                  Celebra la llegada de la primavera en nuestro Festival de
+                  Primavera. Habrá música, danzas, actividades al aire libre y
+                  comida deliciosa. ¡Disfruta de la energía y los colores de la
+                  estación más florida del año!
+                month: May
+                status: ongoing
+                href:
+                  caption: Conocer más
+                  href: '#'
+              - title: Exposición De Arte Contemporáneo
+                description: >
+                  Explora el mundo del arte contemporáneo en nuestra exposición
+                  especial. Descubre las últimas tendencias y expresiones
+                  artísticas en un entorno inspirador y creativo. ¡Una
+                  experiencia imperdible para los amantes del arte!
+                month: April
+                status: finished
+                href:
+                  caption: Conocer más
+                  href: '#'
+        _template: timeline
+sectionSchools:
+  title: Escuelas de capacitación
+  cta:
+    - label: ESUP
+      caption: Escuela de superficie
+      href: '#'
+    - label: ESUPA
+      caption: Escuela de superficie del pacífico
+      href: '#'
+    - label: EBUSA
+      caption: Escuela de buceo y salvamento
+      href: '#'
+    - label: ESIN
+      caption: Escuela de inteligencia
+      href: '#'
+    - label: ESCAN
+      caption: Escuela de aviación naval
+      href: '#'
+    - label: ESUB
+      caption: Escuela de submarinos
+      href: '#'
+    - label: CIEAF
+      caption: Escuela de combate fluvial
+      href: '#'
+    - label: ESCUIG
+      caption: Escuela de internacional guardacostas
+      href: '#'
+    - label: CIEAN
+      caption: Centro internacional de entrenamiento anfibio
+      href: '#'
+    - label: CEPAZ
+      caption: Centro de entrenamiento y capacitación de operaciones de paz
+      href: '#'
+  videos:
+    - videoUrl: >-
+        https://www.shutterstock.com/shutterstock/videos/1075977254/preview/stock-footage-the-united-stares-navy-destroyer-transits-istanbul-strait-towards-the-mediterranean-in-istanbul.webm
+    - videoUrl: >-
+        https://www.shutterstock.com/shutterstock/videos/1075977254/preview/stock-footage-the-united-stares-navy-destroyer-transits-istanbul-strait-towards-the-mediterranean-in-istanbul.webm
+    - videoUrl: >-
+        https://www.shutterstock.com/shutterstock/videos/1075977254/preview/stock-footage-the-united-stares-navy-destroyer-transits-istanbul-strait-towards-the-mediterranean-in-istanbul.webm
+sectionDimensions:
+  title: Dimensiones de la educación
+  alert:
+    title: ADN Institucional
+    description: |
+      El marino Colombiano debe ser ético, lider y competente.
+  image: /media/section_chart_dna.0633f0e8.png
+sectionSchedule:
+  title: Agenda de eventos académicos y científicos
+  events:
+    - year: 2024
+      events:
+        - title: Taller de Arte
+          description: >
+            Te invitamos a nuestro taller de arte donde podrás expresar tu
+            creatividad y aprender nuevas técnicas artísticas. No importa si
+            eres principiante o experimentado, ¡todos son bienvenidos!
+          month: Enero
+          status: Pendiente
+          href:
+            caption: Conocer más
+            href: '#'
+    - year: 2023
+      events:
+        - title: Festival De Primavera
+          description: >
+            Celebra la llegada de la primavera en nuestro Festival de Primavera.
+            Habrá música, danzas, actividades al aire libre y comida deliciosa.
+            ¡Disfruta de la energía y los colores de la estación más florida del
+            año!
+          month: Abril
+          status: En Progreso
+          href:
+            caption: Conocer más
+            href: '#'
+        - title: Exposición De Arte Contemporáneo
+          description: >
+            Explora el mundo del arte contemporáneo en nuestra exposición
+            especial. Descubre las últimas tendencias y expresiones artísticas
+            en un entorno inspirador y creativo. ¡Una experiencia imperdible
+            para los amantes del arte!
+          month: Marzo
+          status: Finalizado
+          href:
+            caption: Conocer más
+            href: '#'
+        - title: Concierto De Música Clásica
+          description: >
+            Disfruta de una noche mágica con nuestro concierto de música
+            clásica. Escucha las obras maestras de los compositores más
+            reconocidos interpretadas por talentosos músicos. ¡Una experiencia
+            única para los amantes de la música clásica!
+          month: Febrero
+          status: No Finalizado
+          href:
+            caption: Conocer más
+            href: '#'
+        - title: Noche De Películas Al Aire Libre
+          description: >
+            Ven a nuestra noche de películas al aire libre donde proyectaremos
+            tus clásicos favoritos en una pantalla gigante bajo las estrellas.
+            Trae tu manta y tus snacks favoritos y disfruta de una velada
+            inolvidable bajo el cielo estrellado.
+          month: Enero
+          status: No Finalizado
+          href:
+            caption: Conocer más
+            href: '#'
 _template: home
 ---
+
+
+
+
+
+
+
 
 
 
