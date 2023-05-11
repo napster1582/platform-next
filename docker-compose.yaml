@@ -1,35 +1,14 @@
 version: '3.9'
 
 services:
-    mongo:
-        image: mongo:latest
-        container_name: jinen-mongo
-        restart: always
-        environment:
-            MONGO_INITDB_ROOT_USERNAME: user
-            MONGO_INITDB_ROOT_PASSWORD: root
+    jinen-docs:
+        build: 
+            context: .
+            dockerfile: Dockerfile.docs        
+        container_name: jinen-docs
+        restart: always            
         ports:
-            - '27017:27017'
-        volumes:
-            - mongo_data:/var/lib/mongo/data
-        networks:
-            - jinen-network
-
-    # jinen-cms:
-    #     build: 
-    #         context: .
-    #         dockerfile: Dockerfile.cms        
-    #     container_name: jinen-cms
-    #     restart: always
-    #     environment:      
-    #         CMS_PAYLOAD_SECRET: "D59CA83FDBF06A64DA480BC9930267470EFFE21DD7483AE8C3CF767DC0E95AE8" 
-    #         CMS_MONGODB_URI: mongodb://user:root@mongo:27017/?authMechanism=DEFAULT            
-    #     ports:
-    #         - "3001:3001"
-    #     depends_on:
-    #         - mongo
-    #     networks:
-    #         - jinen-network
+            - "3000:3000"                
 
     jinen-web:
         build: 

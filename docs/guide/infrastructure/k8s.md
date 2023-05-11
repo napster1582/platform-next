@@ -37,25 +37,11 @@
 Para el proyecto, utilizamos un repositorio en GitHub para almacenar el código fuente y gestionar el flujo de trabajo de integración continua y entrega continua (CI/CD). La estructura básica del proyecto es la siguiente:
 
 ```sh
-api/
+docs/
 ├── Dockerfile
 ├── k8s/
-│   ├── api-deployment.yaml
-│   └── api-service.yaml
-└── src/
-
-cms/
-├── Dockerfile
-├── k8s/
-│   ├── cms-deployment.yaml
-│   └── cms-service.yaml
-└── src/
-
-admin/
-├── Dockerfile
-├── k8s/
-│   ├── admin-deployment.yaml
-│   └── admin-service.yaml
+│   ├── docs-deployment.yaml
+│   └── docs-service.yaml
 └── src/
 
 web/
@@ -64,14 +50,6 @@ web/
 │   ├── web-deployment.yaml
 │   └── web-service.yaml
 └── src/
-
-docs/
-├── Dockerfile
-├── k8s/
-│   ├── docs-deployment.yaml
-│   └── docs-service.yaml
-└── src/
-
 ...
 
 k8s/
@@ -83,55 +61,28 @@ k8s/
 │   └── postgres-service.yaml
 ├── overlays/
 │   ├── dev/
-│   │   ├── api/
-│   │   │   ├── api-deployment.yaml
-│   │   │   └── api-service.yaml
-│   │   ├── cms/
-│   │   │   ├── cms-deployment.yaml
-│   │   │   └── cms-service.yaml
-│   │   ├── admin/
-│   │   │   ├── admin-deployment.yaml
-│   │   │   └── admin-service.yaml
-│   │   ├── web/
-│   │   │   ├── web-deployment.yaml
-│   │   │   └── web-service.yaml
 │   │   ├── docs/
 │   │   │   ├── docs-deployment.yaml
 │   │   │   └── docs-service.yaml
+│   │   ├── web/
+│   │   │   ├── web-deployment.yaml
+│   │   │   └── web-service.yaml
 │   │   └── kustomization.yaml
 │   ├── stage/
-│   │   ├── api/
-│   │   │   ├── api-deployment.yaml
-│   │   │   └── api-service.yaml
-│   │   ├── cms/
-│   │   │   ├── cms-deployment.yaml
-│   │   │   └── cms-service.yaml
-│   │   ├── admin/
-│   │   │   ├── admin-deployment.yaml
-│   │   │   └── admin-service.yaml
-│   │   ├── web/
-│   │   │   ├── web-deployment.yaml
-│   │   │   └── web-service.yaml
 │   │   ├── docs/
 │   │   │   ├── docs-deployment.yaml
 │   │   │   └── docs-service.yaml
+│   │   ├── web/
+│   │   │   ├── web-deployment.yaml
+│   │   │   └── web-service.yaml
 │   │   └── kustomization.yaml
 │   └── prod/
-│   │   ├── api/
-│   │   │   ├── api-deployment.yaml
-│   │   │   └── api-service.yaml
-│   │   ├── cms/
-│   │   │   ├── cms-deployment.yaml
-│   │   │   └── cms-service.yaml
-│   │   ├── admin/
-│   │   │   ├── admin-deployment.yaml
-│   │   │   └── admin-service.yaml
-│   │   ├── web/
-│   │   │   ├── web-deployment.yaml
-│   │   │   └── web-service.yaml
 │   │   ├── docs/
 │   │   │   ├── docs-deployment.yaml
 │   │   │   └── docs-service.yaml
+│   │   ├── web/
+│   │   │   ├── web-deployment.yaml
+│   │   │   └── web-service.yaml
 │       └── kustomization.yaml
 ├── kustomization.yaml
 └── README.md

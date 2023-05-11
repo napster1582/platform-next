@@ -2,7 +2,6 @@
 
 jinen_apps=(
     docs
-    cms
     web
 )
 
@@ -63,7 +62,6 @@ for app_name in "${app_names[@]}"; do
 
     declare -A docker_commands=(
         [docs]="docker run --name jinen-docs-container -p 3000:80 --env-file $env_file -d jinen-docs"
-        [cms]="docker run --name jinen-cms-container -p 3001:3001 --env-file $env_file -d jinen-cms"
         [web]="docker run --name jinen-web-container -p 3002:3002 --env-file $env_file -d jinen-web"
     )
 

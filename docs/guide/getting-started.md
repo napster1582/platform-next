@@ -20,42 +20,18 @@
    pnpm install
    ```
 
-2. Iniciar contenedores de docker.
-
-   ```sh
-   docker-compose up -d
-   ```
-
-3. Crear o actualizar base de datos en el entorno de desarrollo.
-
-   ```sh
-   pnpm prisma:development:push
-   ```
-
-4. Ejecutar aplicaciones.
+2. Ejecutar aplicaciones.
 
     ::: code-group
-
-    ```sh [Api]
-    pnpm api:dev
-    ```
-
-    ```sh [Cms]
-    pnpm cms:dev
-    ```
 
     ```sh [Docs]
     pnpm docs:dev
     ```
 
-    ```sh [Admin]
-    pnpm admin:dev
-    ```
-
     ```sh [Web]
     pnpm web:dev
-    ```
-  
+    ```  
+
     :::
 
 ## Entornos de desarrollo
@@ -66,13 +42,6 @@
 - dev: <https://docs.dev.jinen.com>
 - stage: <https://docs.stage.jinen.com>
 - prod: <https://docs.jinen.com>
-
-### Cms
-
-- local: <http://localhost:3001>
-- dev: <https://cms.dev.jinen.com>
-- stage: <https://cms.stage.jinen.com>
-- prod: <https://cms.jinen.com>
 
 ### Web
 
