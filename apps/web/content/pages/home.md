@@ -77,8 +77,14 @@ menu:
     description: Software de gestor de doctrinas
   - title: SEN
     description: Software de educación naval
+pageSections:
+  - title: Dimensiones de la educación
+  - title: Escuelas de capacitación
+  - title: Agenda de eventos académicos y científicos
 _template: home
 ---
+
+
 
 
 

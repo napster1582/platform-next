@@ -1,4 +1,5 @@
 import { Template } from 'tinacms';
+import { AlertBlock, CtaBlock, ImageBlock, RichtextBlock, TimelineBlock } from '../blocks';
 
 export const HomeTemplate: Template = {
     name: 'home',
@@ -80,6 +81,30 @@ export const HomeTemplate: Template = {
                     type: 'string',
                     required: true,
                     isTitle: true,
+                },
+            ],
+        },
+        {
+            name: 'pageSections',
+            label: 'Secciones',
+            type: 'object',
+            list: true,
+            fields: [
+                {
+                    name: 'title',
+                    label: 'Título',
+                    type: 'string',
+                    required: true,
+                },
+                {
+                    name: 'content',
+                    label: 'Contenido',
+                    type: 'object',
+                    list: true,
+                    ui: {
+                        visualSelector: true,
+                    },
+                    templates: [AlertBlock, ImageBlock, CtaBlock, RichtextBlock, TimelineBlock],
                 },
             ],
         },
