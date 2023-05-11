@@ -4,17 +4,15 @@ import DicytPage from '../pages/Dicyt';
 import HomePage from '../pages/Home';
 
 const Pages: CollectionConfig = {
-    slug: 'pages',
+    slug: 'Pages',
     labels: {
-        singular: 'Page',
-        plural: 'Pages',
-    },
-    admin: {
-        useAsTitle: 'someField',
+        singular: 'Página',
+        plural: 'Páginas',
     },
     fields: [
         {
             name: 'pages',
+            label: 'Páginas',
             type: 'blocks',
             blocks: [HomePage, AboutPage, DicytPage],
         },

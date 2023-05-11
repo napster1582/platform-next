@@ -1,7 +1,7 @@
 import { Block } from 'payload/types';
 
 const MenuBlock: Block = {
-    slug: 'menu',
+    slug: 'Menu',
     fields: [
         {
             name: 'items',
@@ -15,7 +15,7 @@ const MenuBlock: Block = {
                 {
                     name: 'icon',
                     type: 'upload',
-                    relationTo: 'media',
+                    relationTo: 'Media',
                     filterOptions: {
                         mimeType: { contains: 'image' },
                     },
@@ -24,6 +24,11 @@ const MenuBlock: Block = {
                     name: 'description',
                     type: 'text',
                     maxLength: 40,
+                },
+                {
+                    name: 'href',
+                    type: 'text',
+                    required: true,
                 },
             ],
         },
