@@ -24,7 +24,7 @@
   pnpm docs:dev
   ```
 
-- Web (Svelte-kit): [http://localhost:3002](http://localhost:3002)
+- Web (Sveltekit + TinaCMS): [http://localhost:3002](http://localhost:3002)
 
   ```sh
   pnpm web:dev
