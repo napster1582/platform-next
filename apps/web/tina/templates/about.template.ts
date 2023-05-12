@@ -5,9 +5,9 @@ export const AboutTemplate: Template = {
     label: 'About',
     fields: [
         {
+            type: 'number',
             name: 'age',
             label: 'Edad',
-            type: 'number',
         },
     ],
 };
