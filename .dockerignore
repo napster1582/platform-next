@@ -57,3 +57,6 @@ CONTRIBUTORS
 # Ignore OS-specific files
 .DS_Store
 Thumbs.db
+
+# Ignore svelte-kit files
+.svelte-kit

@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 /build
+**/build
 .svelte-kit
 .env
 .env.*
@@ -11,3 +12,6 @@ __generated__
 pnpm-lock.yaml
 package-lock.json
 yarn.lock
+
+# Ignore test coverage
+**/coverage

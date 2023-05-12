@@ -1,28 +1,32 @@
-# Base image
-FROM node:18-alpine as build
+# ;-------------;
+# ; Build stage ;
+# ;-------------;
+FROM node:20-alpine as builder
 
-# Set the working directory
-WORKDIR /usr/apps/docs
+WORKDIR /app
 
-# Install pnpm package manager
-RUN npm i -g pnpm
+RUN apk add --no-cache git \
+    && npm i -g pnpm
 
-# Copy package.json, pnpm-lock.yaml, and the entire workspace
-COPY package.json pnpm-lock.yaml ./
 COPY . .
 
-# Install dependencies, build the app, and remove dev dependencies
-RUN pnpm install --frozen-lockfile && \
-    pnpm docs:build && \
-    pnpm prune --prod && \
-    rm -rf /root/.pnpm-store
+RUN pnpm install --frozen-lockfile \ 
+    && pnpm docs:build \
+    && pnpm prune --prod \
+    && rm -rf /root/.pnpm-store \
+    && rm -rf /app/node_modules \
+    && rm -rf /app/docs/node_modules
 
-# Use nginx to serve the contents of the dist folder
-FROM nginx:latest
+# ;---------------;
+# ; Runtime stage ;
+# ;---------------;
+FROM nginx:stable-alpine
 
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /usr/src/app/dist/apps/docs /usr/share/nginx/html
+WORKDIR /app
+
+COPY --from=builder nginx.conf /etc/nginx/nginx.conf
+COPY --from=builder /app/docs/.vitepress/dist /usr/share/nginx/html
 
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"] 
