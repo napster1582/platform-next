@@ -11,13 +11,15 @@ services:
         ports:
             - '27017:27017'
         volumes:
-            - mongo_data:/var/lib/mongo/data
+            - jinen-data:/var/lib/mongo/data
         networks:
             - jinen-network               
 
 volumes:
-    mongo_data:
+    jinen-data:
+        name: jinen-data
 
 networks:
-  jinen-network:
-    driver: bridge    
+    jinen-network:
+        name: jinen-network
+        driver: bridge    

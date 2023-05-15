@@ -12,6 +12,9 @@ app.get('/', (_, res) => {
 });
 
 const start = async () => {
+    console.log(process.env.PAYLOAD_SECRET);
+    console.log(process.env.MONGODB_URI);
+
     // Initialize Payload
     await payload.init({
         secret: process.env.PAYLOAD_SECRET,
@@ -24,7 +27,7 @@ const start = async () => {
 
     // Add your own express routes here
 
-    app.listen(3000);
+    app.listen(3001);
 };
 
 start();

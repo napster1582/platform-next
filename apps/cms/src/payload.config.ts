@@ -4,7 +4,7 @@ import { Media, Pages, Users } from './collections';
 import { Footer, Header, SocialMedia } from './globals';
 
 export default buildConfig({
-    serverURL: 'http://localhost:3000',
+    serverURL: 'http://localhost:3001',
     collections: [Users, Media, Pages],
     globals: [Header, Footer, SocialMedia],
     typescript: {

@@ -37,13 +37,19 @@
 **Docs:**
 
 ```sh
-docker build -t jinen-docs -f Dockerfile.docs .
+docker buildx build -t jinen-docs:latest -f Dockerfile.docs .
+```
+
+**Cms:**
+
+```sh
+docker buildx build -t jinen-cms:latest -f Dockerfile.cms .
 ```
 
 **Web:**
 
 ```sh
-docker build -t jinen-web -f Dockerfile.web .
+docker buildx build -t jinen-web:latest -f Dockerfile.web .
 ```
 
 ### Ejecutar imágenes
@@ -51,13 +57,19 @@ docker build -t jinen-web -f Dockerfile.web .
 **Docs:**
 
 ```sh
-docker run -p 3000:3000 -d jinen-docs
+docker run --name jinen-docs-container -p 3000:3000 -d jinen-docs
+```
+
+**Cms:**
+
+```sh
+docker run --name jinen-docs-container --network="jinen-network" -p 3001:3001 -d jinen-cms
 ```
 
 **Web:**
 
 ```sh
-docker run -p 3002:3002 -d jinen-web
+docker run --name jinen-docs-container -p 3002:3002 -d jinen-web
 ```
 
 ## Guía de contribución
