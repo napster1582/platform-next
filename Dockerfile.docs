@@ -5,17 +5,12 @@ FROM node:20-alpine as builder
 
 WORKDIR /app
 
-RUN apk add --no-cache git \
-    && npm i -g pnpm
+RUN apk add --no-cache git &&
+    npm i -g pnpm
 
 COPY . .
 
-RUN pnpm install --frozen-lockfile \ 
-    && pnpm docs:build \
-    && pnpm prune --prod \
-    && rm -rf /root/.pnpm-store \
-    && rm -rf /app/node_modules \
-    && rm -rf /app/docs/node_modules
+RUN pnpm install --frozen-lockfile && pnpm docs:build && pnpm prune --prod
 
 # ;---------------;
 # ; Runtime stage ;
@@ -29,4 +24,4 @@ COPY --from=builder /app/docs/.vitepress/dist /usr/share/nginx/html
 
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"] 
+CMD ["nginx", "-g", "daemon off;"]

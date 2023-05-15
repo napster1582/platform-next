@@ -11,12 +11,7 @@ RUN npm i -g pnpm
 
 COPY . .
 
-RUN pnpm install --frozen-lockfile \ 
-    && pnpm web:build \
-    && pnpm prune --prod \
-    && rm -rf /root/.pnpm-store \
-    && rm -rf /app/node_modules \
-    && rm -rf /app/web/node_modules
+RUN pnpm install --frozen-lockfile && pnpm web:build && pnpm prune --prod
 
 # ;---------------;
 # ; Runtime stage ;
