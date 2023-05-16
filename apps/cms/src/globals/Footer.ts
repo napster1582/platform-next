@@ -5,7 +5,7 @@ const Footer: GlobalConfig = {
     fields: [
         {
             name: 'title',
-            label: 'título',
+            label: 'Título',
             type: 'text',
         },
     ],

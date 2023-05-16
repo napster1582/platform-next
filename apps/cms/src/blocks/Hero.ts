@@ -5,7 +5,7 @@ const HeroPreviewBlock: Block = {
     fields: [
         {
             name: 'title',
-            label: 'título',
+            label: 'Título',
             type: 'text',
             maxLength: 20,
             required: true,
@@ -26,31 +26,31 @@ const HeroBlock: Block = {
     fields: [
         {
             name: 'items',
-            label: 'elementos',
+            label: 'Elementos',
             type: 'array',
             fields: [
                 {
                     name: 'school',
-                    label: 'escuela',
+                    label: 'Escuela',
                     type: 'text',
                     required: true,
                 },
                 {
                     name: 'title',
-                    label: 'título',
+                    label: 'Título',
                     type: 'text',
                     required: true,
                     maxLength: 60,
                 },
                 {
                     name: 'description',
-                    label: 'descripción',
+                    label: 'Descripción',
                     type: 'text',
                     maxLength: 300,
                 },
                 {
                     name: 'background',
-                    label: 'fondo',
+                    label: 'Fondo',
                     type: 'upload',
                     relationTo: 'media',
                     filterOptions: {
@@ -59,7 +59,7 @@ const HeroBlock: Block = {
                 },
                 {
                     name: 'previews',
-                    label: 'previsualizaciones',
+                    label: 'Previsualizaciones',
                     type: 'blocks',
                     blocks: [HeroPreviewBlock],
                 },
