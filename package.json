@@ -8,9 +8,13 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "npx simple-git-hooks",
+    "docs:dev": "vitepress dev docs --port 3000",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs --port 3000",
     "cms:dev": "pnpm --filter cms dev",
     "cms:start": "pnpm --filter cms start",
     "cms:build": "pnpm --filter cms build",
+    "cms:seed": "pnpm --filter cms seed",
     "web:dev": "pnpm --filter web dev",
     "web:build": "pnpm --filter web build",
     "web:preview": "pnpm --filter web preview",
@@ -18,11 +22,8 @@
     "web:check:watch": "pnpm --filter web check:watch",
     "web:test": "pnpm --filter web test",
     "web:test:unit": "pnpm --filter web test:unit",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs",
-    "eslint": "eslint .",
-    "eslint:fix": "eslint . --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "stylelint": "stylelint **/*.{svelte,vue,tsx,css,pcss,less,scss,sass} --quiet-deprecation-warnings",
     "stylelint:fix": "stylelint **/*.{svelte,vue,tsx,css,pcss,less,scss,sass} --quiet-deprecation-warnings --fix",
     "prettier": "prettier --write"
@@ -33,7 +34,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,vue,svelte}": [
-      "pnpm eslint:fix",
+      "pnpm lint:fix",
       "pnpm prettier"
     ],
     "*.{svelte,vue,tsx,css,pcss,less,scss,sass}": [
@@ -61,7 +62,7 @@
     "stylelint": "^15.4.0",
     "typescript": "^5.0.4",
     "vite": "^4.2.1",
-    "vitepress": "1.0.0-alpha.65",
+    "vitepress": "1.0.0-alpha.75",
     "vitest": "^0.29.8"
   }
 }

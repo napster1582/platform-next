@@ -1,11 +1,15 @@
 import { Block } from 'payload/types';
 
 const DicytPage: Block = {
-    slug: 'DICYT',
+    slug: 'Dicyt',
+    labels: {
+        singular: 'DICYT',
+        plural: 'DICYT',
+    },
     fields: [
         {
-            type: 'tabs',
-            tabs: [],
+            name: 'lorem',
+            type: 'text',
         },
     ],
 };

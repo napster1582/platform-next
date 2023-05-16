@@ -13,7 +13,7 @@ const HeroPreviewBlock: Block = {
         {
             name: 'background',
             type: 'upload',
-            relationTo: 'media',
+            relationTo: 'Media',
             filterOptions: {
                 mimeType: { contains: 'image' },
             },
@@ -22,7 +22,7 @@ const HeroPreviewBlock: Block = {
 };
 
 const HeroBlock: Block = {
-    slug: 'hero',
+    slug: 'Hero',
     fields: [
         {
             name: 'items',
@@ -45,14 +45,14 @@ const HeroBlock: Block = {
                 {
                     name: 'description',
                     label: 'Descripción',
-                    type: 'text',
+                    type: 'textarea',
                     maxLength: 300,
                 },
                 {
                     name: 'background',
                     label: 'Fondo',
                     type: 'upload',
-                    relationTo: 'media',
+                    relationTo: 'Media',
                     filterOptions: {
                         mimeType: { contains: 'image' },
                     },

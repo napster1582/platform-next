@@ -10,6 +10,7 @@ export default defineConfig({
 
     lastUpdated: true,
     cleanUrls: true,
+    ignoreDeadLinks: [/^https?:\/\/localhost/],
 
     markdown: {
         theme: {

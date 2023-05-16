@@ -1,28 +1,27 @@
-# Base image
-FROM node:18-alpine as build
+FROM node:20-alpine as base
 
-# Set the working directory
-WORKDIR /usr/apps/web
+# ;-------------;
+# ; Build stage ;
+# ;-------------;
+FROM base as builder
 
-# Install pnpm package manager
+WORKDIR /app
+
 RUN npm i -g pnpm
 
-# Copy package.json, pnpm-lock.yaml, and the entire workspace
-COPY package.json pnpm-lock.yaml ./
 COPY . .
 
-# Install dependencies, build the app, and remove dev dependencies
-RUN pnpm install --frozen-lockfile && \
-    pnpm web:build && \
-    pnpm prune --prod && \
-    rm -rf /root/.pnpm-store
+RUN pnpm install --frozen-lockfile && pnpm web:build && pnpm prune --prod
 
-# Use nginx to serve the contents of the dist folder
-FROM nginx:latest
+# ;---------------;
+# ; Runtime stage ;
+# ;---------------;
+FROM base as runtime
 
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /usr/src/app/dist/apps/web /usr/share/nginx/html
+WORKDIR /app
 
-EXPOSE 80
+COPY --from=builder /app/apps/web/package.json /app/apps/web/build ./build/
 
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 3002
+
+CMD ["node", "build/index.js"]

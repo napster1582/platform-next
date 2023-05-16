@@ -1,25 +1,10 @@
 #!/bin/bash
 
 domains=(
-    # API
-    "api.dev.jinen.com"
-    "api.stage.jinen.com"
-    "api.jinen.com"
-
-    # CMS
-    "cms.dev.jinen.com"
-    "cms.stage.jinen.com"
-    "cms.jinen.com"
-
     # DOCS
     "docs.dev.jinen.com"
     "docs.stage.jinen.com"
     "docs.jinen.com"
-
-    # ADMIN
-    "admin.dev.jinen.com"
-    "admin.stage.jinen.com"
-    "admin.jinen.com"
 
     # WEB
     "dev.jinen.com"
