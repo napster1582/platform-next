@@ -20,6 +20,7 @@ const SectionDimensionsBlock: Block = {
     fields: [
         {
             name: 'title',
+            label: 'Título',
             type: 'text',
             required: true,
             maxLength: 60,
@@ -41,12 +42,14 @@ const SectionSchoolsBlock: Block = {
     fields: [
         {
             name: 'title',
+            label: 'Título',
             type: 'text',
             required: true,
             maxLength: 60,
         },
         {
             name: 'content',
+            label: 'Contenido',
             type: 'blocks',
             blocks: [RichtextBlock, AlertBlock, CtaBlock, ImageBlock, VideoBlock, PdfBlock],
         },
@@ -62,12 +65,14 @@ const SectionScheduleBlock: Block = {
     fields: [
         {
             name: 'title',
+            label: 'Título',
             type: 'text',
             required: true,
             maxLength: 60,
         },
         {
             name: 'content',
+            label: 'Contenido',
             type: 'blocks',
             blocks: [RichtextBlock, AlertBlock, CtaBlock, TimelineBlock],
         },
@@ -100,12 +105,12 @@ const HomePage: Block = {
                     ],
                 },
                 {
-                    label: 'Menu',
+                    label: 'Menú',
                     description: 'Este tab contiene el menú de navegación principal del sitio.',
                     fields: [
                         {
                             name: 'menu',
-                            label: 'Menu',
+                            label: 'Menú',
                             type: 'blocks',
                             unique: true,
                             blocks: [MenuBlock],
@@ -119,6 +124,7 @@ const HomePage: Block = {
                     fields: [
                         {
                             name: 'sections',
+                            label: 'Secciones',
                             type: 'blocks',
                             unique: true,
                             blocks: [
