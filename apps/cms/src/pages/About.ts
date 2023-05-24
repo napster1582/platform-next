@@ -8,7 +8,8 @@ const AboutPage: Block = {
     },
     fields: [
         {
-            name: 'lorem',
+            name: 'prueba',
+            label: 'Prueba',
             type: 'text',
         },
     ],

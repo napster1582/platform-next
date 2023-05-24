@@ -6,10 +6,12 @@ const Footer: GlobalConfig = {
     fields: [
         {
             name: 'logos',
+            label: 'Logos',
             type: 'array',
             fields: [
                 {
                     name: 'logo',
+                    label: 'Logo',
                     type: 'upload',
                     relationTo: 'Media',
                     filterOptions: {
@@ -20,28 +22,34 @@ const Footer: GlobalConfig = {
         },
         {
             name: 'sections',
+            label: 'Secciones',
             type: 'array',
             fields: [
                 {
                     name: 'section',
+                    label: 'Sección',
                     type: 'group',
                     fields: [
                         {
                             name: 'title',
+                            label: 'Título',
                             type: 'text',
                             required: true,
                         },
                         {
                             name: 'links',
+                            label: 'Enlaces',
                             type: 'array',
                             required: true,
                             fields: [
                                 {
                                     name: 'caption',
+                                    label: 'Subtítulo',
                                     type: 'text',
                                 },
                                 {
                                     name: 'href',
+                                    label: 'Enlace',
                                     type: 'text',
                                 },
                             ],
