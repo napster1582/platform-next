@@ -12,10 +12,12 @@ export const Footer: GlobalConfig = {
     fields: [
         {
             name: 'logos',
+            label: 'Logos',
             type: 'array',
             fields: [
                 {
                     name: 'logo',
+                    label: 'Logo',
                     type: 'upload',
                     relationTo: 'media',
                     filterOptions: {
@@ -42,7 +44,7 @@ export const Footer: GlobalConfig = {
                         },
                         {
                             name: 'links',
-                            label: 'Links',
+                            label: 'Enlaces',
                             type: 'array',
                             required: true,
                             fields: [
@@ -53,7 +55,7 @@ export const Footer: GlobalConfig = {
                                 },
                                 {
                                     name: 'href',
-                                    label: 'Link',
+                                    label: 'Enlace',
                                     type: 'text',
                                 },
                             ],

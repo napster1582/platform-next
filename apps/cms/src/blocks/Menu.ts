@@ -5,15 +5,18 @@ const MenuBlock: Block = {
     fields: [
         {
             name: 'items',
+            label: 'Elementos',
             type: 'array',
             fields: [
                 {
                     name: 'title',
+                    label: 'Título',
                     type: 'text',
                     maxLength: 10,
                 },
                 {
                     name: 'icon',
+                    label: 'Ícono',
                     type: 'upload',
                     relationTo: 'media',
                     filterOptions: {
@@ -22,6 +25,7 @@ const MenuBlock: Block = {
                 },
                 {
                     name: 'description',
+                    label: 'Descripción',
                     type: 'text',
                     maxLength: 40,
                 },
