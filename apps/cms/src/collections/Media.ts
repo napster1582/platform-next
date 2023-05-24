@@ -1,11 +1,14 @@
 import path from 'path';
 import type { CollectionConfig } from 'payload/types';
 
-const Media: CollectionConfig = {
-    slug: 'Media',
+export const Media: CollectionConfig = {
+    slug: 'media',
     labels: {
         singular: 'Multimedia',
         plural: 'Multimedia',
+    },
+    admin: {
+        group: 'Contenido',
     },
     upload: {
         staticURL: '/media',
@@ -46,5 +49,3 @@ const Media: CollectionConfig = {
     },
     fields: [],
 };
-
-export default Media;

@@ -1,8 +1,14 @@
 import { GlobalConfig } from 'payload/types';
 
-const Footer: GlobalConfig = {
+export const Footer: GlobalConfig = {
     slug: 'Footer',
-    label: 'Pie de página',
+    label: '>_ Pie de página',
+    admin: {
+        group: 'Admin',
+    },
+    access: {
+        read: () => true,
+    },
     fields: [
         {
             name: 'logos',
@@ -11,7 +17,7 @@ const Footer: GlobalConfig = {
                 {
                     name: 'logo',
                     type: 'upload',
-                    relationTo: 'Media',
+                    relationTo: 'media',
                     filterOptions: {
                         mimeType: { contains: 'image' },
                     },
@@ -20,28 +26,34 @@ const Footer: GlobalConfig = {
         },
         {
             name: 'sections',
+            label: 'Secciones',
             type: 'array',
             fields: [
                 {
                     name: 'section',
+                    label: 'Sección',
                     type: 'group',
                     fields: [
                         {
                             name: 'title',
+                            label: 'Título',
                             type: 'text',
                             required: true,
                         },
                         {
                             name: 'links',
+                            label: 'Links',
                             type: 'array',
                             required: true,
                             fields: [
                                 {
                                     name: 'caption',
+                                    label: 'Texto',
                                     type: 'text',
                                 },
                                 {
                                     name: 'href',
+                                    label: 'Link',
                                     type: 'text',
                                 },
                             ],
@@ -52,5 +64,3 @@ const Footer: GlobalConfig = {
         },
     ],
 };
-
-export default Footer;

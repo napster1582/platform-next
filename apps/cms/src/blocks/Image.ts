@@ -8,12 +8,19 @@ const ImageBlock: Block = {
     },
     fields: [
         {
-            name: 'image',
-            type: 'upload',
-            relationTo: 'Media',
-            filterOptions: {
-                mimeType: { contains: 'image' },
-            },
+            name: 'group',
+            label: 'Grupos',
+            type: 'array',
+            fields: [
+                {
+                    name: 'image',
+                    type: 'upload',
+                    relationTo: 'media',
+                    filterOptions: {
+                        mimeType: { contains: 'image' },
+                    },
+                },
+            ],
         },
     ],
 };

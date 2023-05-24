@@ -1,7 +1,14 @@
-import { Block } from 'payload/types';
+import { GlobalConfig } from 'payload/types';
 
-const MenuBlock: Block = {
+export const MainMenu: GlobalConfig = {
     slug: 'Menu',
+    label: '>_ Menú principal',
+    admin: {
+        group: 'Admin',
+    },
+    access: {
+        read: () => true,
+    },
     fields: [
         {
             name: 'items',
@@ -34,5 +41,3 @@ const MenuBlock: Block = {
         },
     ],
 };
-
-export default MenuBlock;

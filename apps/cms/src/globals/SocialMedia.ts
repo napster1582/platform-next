@@ -1,59 +1,41 @@
-import { Block, GlobalConfig } from 'payload/types';
+import { GlobalConfig } from 'payload/types';
 
-const FacebookBlock: Block = {
-    slug: 'Facebook',
-    fields: [
-        {
-            name: 'href',
-            type: 'text',
-            required: true,
-        },
-    ],
-};
-
-const InstagramBlock: Block = {
-    slug: 'Instagram',
-    fields: [
-        {
-            name: 'href',
-            type: 'text',
-            required: true,
-        },
-    ],
-};
-
-const TwitterBlock: Block = {
-    slug: 'Twitter',
-    fields: [
-        {
-            name: 'href',
-            type: 'text',
-            required: true,
-        },
-    ],
-};
-
-const LinkedInBlock: Block = {
-    slug: 'LinkedIn',
-    fields: [
-        {
-            name: 'href',
-            type: 'text',
-            required: true,
-        },
-    ],
-};
-
-const SocialMedia: GlobalConfig = {
+export const SocialMedia: GlobalConfig = {
     slug: 'SocialMedia',
-    label: 'Redes sociales',
+    label: '>_ Redes sociales',
+    admin: {
+        group: 'Admin',
+    },
+    access: {
+        read: () => true,
+    },
     fields: [
         {
             name: 'socialMedia',
-            type: 'blocks',
-            blocks: [FacebookBlock, InstagramBlock, TwitterBlock, LinkedInBlock],
+            label: 'Redes sociales',
+            type: 'group',
+            fields: [
+                {
+                    name: 'facebook',
+                    label: 'Facebook (URL)',
+                    type: 'text',
+                },
+                {
+                    name: 'instagram',
+                    label: 'Instagram (URL)',
+                    type: 'text',
+                },
+                {
+                    name: 'twitter',
+                    label: 'Twitter (URL)',
+                    type: 'text',
+                },
+                {
+                    name: 'linkedin',
+                    label: 'LinkedIn (URL)',
+                    type: 'text',
+                },
+            ],
         },
     ],
 };
-
-export default SocialMedia;

@@ -70,6 +70,21 @@ importers:
 
   apps/cms:
     dependencies:
+      '@payloadcms/plugin-form-builder':
+        specifier: ^1.0.15
+        version: 1.0.15(payload@1.7.2)(react@18.2.0)
+      '@payloadcms/plugin-nested-docs':
+        specifier: ^1.0.4
+        version: 1.0.4(payload@1.7.2)(react@18.2.0)
+      '@payloadcms/plugin-search':
+        specifier: ^1.0.0
+        version: 1.0.0(payload@1.7.2)(react@18.2.0)
+      '@payloadcms/plugin-seo':
+        specifier: ^1.0.13
+        version: 1.0.13(payload@1.7.2)(react@18.2.0)
+      deepmerge:
+        specifier: ^4.3.1
+        version: 4.3.1
       dotenv:
         specifier: ^8.2.0
         version: 8.2.0
@@ -79,6 +94,9 @@ importers:
       payload:
         specifier: ^1.7.2
         version: 1.7.2(monaco-editor@0.38.0)(scheduler@0.23.0)(typescript@4.8.4)
+      payload-plugin-password-protection:
+        specifier: ^0.0.2
+        version: 0.0.2(payload@1.7.2)(react@18.2.0)
     devDependencies:
       '@types/express':
         specifier: ^4.17.9
@@ -1294,6 +1312,49 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
     dev: true
+
+  /@payloadcms/plugin-form-builder@1.0.15(payload@1.7.2)(react@18.2.0):
+    resolution: {integrity: sha512-lr6TnO95rbr3Zcjgc157pEJ5P2OpTdz13QKqSfESjdAGAinhfYtM903jgAfLVCV16o2MyyOjpEMMt9kuwx3LOQ==}
+    peerDependencies:
+      payload: ^0.18.5 || ^1.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      deepmerge: 4.3.1
+      escape-html: 1.0.3
+      payload: 1.7.2(monaco-editor@0.38.0)(scheduler@0.23.0)(typescript@4.8.4)
+      react: 18.2.0
+    dev: false
+
+  /@payloadcms/plugin-nested-docs@1.0.4(payload@1.7.2)(react@18.2.0):
+    resolution: {integrity: sha512-vjhk3fE/uRkUSNg0UuAv/NIEvDDMRcbEHSgxOo/MbmXOT2LFsh3fPq+Gq4+cL1H9s+FStiIkygigv7J5fgOZwA==}
+    peerDependencies:
+      payload: ^0.18.5
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      payload: 1.7.2(monaco-editor@0.38.0)(scheduler@0.23.0)(typescript@4.8.4)
+      react: 18.2.0
+    dev: false
+
+  /@payloadcms/plugin-search@1.0.0(payload@1.7.2)(react@18.2.0):
+    resolution: {integrity: sha512-0XDJGjVYvLCd0Kc90EGiZ4FvB4d+BCc8Z9jQfK2yxdgkyk2yOwlwLhtaLZWaSse7cIm8nirmfaktgbEPZ2DsxA==}
+    peerDependencies:
+      payload: ^0.18.5
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      payload: 1.7.2(monaco-editor@0.38.0)(scheduler@0.23.0)(typescript@4.8.4)
+      react: 18.2.0
+      ts-deepmerge: 2.0.7
+    dev: false
+
+  /@payloadcms/plugin-seo@1.0.13(payload@1.7.2)(react@18.2.0):
+    resolution: {integrity: sha512-GPIyGTe6vU8GRFMYhNoUDrGWxm0uiqfIQQSsAuZjEM6YGFozo/AnpnjcT6VS/led/7HRFF8ijOy82l0VaLNC3w==}
+    peerDependencies:
+      payload: ^0.18.5 || ^1.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      payload: 1.7.2(monaco-editor@0.38.0)(scheduler@0.23.0)(typescript@4.8.4)
+      react: 18.2.0
+    dev: false
 
   /@playwright/test@1.32.3:
     resolution: {integrity: sha512-BvWNvK0RfBriindxhLVabi8BRe3X0J9EVjKlcmhxjg4giWBD/xleLcg2dz7Tx0agu28rczjNIPQWznwzDwVsZQ==}
@@ -6617,6 +6678,16 @@ packages:
     resolution: {integrity: sha512-KG8UEiEVkR3wGEb4m5yZkVCzigAD+cVEJck2CzYZO37ZGJfctvVptVO192MwrtPhzONn6go8ylnOdMhKqi4nfg==}
     dev: false
 
+  /payload-plugin-password-protection@0.0.2(payload@1.7.2)(react@18.2.0):
+    resolution: {integrity: sha512-LsDc2kpPqPlLLEgrpBKRy7/6jasLmD8eNoGjrfdh4kIkUnGK9Ei5EAe+uUrc1AZjhh1Cjr11zoef/EXRGaKc1w==}
+    peerDependencies:
+      payload: ^0.15.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      payload: 1.7.2(monaco-editor@0.38.0)(scheduler@0.23.0)(typescript@4.8.4)
+      react: 18.2.0
+    dev: false
+
   /payload@1.7.2(monaco-editor@0.38.0)(scheduler@0.23.0)(typescript@4.8.4):
     resolution: {integrity: sha512-577DgrstocvKlnBo5ZgXEoH65qtoxP7HozgpgsFqAAgxCxudJ1zlnAAvce5usFxYdkOg6Yj1ezkq2ttLJeZbxA==}
     engines: {node: '>=14', yarn: '>=1.22 <2'}
@@ -9677,6 +9748,10 @@ packages:
     resolution: {integrity: sha512-95Pu1QXQvruGEhv62XCMO3Mm90GscOCClvrIUwCM0PYOXK3kaF3l3sIHxx71ThJfcbM2O5Au6SO3AWCSEfW4mQ==}
     dependencies:
       utf8-byte-length: 1.0.4
+    dev: false
+
+  /ts-deepmerge@2.0.7:
+    resolution: {integrity: sha512-3phiGcxPSSR47RBubQxPoZ+pqXsEsozLo4G4AlSrsMKTFg9TA3l+3he5BqpUi9wiuDbaHWXH/amlzQ49uEdXtg==}
     dev: false
 
   /ts-essentials@7.0.3(typescript@4.8.4):

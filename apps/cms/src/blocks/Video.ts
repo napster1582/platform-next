@@ -8,12 +8,19 @@ const VideoBlock: Block = {
     },
     fields: [
         {
-            name: 'video',
-            type: 'upload',
-            relationTo: 'Media',
-            filterOptions: {
-                mimeType: { contains: 'video' },
-            },
+            name: 'group',
+            label: 'Grupos',
+            type: 'array',
+            fields: [
+                {
+                    name: 'video',
+                    type: 'upload',
+                    relationTo: 'media',
+                    filterOptions: {
+                        mimeType: { contains: 'video' },
+                    },
+                },
+            ],
         },
     ],
 };

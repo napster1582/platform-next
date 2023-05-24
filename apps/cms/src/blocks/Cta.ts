@@ -8,20 +8,27 @@ const CtaBlock: Block = {
     },
     fields: [
         {
-            name: 'badge',
-            type: 'text',
-            maxLength: 15,
-        },
-        {
-            name: 'caption',
-            type: 'text',
-            required: true,
-            maxLength: 60,
-        },
-        {
-            name: 'href',
-            type: 'text',
-            required: true,
+            name: 'group',
+            label: 'Grupos',
+            type: 'array',
+            fields: [
+                {
+                    name: 'badge',
+                    type: 'text',
+                    maxLength: 15,
+                },
+                {
+                    name: 'caption',
+                    type: 'text',
+                    required: true,
+                    maxLength: 90,
+                },
+                {
+                    name: 'href',
+                    type: 'text',
+                    required: true,
+                },
+            ],
         },
     ],
 };

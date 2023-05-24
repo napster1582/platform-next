@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+    docs:
+        image: juanmesa2097/jinen-docs:latest
+        container_name: jinen-docs-production
+        restart: always
+        ports:
+            - '3000:80'        
+    
+    cms:
+        image: juanmesa2097/jinen-cms:latest
+        container_name: jinen-cms-production
+        restart: always
+        environment:            
+            NODE_ENV: production
+            PAYLOAD_SECRET: my-secret
+            MONGODB_URI: mongodb://user:root@mongo:27017/?authMechanism=DEFAULT
+            PAYLOAD_CONFIG_PATH: dist/payload.config.js
+        ports:
+            - '3001:3001'
+        networks:
+            - jinen-network               
+    
+    web:
+        image: juanmesa2097/jinen-web:latest
+        container_name: jinen-web-production
+        restart: always
+        ports:
+            - '3002:3002'                
+
+networks:
+    jinen-network:
+        external: 
+            name: jinen-network

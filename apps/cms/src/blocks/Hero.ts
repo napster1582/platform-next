@@ -12,7 +12,7 @@ const HeroPreviewBlock: Block = {
         {
             name: 'background',
             type: 'upload',
-            relationTo: 'Media',
+            relationTo: 'media',
             filterOptions: {
                 mimeType: { contains: 'image' },
             },
@@ -46,7 +46,7 @@ const HeroBlock: Block = {
                 {
                     name: 'background',
                     type: 'upload',
-                    relationTo: 'Media',
+                    relationTo: 'media',
                     filterOptions: {
                         mimeType: { contains: 'image' },
                     },

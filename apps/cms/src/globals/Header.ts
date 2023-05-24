@@ -1,13 +1,19 @@
 import { GlobalConfig } from 'payload/types';
 
-const Header: GlobalConfig = {
+export const Header: GlobalConfig = {
     slug: 'Header',
-    label: 'Encabezado',
+    label: '>_ Encabezado',
+    admin: {
+        group: 'Admin',
+    },
+    access: {
+        read: () => true,
+    },
     fields: [
         {
             name: 'logo',
             type: 'upload',
-            relationTo: 'Media',
+            relationTo: 'media',
             filterOptions: {
                 mimeType: { contains: 'image' },
             },
@@ -39,8 +45,14 @@ const Header: GlobalConfig = {
                             name: 'style',
                             type: 'radio',
                             options: [
-                                { label: 'Link', value: 'link' },
-                                { label: 'Buttton', value: 'button' },
+                                {
+                                    label: 'Link',
+                                    value: 'link',
+                                },
+                                {
+                                    label: 'Botón',
+                                    value: 'button',
+                                },
                             ],
                             defaultValue: 'link',
                         },
@@ -71,5 +83,3 @@ const Header: GlobalConfig = {
         },
     ],
 };
-
-export default Header;

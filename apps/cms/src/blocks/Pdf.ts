@@ -8,12 +8,19 @@ const PdfBlock: Block = {
     },
     fields: [
         {
-            name: 'pdf',
-            type: 'upload',
-            relationTo: 'Media',
-            filterOptions: {
-                mimeType: { contains: 'application/pdf' },
-            },
+            name: 'group',
+            label: 'Grupos',
+            type: 'array',
+            fields: [
+                {
+                    name: 'pdf',
+                    type: 'upload',
+                    relationTo: 'media',
+                    filterOptions: {
+                        mimeType: { contains: 'application/pdf' },
+                    },
+                },
+            ],
         },
     ],
 };

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import {
         Button,
         Chevron,
@@ -10,7 +10,8 @@
         NavUl,
         Navbar,
     } from 'flowbite-svelte';
-    import Logo from '../logo/Logo.svelte';
+
+    export let data: any;
 </script>
 
 <header class="header">
@@ -21,79 +22,71 @@
         let:toggle
     >
         <NavBrand href="/">
-            <Logo
-                src="jinen"
-                className="w-[70px]"
+            <img
+                src={data.logo.url}
+                class="w-[70px]"
+                alt="Jinen logo"
             />
             <span
                 class="ml-2 hidden max-w-[200px] self-center text-xl font-semibold capitalize dark:text-white md:inline"
             >
-                Jefatura integral de educación naval
+                {data.title}
             </span>
         </NavBrand>
+
         <NavHamburger on:click={toggle} />
+
         <NavUl
             {hidden}
             ulClass="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium bg-inherit border-none"
             nonActiveClass="text-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
         >
-            <NavLi
-                href="/home"
-                nonActiveClass="text-white mt-3">Inicio</NavLi
-            >
-            <NavLi
-                id="nav-about"
-                nonActiveClass="text-white cursor-pointer mt-3"
-            >
-                <Chevron aligned>Conózcanos</Chevron>
-            </NavLi>
-            <NavLi>
-                <Button color="light">
-                    <span class="icon-[solar--login-2-outline] mr-2 text-lg" />
+            {#each data.navbar?.navbarItem ?? [] as item}
+                {#if item.children.length}
+                    <NavLi
+                        id="nav-about"
+                        nonActiveClass="text-white cursor-pointer mt-3"
+                    >
+                        <Chevron aligned>
+                            {item.caption}
+                        </Chevron>
+                    </NavLi>
 
-                    Ingresar
-                </Button>
-            </NavLi>
-            <Dropdown
-                triggeredBy="#nav-about"
-                class="z-20 w-44"
-            >
-                <DropdownItem href="about">Función</DropdownItem>
-                <DropdownItem
-                    href="#"
-                    class="cursor-not-allowed opacity-20"
-                >
-                    Jefe de la Jefatura
-                </DropdownItem>
-                <DropdownItem
-                    href="#"
-                    class="cursor-not-allowed opacity-20">Organización</DropdownItem
-                >
-                <DropdownItem
-                    href="#"
-                    class="cursor-not-allowed opacity-20">DIEDU</DropdownItem
-                >
-                <DropdownItem href="dicyt">DICYT</DropdownItem>
-                <DropdownItem
-                    href="#"
-                    class="cursor-not-allowed opacity-20">DIHIN</DropdownItem
-                >
-                <DropdownItem
-                    href="#"
-                    class="cursor-not-allowed opacity-20">ANEES</DropdownItem
-                >
-                <DropdownItem
-                    href="#"
-                    class="cursor-not-allowed opacity-20">OPLAE</DropdownItem
-                >
-            </Dropdown>
+                    <Dropdown
+                        triggeredBy="#nav-about"
+                        class="z-20 w-44"
+                    >
+                        {#each item.children as child}
+                            <DropdownItem
+                                href={child.href}
+                                class={child.isDisabled && 'cursor-not-allowed opacity-20'}
+                            >
+                                {child.caption}
+                            </DropdownItem>
+                        {/each}
+                    </Dropdown>
+                {:else if item.style === 'button'}
+                    <NavLi>
+                        <Button color="light">
+                            {item.caption}
+                        </Button>
+                    </NavLi>
+                {:else}
+                    <NavLi
+                        href={item.href}
+                        nonActiveClass="text-white mt-3"
+                    >
+                        {item.caption}
+                    </NavLi>
+                {/if}
+            {/each}
         </NavUl>
     </Navbar>
 </header>
 
 <style lang="postcss">
     .header {
-        @apply bg-[#1a56db];
+        @apply bg-blue-600;
         @apply sticky inset-x-0 top-0 z-20;
         @apply shadow-xl;
         @apply transition duration-300 ease-linear;

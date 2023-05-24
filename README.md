@@ -57,19 +57,19 @@ docker buildx build -t jinen-web:latest -f Dockerfile.web .
 **Docs:**
 
 ```sh
-docker run --name jinen-docs-container -p 3000:3000 -d jinen-docs
+docker run -p 3000:80 -d jinen-docs
 ```
 
 **Cms:**
 
 ```sh
-docker run --name jinen-docs-container --network="jinen-network" -p 3001:3001 -d jinen-cms
+docker run --network="jinen-network" --env-file envs/development.env -p 3001:3001 -d jinen-cms
 ```
 
 **Web:**
 
 ```sh
-docker run --name jinen-docs-container -p 3002:3002 -d jinen-web
+docker run -p 3002:3002 -d jinen-web
 ```
 
 ## Guía de contribución

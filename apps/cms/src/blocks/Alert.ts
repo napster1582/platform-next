@@ -8,16 +8,23 @@ const AlertBlock: Block = {
     },
     fields: [
         {
-            name: 'title',
-            type: 'text',
-            required: true,
-            maxLength: 20,
-        },
-        {
-            name: 'description',
-            type: 'textarea',
-            required: true,
-            maxLength: 200,
+            name: 'group',
+            label: 'Grupos',
+            type: 'array',
+            fields: [
+                {
+                    name: 'title',
+                    type: 'text',
+                    required: true,
+                    maxLength: 20,
+                },
+                {
+                    name: 'description',
+                    type: 'textarea',
+                    required: true,
+                    maxLength: 200,
+                },
+            ],
         },
     ],
 };

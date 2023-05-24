@@ -1,3 +1,4 @@
-export { default as Media } from './Media';
-export { default as Pages } from './Pages';
-export { default as Users } from './Users';
+export * from './Events';
+export * from './Media';
+export * from './Pages';
+export * from './Users';
