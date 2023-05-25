@@ -1,30 +1,25 @@
-import * as dotenv from 'dotenv';
 import express from 'express';
 import payload from 'payload';
 
-dotenv.config();
+import { env } from './env';
 
 const app = express();
 
-// Redirect root to Admin panel
 app.get('/', (_, res) => {
     res.redirect('/admin');
 });
 
 const start = async () => {
-    // Initialize Payload
     await payload.init({
-        secret: process.env.PAYLOAD_SECRET,
-        mongoURL: process.env.MONGODB_URI,
+        secret: env((schema) => schema.PAYLOAD_SECRET),
+        mongoURL: env((schema) => schema.MONGODB_URI),
         express: app,
         onInit: async () => {
             payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
         },
     });
 
-    // Add your own express routes here
-
-    app.listen(3000);
+    app.listen(env((schema) => schema.JINEN_CMS_PORT));
 };
 
 start();

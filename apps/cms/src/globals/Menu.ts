@@ -1,11 +1,30 @@
-import { Block } from 'payload/types';
+import { GlobalConfig } from 'payload/types';
+import { isAdmin } from '../collections/access';
+import { Link } from '../fields';
 
-const MenuBlock: Block = {
-    slug: 'Menu',
+export const Menu: GlobalConfig = {
+    slug: 'menu',
+    label: 'Menú',
+    admin: {
+        group: 'Contenido global',
+    },
+    access: {
+        read: () => true,
+        update: isAdmin,
+    },
+    versions: {
+        drafts: {
+            autosave: true,
+        },
+    },
     fields: [
         {
             name: 'items',
             label: 'Elementos',
+            labels: {
+                singular: 'Elemento',
+                plural: 'Elementos',
+            },
             type: 'array',
             fields: [
                 {
@@ -18,7 +37,7 @@ const MenuBlock: Block = {
                     name: 'icon',
                     label: 'Ícono',
                     type: 'upload',
-                    relationTo: 'Media',
+                    relationTo: 'media',
                     filterOptions: {
                         mimeType: { contains: 'image' },
                     },
@@ -29,14 +48,8 @@ const MenuBlock: Block = {
                     type: 'text',
                     maxLength: 40,
                 },
-                {
-                    name: 'href',
-                    type: 'text',
-                    required: true,
-                },
+                Link(),
             ],
         },
     ],
 };
-
-export default MenuBlock;

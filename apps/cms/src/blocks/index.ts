@@ -1,9 +1,0 @@
-export { default as AlertBlock } from './Alert';
-export { default as CtaBlock } from './Cta';
-export { default as HeroBlock } from './Hero';
-export { default as ImageBlock } from './Image';
-export { default as MenuBlock } from './Menu';
-export { default as PdfBlock } from './Pdf';
-export { default as RichtextBlock } from './Richtext';
-export { default as TimelineBlock } from './Timeline';
-export { default as VideoBlock } from './Video';

@@ -1,6 +1,8 @@
-<script>
+<script lang="ts">
     import Link from '../link/Link.svelte';
     import Logo from '../logo/Logo.svelte';
+
+    export let data: any;
 </script>
 
 <footer class="footer relative mt-24 bg-black">

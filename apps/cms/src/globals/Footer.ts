@@ -1,19 +1,31 @@
 import { GlobalConfig } from 'payload/types';
+import { isAdmin } from '../collections/access';
 
-const Footer: GlobalConfig = {
-    slug: 'Footer',
+export const Footer: GlobalConfig = {
+    slug: 'footer',
     label: 'Pie de página',
+    admin: {
+        group: 'Contenido global',
+    },
+    access: {
+        read: () => true,
+        update: isAdmin,
+    },
     fields: [
         {
             name: 'logos',
             label: 'Logos',
+            labels: {
+                singular: 'Logo',
+                plural: 'Logos',
+            },
             type: 'array',
             fields: [
                 {
                     name: 'logo',
                     label: 'Logo',
                     type: 'upload',
-                    relationTo: 'Media',
+                    relationTo: 'media',
                     filterOptions: {
                         mimeType: { contains: 'image' },
                     },
@@ -23,6 +35,10 @@ const Footer: GlobalConfig = {
         {
             name: 'sections',
             label: 'Secciones',
+            labels: {
+                singular: 'Sección',
+                plural: 'Secciones',
+            },
             type: 'array',
             fields: [
                 {
@@ -44,7 +60,7 @@ const Footer: GlobalConfig = {
                             fields: [
                                 {
                                     name: 'caption',
-                                    label: 'Subtítulo',
+                                    label: 'Texto',
                                     type: 'text',
                                 },
                                 {
@@ -60,5 +76,3 @@ const Footer: GlobalConfig = {
         },
     ],
 };
-
-export default Footer;
