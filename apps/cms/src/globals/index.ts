@@ -1,4 +1,5 @@
+export * from './Events';
 export * from './Footer';
 export * from './Header';
-export * from './MainMenu';
-export * from './SocialMedia';
+export * from './Menu';
+export * from './Socials';

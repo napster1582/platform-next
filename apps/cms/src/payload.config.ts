@@ -6,18 +6,20 @@ import PluginPasswordProtection from 'payload-plugin-password-protection';
 
 import { resolve } from 'path';
 import { buildConfig } from 'payload/config';
-import { Events, Media, Pages, Users } from './collections';
-import { Footer, Header, MainMenu, SocialMedia } from './globals';
+import { Media, Pages, Users } from './collections';
+import { Events, Footer, Header, Menu, Socials } from './globals';
 
 export default buildConfig({
-    serverURL: 'http://localhost:3001', // process.env.PAYLOAD_PUBLIC_SERVER_URL,
-    collections: [Users, Media, Pages, Events],
-    globals: [Header, MainMenu, Footer, SocialMedia],
+    serverURL: 'http://localhost:3001',
+    collections: [Users, Media, Pages],
+    globals: [Events, Header, Menu, Footer, Socials],
     rateLimit: {
         trustProxy: true,
         window: 2 * 60 * 1000, // 2 minutes,
         max: 2400, // limit each IP per windowMS
     },
+    cors: ['http://localhost:3001', 'http://localhost:3002'],
+    csrf: ['http://localhost:3001', 'http://localhost:3002'],
     typescript: {
         outputFile: resolve(__dirname, 'payload-types.ts'),
     },
@@ -27,7 +29,7 @@ export default buildConfig({
     },
     plugins: [
         PluginPasswordProtection({
-            collections: ['pages', 'events'],
+            collections: ['pages'],
         }),
         PluginNestedDocs({
             collections: ['pages'],
@@ -35,19 +37,32 @@ export default buildConfig({
             generateURL: (docs) => docs.reduce((url, doc) => `${url}/${doc.slug}`, ''),
         }),
         PluginSearch({
-            collections: ['pages', 'events'],
+            collections: ['pages'],
+            searchOverrides: {
+                labels: {
+                    singular: 'Resultado de búsqueda',
+                    plural: 'Resultados de búsqueda',
+                },
+            },
             defaultPriorities: {
                 pages: 10,
-                events: 20,
             },
         }),
         PluginFormBuilder({
             formOverrides: {
+                labels: {
+                    singular: 'Formulario',
+                    plural: 'Formularios',
+                },
                 admin: {
                     group: 'Contenido',
                 },
             },
             formSubmissionOverrides: {
+                labels: {
+                    singular: 'Envío de formulario',
+                    plural: 'Envíos de formulario',
+                },
                 admin: {
                     group: 'Admin',
                 },

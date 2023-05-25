@@ -1,13 +1,15 @@
 import { GlobalConfig } from 'payload/types';
+import { isAdmin } from '../collections/access';
 
 export const Header: GlobalConfig = {
-    slug: 'Header',
-    label: '>_ Encabezado',
+    slug: 'header',
+    label: 'Encabezado',
     admin: {
-        group: 'Admin',
+        group: 'Contenido global',
     },
     access: {
         read: () => true,
+        update: isAdmin,
     },
     fields: [
         {

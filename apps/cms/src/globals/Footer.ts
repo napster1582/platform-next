@@ -1,18 +1,24 @@
 import { GlobalConfig } from 'payload/types';
+import { isAdmin } from '../collections/access';
 
 export const Footer: GlobalConfig = {
-    slug: 'Footer',
-    label: '>_ Pie de página',
+    slug: 'footer',
+    label: 'Pie de página',
     admin: {
-        group: 'Admin',
+        group: 'Contenido global',
     },
     access: {
         read: () => true,
+        update: isAdmin,
     },
     fields: [
         {
             name: 'logos',
             label: 'Logos',
+            labels: {
+                singular: 'Logo',
+                plural: 'Logos',
+            },
             type: 'array',
             fields: [
                 {
@@ -29,6 +35,10 @@ export const Footer: GlobalConfig = {
         {
             name: 'sections',
             label: 'Secciones',
+            labels: {
+                singular: 'Sección',
+                plural: 'Secciones',
+            },
             type: 'array',
             fields: [
                 {

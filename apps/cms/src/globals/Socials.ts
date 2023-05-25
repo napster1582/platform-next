@@ -1,13 +1,15 @@
 import { GlobalConfig } from 'payload/types';
+import { isAdmin } from '../collections/access';
 
-export const SocialMedia: GlobalConfig = {
-    slug: 'SocialMedia',
-    label: '>_ Redes sociales',
+export const Socials: GlobalConfig = {
+    slug: 'socials',
+    label: 'Redes sociales',
     admin: {
-        group: 'Admin',
+        group: 'Contenido global',
     },
     access: {
         read: () => true,
+        update: isAdmin,
     },
     fields: [
         {

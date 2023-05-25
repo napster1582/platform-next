@@ -1,17 +1,22 @@
-import * as dotenv from 'dotenv';
 import express from 'express';
 import payload from 'payload';
-import { seedPages } from './seeds/pages.seed';
-
-dotenv.config();
+import { env } from './env';
 
 (async () => {
     await payload.init({
-        secret: process.env.PAYLOAD_SECRET,
-        mongoURL: process.env.MONGODB_URI,
+        secret: env((schema) => schema.PAYLOAD_SECRET),
+        mongoURL: env((schema) => schema.MONGODB_URI),
         express: express(),
         onInit: async () => {
-            await seedPages(payload);
+            await payload.create({
+                collection: 'users',
+                data: {
+                    email: 'dev@jinen.com',
+                    password: 'demo',
+                    roles: ['admin'],
+                },
+            });
+            // await seedPages(payload);
 
             process.exit();
         },

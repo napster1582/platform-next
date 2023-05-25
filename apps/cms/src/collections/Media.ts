@@ -1,5 +1,6 @@
 import path from 'path';
 import type { CollectionConfig } from 'payload/types';
+import { isAdmin, isAdminOrUser } from './access';
 
 export const Media: CollectionConfig = {
     slug: 'media',
@@ -10,42 +11,42 @@ export const Media: CollectionConfig = {
     admin: {
         group: 'Contenido',
     },
+    access: {
+        read: isAdminOrUser,
+        create: isAdmin,
+        update: isAdmin,
+        delete: isAdmin,
+    },
     upload: {
         staticURL: '/media',
         staticDir: path.resolve(__dirname, '../../media'),
         mimeTypes: ['image/*', 'audio/*', 'video/*', 'application/pdf'],
         imageSizes: [
             {
-                width: 300,
-                height: 300,
-                crop: 'center',
-                name: 'squareSmall',
-            },
-            {
-                width: 400,
-                height: 400,
-                crop: 'center',
                 name: 'thumbnail',
+                width: 480,
+                height: 320,
             },
             {
-                width: 900,
-                height: 450,
-                crop: 'center',
-                name: 'sixteenByNineMedium',
+                name: 'portrait',
+                width: 768,
+                height: 1024,
             },
             {
-                width: 800,
-                height: 800,
-                crop: 'center',
-                name: 'squareLarge',
-            },
-            {
+                name: 'hero',
                 width: 1920,
                 height: 1080,
-                crop: 'center',
-                name: 'fullHD',
             },
         ],
+        adminThumbnail: 'thumbnail',
     },
-    fields: [],
+    fields: [
+        {
+            name: 'alt',
+            label: 'Texto alternativo',
+            type: 'text',
+            required: true,
+            localized: true,
+        },
+    ],
 };

@@ -23,7 +23,7 @@
     >
         <NavBrand href="/">
             <img
-                src={data.logo.url}
+                src={data.logo?.url}
                 class="w-[70px]"
                 alt="Jinen logo"
             />

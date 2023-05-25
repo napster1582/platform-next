@@ -1,25 +1,38 @@
 version: '3.9'
 
 services:
-    mongo:
-        image: mongo:latest
-        container_name: jinen-mongo
+    docs:
+        image: juanmesa2097/jinen-docs:latest
+        container_name: jinen-docs-development
         restart: always
-        environment:
-            MONGO_INITDB_ROOT_USERNAME: user
-            MONGO_INITDB_ROOT_PASSWORD: root
         ports:
-            - '27017:27017'
-        volumes:
-            - jinen-data:/var/lib/mongo/data
+            - '3000:80'        
+    
+    cms:
+        image: juanmesa2097/jinen-cms:latest
+        container_name: jinen-cms-development
+        restart: always
+        environment:            
+            NODE_ENV: development
+            JINEN_DOCS_URL: http://localhost:3000
+            JINEN_CMS_URL: http://localhost:3001
+            JINEN_WEB_URL: http://localhost:3002
+            PAYLOAD_SECRET: my-secret            
+            PAYLOAD_CONFIG_PATH: dist/payload.config.js
+            MONGODB_URI: mongodb://user:root@mongo:27017/?authMechanism=DEFAULT
+        ports:
+            - '3001:3001'
         networks:
             - jinen-network               
-
-volumes:
-    jinen-data:
-        name: jinen-data
+    
+    web:
+        image: juanmesa2097/jinen-web:latest
+        container_name: jinen-web-development
+        restart: always
+        ports:
+            - '3002:3002'                
 
 networks:
     jinen-network:
-        name: jinen-network
-        driver: bridge    
+        external: 
+            name: jinen-network

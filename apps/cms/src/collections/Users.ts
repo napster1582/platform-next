@@ -1,4 +1,5 @@
 import { CollectionConfig } from 'payload/types';
+import { isAdmin, isAdminOrUser } from './access';
 
 export const Users: CollectionConfig = {
     slug: 'users',
@@ -12,11 +13,41 @@ export const Users: CollectionConfig = {
     },
     auth: true,
     access: {
-        read: () => true,
-        delete: () => false,
+        read: isAdminOrUser,
+        create: isAdmin,
+        update: isAdmin,
+        delete: isAdmin,
     },
     fields: [
-        // Email added by default
-        // Add more fields as needed
+        {
+            name: 'names',
+            label: 'Nombres',
+            type: 'text',
+            maxLength: 80,
+            required: true,
+        },
+        {
+            name: 'lastNames',
+            label: 'Apellidos',
+            type: 'text',
+            maxLength: 80,
+            required: true,
+        },
+        {
+            name: 'role',
+            label: 'Rol',
+            type: 'select',
+            required: true,
+            options: [
+                {
+                    label: 'Administrador',
+                    value: 'admin',
+                },
+                {
+                    label: 'Usuario',
+                    value: 'user',
+                },
+            ],
+        },
     ],
 };

@@ -1,22 +1,21 @@
-import { CollectionConfig } from 'payload/types';
-import { generateMonthsRange, generateYearsRange } from '../utilities';
-import { titlecase } from '../utilities/titlecase';
-import { populateAuthor } from './Pages/hooks/populate-author';
+import { GlobalConfig } from 'payload/types';
+import { isAdmin } from '../collections/access';
+import { generateMonthsRange, generateYearsRange, titlecase } from '../utilities';
 
 const START_YEAR_FOR_RANGE = 2022;
+
 const END_YEAR_FOR_RANGE = new Date().getFullYear() + 1;
 
-export const Events: CollectionConfig = {
+export const Events: GlobalConfig = {
     slug: 'events',
-    labels: {
-        singular: 'Evento',
-        plural: 'Eventos',
-    },
+    label: 'Eventos',
     admin: {
-        group: 'Contenido',
+        group: 'Contenido global',
+        preview: () => 'http://localhost:3000',
     },
     access: {
         read: () => true,
+        update: isAdmin,
     },
     versions: {
         drafts: {
@@ -24,19 +23,6 @@ export const Events: CollectionConfig = {
         },
     },
     fields: [
-        {
-            name: 'author',
-            label: 'Autor',
-            relationTo: 'users',
-            type: 'relationship',
-            hooks: {
-                beforeChange: [populateAuthor],
-            },
-            admin: {
-                readOnly: true,
-                position: 'sidebar',
-            },
-        },
         {
             type: 'tabs',
             label: 'Eventos',
