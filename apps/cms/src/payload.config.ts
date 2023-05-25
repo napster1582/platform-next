@@ -9,8 +9,23 @@ import { buildConfig } from 'payload/config';
 import { Media, Pages, Users } from './collections';
 import { Events, Footer, Header, Menu, Socials } from './globals';
 
+import { Icon, Logo } from './graphics';
+
+const CLIENT_URLS = ['http://localhost:3002'];
+
 export default buildConfig({
     serverURL: 'http://localhost:3001',
+    admin: {
+        meta: {
+            titleSuffix: '- Jinen CMS',
+        },
+        components: {
+            graphics: {
+                Logo,
+                Icon,
+            },
+        },
+    },
     collections: [Users, Media, Pages],
     globals: [Events, Header, Menu, Footer, Socials],
     rateLimit: {
@@ -18,8 +33,8 @@ export default buildConfig({
         window: 2 * 60 * 1000, // 2 minutes,
         max: 2400, // limit each IP per windowMS
     },
-    cors: ['http://localhost:3001', 'http://localhost:3002'],
-    csrf: ['http://localhost:3001', 'http://localhost:3002'],
+    cors: CLIENT_URLS,
+    csrf: CLIENT_URLS,
     typescript: {
         outputFile: resolve(__dirname, 'payload-types.ts'),
     },

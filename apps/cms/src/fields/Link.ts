@@ -20,6 +20,10 @@ export const Link: FieldLink = (options) =>
                             value: 'text',
                         },
                         {
+                            label: 'Heredar',
+                            value: 'inherit',
+                        },
+                        {
                             label: 'CTA',
                             value: 'cta',
                         },

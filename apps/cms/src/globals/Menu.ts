@@ -1,5 +1,6 @@
 import { GlobalConfig } from 'payload/types';
 import { isAdmin } from '../collections/access';
+import { Link } from '../fields';
 
 export const Menu: GlobalConfig = {
     slug: 'menu',
@@ -47,12 +48,7 @@ export const Menu: GlobalConfig = {
                     type: 'text',
                     maxLength: 40,
                 },
-                {
-                    name: 'href',
-                    label: 'Enlace',
-                    type: 'text',
-                    required: true,
-                },
+                Link(),
             ],
         },
     ],
