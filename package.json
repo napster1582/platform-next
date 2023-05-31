@@ -30,7 +30,6 @@
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",
-    "pre-push": "pnpm docs:build && pnpm cms:build && pnpm web:build",
     "commit-msg": "pnpm commitlint --edit $1"
   },
   "lint-staged": {

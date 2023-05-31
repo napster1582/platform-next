@@ -80,9 +80,9 @@ git commit -m "release: bump version to $new_version" --no-verify package.json
 echo "Commited changes to package.json"
 
 # Push package.json changes
-git push origin HEAD --no-verify
+git push origin HEAD
 echo "Pushed package.json changes"
 
 # Push git tag
-git push origin "$new_version_prefixed" --no-verify
+git push origin "$new_version_prefixed"
 echo "Pushed git tag $new_version_prefixed. Check https://github.com/JinenGroup/platform-next/actions to follow up the active workflow."
