@@ -8,14 +8,14 @@ titleTemplate: Portal de documentación
 hero:
   name: 'Jinen'
   text: 'Portal de documentación'
-  tagline: Sencillo, potente y rápido. Conozca el marco moderno de desarrollo.
+  tagline: Conozca el marco moderno de desarrollo.
   actions:
     - theme: brand
       text: Comenzar
       link: /guide/what-is-jinen
     - theme: alt
       text: Ver en GitHub
-      link: https://github.com/JinenGroup/platform-v2
+      link: https://github.com/JinenGroup/platform-next
 
 features:  
   - title: Web
