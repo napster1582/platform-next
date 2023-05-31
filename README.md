@@ -63,13 +63,33 @@ docker run -p 3000:80 -d jinen-docs
 **Cms:**
 
 ```sh
-docker run --network="jinen-network" --env-file envs/development.env -p 3001:3001 -d jinen-cms
+docker run --network="jinen-network" --env-file envs/development.env -e MONGODB_URI=mongodb://user:root@mongo:27017/?authMechanism=DEFAULT -p 3001:3001 -d jinen-cms
 ```
 
 **Web:**
 
 ```sh
 docker run -p 3002:3002 -d jinen-web
+```
+
+## Ejecutar Docker Compose
+
+**Vendors:**
+
+```sh
+docker-compose up -d
+```
+
+**Development:**
+
+```sh
+export DOCKER_BUILDKIT=1 && docker-compose -f docker-compose.development.yaml up -d
+```
+
+**Production:**
+
+```sh
+export DOCKER_BUILDKIT=1 && docker-compose -f docker-compose.production.yaml up -d
 ```
 
 ## Guía de contribución
