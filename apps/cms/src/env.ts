@@ -2,7 +2,6 @@ import path from 'path';
 import { z } from 'zod';
 
 import dotenv from 'dotenv';
-import dotenvExpand from 'dotenv-expand';
 
 const schema = z.object({
     JINEN_DOCS_PORT: z.coerce.number().positive().default(3000),
@@ -23,11 +22,9 @@ let parsedSchema: JinenEnvSchema | null = null;
 function loadVariables() {
     const environment = process.env.NODE_ENV || 'development';
 
-    const dotenvConfig = dotenv.config({
+    dotenv.config({
         path: path.resolve(__dirname, `../../../envs/${environment}.env`),
     });
-
-    dotenvConfig && dotenvExpand.expand(dotenvConfig);
 }
 
 export const env = <T>(resolve: (schema: JinenEnvSchema) => T) => {
