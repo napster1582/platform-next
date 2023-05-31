@@ -42,12 +42,12 @@ function nav(): DefaultTheme.NavItem[] {
         },
         {
             text: 'Open API',
-            link: 'https://github.com/JinenGroup/platform-v2',
+            link: 'https://github.com/JinenGroup/platform-next',
             target: '_blank',
         },
         {
             text: 'Postman',
-            link: 'https://github.com/JinenGroup/platform-v2',
+            link: 'https://github.com/JinenGroup/platform-next',
             target: '_blank',
         },
         {
@@ -55,11 +55,11 @@ function nav(): DefaultTheme.NavItem[] {
             items: [
                 {
                     text: 'Notas de versión',
-                    link: 'https://github.com/JinenGroup/platform-v2/releases',
+                    link: 'https://github.com/JinenGroup/platform-next/releases',
                 },
                 {
                     text: 'Guía de contribución',
-                    link: 'https://github.com/JinenGroup/platform-v2/blob/main/CONTRIBUTING.md',
+                    link: 'https://github.com/JinenGroup/platform-next/blob/main/CONTRIBUTING.md',
                 },
             ],
         },
@@ -114,7 +114,7 @@ function sidebarGuide(): DefaultTheme.Sidebar {
 
 function editLink(): DefaultTheme.EditLink {
     return {
-        pattern: 'https://github.com/JinenGroup/platform-v2/edit/main/docs/:path',
+        pattern: 'https://github.com/JinenGroup/platform-next/edit/main/docs/:path',
         text: 'Sugerir cambios a esta página',
     };
 }
@@ -123,27 +123,27 @@ function socialLinks(): DefaultTheme.SocialLink[] {
     return [
         {
             icon: 'github',
-            link: 'https://github.com/JinenGroup/platform-v2',
+            link: 'https://github.com/JinenGroup/platform-next',
         },
         {
             icon: 'discord',
-            link: 'https://github.com/JinenGroup/platform-v2',
+            link: 'https://github.com/JinenGroup/platform-next',
         },
         {
             icon: 'twitter',
-            link: 'https://github.com/JinenGroup/platform-v2',
+            link: 'https://github.com/JinenGroup/platform-next',
         },
         {
             icon: 'linkedin',
-            link: 'https://github.com/JinenGroup/platform-v2',
+            link: 'https://github.com/JinenGroup/platform-next',
         },
         {
             icon: 'facebook',
-            link: 'https://github.com/JinenGroup/platform-v2',
+            link: 'https://github.com/JinenGroup/platform-next',
         },
         {
             icon: 'instagram',
-            link: 'https://github.com/JinenGroup/platform-v2',
+            link: 'https://github.com/JinenGroup/platform-next',
         },
     ];
 }
