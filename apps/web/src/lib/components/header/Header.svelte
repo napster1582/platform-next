@@ -93,7 +93,7 @@
 
 <style lang="postcss">
     .header {
-        @apply bg-[#1a56db];
+        @apply bg-blue-600;
         @apply sticky inset-x-0 top-0 z-20;
         @apply shadow-xl;
         @apply transition duration-300 ease-linear;
