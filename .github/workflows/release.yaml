@@ -1,4 +1,4 @@
-name: Docker Publish
+name: Release
 
 on:
   push:
@@ -28,6 +28,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      # Create GitHub release
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: false
+          prerelease: ${{ contains(github.ref_name, '-alpha') || contains(github.ref_name, '-beta') || contains(github.ref_name, '-rc') }}
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
