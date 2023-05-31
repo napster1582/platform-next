@@ -17,7 +17,7 @@ Para comenzar a trabajar en una nueva característica, se deben seguir los sigui
 1. Asegúrese de que se encuentra en la rama principal:
 
    ```sh
-   git checkout main
+   git checkout trunk
    ```
 
 2. Cree una nueva rama a partir de la rama develop con el siguiente comando:
@@ -58,9 +58,15 @@ Para comenzar a trabajar en una nueva característica, se deben seguir los sigui
 
 Para desplegar una nueva versión de este proyecto, se deben seguir los siguientes pasos:
 
-1. Ejecutar el script `./scripts/release.sh` y seguir las instrucciones para especificar el tipo de versión que desea publicar ("major", "minor" o "patch") y si desea agregar un alcance a la versión (por ejemplo, "alpha", "beta" o "stable").
+1. Asegúrese de que se encuentra en la rama principal:
 
-2. Verificar que los cambios y la etiqueta de Git se hayan publicado correctamente en el repositorio remoto. Adicionalmente, debe haber un workflow compilando las imágenes de Docker y publicándolas en Docker Hub.
+   ```sh
+   git checkout trunk
+   ```
+
+2. Ejecutar el script `./scripts/release.sh` y seguir las instrucciones para especificar el tipo de versión que desea publicar ("major", "minor" o "patch") y si desea agregar un alcance a la versión (por ejemplo, "alpha", "beta" o "stable").
+
+3. Verificar que los cambios y la etiqueta de Git se hayan publicado correctamente en el repositorio remoto. Adicionalmente, debe haber un workflow compilando las imágenes de Docker y publicándolas en Docker Hub.
 
 ## Docker
 
