@@ -8,5 +8,5 @@
 
     <slot />
 
-    <Footer />
+    <Footer data={null} />
 </div>

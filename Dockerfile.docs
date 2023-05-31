@@ -10,12 +10,10 @@ RUN apk add --no-cache git \
 
 COPY . .
 
-RUN pnpm install --frozen-lockfile \ 
+RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store \
+    pnpm install --frozen-lockfile \ 
     && pnpm docs:build \
-    && pnpm prune --prod \
-    && rm -rf /root/.pnpm-store \
-    && rm -rf /app/node_modules \
-    && rm -rf /app/docs/node_modules
+    && pnpm prune --prod
 
 # ;---------------;
 # ; Runtime stage ;
@@ -24,7 +22,6 @@ FROM nginx:stable-alpine
 
 WORKDIR /app
 
-COPY --from=builder nginx.conf /etc/nginx/nginx.conf
 COPY --from=builder /app/docs/.vitepress/dist /usr/share/nginx/html
 
 EXPOSE 80

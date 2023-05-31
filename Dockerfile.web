@@ -11,12 +11,10 @@ RUN npm i -g pnpm
 
 COPY . .
 
-RUN pnpm install --frozen-lockfile \ 
-    && pnpm web:build \
-    && pnpm prune --prod \
-    && rm -rf /root/.pnpm-store \
-    && rm -rf /app/node_modules \
-    && rm -rf /app/web/node_modules
+RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store \
+    pnpm install --frozen-lockfile && \
+    pnpm web:build && \
+    pnpm prune --prod
 
 # ;---------------;
 # ; Runtime stage ;
@@ -26,6 +24,8 @@ FROM base as runtime
 WORKDIR /app
 
 COPY --from=builder /app/apps/web/package.json /app/apps/web/build ./build/
+
+ENV PORT=3002
 
 EXPOSE 3002
 

@@ -21,7 +21,7 @@ fi
 invalid_apps=()
 
 for app_name in "${app_names[@]}"; do
-    if [[ ! "${jinen_apps[@]}" =~ "${app_name}" ]]; then
+    if [[ ! "${jinen_apps[*]}" =~ $app_name ]]; then
         invalid_apps+=("$app_name")
     fi
 done
@@ -31,18 +31,18 @@ if [ ${#invalid_apps[@]} -ne 0 ]; then
     exit 1
 fi
 
-read -p "Enter environment (${jinen_environments[*]}): [development] " env
+read -rp "Enter environment (${jinen_environments[*]}): [development] " env
 env=${env:-development}
 echo "$env"
 
-if [[ ! "${jinen_environments[@]}" =~ "${env}" ]]; then
+if [[ ! "${jinen_environments[*]}" =~ $env ]]; then
     echo "You must provide a valid environment"
     exit 1
 fi
 
 env_file=$(pwd)/envs/$env.env
 
-read -p "Run Docker Compose (Y/n): [n]  " run_docker_compose
+read -rp "Run Docker Compose (Y/n): [n]  " run_docker_compose
 run_docker_compose=${run_docker_compose:-n}
 echo "$run_docker_compose"
 
@@ -58,7 +58,7 @@ if [[ "$run_docker_compose" == "y" || "$run_docker_compose" == "yes" ]]; then
 fi
 
 for app_name in "${app_names[@]}"; do
-    docker build -t jinen-$app_name -f Dockerfile.$app_name .
+    docker build -t jinen-"$app_name" -f Dockerfile."$app_name" .
 
     declare -A docker_commands=(
         [docs]="docker run --name jinen-docs-container -p 3000:80 --env-file $env_file -d jinen-docs"

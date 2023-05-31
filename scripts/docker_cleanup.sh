@@ -21,3 +21,5 @@ if [ "$(docker volume ls -q)" ]; then
 else
     echo "No volumes found"
 fi
+
+docker system prune -f --all
