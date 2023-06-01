@@ -95,19 +95,43 @@ docker buildx build -t jinen-web:latest -f Dockerfile.web .
 **Docs:**
 
 ```sh
+# Local
+
 docker run -p 3000:80 -d jinen-docs
+```
+
+```sh
+# Production
+
+docker run -p 3000:80 -d ghcr.io/jinengroup/platform-next/docs
 ```
 
 **Cms:**
 
 ```sh
+# Local
+
 docker run --network="jinen-network" --env-file envs/development.env -e MONGODB_URI=mongodb://user:root@mongo:27017/?authMechanism=DEFAULT -p 3001:3001 -d jinen-cms
+```
+
+```sh
+# Production
+
+docker run --network="jinen-network" --env-file envs/development.env -e MONGODB_URI=mongodb://user:root@mongo:27017/?authMechanism=DEFAULT -p 3001:3001 -d ghcr.io/jinengroup/platform-next/cms
 ```
 
 **Web:**
 
 ```sh
+# Local
+
 docker run -p 3002:3002 -d jinen-web
+```
+
+```sh
+# Production
+
+docker run -p 3002:3002 -d ghcr.io/jinengroup/platform-next/web
 ```
 
 ### Ejecutar Docker Compose
