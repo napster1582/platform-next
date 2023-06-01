@@ -1,17 +1,10 @@
-name: Release web
+name: Release docs
 
-on:
-  push:
-    tags:
-      - 'v*.*.*'
-      - 'v*.*.*-stable'
-      - 'v*.*.*-alpha'
-      - 'v*.*.*-beta'
-      - 'v*.*.*-rc.*'
+on: workflow_call
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}/web
+  IMAGE_NAME: ${{ github.repository }}/docs
 
 jobs:
   build:
@@ -62,7 +55,7 @@ jobs:
         uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
         with:
           context: .
-          file: Dockerfile.web
+          file: Dockerfile.docs
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

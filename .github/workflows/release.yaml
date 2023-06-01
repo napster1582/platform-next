@@ -1,13 +1,6 @@
 name: Create release
 
-on:
-  push:
-    tags:
-      - 'v*.*.*'
-      - 'v*.*.*-stable'
-      - 'v*.*.*-alpha'
-      - 'v*.*.*-beta'
-      - 'v*.*.*-rc.*'
+on: workflow_call
 
 jobs:
   build:

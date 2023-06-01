@@ -1,0 +1,30 @@
+name: Main Workflow
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+      - 'v*.*.*-stable'
+      - 'v*.*.*-alpha'
+      - 'v*.*.*-beta'
+      - 'v*.*.*-rc.*'
+
+jobs:
+  release:
+    uses: ./.github/workflows/release.yaml
+
+  release-docs:
+    uses: ./.github/workflows/release-docs.yaml
+    needs: [release]
+
+  release-cms:
+    uses: ./.github/workflows/release-cms.yaml
+    needs: [release]
+
+  release-web:
+    uses: ./.github/workflows/release-web.yaml
+    needs: [release]
+
+  deploy:
+    uses: ./.github/workflows/deploy.yaml
+    needs: [release-docs, release-cms, release-web]
