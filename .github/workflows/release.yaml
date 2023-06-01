@@ -3,7 +3,7 @@ name: Create release
 on: workflow_call
 
 jobs:
-  build:
+  create:
     runs-on: ubuntu-latest
     permissions:
       contents: write
