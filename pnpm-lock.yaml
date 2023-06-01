@@ -9,7 +9,7 @@ importers:
         version: 17.6.1
       '@culur/stylelint-config':
         specifier: ^1.2.0
-        version: 1.2.0(postcss@8.4.22)(stylelint@15.4.0)
+        version: 1.2.0(postcss@8.4.24)(stylelint@15.4.0)
       '@iconify/json':
         specifier: ^2.2.46
         version: 2.2.46
@@ -25,12 +25,6 @@ importers:
       commitlint:
         specifier: ^17.6.1
         version: 17.6.1
-      cross-env:
-        specifier: ^7.0.3
-        version: 7.0.3
-      deepmerge:
-        specifier: ^4.3.1
-        version: 4.3.1
       eslint:
         specifier: ^8.38.0
         version: 8.38.0
@@ -73,9 +67,6 @@ importers:
       vitest:
         specifier: ^0.29.8
         version: 0.29.8
-      zod:
-        specifier: ^3.21.4
-        version: 3.21.4
 
   apps/cms:
     dependencies:
@@ -91,12 +82,15 @@ importers:
       '@payloadcms/plugin-seo':
         specifier: ^1.0.13
         version: 1.0.13(payload@1.7.2)(react@18.2.0)
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
+      deepmerge:
+        specifier: ^4.3.1
+        version: 4.3.1
       dotenv:
         specifier: ^8.2.0
         version: 8.2.0
-      dotenv-expand:
-        specifier: ^10.0.0
-        version: 10.0.0
       express:
         specifier: ^4.17.1
         version: 4.17.1
@@ -109,6 +103,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      zod:
+        specifier: ^3.21.4
+        version: 3.21.4
     devDependencies:
       '@types/express':
         specifier: ^4.17.9
@@ -151,7 +148,7 @@ importers:
         version: 1.2.4(@sveltejs/kit@1.5.0)
       '@sveltejs/kit':
         specifier: ^1.5.0
-        version: 1.5.0(svelte@3.54.0)(vite@4.2.1)
+        version: 1.5.0(svelte@3.54.0)(vite@4.3.9)
       '@tailwindcss/aspect-ratio':
         specifier: ^0.4.2
         version: 0.4.2(tailwindcss@3.3.1)
@@ -718,7 +715,7 @@ packages:
     dependencies:
       postcss-selector-parser: 6.0.13
 
-  /@culur/stylelint-config@1.2.0(postcss@8.4.22)(stylelint@15.4.0):
+  /@culur/stylelint-config@1.2.0(postcss@8.4.24)(stylelint@15.4.0):
     resolution: {integrity: sha512-pWWVkRxCpIfSZ9CyuxO1hvHAntxuHZ4RXsBG6/VLrXzcVQLg0Kx3HJKD7rdQFgwgVY+Xe/hNUolzNmjeH2jUmw==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -726,13 +723,13 @@ packages:
     dependencies:
       postcss-html: 1.5.0
       postcss-sass: 0.5.0
-      postcss-scss: 4.0.6(postcss@8.4.22)
+      postcss-scss: 4.0.6(postcss@8.4.24)
       stylelint: 15.4.0
       stylelint-config-html: 1.1.0(postcss-html@1.5.0)(stylelint@15.4.0)
       stylelint-config-hudochenkov: 7.0.1(stylelint@15.4.0)
       stylelint-config-prettier: 9.0.5(stylelint@15.4.0)
       stylelint-config-standard: 25.0.0(stylelint@15.4.0)
-      stylelint-config-standard-scss: 4.0.0(postcss@8.4.22)(stylelint@15.4.0)
+      stylelint-config-standard-scss: 4.0.0(postcss@8.4.24)(stylelint@15.4.0)
       stylelint-config-standard-vue: 1.0.0(postcss-html@1.5.0)(stylelint@15.4.0)
       stylelint-order: 5.0.0(stylelint@15.4.0)
       stylelint-scss: 4.7.0(stylelint@15.4.0)
@@ -1471,7 +1468,7 @@ packages:
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
     dependencies:
-      '@sveltejs/kit': 1.5.0(svelte@3.54.0)(vite@4.2.1)
+      '@sveltejs/kit': 1.5.0(svelte@3.54.0)(vite@4.3.9)
       import-meta-resolve: 2.2.2
     dev: true
 
@@ -1483,11 +1480,11 @@ packages:
       '@rollup/plugin-commonjs': 24.1.0(rollup@3.23.0)
       '@rollup/plugin-json': 6.0.0(rollup@3.23.0)
       '@rollup/plugin-node-resolve': 15.1.0(rollup@3.23.0)
-      '@sveltejs/kit': 1.5.0(svelte@3.54.0)(vite@4.2.1)
+      '@sveltejs/kit': 1.5.0(svelte@3.54.0)(vite@4.3.9)
       rollup: 3.23.0
     dev: true
 
-  /@sveltejs/kit@1.5.0(svelte@3.54.0)(vite@4.2.1):
+  /@sveltejs/kit@1.5.0(svelte@3.54.0)(vite@4.3.9):
     resolution: {integrity: sha512-AkWgCO9i2djZjTqCgIQJ5XfnSzRINowh2w2Gk9wDRuTwxKizSuYe3jNvds/HCDDGHo8XE5E0yWNC9j2XxbrX+g==}
     engines: {node: ^16.14 || >=18}
     hasBin: true
@@ -1496,7 +1493,7 @@ packages:
       svelte: ^3.54.0
       vite: ^4.0.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 2.4.1(svelte@3.54.0)(vite@4.2.1)
+      '@sveltejs/vite-plugin-svelte': 2.4.1(svelte@3.54.0)(vite@4.3.9)
       '@types/cookie': 0.5.1
       cookie: 0.5.0
       devalue: 4.3.2
@@ -1510,12 +1507,12 @@ packages:
       svelte: 3.54.0
       tiny-glob: 0.2.9
       undici: 5.18.0
-      vite: 4.2.1(@types/node@18.15.11)
+      vite: 4.3.9(@types/node@18.15.11)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@sveltejs/vite-plugin-svelte-inspector@1.0.2(@sveltejs/vite-plugin-svelte@2.4.1)(svelte@3.54.0)(vite@4.2.1):
+  /@sveltejs/vite-plugin-svelte-inspector@1.0.2(@sveltejs/vite-plugin-svelte@2.4.1)(svelte@3.54.0)(vite@4.3.9):
     resolution: {integrity: sha512-Cy1dUMcYCnDVV/hPLXa43YZJ2jGKVW5rA0xuNL9dlmYhT0yoS1g7+FOFSRlgk0BXKk/Oc7grs+8BVA5Iz2fr8A==}
     engines: {node: ^14.18.0 || >= 16}
     peerDependencies:
@@ -1523,30 +1520,30 @@ packages:
       svelte: ^3.54.0 || ^4.0.0-next.0
       vite: ^4.0.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 2.4.1(svelte@3.54.0)(vite@4.2.1)
+      '@sveltejs/vite-plugin-svelte': 2.4.1(svelte@3.54.0)(vite@4.3.9)
       debug: 4.3.4
       svelte: 3.54.0
-      vite: 4.2.1(@types/node@18.15.11)
+      vite: 4.3.9(@types/node@18.15.11)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@sveltejs/vite-plugin-svelte@2.4.1(svelte@3.54.0)(vite@4.2.1):
+  /@sveltejs/vite-plugin-svelte@2.4.1(svelte@3.54.0)(vite@4.3.9):
     resolution: {integrity: sha512-bNNKvoRY89ptY7udeBSCmTdCVwkjmMcZ0j/z9J5MuedT8jPjq0zrknAo/jF1sToAza4NVaAgR9AkZoD9oJJmnA==}
     engines: {node: ^14.18.0 || >= 16}
     peerDependencies:
       svelte: ^3.54.0 || ^4.0.0-next.0
       vite: ^4.0.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 1.0.2(@sveltejs/vite-plugin-svelte@2.4.1)(svelte@3.54.0)(vite@4.2.1)
+      '@sveltejs/vite-plugin-svelte-inspector': 1.0.2(@sveltejs/vite-plugin-svelte@2.4.1)(svelte@3.54.0)(vite@4.3.9)
       debug: 4.3.4
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.0
       svelte: 3.54.0
       svelte-hmr: 0.15.2(svelte@3.54.0)
-      vite: 4.2.1(@types/node@18.15.11)
-      vitefu: 0.2.4(vite@4.2.1)
+      vite: 4.3.9(@types/node@18.15.11)
+      vitefu: 0.2.4(vite@4.3.9)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3386,7 +3383,7 @@ packages:
     hasBin: true
     dependencies:
       cross-spawn: 7.0.3
-    dev: true
+    dev: false
 
   /cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
@@ -3929,11 +3926,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       is-obj: 2.0.0
-    dev: false
-
-  /dotenv-expand@10.0.0:
-    resolution: {integrity: sha512-GopVGCpVS1UKH75VKHGuQFqS1Gusej0z4FyQkPdwjil2gNIv+LNsqBlboOzpJFZKVT95GkCyWJbBSdFEFUWI2A==}
-    engines: {node: '>=12'}
     dev: false
 
   /dotenv@8.2.0:
@@ -7810,13 +7802,13 @@ packages:
       postcss: 8.4.22
     dev: true
 
-  /postcss-scss@4.0.6(postcss@8.4.22):
+  /postcss-scss@4.0.6(postcss@8.4.24):
     resolution: {integrity: sha512-rLDPhJY4z/i4nVFZ27j9GqLxj1pwxE80eAzUNRMXtcpipFYIeowerzBgG3yJhMtObGEXidtIgbUpQ3eLDsf5OQ==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.4.19
     dependencies:
-      postcss: 8.4.22
+      postcss: 8.4.24
     dev: true
 
   /postcss-selector-not@6.0.1(postcss@8.4.22):
@@ -9366,12 +9358,12 @@ packages:
       stylelint: 15.4.0
     dev: true
 
-  /stylelint-config-recommended-scss@6.0.0(postcss@8.4.22)(stylelint@15.4.0):
+  /stylelint-config-recommended-scss@6.0.0(postcss@8.4.24)(stylelint@15.4.0):
     resolution: {integrity: sha512-6QOe2/OzXV2AP5FE12A7+qtKdZik7Saf42SMMl84ksVBBPpTdrV+9HaCbPYiRMiwELY9hXCVdH4wlJ+YJb5eig==}
     peerDependencies:
       stylelint: ^14.4.0
     dependencies:
-      postcss-scss: 4.0.6(postcss@8.4.22)
+      postcss-scss: 4.0.6(postcss@8.4.24)
       stylelint: 15.4.0
       stylelint-config-recommended: 7.0.0(stylelint@15.4.0)
       stylelint-scss: 4.7.0(stylelint@15.4.0)
@@ -9409,13 +9401,13 @@ packages:
       stylelint: 15.4.0
     dev: true
 
-  /stylelint-config-standard-scss@4.0.0(postcss@8.4.22)(stylelint@15.4.0):
+  /stylelint-config-standard-scss@4.0.0(postcss@8.4.24)(stylelint@15.4.0):
     resolution: {integrity: sha512-xizu8PTEyB6zYXBiVg6VtvUYn9m57x+6ZtaOdaxsfpbe5eagLPGNlbYnKfm/CfN69ArUpnwR6LjgsTHzlGbtXQ==}
     peerDependencies:
       stylelint: ^14.4.0
     dependencies:
       stylelint: 15.4.0
-      stylelint-config-recommended-scss: 6.0.0(postcss@8.4.22)(stylelint@15.4.0)
+      stylelint-config-recommended-scss: 6.0.0(postcss@8.4.24)(stylelint@15.4.0)
       stylelint-config-standard: 25.0.0(stylelint@15.4.0)
     transitivePeerDependencies:
       - postcss
@@ -10431,7 +10423,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitefu@0.2.4(vite@4.2.1):
+  /vitefu@0.2.4(vite@4.3.9):
     resolution: {integrity: sha512-fanAXjSaf9xXtOOeno8wZXIhgia+CZury481LsDaV++lSvcU2R9Ch2bPh3PYFyoHW+w9LqAeYRISVQjUIew14g==}
     peerDependencies:
       vite: ^3.0.0 || ^4.0.0
@@ -10439,7 +10431,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.2.1(@types/node@18.15.11)
+      vite: 4.3.9(@types/node@18.15.11)
     dev: true
 
   /vitepress@1.0.0-alpha.75(@algolia/client-search@4.17.1)(@types/node@18.15.11):
@@ -10964,4 +10956,4 @@ packages:
 
   /zod@3.21.4:
     resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
-    dev: true
+    dev: false

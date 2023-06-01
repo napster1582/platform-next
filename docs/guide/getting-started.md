@@ -8,7 +8,7 @@
 
 - **Docker**: Jinen hace uso de Docker para construir imágenes de las aplicaciones e instalar servicios que se utilizan en la plataforma. Docker puede descargarse desde el sitio web oficial [docker.com](https://www.docker.com/get-started/).
 
-- **Editor de texto**: Se recomienda utilizar un editor de texto con soporte de sintaxis markdown como [Visual Studio Code](https://code.visualstudio.com/) junto con las extensiones recomendadas ([Jinen extensions](https://github.com/JinenGroup/platform-v2/blob/main/.vscode/extensions.json)).
+- **Editor de texto**: Se recomienda utilizar un editor de texto con soporte de sintaxis markdown como [Visual Studio Code](https://code.visualstudio.com/) junto con las extensiones recomendadas ([Jinen extensions](https://github.com/JinenGroup/platform-next/blob/main/.vscode/extensions.json)).
 
 - **Terminal**: Es necesario disponer de un terminal para acceder a la lista de scripts de Jinen. Se puede utilizar la terminal predeterminada del sistema operativo o una terminal integrada en un editor de texto.
 
