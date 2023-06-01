@@ -27,6 +27,4 @@ jobs:
 
   deploy:
     uses: ./.github/workflows/deploy.yaml
-    permissions:
-      contents: write
     needs: [release-docs, release-cms, release-web]

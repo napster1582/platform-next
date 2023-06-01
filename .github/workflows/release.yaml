@@ -5,8 +5,6 @@ on: workflow_call
 jobs:
   create:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
       - name: Checkout repository
