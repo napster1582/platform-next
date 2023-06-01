@@ -2,14 +2,14 @@ version: '3.9'
 
 services:
     docs:
-        image: juanmesa2097/jinen-docs:latest
+        image: docker pull ghcr.io/jinengroup/platform-next/docs@latest
         container_name: jinen-docs-production
         restart: always
         ports:
             - '3000:80'        
     
     cms:
-        image: juanmesa2097/jinen-cms:latest
+        image: docker pull ghcr.io/jinengroup/platform-next/cms@latest
         container_name: jinen-cms-production
         restart: always
         environment:            
@@ -26,7 +26,7 @@ services:
             - jinen-network               
     
     web:
-        image: juanmesa2097/jinen-web:latest
+        image: docker pull ghcr.io/jinengroup/platform-next/web@latest
         container_name: jinen-web-production
         restart: always
         ports:
