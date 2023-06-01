@@ -19,18 +19,24 @@ jobs:
     uses: ./.github/workflows/release-docs.yaml
     permissions:
       contents: write
+      packages: write
+      id-token: write
     needs: [release]
 
   release-cms:
     uses: ./.github/workflows/release-cms.yaml
     permissions:
       contents: write
+      packages: write
+      id-token: write
     needs: [release]
 
   release-web:
     uses: ./.github/workflows/release-web.yaml
     permissions:
       contents: write
+      packages: write
+      id-token: write
     needs: [release]
 
   deploy:
