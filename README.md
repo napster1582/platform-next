@@ -151,5 +151,5 @@ export DOCKER_BUILDKIT=1 && docker-compose -f docker-compose.development.yaml up
 **Production:**
 
 ```sh
-export DOCKER_BUILDKIT=1 && docker-compose -f docker-compose.production.yaml up -d
+docker-compose -f docker-compose.production.yaml up -d
 ```
