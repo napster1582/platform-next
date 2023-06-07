@@ -1,0 +1,48 @@
+name: 🔥 Feature
+description: Sugerir una idea para el proyecto
+title: '[JINEN-FEATURE] Introduzca un breve resumen de la característica'
+labels: ['feature', 'triage']
+
+body:
+  - type: checkboxes
+    attributes:
+      label: ¿Existe algún issue existente para esto?
+      description: Por favor, busque en la pestaña de issues para ver si ya existe uno para la característica que está solicitando.
+      options:
+        - label: He buscado en los issues existentes.
+          required: true
+
+  - type: textarea
+    id: feature-behavior
+    attributes:
+      label: Describa el problema que resuelve su solicitud.
+      description: Una descripción clara y concisa de cuál es el problema.
+      placeholder: Por ejemplo, "Siempre estoy frustrado cuando..."
+      validations:
+        required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Describa la solución que desea.
+      render: markdown
+      placeholder: Una descripción clara y concisa de lo que desea que suceda.
+      validations:
+        required: true
+
+  - type: textarea
+    id: other
+    attributes:
+      label: Contexto adicional
+      description: Proporcione cualquier enlace o referencia que nos dé más contexto sobre la función que está solicitando.
+      tip: Puede adjuntar imágenes o archivos de registro haciendo clic en esta área para resaltarlo y luego arrastrando los archivos adentro.
+
+  - Type: Dropdown
+    id: contribution
+    Attributes:
+      Label: ¿Le gustaría realizar un pull-request para esta característica?
+      Options:
+        - 'Sí 🚀'
+        - 'No'
+      Validations:
+        Required: true

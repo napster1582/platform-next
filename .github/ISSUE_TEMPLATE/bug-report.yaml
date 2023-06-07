@@ -1,0 +1,92 @@
+name: 🐞 Bug
+description: Reportar un bug en el proyecto
+title: '[JINEN-BUG] Introduzca un breve resumen del bug'
+labels: ['bug', 'triage']
+
+body:
+  - type: checkboxes
+    attributes:
+      label: ¿Existe algún issue existente para esto?
+      description: Por favor, busque en la pestaña de issues para ver si ya existe uno para la característica que está solicitando.
+      options:
+        - label: He buscado en los issues existentes.
+          required: true
+
+  - type: textarea
+    id: current-behavior
+    attributes:
+      label: Describa el problema que está experimentando.
+      description: Una descripción clara y concisa de cuál es el problema.
+      validations:
+        required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Describa el comportamiento esperado.
+      description: Una descripción clara y concisa de cuál es el comportamiento esperado.
+      validations:
+        required: true
+
+  - type: input
+    id: reproduction
+    attributes:
+      label: Proporcione un enlace a una reproducción mínima del problema. [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/fork/github/JinenGroup/platform-next)
+      render: markdown    
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Proporcione el entorno en el que descubrió el problema
+       multiple: true
+      options: 
+        - Desarrollo
+        - Proudcción 
+  
+  - type: textarea
+    id: environment
+    attributes:
+      label: Proporcione la aplicación en la que descubrió el problema
+       multiple: true
+      options: 
+        - CMS
+        - Web 
+        - Base de datos
+
+  - type: textarea
+    id: browser
+    attributes:
+      label: Seleccione los navegadores en los que está experimentando el problema.
+      multiple: true
+      options: 
+        - Firefox
+        - Brave 
+        - Chrome 
+        - Safari 
+        - Microsoft Edge 
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Copie y pegue cualquier log relevante.
+      render: shell
+
+  - type: textarea
+    id: other
+    attributes:
+      label: Contexto adicional
+      description: |
+        Proporcione cualquier enlace o referencia que nos dé más contexto sobre el problema que está experimentando.
+        
+        Tip: Puede adjuntar imágenes o archivos de registro haciendo clic en esta área para resaltarlo y luego arrastrando los archivos adentro.      
+
+  - Type: Dropdown
+    id: contribution
+    Attributes:
+      Label: ¿Le gustaría realizar un pull-request para esta característica?
+      Options:
+        - 'Sí 🚀'
+        - 'No'
+      Validations:
+        Required: true

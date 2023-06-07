@@ -1,42 +1,43 @@
-# Changelog
+## Lista de verificación para Pull Requests
 
-- Changelog 1
-- Changelog 2
+Por favor, verifique si su PR cumple con los siguientes requisitos:
 
-## Breaking changes
+- [ ] El mensaje del commit sigue nuestras directrices: <https://github.com/ngneat/transloco/blob/master/CONTRIBUTING.md#commit>
+- [ ] Se han añadido pruebas para los cambios (para correcciones de errores / nuevas características)
+- [ ] Se han añadido / actualizado documentos (para correcciones de errores / nuevas características)
 
-- Breaking change 1
-- Breaking change 2
+## Tipo de Pull Request
 
-Issue: #issue-number
+¿Qué tipo de cambio introduce este PR?
 
----
+<!-- Por favor, marque con "x" la opción que corresponda a este PR. -->
 
-> **Note:**
-> Elimina cualquier elemento que no sea relevante para la descripción, **incluyendo esta alerta**.
+```
+[ ] Corrección de errores
+[ ] Nueva característica
+[ ] Actualización de estilo de código (formato, variables locales)
+[ ] Refactorización (sin cambios funcionales, sin cambios en la API)
+[ ] Cambios relacionados con la compilación
+[ ] Cambios relacionados con CI
+[ ] Cambios en el contenido de la documentación
+[ ] Otro... Descripción:
+```
 
-### **Pull Request:**
+## ¿Cuál es el comportamiento actual?
 
-- [ ] El título del PR sigue el formato: "JINEN-NNNN: type(scope?): description"
-- [ ] La descripción del PR es apropiada y puede ser incluida directamente en las "Notas de la versión".
-- [ ] Se ha proporcionado un enlace al issue de GitHub correspondiente.
-- [ ] Se han mencionado los cambios que pueden afectar a la compatibilidad (Breaking Changes) en la descripción.
+<!-- Por favor, describa el comportamiento actual que estás modificando, o enlaza a un problema relevante. -->
 
-### **General:**
+Número del issue: N/A
 
-- [ ] El PR incluye cambios en el cliente web.
-  - [ ] Todos los textos se han definido en el CMS.
-  - [ ] Se ha probado la nueva característica o corrección localmente en el entorno correspondiente.
-  - [ ] Los estilos redundantes se han abstraído en componentes de CSS.
+## ¿Cuál es el nuevo comportamiento?
 
-### **Características generales:**
+## ¿Este PR introduce un cambio que rompe la compatibilidad (BREAKING-CHANGE)?
 
-- [ ]  El PR agrega una nueva característica opcional.
-  - [ ] Existe una forma apropiada de habilitarla o deshabilitarla.
-  - [ ] El cliente web funciona correctamente después de agregar la nueva característica.
-- [ ] El código implementado no agrega errores o advertencias en la consola.
+```
+[ ] Sí
+[ ] No
+```
 
-### **Completado:**
+<!-- Si este PR contiene un cambio que rompe la compatibilidad, por favor, describa el impacto y la ruta de migración para las aplicaciones existentes. -->
 
-- [ ] Se ha agregado documentación al portal de documentación de Jinen.
-- [ ] Se ha notificado la publicación del PR en el grupo de Jinen.
+## Otra información
