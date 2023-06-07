@@ -1,7 +1,7 @@
 name: 🔥 Feature
 description: Sugerir una idea para el proyecto
 title: '[JINEN-FEATURE] Introduzca un breve resumen de la característica'
-labels: ['feature', 'triage']
+labels: ['🔥 feature', '⚕️ triage']
 body:
   - type: checkboxes
     attributes:

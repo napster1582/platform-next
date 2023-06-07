@@ -1,7 +1,7 @@
 name: 🐞 Bug
 description: Reportar un bug en el proyecto
 title: '[JINEN-BUG] Introduzca un breve resumen del bug'
-labels: ['bug', 'triage']
+labels: ['🐞 bug', '⚕️ triage']
 body:
   - type: checkboxes
     id: search-issues
