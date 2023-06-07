@@ -16,7 +16,7 @@ body:
     id: current-behavior
     attributes:
       label: Describa el problema que está experimentando.
-      description: Una descripción clara y concisa de cuál es el problema.
+      render: markdown
     validations:
       required: true
 
@@ -24,14 +24,15 @@ body:
     id: expected-behavior
     attributes:
       label: Describa el comportamiento esperado.
-      description: Una descripción clara y concisa de cuál es el comportamiento esperado.
+      render: markdown
     validations:
       required: true
 
   - type: textarea
     id: reproduction
     attributes:
-      label: Proporcione un enlace a una reproducción mínima del problema. [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/fork/github/JinenGroup/platform-next)
+      label: Proporcione un enlace a una reproducción mínima del problema.
+      value: '[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/fork/github/JinenGroup/platform-next)'
       render: markdown
     validations:
       required: true
@@ -84,7 +85,9 @@ body:
     id: other
     attributes:
       label: Contexto adicional
-      description: Proporcione cualquier enlace o referencia que nos dé más contexto sobre el problema que está experimentando.
+      placeholder: Proporcione cualquier enlace o referencia que nos dé más contexto sobre el problema que está experimentando.
+      description: Puede adjuntar archivos arrastrándolos dentro del campo.
+      render: markdown
     validations:
       required: false
 
