@@ -15,7 +15,6 @@ body:
     id: feature-behavior
     attributes:
       label: Describa el problema que resuelve su solicitud.
-      render: markdown
     validations:
       required: true
 
@@ -23,7 +22,6 @@ body:
     id: solution
     attributes:
       label: Describa la solución que desea.
-      render: markdown
     validations:
       required: true
 
@@ -33,7 +31,6 @@ body:
       label: Contexto adicional
       placeholder: Proporcione cualquier enlace o referencia que nos dé más contexto sobre el problema que está experimentando.
       description: Puede adjuntar archivos arrastrándolos dentro del campo.
-      render: markdown
     validations:
       required: false
 
