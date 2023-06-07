@@ -2,7 +2,6 @@ name: 🔥 Feature
 description: Sugerir una idea para el proyecto
 title: '[JINEN-FEATURE] Introduzca un breve resumen de la característica'
 labels: ['feature', 'triage']
-
 body:
   - type: checkboxes
     attributes:
@@ -38,7 +37,7 @@ body:
     validations:
       required: false
 
-  - Type: Dropdown
+  - Type: dropdown
     id: contribution
     Attributes:
       Label: ¿Le gustaría realizar un pull-request para esta característica?

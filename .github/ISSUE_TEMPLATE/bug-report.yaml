@@ -2,7 +2,6 @@ name: 🐞 Bug
 description: Reportar un bug en el proyecto
 title: '[JINEN-BUG] Introduzca un breve resumen del bug'
 labels: ['bug', 'triage']
-
 body:
   - type: checkboxes
     attributes:
@@ -32,11 +31,10 @@ body:
     id: reproduction
     attributes:
       label: Proporcione un enlace a una reproducción mínima del problema. [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/fork/github/JinenGroup/platform-next)
-      render: markdown
     validations:
       required: true
 
-  - type: textarea
+  - type: dropdown
     id: environment
     attributes:
       label: Proporcione el entorno en el que descubrió el problema
@@ -47,7 +45,7 @@ body:
     validations:
       required: true
 
-  - type: textarea
+  - type: dropdown
     id: environment
     attributes:
       label: Proporcione la aplicación en la que descubrió el problema
@@ -57,7 +55,7 @@ body:
         - Base de datos
       multiple: true
 
-  - type: textarea
+  - type: dropdown
     id: browser
     attributes:
       label: Seleccione los navegadores en los que está experimentando el problema.
@@ -88,12 +86,12 @@ body:
     validations:
       required: false
 
-  - Type: Dropdown
+  - Type: dropdown
     id: contribution
     Attributes:
       Label: ¿Le gustaría realizar un pull-request para esta característica?
       Options:
         - 'Sí 🚀'
         - 'No'
-      Validations:
-        Required: true
+    Validations:
+      Required: true
