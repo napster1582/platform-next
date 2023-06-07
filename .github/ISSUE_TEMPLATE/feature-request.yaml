@@ -39,7 +39,7 @@ body:
 
   - type: dropdown
     id: contribution
-    Attributes:
+    attributes:
       label: ¿Le gustaría realizar un pull-request para esta característica?
       options:
         - 'Sí 🚀'

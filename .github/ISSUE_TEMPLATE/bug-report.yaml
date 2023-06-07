@@ -39,10 +39,10 @@ body:
     id: environment
     attributes:
       label: Proporcione el entorno en el que descubrió el problema
+      multiple: true
       options:
         - Desarrollo
         - Proudcción
-      multiple: true
     validations:
       required: true
 
@@ -50,23 +50,23 @@ body:
     id: environment
     attributes:
       label: Proporcione la aplicación en la que descubrió el problema
+      multiple: true
       options:
         - CMS
         - Web
         - Base de datos
-      multiple: true
 
   - type: dropdown
     id: browser
     attributes:
       label: Seleccione los navegadores en los que está experimentando el problema.
+      multiple: true
       options:
         - Firefox
         - Brave
         - Chrome
         - Safari
         - Microsoft Edge
-      multiple: true
     validations:
       required: true
 
@@ -89,10 +89,10 @@ body:
 
   - type: dropdown
     id: contribution
-    Attributes:
-      Label: ¿Le gustaría realizar un pull-request para esta característica?
-      Options:
+    attributes:
+      label: ¿Le gustaría realizar un pull-request para esta característica?
+      options:
         - 'Sí 🚀'
         - 'No'
-    Validations:
-      Required: true
+    validations:
+      required: true
