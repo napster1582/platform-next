@@ -40,9 +40,9 @@ body:
   - type: dropdown
     id: contribution
     Attributes:
-      Label: ¿Le gustaría realizar un pull-request para esta característica?
-      Options:
+      label: ¿Le gustaría realizar un pull-request para esta característica?
+      options:
         - 'Sí 🚀'
         - 'No'
-    Validations:
-      Required: true
+    validations:
+      required: true
