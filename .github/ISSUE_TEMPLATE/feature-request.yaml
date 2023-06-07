@@ -34,8 +34,9 @@ body:
     id: other
     attributes:
       label: Contexto adicional
-      description: Proporcione cualquier enlace o referencia que nos dé más contexto sobre la función que está solicitando.
-      tip: Puede adjuntar imágenes o archivos de registro haciendo clic en esta área para resaltarlo y luego arrastrando los archivos adentro.
+      description: Proporcione cualquier enlace o referencia que nos dé más contexto sobre el problema que está experimentando.
+    validations:
+      required: false
 
   - Type: Dropdown
     id: contribution
