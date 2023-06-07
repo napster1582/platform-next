@@ -43,7 +43,7 @@ body:
       multiple: true
       options:
         - Desarrollo
-        - Proudcción
+        - Producción
     validations:
       required: true
 
