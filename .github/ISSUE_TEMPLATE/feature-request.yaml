@@ -37,7 +37,7 @@ body:
     validations:
       required: false
 
-  - Type: dropdown
+  - type: dropdown
     id: contribution
     Attributes:
       Label: ¿Le gustaría realizar un pull-request para esta característica?
