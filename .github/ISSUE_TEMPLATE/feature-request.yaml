@@ -5,7 +5,7 @@ labels: ['🔥 feature', '⚕️ triage']
 body:
   - type: checkboxes
     attributes:
-      label: ¿Existe algún issue existente para esto?
+      label: ¿Existe algún issue para esto?
       description: Por favor, busque en la pestaña de issues para ver si ya existe uno para la característica que está solicitando.
       options:
         - label: He buscado en los issues existentes.
