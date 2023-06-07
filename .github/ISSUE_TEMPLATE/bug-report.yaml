@@ -47,7 +47,7 @@ body:
       required: true
 
   - type: dropdown
-    id: environment
+    id: application
     attributes:
       label: Proporcione la aplicación en la que descubrió el problema
       multiple: true
