@@ -46,7 +46,13 @@ Para comenzar a trabajar en una nueva característica, se deben seguir los sigui
   pnpm docs:dev
   ```
 
-- Web (Sveltekit + TinaCMS): [http://localhost:3002](http://localhost:3002)
+- Cms (PayloadCMS): [http://localhost:3001](http://localhost:3001)
+
+  ```sh
+  pnpm cms:dev
+  ```
+
+- Web (Sveltekit): [http://localhost:3002](http://localhost:3002)
 
   ```sh
   pnpm web:dev
@@ -73,11 +79,7 @@ Para garantizar consistencia en todo el código fuente, tener en cuenta estas re
 - Todas las características o correcciones de errores **deben ser probadas** por uno o más especificaciones (pruebas unitarias).
 - Todos los métodos de API públicos **deben ser documentados**.
 
-## Directrices para mensajes de commit
-
-Tenemos reglas muy precisas sobre cómo deben formatearse los mensajes de commit de git. Esto lleva a mensajes **más legibles** que son fáciles de seguir al revisar el **historial del proyecto**. Además, utilizamos los mensajes de commit de git para **generar el registro de cambios de Akita**.
-
-### Formato del mensaje de commit
+## Formato del mensaje de commit
 
 Este proyecto sigue la convención de commits convencionales. Puede obtener más información en la siguiente página: <https://www.conventionalcommits.org/en/v1.0.0/>
 
@@ -149,10 +151,10 @@ docker run -p 3002:3002 -d ghcr.io/jinengroup/platform-next/web
 
 ### Ejecutar Docker Compose
 
-**Vendors:**
+**Database:**
 
 ```sh
-docker-compose up -d
+docker-compose -f docker-compose.database.yaml up -d
 ```
 
 **Development:**
