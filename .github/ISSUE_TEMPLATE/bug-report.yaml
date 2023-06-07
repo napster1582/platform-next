@@ -28,10 +28,11 @@ body:
     validations:
       required: true
 
-  - type: input
+  - type: textarea
     id: reproduction
     attributes:
       label: Proporcione un enlace a una reproducción mínima del problema. [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/fork/github/JinenGroup/platform-next)
+      render: markdown
     validations:
       required: true
 
