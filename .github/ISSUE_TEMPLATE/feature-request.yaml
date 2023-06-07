@@ -18,8 +18,8 @@ body:
       label: Describa el problema que resuelve su solicitud.
       description: Una descripción clara y concisa de cuál es el problema.
       placeholder: Por ejemplo, "Siempre estoy frustrado cuando..."
-      validations:
-        required: true
+    validations:
+      required: true
 
   - type: textarea
     id: solution
@@ -27,8 +27,8 @@ body:
       label: Describa la solución que desea.
       render: markdown
       placeholder: Una descripción clara y concisa de lo que desea que suceda.
-      validations:
-        required: true
+    validations:
+      required: true
 
   - type: textarea
     id: other
@@ -44,5 +44,5 @@ body:
       Options:
         - 'Sí 🚀'
         - 'No'
-      Validations:
-        Required: true
+    Validations:
+      Required: true

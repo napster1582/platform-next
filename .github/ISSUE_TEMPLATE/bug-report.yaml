@@ -32,25 +32,25 @@ body:
     id: reproduction
     attributes:
       label: Proporcione un enlace a una reproducción mínima del problema. [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/fork/github/JinenGroup/platform-next)
-      render: markdown    
+      render: markdown
 
   - type: textarea
     id: environment
     attributes:
       label: Proporcione el entorno en el que descubrió el problema
-       multiple: true
-      options: 
+      multiple: true
+      options:
         - Desarrollo
-        - Proudcción 
-  
+        - Proudcción
+
   - type: textarea
     id: environment
     attributes:
       label: Proporcione la aplicación en la que descubrió el problema
-       multiple: true
-      options: 
+      multiple: true
+      options:
         - CMS
-        - Web 
+        - Web
         - Base de datos
 
   - type: textarea
@@ -58,12 +58,12 @@ body:
     attributes:
       label: Seleccione los navegadores en los que está experimentando el problema.
       multiple: true
-      options: 
+      options:
         - Firefox
-        - Brave 
-        - Chrome 
-        - Safari 
-        - Microsoft Edge 
+        - Brave
+        - Chrome
+        - Safari
+        - Microsoft Edge
 
   - type: textarea
     id: logs
@@ -78,8 +78,8 @@ body:
       label: Contexto adicional
       description: |
         Proporcione cualquier enlace o referencia que nos dé más contexto sobre el problema que está experimentando.
-        
-        Tip: Puede adjuntar imágenes o archivos de registro haciendo clic en esta área para resaltarlo y luego arrastrando los archivos adentro.      
+
+        Tip: Puede adjuntar imágenes o archivos de registro haciendo clic en esta área para resaltarlo y luego arrastrando los archivos adentro.
 
   - Type: Dropdown
     id: contribution
