@@ -63,6 +63,6 @@
     "typescript": "^5.0.4",
     "vite": "^4.2.1",
     "vitepress": "1.0.0-alpha.75",
-    "vitest": "^0.29.8"
+    "vitest": "^0.31.4"
   }
 }
