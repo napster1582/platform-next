@@ -4,6 +4,7 @@ title: '[JINEN-BUG] Introduzca un breve resumen del bug'
 labels: ['bug', 'triage']
 body:
   - type: checkboxes
+    id: search-issues
     attributes:
       label: ¿Existe algún issue existente para esto?
       description: Por favor, busque en la pestaña de issues para ver si ya existe uno para la característica que está solicitando.
@@ -86,7 +87,7 @@ body:
     validations:
       required: false
 
-  - Type: dropdown
+  - type: dropdown
     id: contribution
     Attributes:
       Label: ¿Le gustaría realizar un pull-request para esta característica?
