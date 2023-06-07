@@ -5,7 +5,7 @@
 ---
 
 [![Build Status](https://github.com/JinenGroup/platform-next/actions/workflows/main.yaml/badge.svg)](https://github.com/JinenGroup/platform-next/actions)
-[![GitHub issues open](https://img.shields.io/github/issues/JinenGroup/platform-next.svg?maxAge=2592000)]()
+[![GitHub issues open](https://img.shields.io/github/issues/JinenGroup/platform-next.svg?maxAge=2592000)](https://github.com/JinenGroup/platform-next/issues)
 
 [![commitizen](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)]()
 [![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)]()
