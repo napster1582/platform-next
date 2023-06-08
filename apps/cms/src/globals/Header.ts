@@ -1,5 +1,6 @@
 import { GlobalConfig } from 'payload/types';
 import { isAdmin } from '../collections/access';
+import { Link, LinkGroup } from '../fields';
 
 export const Header: GlobalConfig = {
     slug: 'header',
@@ -13,75 +14,30 @@ export const Header: GlobalConfig = {
     },
     fields: [
         {
-            name: 'logo',
             type: 'upload',
+            name: 'logo',
+            label: 'Logo',
             relationTo: 'media',
             filterOptions: {
                 mimeType: { contains: 'image' },
             },
         },
         {
-            name: 'title',
-            type: 'text',
-            maxLength: 60,
-        },
-        {
+            type: 'array',
             name: 'navbar',
-            type: 'group',
-            fields: [
-                {
-                    name: 'navbarItem',
-                    type: 'array',
-                    fields: [
-                        {
-                            name: 'caption',
-                            type: 'text',
-                            required: true,
-                            maxLength: 20,
-                        },
-                        {
-                            name: 'href',
-                            type: 'text',
-                        },
-                        {
-                            name: 'style',
-                            type: 'radio',
-                            options: [
-                                {
-                                    label: 'Link',
-                                    value: 'link',
-                                },
-                                {
-                                    label: 'Botón',
-                                    value: 'button',
-                                },
-                            ],
-                            defaultValue: 'link',
-                        },
-                        {
-                            name: 'children',
-                            type: 'array',
-                            fields: [
-                                {
-                                    name: 'caption',
-                                    type: 'text',
-                                    required: true,
-                                    maxLength: 20,
-                                },
-                                {
-                                    name: 'href',
-                                    type: 'text',
-                                },
-                                {
-                                    name: 'isDisabled',
-                                    type: 'checkbox',
-                                    defaultValue: false,
-                                },
-                            ],
-                        },
-                    ],
+            label: 'Elementos de navegación',
+            labels: {
+                singular: 'elemento de navegación',
+                plural: 'elementos de navegación',
+            },
+            admin: {
+                components: {
+                    RowLabel: ({ data }) => {
+                        return data?.link?.text || data?.link?.icon;
+                    },
                 },
-            ],
+            },
+            fields: [Link(), LinkGroup()],
         },
     ],
 };

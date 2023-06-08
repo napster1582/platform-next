@@ -24,6 +24,10 @@ export const Link: FieldLink = (options) =>
                             value: 'cta',
                         },
                         {
+                            label: 'Ícono',
+                            value: 'icon',
+                        },
+                        {
                             label: 'Botón primario',
                             value: 'primaryButton',
                         },
@@ -61,7 +65,39 @@ export const Link: FieldLink = (options) =>
                             name: 'text',
                             label: 'Texto a mostrar',
                             required: true,
+                            admin: {
+                                condition: (_, siblingData) => siblingData?.appearance !== 'icon',
+                            },
                         },
+                    ],
+                },
+                {
+                    type: 'row',
+                    fields: [
+                        {
+                            type: 'checkbox',
+                            name: 'showIcon',
+                            label: 'Mostrar ícono',
+                            required: true,
+                            admin: {
+                                condition: (_, siblingData) => siblingData?.appearance !== 'icon',
+                            },
+                        },
+                        {
+                            type: 'text',
+                            name: 'icon',
+                            label: 'Ícono',
+                            required: true,
+                            admin: {
+                                condition: (_, siblingData) =>
+                                    siblingData?.appearance === 'icon' || siblingData?.showIcon,
+                            },
+                        },
+                    ],
+                },
+                {
+                    type: 'row',
+                    fields: [
                         {
                             type: 'relationship',
                             name: 'internalLinkReference',

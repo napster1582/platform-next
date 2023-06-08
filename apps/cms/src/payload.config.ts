@@ -53,15 +53,12 @@ export default buildConfig({
             generateURL: (docs) => docs.reduce((url, doc) => `${url}/${doc.slug}`, ''),
         }),
         PluginSearch({
-            collections: ['pages'],
+            collections: ['users', 'pages', 'events'],
             searchOverrides: {
                 labels: {
                     singular: 'Resultado de búsqueda',
                     plural: 'Resultados de búsqueda',
                 },
-            },
-            defaultPriorities: {
-                pages: 10,
             },
         }),
         PluginFormBuilder({
