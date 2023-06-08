@@ -6,22 +6,18 @@ type FieldLink = (options?: { overrides?: Partial<Field> }) => Field;
 export const Link: FieldLink = (options) =>
     deepmerge(
         {
+            type: 'group',
             name: 'link',
             label: 'Enlace',
-            type: 'group',
             fields: [
                 {
+                    type: 'select',
                     name: 'appearance',
                     label: 'Apariencia',
-                    type: 'select',
                     options: [
                         {
                             label: 'Texto',
                             value: 'text',
-                        },
-                        {
-                            label: 'Heredar',
-                            value: 'inherit',
                         },
                         {
                             label: 'CTA',
@@ -39,16 +35,16 @@ export const Link: FieldLink = (options) =>
                     defaultValue: 'text',
                 },
                 {
+                    type: 'radio',
                     name: 'type',
                     label: 'Tipo',
-                    type: 'radio',
                     options: [
                         {
-                            label: 'Interno',
+                            label: 'Enlace interno',
                             value: 'internal',
                         },
                         {
-                            label: 'Externo',
+                            label: 'URL personalizada',
                             value: 'external',
                         },
                     ],
@@ -61,15 +57,15 @@ export const Link: FieldLink = (options) =>
                     type: 'row',
                     fields: [
                         {
-                            name: 'text',
-                            label: 'Texto',
                             type: 'text',
+                            name: 'text',
+                            label: 'Texto a mostrar',
                             required: true,
                         },
                         {
+                            type: 'relationship',
                             name: 'internalLinkReference',
                             label: 'Referencia de navegación',
-                            type: 'relationship',
                             relationTo: ['pages'],
                             required: true,
                             maxDepth: 1,
@@ -78,9 +74,9 @@ export const Link: FieldLink = (options) =>
                             },
                         },
                         {
+                            type: 'text',
                             name: 'externalLink',
                             label: 'URL',
-                            type: 'text',
                             required: true,
                             admin: {
                                 condition: (_, siblingData) => siblingData?.type === 'external',
@@ -89,9 +85,9 @@ export const Link: FieldLink = (options) =>
                     ],
                 },
                 {
-                    name: 'newTab',
-                    label: 'Abrir en una nueva pestaña',
                     type: 'checkbox',
+                    name: 'newTab',
+                    label: 'Abrir en nueva pestaña',
                 },
             ],
         },

@@ -1,6 +1,5 @@
 import { CollectionConfig } from 'payload/types';
-import Content from '../blocks/Content';
-import { EmbeddedForm } from '../blocks/EmbeddedForm';
+import { Section } from '../blocks';
 import { Hero, Slug } from '../fields';
 import { isAdmin, isAdminOrUser } from './access';
 import { populateAuthor } from './hooks';
@@ -13,6 +12,8 @@ export const Pages: CollectionConfig = {
     },
     admin: {
         group: 'Contenido',
+        useAsTitle: 'title',
+        defaultColumns: ['title'],
     },
     access: {
         read: isAdminOrUser,
@@ -27,28 +28,29 @@ export const Pages: CollectionConfig = {
     },
     fields: [
         {
+            type: 'text',
             name: 'title',
             label: 'Título',
-            type: 'text',
             required: true,
             localized: true,
         },
         {
-            name: 'author',
-            label: 'Autor',
-            relationTo: 'users',
-            type: 'relationship',
-            hooks: {
-                beforeChange: [populateAuthor],
-            },
-            admin: {
-                readOnly: true,
-                position: 'sidebar',
-            },
+            type: 'checkbox',
+            name: 'showHeader',
+            label: 'Mostrar encabezado',
+            defaultValue: true,
         },
-        Slug({
-            fieldToUse: 'title',
-        }),
+        {
+            type: 'checkbox',
+            name: 'showMenu',
+            label: 'Mostrar menú',
+        },
+        {
+            type: 'checkbox',
+            name: 'showFooter',
+            label: 'Mostrar pie de página',
+            defaultValue: true,
+        },
         {
             type: 'tabs',
             tabs: [
@@ -56,9 +58,9 @@ export const Pages: CollectionConfig = {
                     label: 'Hero',
                     fields: [
                         {
+                            type: 'checkbox',
                             name: 'showHero',
                             label: 'Mostrar sección Hero',
-                            type: 'checkbox',
                         },
                         Hero({
                             overrides: {
@@ -70,29 +72,38 @@ export const Pages: CollectionConfig = {
                     ],
                 },
                 {
-                    label: 'Diseño de la página',
+                    label: 'Secciones de la página',
                     fields: [
                         {
-                            name: 'blocks',
-                            label: 'Bloques',
-                            labels: {
-                                singular: 'Bloque',
-                                plural: 'Bloques',
-                            },
                             type: 'blocks',
-                            minRows: 0,
-                            blocks: [
-                                // Accordion,
-                                Content,
-                                EmbeddedForm,
-                                // Form,
-                                // Media,
-                                // MediaContent,
-                            ],
+                            name: 'sections',
+                            label: 'Secciones',
+                            labels: {
+                                singular: 'Sección',
+                                plural: 'Secciones',
+                            },
+                            minRows: 1,
+                            blocks: [Section],
                         },
                     ],
                 },
             ],
         },
+        {
+            type: 'relationship',
+            name: 'author',
+            label: 'Autor',
+            relationTo: 'users',
+            hooks: {
+                beforeChange: [populateAuthor],
+            },
+            admin: {
+                readOnly: true,
+                position: 'sidebar',
+            },
+        },
+        Slug({
+            fieldToUse: 'title',
+        }),
     ],
 };

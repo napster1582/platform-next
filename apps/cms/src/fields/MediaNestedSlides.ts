@@ -22,18 +22,25 @@ export const MediaNestedSlides: FieldMediaNestedSlides = (options) =>
                     minRows: 1,
                     admin: {
                         initCollapsed: true,
+                        components: {
+                            RowLabel: ({ data }) => {
+                                return `[${data?.indicator}] ${data?.title}`;
+                            },
+                        },
                     },
                     fields: [
                         {
                             name: 'indicator',
                             label: 'Indicador',
                             type: 'text',
+                            required: true,
                             maxLength: 10,
                         },
                         {
                             name: 'title',
                             label: 'Título',
                             type: 'text',
+                            required: true,
                             maxLength: 60,
                         },
                         {
@@ -63,9 +70,13 @@ export const MediaNestedSlides: FieldMediaNestedSlides = (options) =>
                             },
                         }),
                         {
+                            type: 'array',
                             name: 'previews',
                             label: 'Vistas previas',
-                            type: 'array',
+                            labels: {
+                                singular: 'Vista previa',
+                                plural: 'Vistas previas',
+                            },
                             fields: [
                                 {
                                     name: 'title',

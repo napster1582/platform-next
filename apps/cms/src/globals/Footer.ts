@@ -1,5 +1,6 @@
 import { GlobalConfig } from 'payload/types';
 import { isAdmin } from '../collections/access';
+import { LinkGroup } from '../fields';
 
 export const Footer: GlobalConfig = {
     slug: 'footer',
@@ -13,13 +14,13 @@ export const Footer: GlobalConfig = {
     },
     fields: [
         {
+            type: 'array',
             name: 'logos',
             label: 'Logos',
             labels: {
                 singular: 'Logo',
                 plural: 'Logos',
             },
-            type: 'array',
             fields: [
                 {
                     name: 'logo',
@@ -33,13 +34,13 @@ export const Footer: GlobalConfig = {
             ],
         },
         {
+            type: 'array',
             name: 'sections',
             label: 'Secciones',
             labels: {
                 singular: 'Sección',
                 plural: 'Secciones',
             },
-            type: 'array',
             fields: [
                 {
                     name: 'section',
@@ -52,25 +53,23 @@ export const Footer: GlobalConfig = {
                             type: 'text',
                             required: true,
                         },
-                        {
-                            name: 'links',
-                            label: 'Enlaces',
-                            type: 'array',
-                            required: true,
-                            fields: [
-                                {
-                                    name: 'caption',
-                                    label: 'Texto',
-                                    type: 'text',
-                                },
-                                {
-                                    name: 'href',
-                                    label: 'Enlace',
-                                    type: 'text',
-                                },
-                            ],
-                        },
+                        LinkGroup(),
                     ],
+                },
+            ],
+        },
+        {
+            type: 'group',
+            name: 'contact',
+            label: 'Contacto',
+            fields: [
+                {
+                    name: 'content',
+                    label: 'Contenido',
+                    type: 'richText',
+                    admin: {
+                        elements: ['ol', 'ul', 'link'],
+                    },
                 },
             ],
         },

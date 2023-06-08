@@ -8,8 +8,8 @@ export const Users: CollectionConfig = {
         plural: 'Usuarios',
     },
     admin: {
-        useAsTitle: 'email',
         group: 'Admin',
+        useAsTitle: 'email',
     },
     auth: true,
     access: {

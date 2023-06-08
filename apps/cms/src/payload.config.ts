@@ -2,12 +2,11 @@ import PluginFormBuilder from '@payloadcms/plugin-form-builder';
 import PluginNestedDocs from '@payloadcms/plugin-nested-docs';
 import PluginSearch from '@payloadcms/plugin-search';
 import PluginSeo from '@payloadcms/plugin-seo';
-import PluginPasswordProtection from 'payload-plugin-password-protection';
 
 import { resolve } from 'path';
 import { buildConfig } from 'payload/config';
-import { Media, Pages, Users } from './collections';
-import { Events, Footer, Header, Menu, Socials } from './globals';
+import { Events, Media, Pages, Users } from './collections';
+import { Footer, Header, Menu } from './globals';
 
 import { Icon, Logo } from './graphics';
 
@@ -26,8 +25,13 @@ export default buildConfig({
             },
         },
     },
-    collections: [Users, Media, Pages],
-    globals: [Events, Header, Menu, Footer, Socials],
+    collections: [Users, Media, Pages, Events],
+    globals: [Header, Menu, Footer],
+    upload: {
+        limits: {
+            fileSize: 12_000_000, // 12MB, written in bytes
+        },
+    },
     rateLimit: {
         trustProxy: true,
         window: 2 * 60 * 1000, // 2 minutes,
@@ -43,9 +47,6 @@ export default buildConfig({
         disable: true,
     },
     plugins: [
-        PluginPasswordProtection({
-            collections: ['pages'],
-        }),
         PluginNestedDocs({
             collections: ['pages'],
             generateLabel: (_, doc) => doc.title as string,
@@ -86,6 +87,8 @@ export default buildConfig({
         }),
         PluginSeo({
             collections: ['pages'],
+            generateTitle: ({ doc }) => `jinen.com — ${doc['title']?.value}: [Descripción]`,
+            generateURL: ({ doc }) => `https://jinen.com/${doc['fields']['slug']?.value}`,
         }),
     ],
 });

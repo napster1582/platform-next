@@ -10,9 +10,9 @@ export const Slug: FieldSlug = (options) =>
             name: 'slug',
             label: 'Slug',
             type: 'text',
-            localized: true,
             admin: {
                 position: 'sidebar',
+                readOnly: true,
             },
             hooks: {
                 beforeValidate: [formatSlug(options.fieldToUse)],
