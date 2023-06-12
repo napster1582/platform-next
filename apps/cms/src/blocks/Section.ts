@@ -1,4 +1,5 @@
 import { Block } from 'payload/types';
+import { Accordion } from './Accordion';
 import { Alert } from './Alert';
 import { Content } from './Content';
 import { EmbeddedEvents } from './EmbeddedEvents';
@@ -95,7 +96,16 @@ export const Section: Block = {
                         singular: 'bloque',
                         plural: 'bloques',
                     },
-                    blocks: [Alert, Content, Media, Link, LinkGroup, EmbeddedForm, EmbeddedEvents],
+                    blocks: [
+                        Accordion,
+                        Alert,
+                        Content,
+                        Media,
+                        Link,
+                        LinkGroup,
+                        EmbeddedForm,
+                        EmbeddedEvents,
+                    ],
                 },
             ],
         },
