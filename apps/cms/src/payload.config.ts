@@ -3,10 +3,18 @@ import PluginNestedDocs from '@payloadcms/plugin-nested-docs';
 import PluginSearch from '@payloadcms/plugin-search';
 import PluginSeo from '@payloadcms/plugin-seo';
 
+import {
+    CollectionEvents,
+    CollectionMedia,
+    CollectionPages,
+    CollectionUsers,
+    GlobalFooter,
+    GlobalHeader,
+    GlobalMenu,
+} from '@jinen/jinen-cms-schema';
+
 import { resolve } from 'path';
 import { buildConfig } from 'payload/config';
-import { Events, Media, Pages, Users } from './collections';
-import { Footer, Header, Menu } from './globals';
 
 import { Icon, Logo } from './graphics';
 
@@ -25,8 +33,8 @@ export default buildConfig({
             },
         },
     },
-    collections: [Users, Media, Pages, Events],
-    globals: [Header, Menu, Footer],
+    collections: [CollectionUsers, CollectionMedia, CollectionPages, CollectionEvents],
+    globals: [GlobalHeader, GlobalMenu, GlobalFooter],
     upload: {
         limits: {
             fileSize: 12_000_000, // 12MB, written in bytes
@@ -40,7 +48,7 @@ export default buildConfig({
     cors: CLIENT_URLS,
     csrf: CLIENT_URLS,
     typescript: {
-        outputFile: resolve(__dirname, 'payload-types.ts'),
+        outputFile: resolve(import.meta.url, 'payload-types.ts'),
     },
     graphQL: {
         disablePlaygroundInProduction: true,

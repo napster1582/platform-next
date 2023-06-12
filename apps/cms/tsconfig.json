@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
     "allowJs": true,
     "strict": false,
     "esModuleInterop": true,
@@ -9,6 +10,7 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "jsx": "react",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "paths": {
       "payload/generated-types": ["./src/payload-types.ts"],
