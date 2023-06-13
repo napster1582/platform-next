@@ -23,6 +23,7 @@ export const FieldMediaNestedSlides: CustomField = (options) =>
                     admin: {
                         initCollapsed: true,
                         components: {
+                            /* eslint-disable  @typescript-eslint/no-explicit-any */
                             RowLabel: ({ data }: any) => {
                                 return `[${data?.indicator}] ${data?.title}`;
                             },

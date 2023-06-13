@@ -10,7 +10,7 @@
     "format": "prettier --write --ignore-path=../../.prettierignore ."
   },
   "devDependencies": {
-    "eslint-config-custom": "workspace:*",
+    "@jinen/eslint-config-custom": "workspace:*",
     "svelte": "^3.9.2"
   }
 }

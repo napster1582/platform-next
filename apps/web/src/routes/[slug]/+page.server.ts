@@ -1,9 +1,12 @@
 import { VITE_CMS_URL } from '$env/static/private';
+import type { Page } from '@jinen/cms-generated-types';
 import { buildRequestOptions } from '@jinen/http';
 import { error } from '@sveltejs/kit';
 import qs from 'qs';
 
-export async function load({ params }) {
+export async function load({ params }): Promise<{
+    page: Page;
+}> {
     const { slug } = params;
 
     const stringifiedQuery = qs.stringify(
@@ -36,7 +39,7 @@ export async function load({ params }) {
         return {
             page,
         };
-    } catch (errorResponse: any) {
+    } catch (errorResponse) {
         throw error(
             errorResponse?.status ?? 500,
             `Failed to load data from the CMS: ${errorResponse}`,

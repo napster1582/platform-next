@@ -1,8 +1,8 @@
 <script lang="ts">
     import Link from '../link/Link.svelte';
 
-    export let href: string;
-    export let imageUrl = '';
+    export const href = '';
+    export const imageUrl = '';
 </script>
 
 <Link

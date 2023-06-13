@@ -6,7 +6,8 @@
     "postinstall": "npx simple-git-hooks",
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "lint": "turbo run lint --",
     "format": "prettier --write ."
   },
   "simple-git-hooks": {
@@ -15,10 +16,10 @@
   },
   "lint-staged": {
     "*.{js,jsx,vue,svelte}": [
-      "pnpm lint",
-      "pnpm format"
+      "pnpm format",
+      "npm run lint"
     ],
-    "*.{svelte,css,pcss,less,scss,sass}": [
+    "*.{css,json,md,yml,yaml}": [
       "pnpm format"
     ]
   },
@@ -26,14 +27,16 @@
     "@commitlint/config-conventional": "^17.6.1",
     "commitlint": "^17.6.1",
     "eslint": "^8.0.0",
-    "eslint-config-custom": "workspace:*",
+    "@jinen/eslint-config-custom": "workspace:*",
     "lint-staged": "^13.2.1",
     "prettier": "^2.8.7",
     "prettier-plugin-svelte": "^2.10.0",
     "prettier-plugin-tailwindcss": "^0.2.7",
     "simple-git-hooks": "^2.8.1",
-    "turbo": "latest",
-    "vitepress": "1.0.0-alpha.75"
+    "turbo": "latest"
+  },
+  "engines": {
+    "node": ">=v18.16.0"
   },
   "packageManager": "pnpm@7.15.0"
 }

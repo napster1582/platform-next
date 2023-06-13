@@ -7,7 +7,7 @@
     import logoCednav from '$lib/assets/logos/cednav.png';
     import logoGetUnderway from '$lib/assets/logos/get_underway.png';
 
-    export let content: Menu;
+    export const content: Menu | null = null;
 </script>
 
 <nav

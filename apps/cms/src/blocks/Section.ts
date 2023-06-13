@@ -25,6 +25,7 @@ export const BlockSection = {
             },
             admin: {
                 components: {
+                    /* eslint-disable  @typescript-eslint/no-explicit-any */
                     RowLabel: ({ data }: any) => {
                         return `Columna - Ancho: ${data?.width ?? '12'}`;
                     },

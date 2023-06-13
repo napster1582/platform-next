@@ -4,9 +4,9 @@ type MakeRequestParams<BodyType> = {
     headers?: HeadersInit;
 };
 
-export const buildRequestOptions = <BodyType = unknown>(
+export function buildRequestOptions<BodyType = unknown>(
     options?: MakeRequestParams<BodyType>,
-): RequestInit => {
+): RequestInit {
     return {
         method: options?.method ?? 'GET',
         headers: {
@@ -15,27 +15,4 @@ export const buildRequestOptions = <BodyType = unknown>(
         },
         body: options?.body ? JSON.stringify(options?.body) : undefined,
     } satisfies RequestInit;
-};
-
-export const handleResponse = async (
-    response: Response,
-    { onError, onSuccess }: { onError?: () => void; onSuccess?: () => void },
-) => {
-    const contentType = response.headers.get('content-type');
-
-    if (!response.ok) {
-        if (onError) {
-            return onError();
-        }
-
-        throw new Error(await response.text());
-    }
-
-    if (onSuccess) {
-        return onSuccess();
-    } else {
-        const isJsonResponse = contentType && contentType.includes('application/json');
-
-        return isJsonResponse ? response.json() : response.text();
-    }
-};
+}

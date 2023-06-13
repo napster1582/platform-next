@@ -17,7 +17,7 @@
 
     let currentIndex = 0;
 
-    let interval: any | null = null;
+    let interval: unknown | null = null;
 
     onMount(() => autoplay && resetInterval());
 

@@ -58,19 +58,14 @@ export const FieldLink: CustomField = (options) =>
                     },
                 },
                 {
-                    type: 'row',
-                    fields: [
-                        {
-                            type: 'text',
-                            name: 'text',
-                            label: 'Texto a mostrar',
-                            required: true,
-                            admin: {
-                                condition: (_: any, siblingData: any) =>
-                                    siblingData?.appearance !== 'icon',
-                            },
-                        },
-                    ],
+                    type: 'text',
+                    name: 'text',
+                    label: 'Texto a mostrar',
+                    required: true,
+                    admin: {
+                        condition: (_: unknown, siblingData: Record<string, unknown>) =>
+                            siblingData?.appearance !== 'icon',
+                    },
                 },
                 {
                     type: 'row',
@@ -81,7 +76,7 @@ export const FieldLink: CustomField = (options) =>
                             label: 'Mostrar ícono',
                             required: true,
                             admin: {
-                                condition: (_: any, siblingData: any) =>
+                                condition: (_: unknown, siblingData: Record<string, unknown>) =>
                                     siblingData?.appearance !== 'icon',
                             },
                         },
@@ -91,7 +86,7 @@ export const FieldLink: CustomField = (options) =>
                             label: 'Ícono',
                             required: true,
                             admin: {
-                                condition: (_: any, siblingData: any) =>
+                                condition: (_: unknown, siblingData: Record<string, unknown>) =>
                                     siblingData?.appearance === 'icon' || siblingData?.showIcon,
                             },
                         },
@@ -108,7 +103,7 @@ export const FieldLink: CustomField = (options) =>
                             required: true,
                             maxDepth: 1,
                             admin: {
-                                condition: (_: any, siblingData: any) =>
+                                condition: (_: unknown, siblingData: Record<string, unknown>) =>
                                     siblingData?.type === 'internal',
                             },
                         },
@@ -118,7 +113,7 @@ export const FieldLink: CustomField = (options) =>
                             label: 'URL',
                             required: true,
                             admin: {
-                                condition: (_: any, siblingData: any) =>
+                                condition: (_: unknown, siblingData: Record<string, unknown>) =>
                                     siblingData?.type === 'external',
                             },
                         },

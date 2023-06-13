@@ -15,7 +15,7 @@ export type JinenEnvSchema = z.infer<typeof schema>;
 
 let parsedSchema: JinenEnvSchema | null = null;
 
-export const env = <T>(resolve: (schema: JinenEnvSchema) => T) => {
+export const env = <T>(resolve: (schema: JinenEnvSchema) => T): T => {
     if (!parsedSchema) {
         const env = process.env.NODE_ENV || 'development';
         const envFilePath = path.resolve(process.cwd(), `.env.${env}`);

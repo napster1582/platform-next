@@ -13,7 +13,7 @@
     } from 'flowbite-svelte';
     import Logo from '../logo/Logo.svelte';
 
-    export let content: Header;
+    export const content: Header | null = null;
 </script>
 
 <header id="jinen-header">

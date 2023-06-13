@@ -58,9 +58,8 @@ export default buildConfig({
     plugins: [
         PluginNestedDocs({
             collections: ['pages'],
-            generateLabel: (_: any, doc: any) => doc.title as string,
-            generateURL: (docs: any) =>
-                docs.reduce((url: any, doc: any) => `${url}/${doc.slug}`, ''),
+            generateLabel: (_, doc) => doc.title as string,
+            generateURL: (docs) => docs.reduce((url, doc) => `${url}/${doc.slug}`, ''),
         }),
         PluginSearch({
             collections: ['users', 'pages', 'events'],
@@ -94,7 +93,9 @@ export default buildConfig({
         }),
         PluginSeo({
             collections: ['pages'],
+            /* eslint-disable  @typescript-eslint/no-explicit-any */
             generateTitle: ({ doc }: any) => `jinen.com — ${doc['title']?.value}: [Descripción]`,
+            /* eslint-disable  @typescript-eslint/no-explicit-any */
             generateURL: ({ doc }: any) => `https://jinen.com/${doc['fields']['slug']?.value}`,
         }),
     ],

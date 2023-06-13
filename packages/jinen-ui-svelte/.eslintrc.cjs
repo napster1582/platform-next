@@ -1,3 +1,3 @@
 module.exports = {
-    extends: ['custom'],
+    extends: ['@jinen/eslint-config-custom'],
 };

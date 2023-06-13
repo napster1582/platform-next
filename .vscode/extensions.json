@@ -8,6 +8,7 @@
     "angular.ng-template",
     "zixuanchen.vitest-explorer",
     "ms-playwright.playwright",
-    "antfu.iconify"
+    "antfu.iconify",
+    "EditorConfig.EditorConfig"
   ]
 }

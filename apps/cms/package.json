@@ -11,7 +11,8 @@
     "build": "pnpm build:payload && pnpm build:server && pnpm copyfiles",
     "copyfiles": "copyfiles -u 1 \"src/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png}\" dist/ && copyfiles -u 1 \"build/**/*\" ../server/build",
     "generate:types": "cross-env PAYLOAD_CONFIG_PATH=src/payload-config.ts payload generate:types",
-    "lint": "eslint --ext .ts,.tsx,.js,.jsx ./src"
+    "lint": "prettier --check --ignore-path=../../.prettierignore . && eslint \".\"",
+    "format": "prettier --write --ignore-path=../../.prettierignore ."
   },
   "dependencies": {
     "@jinen/helpers": "workspace:^",
@@ -19,7 +20,7 @@
     "payload": "^1.6.9"
   },
   "devDependencies": {
-    "eslint-config-custom": "workspace:*",
+    "@jinen/eslint-config-custom": "workspace:*",
     "@payloadcms/plugin-form-builder": "^1.0.15",
     "@payloadcms/plugin-nested-docs": "^1.0.4",
     "@payloadcms/plugin-search": "^1.0.0",

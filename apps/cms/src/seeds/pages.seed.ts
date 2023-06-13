@@ -8,12 +8,12 @@ const seedHome = async (payload: Payload): Promise<unknown> => {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
-const seedAbout = async (payload: Payload) => {};
+const seedAbout = async (payload: Payload): Promise<void> => {};
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
-const seedDicyt = async (payload: Payload) => {};
+const seedDicyt = async (payload: Payload): Promise<void> => {};
 
-export const seedPages = async (payload: Payload) => {
+export const seedPages = async (payload: Payload): Promise<void> => {
     const deleted = await payload.delete({ collection: 'pages', where: {} });
     payload.logger.info(`[seed:delete] -> home: ${JSON.stringify(deleted)}`);
 

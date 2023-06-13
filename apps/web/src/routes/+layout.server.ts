@@ -3,7 +3,11 @@ import type { Footer, Header, Menu } from '@jinen/cms-generated-types';
 import { buildRequestOptions } from '@jinen/http';
 import { error } from '@sveltejs/kit';
 
-export async function load({ fetch }) {
+export async function load({ fetch }): Promise<{
+    header: Header;
+    menu: Menu;
+    footer: Footer;
+}> {
     try {
         const headerResponse = fetch(`${VITE_CMS_URL}/globals/header`, buildRequestOptions());
         const menuResponse = fetch(`${VITE_CMS_URL}/globals/menu`, buildRequestOptions());
@@ -29,7 +33,7 @@ export async function load({ fetch }) {
             menu: (await responses[1].json()) as Menu,
             footer: (await responses[2].json()) as Footer,
         };
-    } catch (errorResponse: any) {
+    } catch (errorResponse) {
         throw error(
             errorResponse?.status ?? 500,
             `Failed to load data from the CMS: ${errorResponse}`,

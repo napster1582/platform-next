@@ -33,7 +33,8 @@ export const GlobalHeader = {
             },
             admin: {
                 components: {
-                    RowLabel: ({ data }: { data: any }) => {
+                    /* eslint-disable  @typescript-eslint/no-explicit-any */
+                    RowLabel: ({ data }: any) => {
                         return data?.link?.text || data?.link?.icon;
                     },
                 },

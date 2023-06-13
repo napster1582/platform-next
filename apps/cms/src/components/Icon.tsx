@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Icon = () => (
+export const Icon = (): React.JSX.Element => (
     <span
         style={{
             fontWeight: 'bold',
