@@ -13,7 +13,7 @@
     "test:unit": "vitest"
   },
   "devDependencies": {
-    "@iconify/tailwind": "^0.1.2",
+    "@iconify/tailwind": "^0.1.3",
     "@jinen/jinen-cms-types": "workspace:^",
     "@playwright/test": "^1.28.1",
     "@popperjs/core": "^2.11.8",
