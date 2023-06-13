@@ -2,13 +2,10 @@ import PluginFormBuilder from '@payloadcms/plugin-form-builder';
 import PluginNestedDocs from '@payloadcms/plugin-nested-docs';
 import PluginSearch from '@payloadcms/plugin-search';
 import PluginSeo from '@payloadcms/plugin-seo';
-import PluginPasswordProtection from 'payload-plugin-password-protection';
-
-import { resolve } from 'path';
+import path from 'path';
 import { buildConfig } from 'payload/config';
-import { Media, Pages, Users } from './collections';
-import { Events, Footer, Header, Menu, Socials } from './globals';
-
+import { CollectionEvents, CollectionMedia, CollectionPages, CollectionUsers } from './collections';
+import { GlobalFooter, GlobalHeader, GlobalMenu } from './globals';
 import { Icon, Logo } from './graphics';
 
 const CLIENT_URLS = ['http://localhost:3002'];
@@ -26,8 +23,13 @@ export default buildConfig({
             },
         },
     },
-    collections: [Users, Media, Pages],
-    globals: [Events, Header, Menu, Footer, Socials],
+    collections: [CollectionUsers, CollectionMedia, CollectionPages, CollectionEvents],
+    globals: [GlobalHeader, GlobalMenu, GlobalFooter],
+    upload: {
+        limits: {
+            fileSize: 12_000_000, // 12MB, written in bytes
+        },
+    },
     rateLimit: {
         trustProxy: true,
         window: 2 * 60 * 1000, // 2 minutes,
@@ -36,31 +38,25 @@ export default buildConfig({
     cors: CLIENT_URLS,
     csrf: CLIENT_URLS,
     typescript: {
-        outputFile: resolve(__dirname, 'payload-types.ts'),
+        outputFile: path.resolve(path.dirname(''), `../../pkg/jinen-cms-types/src/index.ts`),
     },
     graphQL: {
         disablePlaygroundInProduction: true,
         disable: true,
     },
     plugins: [
-        PluginPasswordProtection({
-            collections: ['pages'],
-        }),
         PluginNestedDocs({
             collections: ['pages'],
             generateLabel: (_, doc) => doc.title as string,
             generateURL: (docs) => docs.reduce((url, doc) => `${url}/${doc.slug}`, ''),
         }),
         PluginSearch({
-            collections: ['pages'],
+            collections: ['users', 'pages', 'events'],
             searchOverrides: {
                 labels: {
                     singular: 'Resultado de búsqueda',
                     plural: 'Resultados de búsqueda',
                 },
-            },
-            defaultPriorities: {
-                pages: 10,
             },
         }),
         PluginFormBuilder({
@@ -86,6 +82,8 @@ export default buildConfig({
         }),
         PluginSeo({
             collections: ['pages'],
+            generateTitle: ({ doc }: any) => `jinen.com — ${doc['title']?.value}: [Descripción]`,
+            generateURL: ({ doc }: any) => `https://jinen.com/${doc['fields']['slug']?.value}`,
         }),
     ],
 });

@@ -1,0 +1,41 @@
+{
+  "name": "@jinen/jinen-helpers",
+  "version": "0.0.11-alpha",
+  "author": "JinenGroup",
+  "private": true,
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JinenGroup/platform-next/tree/trunk/pkg/jinen-helpers"
+  },
+  "bugs": {
+    "url": "https://github.com/JinenGroup/platform-next/issues"
+  },
+  "homepage": "https://github.com/JinenGroup/platform-next/tree/trunk/pkg/jinen-helpers",
+  "keywords": [
+    "Jinen",
+    "Jinen helpers"
+  ],
+  "scripts": {
+    "dev": "unbuild --stub",
+    "build": "rimraf dist && unbuild"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.0",
+    "unbuild": "^1.2.1"
+  }
+}

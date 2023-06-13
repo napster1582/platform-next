@@ -3,18 +3,18 @@
   "description": "Payload project created from blank template",
   "version": "0.0.0",
   "main": "dist/server.js",
-  "license": "MIT",
   "scripts": {
-    "dev": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts nodemon",
+    "dev": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts ts-node-dev --respawn --transpile-only src/server.ts",
     "build:payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload build",
     "build:server": "tsc",
     "build": "npm run copyfiles && npm run build:payload && npm run build:server",
     "serve": "cross-env PAYLOAD_CONFIG_PATH=dist/payload.config.js NODE_ENV=production node dist/server.js",
-    "seed": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts ts-node src/seed.ts",
+    "seed": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts ts-node --esm src/seed.ts",
     "copyfiles": "copyfiles -u 1 \"src/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png}\" dist/",
     "generate:types": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:types"
   },
   "dependencies": {
+    "@jinen/jinen-helpers": "workspace:^",
     "@payloadcms/plugin-form-builder": "^1.0.15",
     "@payloadcms/plugin-nested-docs": "^1.0.4",
     "@payloadcms/plugin-search": "^1.0.0",
@@ -33,8 +33,7 @@
     "@types/node": "^18.15.11",
     "@types/react": "^18.2.7",
     "copyfiles": "^2.4.1",
-    "nodemon": "^2.0.6",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.8.4"
+    "ts-node": "^9.1.1",
+    "ts-node-dev": "^2.0.0"
   }
 }

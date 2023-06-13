@@ -1,10 +1,10 @@
 import deepmerge from 'deepmerge';
 import { Field } from 'payload/types';
-import { MediaNestedSlides } from './MediaNestedSlides';
+import { FieldMediaNestedSlides } from './MediaNestedSlides';
 
-type FieldHero = (options?: { overrides?: Partial<Field> }) => Field;
+type CustomField = (options?: { overrides?: Partial<Field> }) => Field;
 
-export const Hero: FieldHero = (options) =>
+export const FieldHero: CustomField = (options) =>
     deepmerge(
         {
             name: 'hero',
@@ -24,7 +24,7 @@ export const Hero: FieldHero = (options) =>
                         },
                     ],
                 },
-                MediaNestedSlides({
+                FieldMediaNestedSlides({
                     overrides: {
                         admin: {
                             condition: (_, siblingData) =>

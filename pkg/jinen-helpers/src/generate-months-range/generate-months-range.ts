@@ -5,7 +5,7 @@ type MonthsRangeOptions = {
     localesFormatOptions?: Intl.DateTimeFormatOptions;
 };
 
-export const generateMonthsRange = (startYear: number, options?: MonthsRangeOptions): string[] => {
+export const generateMonthsRange = (options?: MonthsRangeOptions): string[] => {
     const defaultOptions: MonthsRangeOptions = {
         locales: 'default',
         localesFormatOptions: {
@@ -16,7 +16,7 @@ export const generateMonthsRange = (startYear: number, options?: MonthsRangeOpti
     const finalOptions = deepmerge(defaultOptions, options || {});
 
     const monthsRange = Array.from({ length: 12 }, (_, month) =>
-        new Date(startYear, month, 1).toLocaleString(
+        new Date(new Date().getFullYear(), month, 1).toLocaleString(
             finalOptions.locales,
             finalOptions.localesFormatOptions,
         ),

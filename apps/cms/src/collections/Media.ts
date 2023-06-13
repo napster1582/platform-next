@@ -2,7 +2,7 @@ import path from 'path';
 import type { CollectionConfig } from 'payload/types';
 import { isAdmin, isAdminOrUser } from './access';
 
-export const Media: CollectionConfig = {
+export const CollectionMedia = {
     slug: 'media',
     labels: {
         singular: 'Multimedia',
@@ -49,4 +49,4 @@ export const Media: CollectionConfig = {
             localized: true,
         },
     ],
-};
+} satisfies CollectionConfig;

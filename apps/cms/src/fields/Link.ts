@@ -1,31 +1,31 @@
 import deepmerge from 'deepmerge';
 import { Field } from 'payload/types';
 
-type FieldLink = (options?: { overrides?: Partial<Field> }) => Field;
+type CustomField = (options?: { overrides?: Partial<Field> }) => Field;
 
-export const Link: FieldLink = (options) =>
+export const FieldLink: CustomField = (options) =>
     deepmerge(
         {
+            type: 'group',
             name: 'link',
             label: 'Enlace',
-            type: 'group',
             fields: [
                 {
+                    type: 'select',
                     name: 'appearance',
                     label: 'Apariencia',
-                    type: 'select',
                     options: [
                         {
                             label: 'Texto',
                             value: 'text',
                         },
                         {
-                            label: 'Heredar',
-                            value: 'inherit',
-                        },
-                        {
                             label: 'CTA',
                             value: 'cta',
+                        },
+                        {
+                            label: 'Ícono',
+                            value: 'icon',
                         },
                         {
                             label: 'Botón primario',
@@ -39,16 +39,16 @@ export const Link: FieldLink = (options) =>
                     defaultValue: 'text',
                 },
                 {
+                    type: 'radio',
                     name: 'type',
                     label: 'Tipo',
-                    type: 'radio',
                     options: [
                         {
-                            label: 'Interno',
+                            label: 'Enlace interno',
                             value: 'internal',
                         },
                         {
-                            label: 'Externo',
+                            label: 'URL personalizada',
                             value: 'external',
                         },
                     ],
@@ -61,37 +61,73 @@ export const Link: FieldLink = (options) =>
                     type: 'row',
                     fields: [
                         {
+                            type: 'text',
                             name: 'text',
-                            label: 'Texto',
-                            type: 'text',
-                            required: true,
-                        },
-                        {
-                            name: 'internalLinkReference',
-                            label: 'Referencia de navegación',
-                            type: 'relationship',
-                            relationTo: ['pages'],
-                            required: true,
-                            maxDepth: 1,
-                            admin: {
-                                condition: (_, siblingData) => siblingData?.type === 'internal',
-                            },
-                        },
-                        {
-                            name: 'externalLink',
-                            label: 'URL',
-                            type: 'text',
+                            label: 'Texto a mostrar',
                             required: true,
                             admin: {
-                                condition: (_, siblingData) => siblingData?.type === 'external',
+                                condition: (_: any, siblingData: any) =>
+                                    siblingData?.appearance !== 'icon',
                             },
                         },
                     ],
                 },
                 {
-                    name: 'newTab',
-                    label: 'Abrir en una nueva pestaña',
+                    type: 'row',
+                    fields: [
+                        {
+                            type: 'checkbox',
+                            name: 'showIcon',
+                            label: 'Mostrar ícono',
+                            required: true,
+                            admin: {
+                                condition: (_: any, siblingData: any) =>
+                                    siblingData?.appearance !== 'icon',
+                            },
+                        },
+                        {
+                            type: 'text',
+                            name: 'icon',
+                            label: 'Ícono',
+                            required: true,
+                            admin: {
+                                condition: (_: any, siblingData: any) =>
+                                    siblingData?.appearance === 'icon' || siblingData?.showIcon,
+                            },
+                        },
+                    ],
+                },
+                {
+                    type: 'row',
+                    fields: [
+                        {
+                            type: 'relationship',
+                            name: 'internalLinkReference',
+                            label: 'Referencia de navegación',
+                            relationTo: ['pages'],
+                            required: true,
+                            maxDepth: 1,
+                            admin: {
+                                condition: (_: any, siblingData: any) =>
+                                    siblingData?.type === 'internal',
+                            },
+                        },
+                        {
+                            type: 'text',
+                            name: 'externalLink',
+                            label: 'URL',
+                            required: true,
+                            admin: {
+                                condition: (_: any, siblingData: any) =>
+                                    siblingData?.type === 'external',
+                            },
+                        },
+                    ],
+                },
+                {
                     type: 'checkbox',
+                    name: 'newTab',
+                    label: 'Abrir en nueva pestaña',
                 },
             ],
         },

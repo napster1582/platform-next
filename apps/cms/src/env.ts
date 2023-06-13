@@ -23,7 +23,7 @@ function loadVariables() {
     const environment = process.env.NODE_ENV || 'development';
 
     dotenv.config({
-        path: path.resolve(__dirname, `../../../envs/${environment}.env`),
+        path: path.resolve(path.dirname(''), `../../envs/${environment}.env`),
     });
 }
 

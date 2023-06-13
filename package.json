@@ -7,7 +7,7 @@
   "keywords": [],
   "main": "index.js",
   "scripts": {
-    "postinstall": "npx simple-git-hooks",
+    "postinstall": "npx simple-git-hooks && pnpm --filter cms generate:types",
     "docs:dev": "vitepress dev docs --port 3000",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs --port 3000",
@@ -63,6 +63,7 @@
     "typescript": "^5.0.4",
     "vite": "^4.2.1",
     "vitepress": "1.0.0-alpha.75",
-    "vitest": "^0.31.4"
+    "vitest": "^0.31.4",
+    "deepmerge": "^4.3.1"
   }
 }

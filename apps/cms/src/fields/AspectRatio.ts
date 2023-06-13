@@ -1,9 +1,9 @@
 import deepmerge from 'deepmerge';
 import { Field } from 'payload/types';
 
-type FieldAspectRatio = (options?: { overrides?: Partial<Field> }) => Field;
+type CustomField = (options?: { overrides?: Partial<Field> }) => Field;
 
-export const AspectRatio: FieldAspectRatio = (options) =>
+export const FieldAspectRatio: CustomField = (options) =>
     deepmerge(
         {
             name: 'aspectRatio',

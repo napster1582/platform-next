@@ -1,15 +1,15 @@
 import { CollectionConfig } from 'payload/types';
 import { isAdmin, isAdminOrUser } from './access';
 
-export const Users: CollectionConfig = {
+export const CollectionUsers = {
     slug: 'users',
     labels: {
         singular: 'Usuario',
         plural: 'Usuarios',
     },
     admin: {
-        useAsTitle: 'email',
         group: 'Admin',
+        useAsTitle: 'email',
     },
     auth: true,
     access: {
@@ -50,4 +50,4 @@ export const Users: CollectionConfig = {
             ],
         },
     ],
-};
+} satisfies CollectionConfig;

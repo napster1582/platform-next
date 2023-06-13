@@ -1,18 +1,17 @@
 import deepmerge from 'deepmerge';
-import { Field } from 'payload/types';
-import { formatSlug } from '../utilities';
+import { Field, FieldHook } from 'payload/types';
 
-type FieldSlug = (options: { fieldToUse: string; overrides?: Partial<Field> }) => Field;
+type CustomField = (options: { fieldToUse: string; overrides?: Partial<Field> }) => Field;
 
-export const Slug: FieldSlug = (options) =>
+export const FieldSlug: CustomField = (options) =>
     deepmerge(
         {
             name: 'slug',
             label: 'Slug',
             type: 'text',
-            localized: true,
             admin: {
                 position: 'sidebar',
+                readOnly: true,
             },
             hooks: {
                 beforeValidate: [formatSlug(options.fieldToUse)],
@@ -20,3 +19,25 @@ export const Slug: FieldSlug = (options) =>
         },
         options?.overrides ?? {},
     );
+
+const format = (val: string): string =>
+    val
+        .replace(/ /g, '-')
+        .replace(/[^\w-]+/g, '')
+        .toLowerCase();
+
+export const formatSlug =
+    (fallback: string): FieldHook =>
+    ({ value, originalDoc, data }) => {
+        if (typeof value === 'string') {
+            return format(value);
+        }
+
+        const fallbackData = (data && data[fallback]) || (originalDoc && originalDoc[fallback]);
+
+        if (fallbackData && typeof fallbackData === 'string') {
+            return format(fallbackData);
+        }
+
+        return value;
+    };

@@ -1,10 +1,10 @@
 import deepmerge from 'deepmerge';
 import { Field } from 'payload/types';
-import { Link } from './Link';
+import { FieldLink } from './Link';
 
-type FieldMediaNestedSlides = (options?: { overrides?: Partial<Field> }) => Field;
+type CustomField = (options?: { overrides?: Partial<Field> }) => Field;
 
-export const MediaNestedSlides: FieldMediaNestedSlides = (options) =>
+export const FieldMediaNestedSlides: CustomField = (options) =>
     deepmerge(
         {
             name: 'mediaNestedSlides',
@@ -22,18 +22,25 @@ export const MediaNestedSlides: FieldMediaNestedSlides = (options) =>
                     minRows: 1,
                     admin: {
                         initCollapsed: true,
+                        components: {
+                            RowLabel: ({ data }: any) => {
+                                return `[${data?.indicator}] ${data?.title}`;
+                            },
+                        },
                     },
                     fields: [
                         {
                             name: 'indicator',
                             label: 'Indicador',
                             type: 'text',
+                            required: true,
                             maxLength: 10,
                         },
                         {
                             name: 'title',
                             label: 'Título',
                             type: 'text',
+                            required: true,
                             maxLength: 60,
                         },
                         {
@@ -55,7 +62,7 @@ export const MediaNestedSlides: FieldMediaNestedSlides = (options) =>
                             label: 'Mostrar enlace',
                             type: 'checkbox',
                         },
-                        Link({
+                        FieldLink({
                             overrides: {
                                 admin: {
                                     condition: (_, siblingData) => siblingData?.show,
@@ -63,9 +70,13 @@ export const MediaNestedSlides: FieldMediaNestedSlides = (options) =>
                             },
                         }),
                         {
+                            type: 'array',
                             name: 'previews',
                             label: 'Vistas previas',
-                            type: 'array',
+                            labels: {
+                                singular: 'Vista previa',
+                                plural: 'Vistas previas',
+                            },
                             fields: [
                                 {
                                     name: 'title',

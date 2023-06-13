@@ -9,3 +9,10 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
+    labels:
+      - '🤖 bot'
+      - '📦 dependencies'
+    reviewers:
+      - 'napster1582'
+      - 'JuanRenteM'
+      - 'juanmesa2097'

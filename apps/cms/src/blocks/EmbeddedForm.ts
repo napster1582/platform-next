@@ -1,14 +1,12 @@
 import { Block } from 'payload/types';
-import { RichText } from '../fields';
 
-export const EmbeddedForm: Block = {
-    slug: 'embeddedForm',
+export const BlockEmbeddedForm = {
+    slug: 'embedded-form',
     labels: {
         singular: 'Formulario embebido',
         plural: 'Formularios embebidos',
     },
     fields: [
-        RichText(),
         {
             name: 'form',
             type: 'relationship',
@@ -16,4 +14,4 @@ export const EmbeddedForm: Block = {
             required: true,
         },
     ],
-};
+} satisfies Block;

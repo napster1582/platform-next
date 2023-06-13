@@ -1,8 +1,8 @@
 import { GlobalConfig } from 'payload/types';
 import { isAdmin } from '../collections/access';
-import { Link } from '../fields';
+import { FieldLink } from '../fields';
 
-export const Menu: GlobalConfig = {
+export const GlobalMenu = {
     slug: 'menu',
     label: 'Menú',
     admin: {
@@ -48,8 +48,8 @@ export const Menu: GlobalConfig = {
                     type: 'text',
                     maxLength: 40,
                 },
-                Link(),
+                FieldLink(),
             ],
         },
     ],
-};
+} satisfies GlobalConfig;
