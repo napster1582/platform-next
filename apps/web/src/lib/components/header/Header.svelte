@@ -1,4 +1,5 @@
-<script>
+<script lang="ts">
+    import type { Header } from '@jinen/jinen-cms-types';
     import {
         Button,
         Chevron,
@@ -11,9 +12,11 @@
         Navbar,
     } from 'flowbite-svelte';
     import Logo from '../logo/Logo.svelte';
+
+    export let content: Header;
 </script>
 
-<header class="header">
+<header id="jinen-header">
     <Navbar
         navClass="bg-inherit text-white py-2 xl:py-0.5"
         color="none"
@@ -38,7 +41,7 @@
             nonActiveClass="text-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
         >
             <NavLi
-                href="/home"
+                href="/inicio"
                 nonActiveClass="text-white mt-3">Inicio</NavLi
             >
             <NavLi
@@ -92,7 +95,7 @@
 </header>
 
 <style lang="postcss">
-    .header {
+    #jinen-header {
         @apply bg-blue-600;
         @apply sticky inset-x-0 top-0 z-20;
         @apply shadow-xl;

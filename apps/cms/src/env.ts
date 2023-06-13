@@ -4,11 +4,9 @@ import { z } from 'zod';
 import dotenv from 'dotenv';
 
 const schema = z.object({
-    JINEN_DOCS_PORT: z.coerce.number().positive().default(3000),
-    JINEN_DOCS_URL: z.string().url().default('http://localhost:3000'),
     JINEN_CMS_PORT: z.coerce.number().positive().default(3001),
+    JINEN_DOCS_URL: z.string().url().default('http://localhost:3000'),
     JINEN_CMS_URL: z.string().url().default('http://localhost:3001'),
-    JINEN_WEB_PORT: z.coerce.number().positive().default(3002),
     JINEN_WEB_URL: z.string().url().default('http://localhost:3002'),
     PAYLOAD_SECRET: z.string().nonempty(),
     PAYLOAD_CONFIG_PATH: z.string().default('src/payload.config.ts'),
@@ -23,7 +21,7 @@ function loadVariables() {
     const environment = process.env.NODE_ENV || 'development';
 
     dotenv.config({
-        path: path.resolve(path.dirname(''), `../../envs/${environment}.env`),
+        path: path.resolve(path.dirname(''), `.env.${environment}`),
     });
 }
 

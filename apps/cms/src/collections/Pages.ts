@@ -1,7 +1,7 @@
 import { CollectionConfig } from 'payload/types';
 import { BlockSection } from '../blocks';
 import { FieldHero, FieldSlug } from '../fields';
-import { isAdmin, isAdminOrUser } from './access';
+import { isAdmin } from './access';
 import { populateAuthor } from './hooks';
 
 export const CollectionPages = {
@@ -16,7 +16,7 @@ export const CollectionPages = {
         defaultColumns: ['title'],
     },
     access: {
-        read: isAdminOrUser,
+        read: () => true,
         create: isAdmin,
         update: isAdmin,
         delete: isAdmin,

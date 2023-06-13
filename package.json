@@ -24,8 +24,8 @@
     "web:test:unit": "pnpm --filter web test:unit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "stylelint": "stylelint **/*.{svelte,css,pcss,less,scss,sass} --quiet-deprecation-warnings",
-    "stylelint:fix": "stylelint **/*.{svelte,css,pcss,less,scss,sass} --quiet-deprecation-warnings --fix",
+    "stylelint": "stylelint **/*.{svelte,css,pcss,less,scss,sass} --quiet-deprecation-warnings --verbose",
+    "stylelint:fix": "stylelint **/*.{svelte,css,pcss,less,scss,sass} --quiet-deprecation-warnings --fix --verbose",
     "prettier": "prettier --write"
   },
   "simple-git-hooks": {
@@ -44,12 +44,12 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.6.1",
-    "@culur/stylelint-config": "^1.2.0",
     "@iconify/json": "^2.2.77",
     "@types/node": "^18.15.11",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "commitlint": "^17.6.1",
+    "deepmerge": "^4.3.1",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -60,10 +60,10 @@
     "prettier-plugin-tailwindcss": "^0.2.7",
     "simple-git-hooks": "^2.8.1",
     "stylelint": "^15.4.0",
+    "stylelint-config-standard": "^33.0.0",
     "typescript": "^5.0.4",
     "vite": "^4.2.1",
     "vitepress": "1.0.0-alpha.75",
-    "vitest": "^0.31.4",
-    "deepmerge": "^4.3.1"
+    "vitest": "^0.31.4"
   }
 }

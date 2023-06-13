@@ -3,6 +3,7 @@ export * from './cta';
 export * from './footer';
 export * from './header';
 export * from './link';
+export * from './loading-overlay';
 export * from './logo';
 export * from './menu';
 export * from './navbar';
