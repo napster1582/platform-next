@@ -8,7 +8,7 @@ import { BlockLink } from './Link';
 import { BlockLinkGroup } from './LinkGroup';
 import { BlockMedia } from './Media';
 
-export const BlockSection: Block = {
+export const BlockSection = {
     slug: 'section',
     labels: {
         singular: 'Sección',
@@ -111,5 +111,3 @@ export const BlockSection: Block = {
         },
     ],
 } satisfies Block;
-
-export type BlockSectionType = typeof BlockSection;

@@ -2,7 +2,7 @@ import { GlobalConfig } from 'payload/types';
 import { isAdmin } from '../collections/access';
 import { FieldLink } from '../fields';
 
-export const GlobalMenu: GlobalConfig = {
+export const GlobalMenu = {
     slug: 'menu',
     label: 'Menú',
     admin: {
@@ -53,5 +53,3 @@ export const GlobalMenu: GlobalConfig = {
         },
     ],
 } satisfies GlobalConfig;
-
-export type GlobalMenuType = typeof GlobalMenu;

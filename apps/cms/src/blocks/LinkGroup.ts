@@ -1,7 +1,7 @@
 import { Block } from 'payload/types';
 import { FieldLinkGroup } from '../fields';
 
-export const BlockLinkGroup: Block = {
+export const BlockLinkGroup = {
     slug: 'link-group',
     labels: {
         singular: 'Grupo de links',
@@ -9,5 +9,3 @@ export const BlockLinkGroup: Block = {
     },
     fields: [FieldLinkGroup()],
 } satisfies Block;
-
-export type BlockLinkGroupType = typeof BlockLinkGroup;

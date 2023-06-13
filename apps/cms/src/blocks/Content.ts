@@ -17,5 +17,3 @@ export const BlockContent = {
         },
     ],
 } satisfies Block;
-
-export type BlockContentType = typeof BlockContent;

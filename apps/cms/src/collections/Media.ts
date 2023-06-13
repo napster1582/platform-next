@@ -2,7 +2,7 @@ import path from 'path';
 import type { CollectionConfig } from 'payload/types';
 import { isAdmin, isAdminOrUser } from './access';
 
-export const CollectionMedia: CollectionConfig = {
+export const CollectionMedia = {
     slug: 'media',
     labels: {
         singular: 'Multimedia',
@@ -50,5 +50,3 @@ export const CollectionMedia: CollectionConfig = {
         },
     ],
 } satisfies CollectionConfig;
-
-export type CollectionMediaType = typeof CollectionMedia;

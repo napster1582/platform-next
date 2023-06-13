@@ -2,7 +2,7 @@ import { GlobalConfig } from 'payload/types';
 import { isAdmin } from '../collections/access';
 import { FieldLinkGroup } from '../fields';
 
-export const GlobalFooter: GlobalConfig = {
+export const GlobalFooter = {
     slug: 'footer',
     label: 'Pie de página',
     admin: {
@@ -75,5 +75,3 @@ export const GlobalFooter: GlobalConfig = {
         },
     ],
 } satisfies GlobalConfig;
-
-export type GlobalFooterType = typeof GlobalFooter;

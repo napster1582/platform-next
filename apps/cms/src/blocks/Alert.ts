@@ -78,5 +78,3 @@ export const BlockAlert = {
         },
     ],
 } satisfies Block;
-
-export type BlockAlertType = typeof BlockAlert;

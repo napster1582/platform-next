@@ -10,7 +10,7 @@ const START_YEAR_FOR_RANGE = 2023;
 
 const END_YEAR_FOR_RANGE = new Date().getFullYear() + 1;
 
-export const CollectionEvents: CollectionConfig = {
+export const CollectionEvents = {
     slug: 'events',
     labels: {
         singular: 'Evento',
@@ -137,5 +137,3 @@ export const CollectionEvents: CollectionConfig = {
         }),
     ],
 } satisfies CollectionConfig;
-
-export type CollectionEventsType = typeof CollectionEvents;

@@ -1,7 +1,6 @@
 {
   "name": "@jinen/jinen-helpers",
   "version": "0.0.11-alpha",
-  "description": "Funcionalidad genérica que puede ser compartida entre paquetes",
   "author": "JinenGroup",
   "private": true,
   "sideEffects": false,

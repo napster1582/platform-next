@@ -44,5 +44,3 @@ export const BlockAccordion = {
         },
     ],
 } satisfies Block;
-
-export type BlockAccordionType = typeof BlockAccordion;

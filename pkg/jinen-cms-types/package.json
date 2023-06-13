@@ -1,7 +1,6 @@
 {
-  "name": "@jinen/jinen-cms-schema",
+  "name": "@jinen/jinen-cms-types",
   "version": "0.0.11-alpha",
-  "description": "Bloques de construcción de Jinen CMS",
   "author": "JinenGroup",
   "private": true,
   "sideEffects": false,
@@ -11,7 +10,6 @@
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "type": "commonjs",
   "exports": {
     ".": {
       "require": "./dist/index.cjs",
@@ -39,9 +37,5 @@
   "devDependencies": {
     "rimraf": "^5.0.0",
     "unbuild": "^1.2.1"
-  },
-  "dependencies": {
-    "@jinen/jinen-helpers": "workspace:^",
-    "payload": "^1.7.2"
   }
 }

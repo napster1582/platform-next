@@ -2,7 +2,7 @@ import { GlobalConfig } from 'payload/types';
 import { isAdmin } from '../collections/access';
 import { FieldLink, FieldLinkGroup } from '../fields';
 
-export const GlobalHeader: GlobalConfig = {
+export const GlobalHeader = {
     slug: 'header',
     label: 'Encabezado',
     admin: {
@@ -41,5 +41,3 @@ export const GlobalHeader: GlobalConfig = {
         },
     ],
 } satisfies GlobalConfig;
-
-export type GlobalHeaderType = typeof GlobalHeader;

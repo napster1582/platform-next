@@ -1,6 +1,6 @@
 import { Block } from 'payload/types';
 
-export const BlockEmbeddedForm: Block = {
+export const BlockEmbeddedForm = {
     slug: 'embedded-form',
     labels: {
         singular: 'Formulario embebido',
@@ -15,5 +15,3 @@ export const BlockEmbeddedForm: Block = {
         },
     ],
 } satisfies Block;
-
-export type BlockEmbeddedFormType = typeof BlockEmbeddedForm;

@@ -1,6 +1,6 @@
 import { Block } from 'payload/types';
 
-export const BlockMedia: Block = {
+export const BlockMedia = {
     slug: 'media',
     fields: [
         {
@@ -16,5 +16,3 @@ export const BlockMedia: Block = {
         },
     ],
 } satisfies Block;
-
-export type BlockMediaType = typeof BlockMedia;

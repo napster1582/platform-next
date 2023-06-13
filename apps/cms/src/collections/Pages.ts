@@ -4,7 +4,7 @@ import { FieldHero, FieldSlug } from '../fields';
 import { isAdmin, isAdminOrUser } from './access';
 import { populateAuthor } from './hooks';
 
-export const CollectionPages: CollectionConfig = {
+export const CollectionPages = {
     slug: 'pages',
     labels: {
         singular: 'Página',
@@ -107,5 +107,3 @@ export const CollectionPages: CollectionConfig = {
         }),
     ],
 } satisfies CollectionConfig;
-
-export type CollectionPagesType = typeof CollectionPages;

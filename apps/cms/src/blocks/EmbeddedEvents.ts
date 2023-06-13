@@ -17,5 +17,3 @@ export const BlockEmbeddedEvents = {
         },
     ],
 } satisfies Block;
-
-export type BlockEmbeddedEventsType = typeof BlockEmbeddedEvents;

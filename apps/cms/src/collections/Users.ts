@@ -1,7 +1,7 @@
 import { CollectionConfig } from 'payload/types';
 import { isAdmin, isAdminOrUser } from './access';
 
-export const CollectionUsers: CollectionConfig = {
+export const CollectionUsers = {
     slug: 'users',
     labels: {
         singular: 'Usuario',
@@ -51,5 +51,3 @@ export const CollectionUsers: CollectionConfig = {
         },
     ],
 } satisfies CollectionConfig;
-
-export type CollectionUsersType = typeof CollectionUsers;

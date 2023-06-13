@@ -2,20 +2,10 @@ import PluginFormBuilder from '@payloadcms/plugin-form-builder';
 import PluginNestedDocs from '@payloadcms/plugin-nested-docs';
 import PluginSearch from '@payloadcms/plugin-search';
 import PluginSeo from '@payloadcms/plugin-seo';
-
-import {
-    CollectionEvents,
-    CollectionMedia,
-    CollectionPages,
-    CollectionUsers,
-    GlobalFooter,
-    GlobalHeader,
-    GlobalMenu,
-} from '@jinen/jinen-cms-schema';
-
-import { resolve } from 'path';
+import path from 'path';
 import { buildConfig } from 'payload/config';
-
+import { CollectionEvents, CollectionMedia, CollectionPages, CollectionUsers } from './collections';
+import { GlobalFooter, GlobalHeader, GlobalMenu } from './globals';
 import { Icon, Logo } from './graphics';
 
 const CLIENT_URLS = ['http://localhost:3002'];
@@ -48,7 +38,7 @@ export default buildConfig({
     cors: CLIENT_URLS,
     csrf: CLIENT_URLS,
     typescript: {
-        outputFile: resolve(import.meta.url, 'payload-types.ts'),
+        outputFile: path.resolve(path.dirname(''), `../../pkg/jinen-cms-types/src/index.ts`),
     },
     graphQL: {
         disablePlaygroundInProduction: true,
@@ -92,8 +82,8 @@ export default buildConfig({
         }),
         PluginSeo({
             collections: ['pages'],
-            generateTitle: ({ doc }) => `jinen.com — ${doc['title']?.value}: [Descripción]`,
-            generateURL: ({ doc }) => `https://jinen.com/${doc['fields']['slug']?.value}`,
+            generateTitle: ({ doc }: any) => `jinen.com — ${doc['title']?.value}: [Descripción]`,
+            generateURL: ({ doc }: any) => `https://jinen.com/${doc['fields']['slug']?.value}`,
         }),
     ],
 });

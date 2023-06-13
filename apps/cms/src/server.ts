@@ -1,6 +1,5 @@
 import express from 'express';
 import payload from 'payload';
-
 import { env } from './env';
 
 const app = express();
