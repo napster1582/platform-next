@@ -2,13 +2,26 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
+      "cache": false,
       "dependsOn": ["^build"],
-      "outputs": [".svelte-kit/**", ".vercel/**"]
+      "outputs": [".svelte-kit/**", ".vercel/**", "lib/**", "dist/**", "build/**"]
     },
-    "lint": {},
+    "lint": {
+      "outputs": []
+    },
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "clean": {
+      "cache": false
+    },
+    "clean:build": {
+      "cache": false
+    },
+    "serve": {
+      "cache": false,
+      "dependsOn": ["^serve"]
     }
   },
   "globalEnv": [

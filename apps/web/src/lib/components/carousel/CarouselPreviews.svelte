@@ -78,7 +78,7 @@
                     data-index={index}
                 >
                     <button
-                        class="group relative h-[450px] w-full overflow-hidden shadow-2xl transition xl:skew-y-12 xl:rounded-3xl xl:hover:skew-y-3 xl:hover:scale-110"
+                        class="xl:rounded-base group relative h-[450px] w-full overflow-hidden shadow-2xl transition xl:skew-y-12 xl:hover:skew-y-3 xl:hover:scale-110"
                         on:click={() => go(index)}
                     >
                         <div
@@ -104,14 +104,14 @@
                 <div class="flex gap-3">
                     {#if previews.length > 1}
                         <button
-                            class="rounded-full bg-white/30 p-2 font-medium text-white hover:bg-white/70 active:scale-90"
+                            class="rounded-base bg-white/30 p-2 font-medium text-white hover:bg-white/70 active:scale-90"
                             on:click={() => goBack()}
                         >
                             <span class="icon-[ic--round-arrow-back-ios] text-2xl" />
                         </button>
 
                         <button
-                            class="rounded-full bg-white/30 px-2 font-medium text-white hover:bg-white/70 active:scale-90"
+                            class="rounded-base bg-white/30 px-2 font-medium text-white hover:bg-white/70 active:scale-90"
                             on:click={() => goNext()}
                         >
                             <span class="icon-[ic--round-arrow-forward-ios] text-2xl" />

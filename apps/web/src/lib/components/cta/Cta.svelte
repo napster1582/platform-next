@@ -6,7 +6,7 @@
 
 <Link
     {href}
-    className="text-gray-400 inline-flex justify-center items-center p-5 font-semibold bg-zinc-950 rounded-lg hover:text-blue-400 hover:bg-zinc-900 w-full"
+    className="text-gray-400 inline-flex justify-center items-center p-5 font-semibold bg-zinc-950 rounded-base hover:text-blue-400 hover:bg-zinc-900 w-full"
 >
     <!-- prettier-ignore -->
     <slot name="icon">        

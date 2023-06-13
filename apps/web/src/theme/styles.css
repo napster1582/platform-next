@@ -1,8 +1,7 @@
 /* base */
 @import './tailwind/base.css';
-@import './01-base/variables.css';
+@import './01-base/theme.css';
 @import './01-base/document.css';
-@import './01-base/font.css';
 @import './01-base/heading.css';
 
 /* components */
@@ -10,8 +9,5 @@
 
 /* utilities */
 @import './tailwind/utilities.css';
-@import './03-utilities/border.css';
-@import './03-utilities/flexbox.css';
 @import './03-utilities/icon.css';
 @import './03-utilities/text.css';
-@import './03-utilities/bg.css';

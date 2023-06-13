@@ -7,16 +7,23 @@
 
     export let data: LayoutData;
 
+    const { appearance, header, menu, footer } = data;
+
     $: $loading = !!$navigating;
 </script>
 
-<div class="flex min-h-screen flex-col">
+<div
+    id="app"
+    class="flex min-h-screen flex-col"
+    data-primary-color={appearance.color ?? 'blue'}
+    data-rounded={appearance.borderRadius ?? 'lg'}
+>
     {#if $dom.showHeader}
-        <Header content={data.header} />
+        <Header content={header} />
     {/if}
 
     {#if $dom.showMenu}
-        <Menu content={data.menu} />
+        <Menu content={menu} />
     {/if}
 
     <main class="container flex-1">
@@ -24,7 +31,7 @@
     </main>
 
     {#if $dom.showFooter}
-        <Footer content={data.footer} />
+        <Footer content={footer} />
     {/if}
 </div>
 

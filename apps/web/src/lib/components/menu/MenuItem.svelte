@@ -7,7 +7,7 @@
 
 <Link
     href="#"
-    className="transform hover:scale-110 hover:grayscale active:scale-90 hover:shadow-2xl rounded-2xl transition-transform"
+    className="transform hover:scale-110 hover:grayscale active:scale-90 hover:shadow-2xl rounded-base transition-transform"
     aClassName="no-underline"
 >
     <div class="menu-item relative z-10 flex w-[200px] flex-col">
@@ -30,7 +30,7 @@
         <div class="grid h-36 items-start justify-items-center px-4 pt-6">
             {#if $$slots.description}
                 <div
-                    class="line-clamp-3 rounded-lg bg-gradient-to-br from-yellow-300 via-blue-700 to-red-600 p-2 text-center text-base font-semibold text-white"
+                    class="rounded-base line-clamp-3 bg-gradient-to-br from-yellow-300 via-blue-700 to-red-600 p-2 text-center text-base font-semibold text-white"
                 >
                     <slot name="description" />
                 </div>

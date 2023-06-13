@@ -73,7 +73,7 @@
                     {#each items as item, index}
                         <li class="relative -left-7 mb-16 text-white">
                             <button
-                                class="rounded-sm border bg-transparent bg-white px-2 py-0.5 font-medium hover:bg-white/70"
+                                class="rounded-base border bg-transparent bg-white px-2 py-0.5 font-medium hover:bg-white/70"
                                 class:bg-white={index === currentIndex}
                                 class:text-stone-900={index === currentIndex}
                                 on:click={() => go(index)}

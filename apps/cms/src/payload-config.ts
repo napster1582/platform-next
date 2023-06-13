@@ -12,6 +12,7 @@ import { CollectionUsers } from './collections/Users';
 import { GlobalFooter } from './globals/Footer';
 import { GlobalHeader } from './globals/Header';
 import { GlobalMenu } from './globals/Menu';
+import { GlobalAppearance } from './globals/Settings';
 
 import { Icon } from './components/Icon';
 import { Logo } from './components/Logo';
@@ -32,7 +33,7 @@ export default buildConfig({
         },
     },
     collections: [CollectionUsers, CollectionMedia, CollectionPages, CollectionEvents],
-    globals: [GlobalHeader, GlobalMenu, GlobalFooter],
+    globals: [GlobalAppearance, GlobalHeader, GlobalMenu, GlobalFooter],
     upload: {
         limits: {
             fileSize: 12_000_000, // 12MB, written in bytes

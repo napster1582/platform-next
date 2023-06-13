@@ -1,14 +1,19 @@
 import { VITE_CMS_URL } from '$env/static/private';
-import type { Footer, Header, Menu } from '@jinen/cms-generated-types';
+import type { Appearance, Footer, Header, Menu } from '@jinen/cms-generated-types';
 import { buildRequestOptions } from '@jinen/http';
 import { error } from '@sveltejs/kit';
 
 export async function load({ fetch }): Promise<{
+    appearance: Appearance;
     header: Header;
     menu: Menu;
     footer: Footer;
 }> {
     try {
+        const appearanceResponse = fetch(
+            `${VITE_CMS_URL}/globals/appearance`,
+            buildRequestOptions(),
+        );
         const headerResponse = fetch(`${VITE_CMS_URL}/globals/header`, buildRequestOptions());
         const menuResponse = fetch(`${VITE_CMS_URL}/globals/menu`, buildRequestOptions());
         const footerResponse = fetch(`${VITE_CMS_URL}/globals/footer`, buildRequestOptions());
@@ -22,16 +27,22 @@ export async function load({ fetch }): Promise<{
             }
         };
 
-        const responses = await Promise.all([headerResponse, menuResponse, footerResponse]);
+        const responses = await Promise.all([
+            appearanceResponse,
+            headerResponse,
+            menuResponse,
+            footerResponse,
+        ]);
 
         for (const response of responses) {
             await validateResponse(response);
         }
 
         return {
-            header: (await responses[0].json()) as Header,
-            menu: (await responses[1].json()) as Menu,
-            footer: (await responses[2].json()) as Footer,
+            appearance: (await responses[0].json()) as Appearance,
+            header: (await responses[1].json()) as Header,
+            menu: (await responses[2].json()) as Menu,
+            footer: (await responses[3].json()) as Footer,
         };
     } catch (errorResponse) {
         throw error(

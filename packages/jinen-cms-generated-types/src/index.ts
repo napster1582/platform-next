@@ -16,6 +16,7 @@ export interface Config {
         'form-submissions': FormSubmission;
     };
     globals: {
+        appearance: Appearance;
         header: Header;
         menu: Menu;
         footer: Footer;
@@ -438,6 +439,11 @@ export interface FormSubmission {
     }[];
     createdAt: string;
     updatedAt: string;
+}
+export interface Appearance {
+    id: string;
+    color: string;
+    borderRadius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'full';
 }
 export interface Header {
     id: string;

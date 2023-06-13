@@ -1,9 +1,13 @@
 - @juanmesa2097 @JuanRenteM @napster1582
 
 # Apps
-
-/docs/ @juanmesa2097 @JuanRenteM @napster1582
-/apps/api/ @juanmesa2097 @JuanRenteM @napster1582
+/apps/docs/ @juanmesa2097 @JuanRenteM @napster1582
+/apps/cms/ @juanmesa2097 @JuanRenteM @napster1582
 /apps/web/ @juanmesa2097 @JuanRenteM @napster1582
 
 # Packages
+/packages/eslint-config-custom/ @juanmesa2097 @JuanRenteM @napster1582
+/packages/jinen-cms-generated-types/ @juanmesa2097 @JuanRenteM @napster1582
+/packages/jinen-helpers/ @juanmesa2097 @JuanRenteM @napster1582
+/packages/jinen-http/ @juanmesa2097 @JuanRenteM @napster1582
+/packages/jinen-ui-svelte/ @juanmesa2097 @JuanRenteM @napster1582

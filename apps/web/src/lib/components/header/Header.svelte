@@ -96,7 +96,7 @@
 
 <style lang="postcss">
     #jinen-header {
-        @apply bg-blue-600;
+        @apply bg-primary-600;
         @apply sticky inset-x-0 top-0 z-20;
         @apply shadow-xl;
         @apply transition duration-300 ease-linear;
