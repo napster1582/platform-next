@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { Menu } from '@jinen/jinen-cms-types';
+    import type { Menu } from '@jinen/cms-generated-types';
     import MenuItem from './MenuItem.svelte';
 
     import iconDirectory from '$lib/assets/icons/_directory.svg';

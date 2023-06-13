@@ -1,6 +1,7 @@
 import { GlobalConfig } from 'payload/types';
-import { isAdmin } from '../collections/access';
-import { FieldLink, FieldLinkGroup } from '../fields';
+import { isAdmin } from '../access';
+import { FieldLink } from '../fields/Link';
+import { FieldLinkGroup } from '../fields/LinkGroup';
 
 export const GlobalHeader = {
     slug: 'header',

@@ -1,26 +1,26 @@
 version: '3.9'
 
 services:
-    mongo:
-        image: mongo:latest
-        container_name: jinen-mongo
-        restart: always
-        environment:
-            MONGO_INITDB_ROOT_USERNAME: user
-            MONGO_INITDB_ROOT_PASSWORD: root
-            MONGO_INITDB_DATABASE: jinen
-        ports:
-            - '27017:27017'
-        volumes:
-            - jinen-data:/var/lib/mongo/data
-        networks:
-            - jinen-network               
+  mongo:
+    image: mongo:latest
+    container_name: jinen-mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: jinen
+    ports:
+      - '27017:27017'
+    volumes:
+      - jinen-data:/var/lib/mongo/data
+    networks:
+      - jinen-network
 
 volumes:
-    jinen-data:
-        name: jinen-data
+  jinen-data:
+    name: jinen-data
 
 networks:
-    jinen-network:
-        name: jinen-network
-        driver: bridge    
+  jinen-network:
+    name: jinen-network
+    driver: bridge

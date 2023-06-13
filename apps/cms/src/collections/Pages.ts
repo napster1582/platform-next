@@ -1,8 +1,9 @@
 import { CollectionConfig } from 'payload/types';
-import { BlockSection } from '../blocks';
-import { FieldHero, FieldSlug } from '../fields';
-import { isAdmin } from './access';
-import { populateAuthor } from './hooks';
+import { isAdmin } from '../access';
+import { BlockSection } from '../blocks/Section';
+import { FieldHero } from '../fields/Hero';
+import { FieldSlug } from '../fields/Slug';
+import { populateAuthor } from '../hooks';
 
 export const CollectionPages = {
     slug: 'pages',

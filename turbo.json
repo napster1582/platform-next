@@ -1,0 +1,23 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".svelte-kit/**", ".vercel/**"]
+    },
+    "lint": {},
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  },
+  "globalEnv": [
+    "NODE_ENV",
+    "JINEN_SERVER_PORT",
+    "JINEN_SERVER_URL",
+    "JINEN_CLIENT_URLS",
+    "PAYLOAD_SECRET",
+    "PAYLOAD_CONFIG_PATH",
+    "MONGODB_URI"
+  ]
+}

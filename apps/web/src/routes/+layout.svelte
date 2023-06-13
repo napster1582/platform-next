@@ -2,7 +2,6 @@
     import { navigating } from '$app/stores';
     import { Footer, Header, LoadingOverlay, Menu } from '$lib/components';
     import { dom, loading } from 'lib/stores';
-    import '../theme/styles.css';
     import type { LayoutData } from './$types';
 
     export let data: LayoutData;

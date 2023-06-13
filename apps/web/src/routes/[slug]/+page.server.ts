@@ -1,6 +1,5 @@
 import { VITE_CMS_URL } from '$env/static/private';
-import type { Page } from '@jinen/jinen-cms-types';
-import { buildRequestOptions } from '@jinen/jinen-http';
+import { buildRequestOptions } from '@jinen/http';
 import { error } from '@sveltejs/kit';
 import qs from 'qs';
 

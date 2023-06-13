@@ -1,3 +1,0 @@
-# @jinen/jinen-helpers
-
-Paquete interno para gestionar lógica de Jinen.

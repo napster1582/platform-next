@@ -1,8 +1,9 @@
-import { generateMonthsRange, generateYearsRange, titlecase } from '@jinen/jinen-helpers';
+import { generateMonthsRange, generateYearsRange, titlecase } from '@jinen/helpers';
 import { CollectionConfig } from 'payload/types';
-import { FieldLink, FieldSlug } from '../fields';
-import { isAdmin, isAdminOrUser } from './access';
-import { populateAuthor } from './hooks';
+import { isAdmin, isUser } from '../access';
+import { FieldLink } from '../fields/Link';
+import { FieldSlug } from '../fields/Slug';
+import { populateAuthor } from '../hooks';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -23,7 +24,7 @@ export const CollectionEvents = {
         listSearchableFields: ['year'],
     },
     access: {
-        read: isAdminOrUser,
+        read: isAdmin || isUser,
         create: isAdmin,
         update: isAdmin,
         delete: isAdmin,

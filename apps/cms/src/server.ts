@@ -18,7 +18,7 @@ const start = async () => {
         },
     });
 
-    app.listen(env((schema) => schema.JINEN_CMS_PORT));
+    app.listen(env((schema) => schema.JINEN_SERVER_PORT));
 };
 
 start();

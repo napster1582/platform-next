@@ -14,7 +14,7 @@ const seedAbout = async (payload: Payload) => {};
 const seedDicyt = async (payload: Payload) => {};
 
 export const seedPages = async (payload: Payload) => {
-    const deleted = await payload.delete({ collection: 'Pages', where: {} });
+    const deleted = await payload.delete({ collection: 'pages', where: {} });
     payload.logger.info(`[seed:delete] -> home: ${JSON.stringify(deleted)}`);
 
     const generated = await seedHome(payload);

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { Footer } from '@jinen/jinen-cms-types';
+    import type { Footer } from '@jinen/cms-generated-types';
     import Content from '../content/Content.svelte';
     import Link from '../link/Link.svelte';
 

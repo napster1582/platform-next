@@ -1,6 +1,6 @@
 import { GlobalConfig } from 'payload/types';
-import { isAdmin } from '../collections/access';
-import { FieldLinkGroup } from '../fields';
+import { isAdmin } from '../access';
+import { FieldLinkGroup } from '../fields/LinkGroup';
 
 export const GlobalFooter = {
     slug: 'footer',

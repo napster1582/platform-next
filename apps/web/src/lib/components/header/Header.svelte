@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { Header } from '@jinen/jinen-cms-types';
+    import type { Header } from '@jinen/cms-generated-types';
     import {
         Button,
         Chevron,
