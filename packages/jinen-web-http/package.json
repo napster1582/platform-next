@@ -1,0 +1,27 @@
+{
+  "name": "@jinen/web-http",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "exports": {
+    ".": {
+      "serve": {
+        "types": "./dist/index.js",
+        "require": "./dist/index.js",
+        "import": "./dist/index.js"
+      },
+      "default": {
+        "types": "./src/index.ts",
+        "require": "./src/index.ts",
+        "import": "./src/index.ts"
+      }
+    }
+  },
+  "scripts": {
+    "lint": "prettier --check --ignore-path=../../.prettierignore . && eslint \".\"",
+    "format": "prettier --write --ignore-path=../../.prettierignore ."
+  },
+  "devDependencies": {
+    "@jinen/eslint-config-custom": "workspace:^"
+  }
+}

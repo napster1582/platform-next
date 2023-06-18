@@ -40,23 +40,13 @@ Para comenzar a trabajar en una nueva característica, se deben seguir los sigui
 
 2. Ejecutar aplicaciones.
 
-- Docs (Vitepress): [http://localhost:3000](http://localhost:3000)
-
   ```sh
-  pnpm docs:dev
+  pnpm dev
   ```
 
-- Cms (PayloadCMS): [http://localhost:3001](http://localhost:3001)
-
-  ```sh
-  pnpm cms:dev
-  ```
-
-- Web (Sveltekit): [http://localhost:3002](http://localhost:3002)
-
-  ```sh
-  pnpm web:dev
-  ```
+- Docs (VitePress): <http://localhost:3000>
+- Cms (PayloadCMS): <http://localhost:3001>
+- Web (SvelteKit): <http://localhost:3002>
 
 ## Realizar despliegue
 

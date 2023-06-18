@@ -1,6 +1,5 @@
 {
-  "verbose": true,
   "ext": "ts",
-  "exec": "node -r ts-node/register src/server.ts",
-  "watch": ["./src"]
+  "exec": "ts-node src/server.ts",
+  "watch": ["./src", "./dist"]
 }

@@ -1,6 +1,6 @@
 import path from 'path';
 import type { CollectionConfig } from 'payload/types';
-import { isAdmin, isUser } from '../access';
+import { isAdmin } from '../access';
 
 export const CollectionMedia = {
     slug: 'media',
@@ -12,7 +12,7 @@ export const CollectionMedia = {
         group: 'Contenido',
     },
     access: {
-        read: isAdmin || isUser,
+        read: () => true,
         create: isAdmin,
         update: isAdmin,
         delete: isAdmin,

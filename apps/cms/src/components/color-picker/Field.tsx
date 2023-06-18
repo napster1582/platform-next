@@ -5,89 +5,29 @@ import styled from 'styled-components';
 
 const defaultColors = [
     {
-        name: 'red',
-        label: 'Rojo',
-        color: '#ef4444',
-    },
-    {
-        name: 'orange',
-        label: 'Naranja',
-        color: '#f97316',
-    },
-    {
-        name: 'amber',
-        label: 'Ámbar',
-        color: '#f59e0b',
-    },
-    {
         name: 'yellow',
         label: 'Amarillo',
-        color: '#eab308',
-    },
-    {
-        name: 'lime',
-        label: 'Lima',
-        color: '#84cc16',
-    },
-    {
-        name: 'green',
-        label: 'Verde',
-        color: '#22c55e',
-    },
-    {
-        name: 'emerald',
-        label: 'Esmeralda',
-        color: '#10b981',
-    },
-    {
-        name: 'teal',
-        label: 'Verde azulado',
-        color: '#14b8a6',
-    },
-    {
-        name: 'cyan',
-        label: 'Cian',
-        color: '#06b6d4',
-    },
-    {
-        name: 'sky',
-        label: 'Cielo',
-        color: '#0ea5e9',
+        color: '#e5c890',
     },
     {
         name: 'blue',
         label: 'Azul',
-        color: '#3b82f6',
+        color: '#8caaee',
     },
     {
-        name: 'indigo',
-        label: 'Índigo',
-        color: '#6366f1',
+        name: 'green',
+        label: 'Verde',
+        color: '#a6d189',
     },
     {
-        name: 'violet',
-        label: 'Violeta',
-        color: '#8b5cf6',
+        name: 'red',
+        label: 'Rojo',
+        color: '#e78284',
     },
     {
         name: 'purple',
         label: 'Púrpura',
-        color: '#a855f7',
-    },
-    {
-        name: 'fuchsia',
-        label: 'Fucsia',
-        color: '#d946ef',
-    },
-    {
-        name: 'pink',
-        label: 'Rosa',
-        color: '#ec4899',
-    },
-    {
-        name: 'rose',
-        label: 'Rosado',
-        color: '#f43f5e',
+        color: '#ca9ee6',
     },
 ];
 

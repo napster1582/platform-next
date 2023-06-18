@@ -62,6 +62,7 @@ export const FieldMediaNestedSlides: CustomField = (options) =>
                             name: 'show',
                             label: 'Mostrar enlace',
                             type: 'checkbox',
+                            defaultValue: false
                         },
                         FieldLink({
                             overrides: {

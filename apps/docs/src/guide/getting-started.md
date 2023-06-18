@@ -22,17 +22,9 @@
 
 2. Ejecutar aplicaciones.
 
-   ::: code-group
-
-   ```sh [Docs]
-   pnpm docs:dev
-   ```
-
-   ```sh [Web]
-   pnpm web:dev
-   ```
-
-   :::
+  ```sh
+  pnpm dev
+  ```
 
 ## Entornos de desarrollo
 
@@ -40,12 +32,16 @@
 
 - local: <http://localhost:3000>
 - dev: <https://docs.dev.jinen.com>
-- stage: <https://docs.stage.jinen.com>
+- prod: <https://docs.jinen.com>
+
+### Cms
+
+- local: <http://localhost:3001>
+- dev: <https://docs.dev.jinen.com>
 - prod: <https://docs.jinen.com>
 
 ### Web
 
 - local: <http://localhost:3002>
 - dev: <https://dev.jinen.com>
-- stage: <https://stage.jinen.com>
 - prod: <https://jinen.com>

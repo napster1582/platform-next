@@ -1,6 +1,6 @@
 import { VITE_CMS_URL } from '$env/static/private';
-import type { Appearance, Footer, Header, Menu } from '@jinen/cms-generated-types';
-import { buildRequestOptions } from '@jinen/http';
+import type { Appearance, Footer, Header, Menu } from '@jinen/cms-annotations';
+import { buildRequestOptions } from '@jinen/web-http';
 import { error } from '@sveltejs/kit';
 
 export async function load({ fetch }): Promise<{

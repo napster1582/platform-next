@@ -13,12 +13,6 @@
       "cache": false,
       "persistent": true
     },
-    "clean": {
-      "cache": false
-    },
-    "clean:build": {
-      "cache": false
-    },
     "serve": {
       "cache": false,
       "dependsOn": ["^serve"]

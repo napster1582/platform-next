@@ -1,16 +1,45 @@
 <script lang="ts">
-    import { dom } from 'lib/stores';
+    import { Content } from '$lib/components';
+    import { dom } from '$lib/stores';
+    import type { Page } from '@jinen/cms-annotations';
     import type { PageData } from './$types';
 
     export let data: PageData;
 
-    const { page } = data;
+    let page: Page | null = null;
 
-    dom.update(() => ({
-        showHeader: page.showHeader ?? false,
-        showMenu: page.showMenu ?? false,
-        showFooter: page.showFooter ?? false,
-    }));
+    $: {
+        page = data.page;
 
-    console.log(page);
+        dom.update(() => ({
+            showHeader: page?.showHeader ?? false,
+            showMenu: page?.showMenu ?? false,
+            showFooter: page?.showFooter ?? false,
+        }));
+
+        console.log(page);
+    }
 </script>
+
+{#each page?.sections ?? [] as section}
+    {#if section}
+        <section
+            class="my-12 grid grid-cols-12 gap-4"
+            class:min-h-screen={section.fullSize}
+        >
+            {#each section.columns ?? [] as column}
+                <div
+                    class="border-primary-600 bg-primary-200/10 border max-md:col-span-12 col-span-{column.width}"
+                >
+                    {#each column.blocks ?? [] as block}
+                        {#if block.blockType === 'content'}
+                            <Content nodes={block.content?.richText ?? []} />
+                        {:else}
+                            {column.width}
+                        {/if}
+                    {/each}
+                </div>
+            {/each}
+        </section>
+    {/if}
+{/each}

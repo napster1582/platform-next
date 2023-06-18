@@ -49,7 +49,7 @@ export default buildConfig({
     typescript: {
         outputFile: path.resolve(
             process.cwd(),
-            `../../packages/jinen-cms-generated-types/src/index.ts`,
+            `../../packages/jinen-cms-annotations/src/auto-generated.ts`,
         ),
     },
     graphQL: {
