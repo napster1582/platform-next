@@ -2,9 +2,9 @@
     import Icon from '@iconify/svelte';
     import type { Header } from '@jinen/cms-annotations';
     import { Popover, PopoverButton, PopoverPanel, Transition } from '@rgossiaux/svelte-headlessui';
+    import { AppearancePopover } from '../Appearance';
     import { Img } from '../Img';
     import { Link } from '../Link';
-    import { ThemeToggle } from '../ThemeToggle';
 
     export let content: Header;
 </script>
@@ -100,7 +100,7 @@
             </div>
 
             <div class="flex items-center gap-x-3">
-                <ThemeToggle />
+                <AppearancePopover />
 
                 <a
                     href="login"

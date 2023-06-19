@@ -30,12 +30,16 @@ export const FieldLink: CustomField = (options) =>
                             value: LinkAppearance.Cta,
                         },
                         {
-                            label: 'Botón primario',
-                            value: LinkAppearance.PrimaryButton,
+                            label: 'Botón',
+                            value: LinkAppearance.Button,
                         },
                         {
-                            label: 'Botón secundario',
-                            value: LinkAppearance.SecondaryButton,
+                            label: 'Botón (variante texto)',
+                            value: LinkAppearance.ButtonText,
+                        },
+                        {
+                            label: 'Botón (variante contenida)',
+                            value: LinkAppearance.ButtonContained,
                         },
                     ],
                     defaultValue: LinkAppearance.Text,
@@ -80,8 +84,9 @@ export const FieldLink: CustomField = (options) =>
                             label: 'Ícono',
                             required: true,
                             admin: {
-                                condition: (_: unknown, siblingData: Record<string, unknown>) => siblingData?.showIcon,
-                                description: 'https://icones.js.org/'
+                                condition: (_: unknown, siblingData: Record<string, unknown>) =>
+                                    siblingData?.showIcon,
+                                description: 'https://icones.js.org/',
                             },
                         },
                         {
@@ -91,11 +96,11 @@ export const FieldLink: CustomField = (options) =>
                             options: Object.values(ResourceSize).map((value) => value),
                             defaultValue: ResourceSize.Md,
                             admin: {
-                                condition: (_: unknown, siblingData: Record<string, unknown>) => siblingData?.showIcon,
+                                condition: (_: unknown, siblingData: Record<string, unknown>) =>
+                                    siblingData?.showIcon,
                             },
                         },
                     ],
-
                 },
                 {
                     type: 'row',
@@ -128,7 +133,7 @@ export const FieldLink: CustomField = (options) =>
                     type: 'checkbox',
                     name: 'openInNewTab',
                     label: 'Abrir en nueva pestaña',
-                    defaultValue: false
+                    defaultValue: false,
                 },
             ],
         },

@@ -1,3 +1,4 @@
+export * from './Appearance';
 export * from './Carousel';
 export * from './Content';
 export * from './Cta';
@@ -8,8 +9,5 @@ export * from './Link';
 export * from './LoadingOverlay';
 export * from './Logo';
 export * from './Menu';
-export * from './Navbar';
 export * from './SectionTitle';
 export * from './SocialNetworks';
-export * from './ThemeToggle';
-

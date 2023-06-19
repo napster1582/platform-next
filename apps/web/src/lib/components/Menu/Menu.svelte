@@ -1,15 +1,12 @@
 <script lang="ts">
     import type { Menu } from '@jinen/cms-annotations';
-    import MenuItem from './MenuItem.svelte';
 
-    import iconDirectory from '$lib/assets/icons/_directory.svg';
-    import iconRepository from '$lib/assets/icons/_repository.svg';
-    import logoCednav from '$lib/assets/logos/cednav.png';
-    import logoGetUnderway from '$lib/assets/logos/get_underway.png';
-
-    export const content: Menu | null = null;
+    export let content: Menu;
 </script>
 
+{JSON.stringify(content)}
+
+<!-- 
 <nav
     id="jinen-menu"
     class="container my-12 flex flex-wrap items-center justify-center gap-x-24 gap-y-12"
@@ -56,4 +53,4 @@
     >
         <svelte:fragment slot="description">CEDNAV</svelte:fragment>
     </MenuItem>
-</nav>
+</nav> -->

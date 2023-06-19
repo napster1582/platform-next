@@ -2,30 +2,29 @@
     import { navigating } from '$app/stores';
     import { Footer, Header, Menu } from '$lib/components';
     import { domStore, loadingStore } from '$lib/stores';
-    import { getSystemTheme, setupThemeEvents } from '$lib/utils/theme';
+    import { appearanceStore } from '$lib/stores/appearance';
+    import { getSystemTheme, setupAppearanceEvents } from '$lib/utils/appearance';
     import type { LayoutData } from './$types';
 
-    import { themeStore } from '$lib/stores/theme';
     import '../app.pcss';
 
     export let data: LayoutData;
 
-    const { appearance, header, menu, footer } = data;
+    const { header, menu, footer } = data;
 
     $: $loadingStore = !!$navigating;
 
-    $: themeClass = $themeStore.schema === 'system' ? getSystemTheme() : $themeStore.schema;
+    $: themeClass = $appearanceStore.theme === 'system' ? getSystemTheme() : $appearanceStore.theme;
 
-    setupThemeEvents();
+    setupAppearanceEvents();
 </script>
-
-<!-- {$themeStore.schema} - {themeClass} -->
 
 <div
     id="app"
     class="flex min-h-screen flex-col {themeClass}"
-    data-primary-color={appearance.color ?? 'blue'}
-    data-rounded={appearance.borderRadius ?? 'lg'}
+    data-primary-color={$appearanceStore.primaryColor}
+    data-font-size={$appearanceStore.fontSize}
+    data-rounded={$appearanceStore.borderRadius}
 >
     {#if $domStore.showHeader}
         <Header content={header} />

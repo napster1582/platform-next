@@ -2,9 +2,10 @@
     import Icon, { loadIcon, type IconifyIcon } from '@iconify/svelte';
     import { ResourceSize } from '@jinen/annotations';
     import { LinkAppearance, LinkType, type Page } from '@jinen/cms-annotations';
+    import LinkButton from './LinkButton.svelte';
+    import LinkButtonContained from './LinkButtonContained.svelte';
+    import LinkButtonText from './LinkButtonText.svelte';
     import LinkCta from './LinkCta.svelte';
-    import LinkPrimaryButton from './LinkPrimaryButton.svelte';
-    import LinkSecondaryButton from './LinkSecondaryButton.svelte';
     import LinkText from './LinkText.svelte';
 
     export let internalLinkReference: Page;
@@ -79,8 +80,8 @@
                 {/if}
             </svelte:fragment>
         </LinkCta>
-    {:else if appearance === LinkAppearance.PrimaryButton}
-        <LinkPrimaryButton
+    {:else if appearance === LinkAppearance.Button}
+        <LinkButton
             {text}
             isExternal={type === LinkType.External}
         >
@@ -92,9 +93,9 @@
                     />
                 {/if}
             </svelte:fragment>
-        </LinkPrimaryButton>
-    {:else if appearance === LinkAppearance.SecondaryButton}
-        <LinkSecondaryButton
+        </LinkButton>
+    {:else if appearance === LinkAppearance.ButtonText}
+        <LinkButtonText
             {text}
             isExternal={type === LinkType.External}
         >
@@ -106,6 +107,20 @@
                     />
                 {/if}
             </svelte:fragment>
-        </LinkSecondaryButton>
+        </LinkButtonText>
+    {:else if appearance === LinkAppearance.ButtonContained}
+        <LinkButtonContained
+            {text}
+            isExternal={type === LinkType.External}
+        >
+            <svelte:fragment slot="icon">
+                {#if showIcon && iconData}
+                    <Icon
+                        icon={iconData}
+                        class="text-{iconSize}"
+                    />
+                {/if}
+            </svelte:fragment>
+        </LinkButtonContained>
     {/if}
 </a>
