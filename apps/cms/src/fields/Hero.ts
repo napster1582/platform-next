@@ -1,3 +1,4 @@
+import { HeroVariant } from '@jinen/cms-annotations';
 import deepmerge from 'deepmerge';
 import { Field } from 'payload/types';
 import { FieldMediaNestedSlides } from './MediaNestedSlides';
@@ -16,11 +17,10 @@ export const FieldHero: CustomField = (options) =>
                     label: 'Variante',
                     type: 'select',
                     required: true,
-                    defaultValue: 'mediaNestedSlides',
                     options: [
                         {
                             label: 'Presentaciones',
-                            value: 'mediaNestedSlides',
+                            value: HeroVariant.MediaNestedSlides,
                         },
                     ],
                 },
@@ -28,7 +28,7 @@ export const FieldHero: CustomField = (options) =>
                     overrides: {
                         admin: {
                             condition: (_, siblingData) =>
-                                siblingData?.variant === 'mediaNestedSlides',
+                                siblingData?.variant === HeroVariant.MediaNestedSlides,
                         },
                     },
                 }),

@@ -1,6 +1,6 @@
 <script lang="ts">
     import { navigating } from '$app/stores';
-    import { Footer, Header, Menu } from '$lib/components';
+    import { Footer, Header } from '$lib/components';
     import { domStore, loadingStore } from '$lib/stores';
     import { appearanceStore } from '$lib/stores/appearance';
     import { getSystemTheme, setupAppearanceEvents } from '$lib/utils/appearance';
@@ -10,7 +10,7 @@
 
     export let data: LayoutData;
 
-    const { header, menu, footer } = data;
+    const { header, footer } = data;
 
     $: $loadingStore = !!$navigating;
 
@@ -26,19 +26,15 @@
     data-font-size={$appearanceStore.fontSize}
     data-rounded={$appearanceStore.borderRadius}
 >
-    {#if $domStore.showHeader}
+    {#if $domStore.showHeader && header}
         <Header content={header} />
     {/if}
 
-    {#if $domStore.showMenu}
-        <Menu content={menu} />
-    {/if}
-
-    <main class="container flex-1">
+    <div class="flex-1">
         <slot />
-    </main>
+    </div>
 
-    {#if $domStore.showFooter}
+    {#if $domStore.showFooter && footer}
         <Footer content={footer} />
     {/if}
 </div>

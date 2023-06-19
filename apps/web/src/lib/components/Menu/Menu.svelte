@@ -9,7 +9,7 @@
 
 <nav
     id="jinen-menu"
-    class="container my-12 flex flex-wrap items-center justify-center gap-x-24 gap-y-12"
+    class="my-12 flex flex-wrap items-center justify-center gap-x-24 gap-y-12"
 >
     {#each content.items as item}
         <Link

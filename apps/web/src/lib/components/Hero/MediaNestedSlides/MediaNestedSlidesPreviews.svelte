@@ -1,9 +1,9 @@
 <script lang="ts">
+    import Icon from '@iconify/svelte';
     import { onMount } from 'svelte';
-    import type { JinenCarouselPreview } from './types';
+    import type { HeroMediaNestedSlidesPreview } from '../types';
 
-    export let previews: JinenCarouselPreview[];
-    export let showIndicators = true;
+    export let previews: HeroMediaNestedSlidesPreview[];
 
     let containerRef: HTMLDivElement | null = null;
 
@@ -63,6 +63,14 @@
             }
         }
     }
+
+    const resolveBackground = (preview: HeroMediaNestedSlidesPreview): string => {
+        if (typeof preview.background === 'object') {
+            return preview.background.url ?? '';
+        }
+
+        return preview.background ?? '';
+    };
 </script>
 
 {#if previews?.length}
@@ -88,7 +96,7 @@
                         </div>
 
                         <img
-                            src={preview.backgroundImageUrl}
+                            src={resolveBackground(preview)}
                             alt="Carousel preview item"
                             loading="lazy"
                             class="z-0 h-full w-full object-cover transition-transform duration-[10s] group-hover:blur-none"
@@ -99,33 +107,37 @@
             {/each}
         </div>
 
-        {#if showIndicators}
-            <div class="flex items-center justify-between px-3 py-3 xl:mt-6 xl:px-6">
-                <div class="flex gap-3">
-                    {#if previews.length > 1}
-                        <button
-                            class="rounded-token bg-white/30 p-2 font-medium text-white hover:bg-white/70 active:scale-90"
-                            on:click={() => goBack()}
-                        >
-                            <span class="icon-[ic--round-arrow-back-ios] text-2xl" />
-                        </button>
+        <div class="flex items-center justify-between px-3 py-3 xl:mt-6 xl:px-6">
+            <div class="flex gap-3">
+                {#if previews.length > 1}
+                    <button
+                        class="rounded-token bg-white/30 p-2 font-medium text-white hover:bg-white/70 active:scale-90"
+                        on:click={() => goBack()}
+                    >
+                        <Icon
+                            icon="line-md:arrow-left"
+                            class="text-2xl"
+                        />
+                    </button>
 
-                        <button
-                            class="rounded-token bg-white/30 px-2 font-medium text-white hover:bg-white/70 active:scale-90"
-                            on:click={() => goNext()}
-                        >
-                            <span class="icon-[ic--round-arrow-forward-ios] text-2xl" />
-                        </button>
-                    {/if}
-                </div>
-
-                <div class="text-lg text-white">
-                    <span>{currentIndex + 1}</span>
-                    <span>/</span>
-                    <span>{previews?.length}</span>
-                </div>
+                    <button
+                        class="rounded-token bg-white/30 px-2 font-medium text-white hover:bg-white/70 active:scale-90"
+                        on:click={() => goNext()}
+                    >
+                        <Icon
+                            icon="line-md:arrow-right"
+                            class="text-2xl"
+                        />
+                    </button>
+                {/if}
             </div>
-        {/if}
+
+            <div class="text-lg text-white">
+                <span>{currentIndex + 1}</span>
+                <span>/</span>
+                <span>{previews?.length}</span>
+            </div>
+        </div>
     </div>
 {/if}
 

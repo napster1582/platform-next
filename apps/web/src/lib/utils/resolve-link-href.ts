@@ -4,8 +4,8 @@ export function resolveLinkHref({
     internal,
     external,
 }: {
-    internal: string | Page;
-    external: string;
+    internal: string | Page | undefined;
+    external: string | undefined;
 }): string {
     if (internal) {
         return (typeof internal === 'object' ? internal.slug : internal) ?? '';
