@@ -60,11 +60,11 @@ export const GlobalFooter = {
                             options: [
                                 {
                                     label: 'Vertical',
-                                    value: 'vertical'
+                                    value: 'vertical',
                                 },
                                 {
                                     label: 'Horizontal',
-                                    value: 'horizontal'
+                                    value: 'horizontal',
                                 },
                             ],
                             defaultValue: 'vertical',

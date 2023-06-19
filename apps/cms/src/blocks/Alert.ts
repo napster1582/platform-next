@@ -29,7 +29,7 @@ export const BlockAlert = {
                     name: 'showImages',
                     label: 'Mostrar imágenes',
                     required: true,
-                    defaultValue: false
+                    defaultValue: false,
                 },
                 {
                     type: 'array',

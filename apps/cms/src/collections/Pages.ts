@@ -45,7 +45,7 @@ export const CollectionPages = {
             type: 'checkbox',
             name: 'showMenu',
             label: 'Mostrar menú',
-            defaultValue: false
+            defaultValue: false,
         },
         {
             type: 'checkbox',
@@ -63,7 +63,7 @@ export const CollectionPages = {
                             type: 'checkbox',
                             name: 'showHero',
                             label: 'Mostrar sección Hero',
-                            defaultValue: false
+                            defaultValue: false,
                         },
                         FieldHero({
                             overrides: {
