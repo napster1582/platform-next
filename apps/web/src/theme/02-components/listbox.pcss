@@ -1,14 +1,14 @@
 @layer components {
-    .popover {
-        --popover-offset: 10px;
+    .listbox {
+        --listbox-offset: 10px;
 
         @apply relative;
 
-        .popover-button {
+        .listbox-button {
             @apply inline-flex items-center gap-2;
         }
 
-        .popover-panel {
+        .listbox-options {
             @apply absolute left-0 top-full z-10;
             @apply bg-accent-token;
             @apply overflow-hidden;
@@ -18,35 +18,35 @@
             @apply focus:outline-none;
             @apply flex flex-col gap-y-0.5;
 
-            &.popover-panel-tl {
-                inset: auto auto calc(100% + var(--popover-offset)) 0;
+            &.listbox-options-tl {
+                inset: auto auto calc(100% + var(--listbox-offset)) 0;
             }
 
-            &.popover-panel-tr {
-                inset: auto 0 calc(100% + var(--popover-offset)) auto;
+            &.listbox-options-tr {
+                inset: auto 0 calc(100% + var(--listbox-offset)) auto;
             }
 
-            &.popover-panel-tc {
+            &.listbox-options-tc {
                 @apply left-1/2 -translate-x-1/2;
 
-                bottom: calc(100% + var(--popover-offset));
+                bottom: calc(100% + var(--listbox-offset));
             }
 
-            &.popover-panel-bl {
-                inset: calc(100% + var(--popover-offset)) auto auto 0;
+            &.listbox-options-bl {
+                inset: calc(100% + var(--listbox-offset)) auto auto 0;
             }
 
-            &.popover-panel-br {
-                inset: calc(100% + var(--popover-offset)) 0 auto auto;
+            &.listbox-options-br {
+                inset: calc(100% + var(--listbox-offset)) 0 auto auto;
             }
 
-            &.popover-panel-bc {
+            &.listbox-options-bc {
                 @apply left-1/2 -translate-x-1/2;
 
-                top: calc(100% + var(--popover-offset));
+                top: calc(100% + var(--listbox-offset));
             }
 
-            .popover-panel-item {
+            .listbox-options-item {
                 @apply w-full;
                 @apply flex items-center;
                 @apply px-2 py-1;
@@ -54,7 +54,12 @@
                 @apply transition-colors;
                 @apply rounded-token;
 
-                &:hover {
+                &.listbox-options-item-active {
+                    @apply bg-blue-500;
+                    @apply text-white;
+                }
+
+                &.listbox-options-item-selected {
                     @apply bg-primary-500;
                     @apply text-white;
                 }

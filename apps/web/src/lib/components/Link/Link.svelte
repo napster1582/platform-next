@@ -17,6 +17,7 @@
     export let iconSize: ResourceSize = ResourceSize.Md;
     export let openInNewTab: boolean = false;
     export let disabled: boolean = false;
+    export let showArrowForExternalLink: boolean = true;
 
     let iconData: Required<IconifyIcon> | null = null;
 
@@ -53,6 +54,7 @@
         <LinkText
             {text}
             isExternal={type === LinkType.External}
+            {showArrowForExternalLink}
         >
             <svelte:fragment slot="icon">
                 {#if showIcon && iconData}

@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-export const dom = writable({
+export const domStore = writable({
     showHeader: false,
     showMenu: false,
     showFooter: false,

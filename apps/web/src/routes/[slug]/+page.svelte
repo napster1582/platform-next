@@ -1,6 +1,6 @@
 <script lang="ts">
     import { Content } from '$lib/components';
-    import { dom } from '$lib/stores';
+    import { domStore } from '$lib/stores';
     import type { Page } from '@jinen/cms-annotations';
     import type { PageData } from './$types';
 
@@ -11,7 +11,7 @@
     $: {
         page = data.page;
 
-        dom.update(() => ({
+        domStore.update(() => ({
             showHeader: page?.showHeader ?? false,
             showMenu: page?.showMenu ?? false,
             showFooter: page?.showFooter ?? false,

@@ -11,4 +11,5 @@ export * from './Menu';
 export * from './Navbar';
 export * from './SectionTitle';
 export * from './SocialNetworks';
+export * from './ThemeToggle';
 

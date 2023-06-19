@@ -1,6 +1,7 @@
 <script lang="ts">
     import type { Footer } from '@jinen/cms-annotations';
-    import Content from '../Content/Content.svelte';
+    import { Badge } from '../Badge';
+    import { Content } from '../Content';
     import { Link } from '../Link';
 
     export let content: Footer;
@@ -17,9 +18,9 @@
         /></svg
     >
 
-    <div class="container rounded-none py-16 text-gray-100">
-        <div class="gap flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div class="flex items-center gap-6">
+    <div class="container py-24 text-gray-200">
+        <div class="flex flex-wrap justify-between gap-24">
+            <div class="flex max-w-[300px] flex-wrap items-center gap-6">
                 {#each content.logos ?? [] as { logo }}
                     {#if typeof logo === 'object'}
                         <img
@@ -31,43 +32,49 @@
                 {/each}
             </div>
 
-            <div class="grid grid-cols-1 gap-x-24 gap-y-12 lg:grid-flow-col">
-                {#each content.sections as { section }}
-                    <div class="flex flex-col gap-3">
-                        <h3 class="text-lg font-semibold">{section.title}</h3>
+            {#each content.sections as { section }}
+                <div class="flex flex-col gap-3 md:min-w-[250px]">
+                    <h3 class="text-3xl font-bold text-white">{section.title}</h3>
 
-                        <ul
-                            class="flex gap-4"
-                            class:flex-row={section.layout === 'horizontal'}
-                            class:flex-col={section.layout === 'vertical'}
-                        >
-                            {#each section.links as { link }}
-                                <li>
-                                    <Link
-                                        internalLinkReference={link.internalLinkReference?.value}
-                                        externalLink={link.externalLink}
-                                        text={link.text}
-                                        type={link.type}
-                                        appearance={link.appearance}
-                                        showIcon={link.showIcon}
-                                        icon={link.icon}
-                                        iconSize={link.iconSize}
-                                        openInNewTab={link.openInNewTab}
-                                    />
-                                </li>
-                            {/each}
-                        </ul>
-                    </div>
-                {/each}
-            </div>
+                    <hr class="mb-6 mt-2 border-gray-800" />
+
+                    <ul
+                        class="flex flex-wrap gap-4"
+                        class:flex-row={section.layout === 'horizontal'}
+                        class:flex-col={section.layout === 'vertical'}
+                    >
+                        {#each section.links as { link }}
+                            <li>
+                                <Link
+                                    internalLinkReference={link.internalLinkReference?.value}
+                                    externalLink={link.externalLink}
+                                    text={link.text}
+                                    type={link.type}
+                                    appearance={link.appearance}
+                                    showIcon={link.showIcon}
+                                    icon={link.icon}
+                                    iconSize={link.iconSize}
+                                    openInNewTab={link.openInNewTab}
+                                    class="text-primary-300"
+                                    showArrowForExternalLink={false}
+                                />
+                            </li>
+                        {/each}
+                    </ul>
+                </div>
+            {/each}
         </div>
     </div>
 
-    <div class="bg-gray-950">
+    <div class="border-t border-t-gray-600 bg-gray-950">
         <div class="container py-6">
             <address class="text-center text-gray-300">
                 <Content nodes={content.contact?.content ?? []} />
             </address>
+
+            <div class="mt-6 flex justify-center">
+                <Badge class="badge text-gray-800"># v0.0.11-alpha</Badge>
+            </div>
         </div>
     </div>
 </footer>
@@ -76,22 +83,7 @@
     #jinen-footer {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' width='80' height='80'%3E%3Cpath fill='%231b1b1b' fill-opacity='0.4' d='M14 16H9v-2h5V9.87a4 4 0 1 1 2 0V14h5v2h-5v15.95A10 10 0 0 0 23.66 27l-3.46-2 8.2-2.2-2.9 5a12 12 0 0 1-21 0l-2.89-5 8.2 2.2-3.47 2A10 10 0 0 0 14 31.95V16zm40 40h-5v-2h5v-4.13a4 4 0 1 1 2 0V54h5v2h-5v15.95A10 10 0 0 0 63.66 67l-3.47-2 8.2-2.2-2.88 5a12 12 0 0 1-21.02 0l-2.88-5 8.2 2.2-3.47 2A10 10 0 0 0 54 71.95V56zm-39 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm40-40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM15 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm40 40a2 2 0 1 0 0-4 2 2 0 0 0 0 4z'%3E%3C/path%3E%3C/svg%3E");
 
-        @apply bg-black bg-fixed;
-    }
-
-    .waves {
-        animation: waves-motion 3s ease-out infinite;
-        will-change: transform;
-    }
-
-    @keyframes waves-motion {
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(-20px);
-        }
+        @apply bg-gray-950 bg-fixed;
+        @apply relative overflow-hidden;
     }
 </style>

@@ -1,11 +1,12 @@
 <script lang="ts">
     export let text: string;
     export let isExternal: boolean = false;
+    export let showArrowForExternalLink: boolean = true;
 </script>
 
 <span
     class="link-text"
-    class:link-text-ext={text && isExternal}
+    class:link-text-ext={showArrowForExternalLink && text && isExternal}
     class:link-text-icon={!text}
 >
     <slot name="icon" />

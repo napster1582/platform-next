@@ -1,9 +1,10 @@
 <script lang="ts">
     import Icon from '@iconify/svelte';
     import type { Header } from '@jinen/cms-annotations';
-    import { Popover, PopoverButton, PopoverPanel } from '@rgossiaux/svelte-headlessui';
+    import { Popover, PopoverButton, PopoverPanel, Transition } from '@rgossiaux/svelte-headlessui';
     import { Img } from '../Img';
     import { Link } from '../Link';
+    import { ThemeToggle } from '../ThemeToggle';
 
     export let content: Header;
 </script>
@@ -16,60 +17,103 @@
                     <Img
                         src={content.logo.url}
                         alt={content.logo.alt}
-                        class="w-4 scale-[3.2]"
+                        class="mr-8 w-4 scale-[3.2]"
                     />
                 {/if}
+
+                <nav class="mx-6 flex items-center gap-x-3">
+                    {#each content.navbar ?? [] as { link, links }}
+                        {#if links.length}
+                            <Popover
+                                class="popover"
+                                let:open
+                            >
+                                <PopoverButton class="popover-button btn">
+                                    {#if link.icon}
+                                        <Icon
+                                            icon={link.icon}
+                                            class="text-{link.iconSize}"
+                                        />
+                                    {/if}
+
+                                    {link.text}
+
+                                    {#if open}
+                                        <Icon icon="ph:caret-up" />
+                                    {:else}
+                                        <Icon icon="ph:caret-down" />
+                                    {/if}
+                                </PopoverButton>
+
+                                <Transition
+                                    show={open}
+                                    enter="transition duration-100 ease-out"
+                                    enterFrom="transform scale-95 opacity-0"
+                                    enterTo="transform scale-100 opacity-100"
+                                    leave="transition duration-75 ease-out"
+                                    leaveFrom="transform scale-100 opacity-100"
+                                    leaveTo="transform scale-95 opacity-0"
+                                >
+                                    <PopoverPanel
+                                        class="popover-panel popover-panel-bl min-w-[200px]"
+                                        static
+                                        let:close
+                                    >
+                                        <div class="flex flex-col">
+                                            {#each links as { link }}
+                                                <Link
+                                                    internalLinkReference={link
+                                                        .internalLinkReference?.value}
+                                                    externalLink={link.externalLink}
+                                                    text={link.text}
+                                                    type={link.type}
+                                                    appearance={link.appearance}
+                                                    showIcon={link.showIcon}
+                                                    icon={link.icon}
+                                                    iconSize={link.iconSize}
+                                                    openInNewTab={link.openInNewTab}
+                                                    class="popover-panel-item"
+                                                    on:click={() => close()}
+                                                />
+                                            {/each}
+                                        </div>
+                                    </PopoverPanel>
+                                </Transition>
+                            </Popover>
+                        {:else}
+                            <Link
+                                internalLinkReference={link.internalLinkReference?.value}
+                                externalLink={link.externalLink}
+                                text={link.text}
+                                type={link.type}
+                                appearance={link.appearance}
+                                showIcon={link.showIcon}
+                                icon={link.icon}
+                                iconSize={link.iconSize}
+                                openInNewTab={link.openInNewTab}
+                            />
+                        {/if}
+                    {/each}
+                </nav>
+
+                <div />
             </div>
 
-            <nav class="flex items-center gap-3">
-                {#each content.navbar ?? [] as { link, links }}
-                    {#if links.length}
-                        <Popover class="popover">
-                            <PopoverButton class="popover-button btn btn-variant-text">
-                                {link.text}
+            <div class="flex items-center gap-x-3">
+                <ThemeToggle />
 
-                                <Icon icon="ph:caret-down" />
-                            </PopoverButton>
+                <a
+                    href="login"
+                    class="btn btn-variant-contained"
+                >
+                    <Icon
+                        icon="line-md:account"
+                        class="text-xl"
+                    />
 
-                            <PopoverPanel
-                                class="popover-panel popover-panel-br min-w-[200px]"
-                                let:close
-                            >
-                                <div class="flex flex-col">
-                                    {#each links as { link }}
-                                        <Link
-                                            internalLinkReference={link.internalLinkReference
-                                                ?.value}
-                                            externalLink={link.externalLink}
-                                            text={link.text}
-                                            type={link.type}
-                                            appearance={link.appearance}
-                                            showIcon={link.showIcon}
-                                            icon={link.icon}
-                                            iconSize={link.iconSize}
-                                            openInNewTab={link.openInNewTab}
-                                            class="popover-panel-item"
-                                            on:click={() => close()}
-                                        />
-                                    {/each}
-                                </div>
-                            </PopoverPanel>
-                        </Popover>
-                    {:else}
-                        <Link
-                            internalLinkReference={link.internalLinkReference?.value}
-                            externalLink={link.externalLink}
-                            text={link.text}
-                            type={link.type}
-                            appearance={link.appearance}
-                            showIcon={link.showIcon}
-                            icon={link.icon}
-                            iconSize={link.iconSize}
-                            openInNewTab={link.openInNewTab}
-                        />
-                    {/if}
-                {/each}
-            </nav>
+                    <span class="hidden md:inline"> Ingresar </span>
+                </a>
+            </div>
         </div>
     </header>
 {:else}

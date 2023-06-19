@@ -35,10 +35,10 @@ module.exports = {
     darkMode: 'class',
     theme: {
         fontFamily: {
-            sans: ['Inter', 'sans-serif'],
+            sans: ['Open Sans', 'sans-serif'],
             serif: ['Castoro', 'serif'],
             mono: ['JetBrains Mono', 'monospace'],
-            display: ['Instrument Sans', 'sans-serif'],
+            display: ['Open Sans', 'sans-serif'],
             handwriting: ['Indie Flower', 'cursive'],
         },
         container: {
