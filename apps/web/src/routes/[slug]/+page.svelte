@@ -16,8 +16,6 @@
             showMenu: page?.showMenu ?? false,
             showFooter: page?.showFooter ?? false,
         }));
-
-        console.log(page);
     }
 </script>
 
@@ -29,7 +27,7 @@
         >
             {#each section.columns ?? [] as column}
                 <div
-                    class="border-primary-600 bg-primary-200/10 rounded-token border max-md:col-span-12 col-span-{column.width}"
+                    class="border-primary-600 rounded-token border max-md:col-span-12 col-span-{column.width}"
                 >
                     {#each column.blocks ?? [] as block}
                         {#if block.blockType === 'content'}

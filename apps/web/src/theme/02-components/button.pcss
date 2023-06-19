@@ -1,5 +1,5 @@
 @layer components {
-    .btn {
+    .button {
         @apply flex items-center justify-center gap-x-2;
         @apply rounded-token;
         @apply px-5 py-2;
@@ -19,7 +19,7 @@
             @apply bg-primary-300/90 dark:bg-primary-300/20;
         }
 
-        &.btn-variant-text {
+        &.button-variant-text {
             @apply bg-transparent;
 
             &:not(:disabled):hover {
@@ -31,7 +31,7 @@
             }
         }
 
-        &.btn-variant-contained {
+        &.button-variant-contained {
             @apply text-white dark:text-gray-950;
             @apply bg-primary-500 dark:bg-primary-400;
 

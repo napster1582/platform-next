@@ -16,7 +16,7 @@
     class="popover"
     let:open
 >
-    <PopoverButton class="popover-button btn">
+    <PopoverButton class="popover-button button">
         <Icon
             icon="line-md:paint-drop-half-filled-twotone"
             class="text-xl"
@@ -46,9 +46,9 @@
 
         <hr class="border-token my-4" />
 
-        <div class="flex items-center justify-end gap-x-2 pb-2">
+        <div class="button-group button-group-end pb-2">
             <button
-                class="btn btn-variant-text"
+                class="button button-variant-text"
                 on:click={() => {
                     handleReset();
                     close(null);
@@ -60,7 +60,7 @@
             </button>
 
             <button
-                class="btn btn-variant-contained"
+                class="button button-variant-contained"
                 on:click={() => {
                     close(null);
                 }}

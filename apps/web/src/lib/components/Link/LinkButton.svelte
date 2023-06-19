@@ -5,7 +5,7 @@
 
 <div
     role="button"
-    class="btn"
+    class="button"
 >
     <slot name="icon" />
     <span>{text}</span>

@@ -60,7 +60,7 @@ export const getSystemTheme = (): WritableAppearance['theme'] => {
 export const getCurrentTheme = (): WritableAppearance['theme'] => {
     if (!browser) return DEFAULT_THEME;
 
-    return getItem('jinenAppearanceSchema') || DEFAULT_THEME;
+    return getItem('jinenAppearanceTheme') || DEFAULT_THEME;
 };
 
 export const getCurrentPrimaryColor = (): WritableAppearance['primaryColor'] => {

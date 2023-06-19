@@ -6,9 +6,9 @@
 
     const borders: Datalist<WritableAppearance['borderRadius']> = [
         { value: 'none', text: 'Sin radio' },
-        { value: 'sm', text: 'Pequeño' },
-        { value: 'md', text: 'Mediano' },
-        { value: 'lg', text: 'Grande' },
+        { value: 'sm', text: 'SM' },
+        { value: 'md', text: 'MD' },
+        { value: 'lg', text: 'LG' },
         { value: 'xl', text: 'XL' },
         { value: '2xl', text: '2XL' },
         { value: '3xl', text: '3XL' },
@@ -29,7 +29,7 @@
         <RadioGroupOption
             class="{border.value === selectedBorder.value
                 ? 'bg-gray-100 dark:bg-gray-950'
-                : 'bg-token'} rounded-token relative mt-1.5 flex cursor-pointer px-5 py-2 font-medium hover:bg-gray-100 dark:hover:bg-gray-950"
+                : 'bg-token'} rounded-token relative mt-1.5 flex cursor-pointer p-2 font-medium hover:bg-gray-100 dark:hover:bg-gray-950"
             value={border}
             let:checked
         >

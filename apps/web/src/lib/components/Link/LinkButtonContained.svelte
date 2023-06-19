@@ -5,7 +5,7 @@
 
 <div
     role="button"
-    class="btn btn-variant-contained"
+    class="button button-variant-contained"
 >
     <slot name="icon" />
     <span>{text}</span>

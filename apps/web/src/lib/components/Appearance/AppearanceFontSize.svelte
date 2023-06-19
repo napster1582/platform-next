@@ -25,7 +25,7 @@
         <RadioGroupOption
             class="{size.value === selectedFontSize.value
                 ? 'bg-gray-100 dark:bg-gray-950'
-                : 'bg-token'} rounded-token relative mt-1.5 flex cursor-pointer px-5 py-2 font-medium hover:bg-gray-100 dark:hover:bg-gray-950"
+                : 'bg-token'} rounded-token relative mt-1.5 flex cursor-pointer p-2 font-medium hover:bg-gray-100 dark:hover:bg-gray-950"
             value={size}
             let:checked
         >

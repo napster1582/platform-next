@@ -28,7 +28,7 @@
                                 class="popover"
                                 let:open
                             >
-                                <PopoverButton class="popover-button btn">
+                                <PopoverButton class="popover-button button button-variant-text">
                                     {#if link.icon}
                                         <Icon
                                             icon={link.icon}
@@ -59,24 +59,22 @@
                                         static
                                         let:close
                                     >
-                                        <div class="flex flex-col">
-                                            {#each links as { link }}
-                                                <Link
-                                                    internalLinkReference={link
-                                                        .internalLinkReference?.value}
-                                                    externalLink={link.externalLink}
-                                                    text={link.text}
-                                                    type={link.type}
-                                                    appearance={link.appearance}
-                                                    showIcon={link.showIcon}
-                                                    icon={link.icon}
-                                                    iconSize={link.iconSize}
-                                                    openInNewTab={link.openInNewTab}
-                                                    class="popover-panel-item"
-                                                    on:click={() => close()}
-                                                />
-                                            {/each}
-                                        </div>
+                                        {#each links as { link }}
+                                            <Link
+                                                internalLinkReference={link.internalLinkReference
+                                                    ?.value}
+                                                externalLink={link.externalLink}
+                                                text={link.text}
+                                                type={link.type}
+                                                appearance={link.appearance}
+                                                showIcon={link.showIcon}
+                                                icon={link.icon}
+                                                iconSize={link.iconSize}
+                                                openInNewTab={link.openInNewTab}
+                                                class="popover-panel-item"
+                                                on:click={() => close()}
+                                            />
+                                        {/each}
                                     </PopoverPanel>
                                 </Transition>
                             </Popover>
@@ -95,8 +93,6 @@
                         {/if}
                     {/each}
                 </nav>
-
-                <div />
             </div>
 
             <div class="flex items-center gap-x-3">
@@ -104,7 +100,7 @@
 
                 <a
                     href="login"
-                    class="btn btn-variant-contained"
+                    class="button button-variant-contained"
                 >
                     <Icon
                         icon="line-md:account"
