@@ -67,6 +67,10 @@ export const FieldLink: CustomField = (options) =>
                     type: 'text',
                     name: 'text',
                     label: 'Texto a mostrar',
+                    admin: {
+                        condition: (_: unknown, siblingData: Record<string, unknown>) =>
+                            siblingData?.appearance !== LinkAppearance.Inferred,
+                    },
                 },
                 {
                     type: 'checkbox',
@@ -74,6 +78,10 @@ export const FieldLink: CustomField = (options) =>
                     label: 'Mostrar ícono',
                     required: true,
                     defaultValue: false,
+                    admin: {
+                        condition: (_: unknown, siblingData: Record<string, unknown>) =>
+                            siblingData?.appearance !== LinkAppearance.Inferred,
+                    },
                 },
                 {
                     type: 'row',
@@ -84,9 +92,10 @@ export const FieldLink: CustomField = (options) =>
                             label: 'Ícono',
                             required: true,
                             admin: {
-                                condition: (_: unknown, siblingData: Record<string, unknown>) =>
-                                    siblingData?.showIcon,
                                 description: 'https://icones.js.org/',
+                                condition: (_: unknown, siblingData: Record<string, unknown>) =>
+                                    siblingData?.showIcon &&
+                                    siblingData?.appearance !== LinkAppearance.Inferred,
                             },
                         },
                         {
@@ -97,7 +106,8 @@ export const FieldLink: CustomField = (options) =>
                             defaultValue: ResourceSize.Md,
                             admin: {
                                 condition: (_: unknown, siblingData: Record<string, unknown>) =>
-                                    siblingData?.showIcon,
+                                    siblingData?.showIcon &&
+                                    siblingData?.appearance !== LinkAppearance.Inferred,
                             },
                         },
                     ],

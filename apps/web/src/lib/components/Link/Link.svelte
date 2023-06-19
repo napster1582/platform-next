@@ -1,126 +1,77 @@
 <script lang="ts">
-    import Icon, { loadIcon, type IconifyIcon } from '@iconify/svelte';
+    import Icon from '@iconify/svelte';
     import { ResourceSize } from '@jinen/annotations';
-    import { LinkAppearance, LinkType, type Page } from '@jinen/cms-annotations';
+    import { LinkAppearance } from '@jinen/cms-annotations';
     import LinkButton from './LinkButton.svelte';
     import LinkButtonContained from './LinkButtonContained.svelte';
     import LinkButtonText from './LinkButtonText.svelte';
     import LinkCta from './LinkCta.svelte';
     import LinkText from './LinkText.svelte';
+    import type { LinkOptions } from './types';
 
-    export let internalLinkReference: Page;
-    export let externalLink: string = '';
-    export let text: string = '';
-    export let type: LinkType = LinkType.External;
-    export let appearance: LinkAppearance = LinkAppearance.Text;
-    export let showIcon: boolean = false;
-    export let icon: string = '';
-    export let iconSize: ResourceSize = ResourceSize.Md;
-    export let openInNewTab: boolean = false;
-    export let disabled: boolean = false;
-    export let showArrowForExternalLink: boolean = true;
+    export let options: LinkOptions;
 
-    let iconData: Required<IconifyIcon> | null = null;
+    const DEFAULT_ICON_SIZE = ResourceSize.Md as const;
 
-    $: href = type === LinkType.External ? externalLink : internalLinkReference?.slug;
-    $: target = openInNewTab ? '_blank' : undefined;
-    $: rel = type === LinkType.External ? 'noopener noreferrer' : '';
-    $: icon &&
-        loadIcon(icon)
-            .then((data) => {
-                console.log(`Icon ${icon} has been loaded and is ready to be renderered.`);
-                iconData = data;
-            })
-            .catch(() => {
-                console.log(`Icon ${icon} does not exist.`);
-            });
+    $: isDisabled = !options.href;
+    $: isExternal = options.href?.indexOf('://') !== -1;
+    $: target = options.openInNewTab ? '_blank' : undefined;
+    $: rel = isExternal ? 'noopener noreferrer' : '';
+    $: tabindex = isDisabled ? -1 : undefined;
+    $: ariaLabel = options.openInNewTab
+        ? `Navegar a ${options.href} (abre en nueva pestaña)`
+        : `Navegar a ${options.href}`;
+
+    $: Component = (() => {
+        switch (options.appearance) {
+            case LinkAppearance.Inferred:
+                return null;
+            case LinkAppearance.Text:
+                return LinkText;
+            case LinkAppearance.Cta:
+                return LinkCta;
+            case LinkAppearance.Button:
+                return LinkButton;
+            case LinkAppearance.ButtonText:
+                return LinkButtonText;
+            case LinkAppearance.ButtonContained:
+                return LinkButtonContained;
+            default:
+                console.error(`${options.appearance} is not yet supported.`);
+                return null;
+        }
+    })();
 </script>
 
 <a
-    {href}
+    href={options.href}
     {target}
     {rel}
-    on:click
+    {tabindex}
+    aria-label={ariaLabel}
+    aria-disabled={isDisabled}
     {...$$restProps}
-    aria-disabled={disabled ? 'true' : undefined}
-    tabIndex={disabled ? -1 : undefined}
+    on:click
 >
-    {#if appearance === LinkAppearance.Inferred}
+    {#if options.appearance === LinkAppearance.Inferred}
         {#if $$slots.default}
             <slot />
         {:else}
-            {text}
+            {options.text ?? ''}
         {/if}
-    {:else if appearance === LinkAppearance.Text}
-        <LinkText
-            {text}
-            isExternal={type === LinkType.External}
-            {showArrowForExternalLink}
+    {:else}
+        <svelte:component
+            this={Component}
+            text={options.text}
         >
             <svelte:fragment slot="icon">
-                {#if showIcon && iconData}
+                {#if options.showIcon}
                     <Icon
-                        icon={iconData}
-                        class="text-{iconSize}"
+                        icon={options.icon ?? ''}
+                        class="text-{options.iconSize ?? DEFAULT_ICON_SIZE}"
                     />
                 {/if}
             </svelte:fragment>
-        </LinkText>
-    {:else if appearance === LinkAppearance.Cta}
-        <LinkCta
-            {text}
-            isExternal={type === LinkType.External}
-        >
-            <svelte:fragment slot="icon">
-                {#if showIcon && iconData}
-                    <Icon
-                        icon={iconData}
-                        class="text-{iconSize}"
-                    />
-                {/if}
-            </svelte:fragment>
-        </LinkCta>
-    {:else if appearance === LinkAppearance.Button}
-        <LinkButton
-            {text}
-            isExternal={type === LinkType.External}
-        >
-            <svelte:fragment slot="icon">
-                {#if showIcon && iconData}
-                    <Icon
-                        icon={iconData}
-                        class="text-{iconSize}"
-                    />
-                {/if}
-            </svelte:fragment>
-        </LinkButton>
-    {:else if appearance === LinkAppearance.ButtonText}
-        <LinkButtonText
-            {text}
-            isExternal={type === LinkType.External}
-        >
-            <svelte:fragment slot="icon">
-                {#if showIcon && iconData}
-                    <Icon
-                        icon={iconData}
-                        class="text-{iconSize}"
-                    />
-                {/if}
-            </svelte:fragment>
-        </LinkButtonText>
-    {:else if appearance === LinkAppearance.ButtonContained}
-        <LinkButtonContained
-            {text}
-            isExternal={type === LinkType.External}
-        >
-            <svelte:fragment slot="icon">
-                {#if showIcon && iconData}
-                    <Icon
-                        icon={iconData}
-                        class="text-{iconSize}"
-                    />
-                {/if}
-            </svelte:fragment>
-        </LinkButtonContained>
+        </svelte:component>
     {/if}
 </a>

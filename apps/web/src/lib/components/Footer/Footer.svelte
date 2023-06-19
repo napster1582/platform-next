@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { resolveLinkAppearance, resolveLinkHref, resolveResourceSize } from '$lib/utils';
     import type { Footer } from '@jinen/cms-annotations';
     import { Badge } from '../Badge';
     import { Content } from '../Content';
@@ -46,17 +47,21 @@
                         {#each section.links as { link }}
                             <li>
                                 <Link
-                                    internalLinkReference={link.internalLinkReference?.value}
-                                    externalLink={link.externalLink}
-                                    text={link.text}
-                                    type={link.type}
-                                    appearance={link.appearance}
-                                    showIcon={link.showIcon}
-                                    icon={link.icon}
-                                    iconSize={link.iconSize}
-                                    openInNewTab={link.openInNewTab}
                                     class="text-primary-300"
-                                    showArrowForExternalLink={false}
+                                    options={{
+                                        href: resolveLinkHref({
+                                            internal: link.internalLinkReference?.value,
+                                            external: link.externalLink,
+                                        }),
+                                        appearance: resolveLinkAppearance({
+                                            appearance: link.appearance,
+                                        }),
+                                        text: link.text,
+                                        showIcon: link.showIcon,
+                                        icon: link.icon,
+                                        iconSize: resolveResourceSize({ resource: link.iconSize }),
+                                        openInNewTab: link.openInNewTab,
+                                    }}
                                 />
                             </li>
                         {/each}

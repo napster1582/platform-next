@@ -16,7 +16,6 @@ export interface Config {
     'form-submissions': FormSubmission;
   };
   globals: {
-    appearance: Appearance;
     header: Header;
     menu: Menu;
     footer: Footer;
@@ -91,7 +90,7 @@ export interface Page {
         background?: string | Media;
         show?: boolean;
         link?: {
-          appearance?: 'inferred' | 'text' | 'cta' | 'primaryButton' | 'secondaryButton';
+          appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
           type?: 'internal' | 'external';
           text?: string;
           showIcon: boolean;
@@ -164,7 +163,7 @@ export interface Page {
           }
         | {
             link: {
-              appearance?: 'inferred' | 'text' | 'cta' | 'primaryButton' | 'secondaryButton';
+              appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
               type?: 'internal' | 'external';
               text?: string;
               showIcon: boolean;
@@ -197,7 +196,7 @@ export interface Page {
         | {
             links: {
               link: {
-                appearance?: 'inferred' | 'text' | 'cta' | 'primaryButton' | 'secondaryButton';
+                appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
                 type?: 'internal' | 'external';
                 text?: string;
                 showIcon: boolean;
@@ -410,7 +409,7 @@ export interface Event {
   linkGroup?: {
     addLink?: boolean;
     link?: {
-      appearance?: 'inferred' | 'text' | 'cta' | 'primaryButton' | 'secondaryButton';
+      appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
       type?: 'internal' | 'external';
       text?: string;
       showIcon: boolean;
@@ -461,17 +460,12 @@ export interface FormSubmission {
   createdAt: string;
   updatedAt: string;
 }
-export interface Appearance {
-  id: string;
-  color: string;
-  borderRadius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'full';
-}
 export interface Header {
   id: string;
   logo?: string | Media;
   navbar: {
     link: {
-      appearance?: 'inferred' | 'text' | 'cta' | 'primaryButton' | 'secondaryButton';
+      appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
       type?: 'internal' | 'external';
       text?: string;
       showIcon: boolean;
@@ -486,7 +480,7 @@ export interface Header {
     };
     links: {
       link: {
-        appearance?: 'inferred' | 'text' | 'cta' | 'primaryButton' | 'secondaryButton';
+        appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
         type?: 'internal' | 'external';
         text?: string;
         showIcon: boolean;
@@ -511,7 +505,7 @@ export interface Menu {
     icon?: string | Media;
     description?: string;
     link: {
-      appearance?: 'inferred' | 'text' | 'cta' | 'primaryButton' | 'secondaryButton';
+      appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
       type?: 'internal' | 'external';
       text?: string;
       showIcon: boolean;
@@ -540,7 +534,7 @@ export interface Footer {
       layout?: 'vertical' | 'horizontal';
       links: {
         link: {
-          appearance?: 'inferred' | 'text' | 'cta' | 'primaryButton' | 'secondaryButton';
+          appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
           type?: 'internal' | 'external';
           text?: string;
           showIcon: boolean;

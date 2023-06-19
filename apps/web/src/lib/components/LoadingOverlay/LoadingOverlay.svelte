@@ -1,16 +1,14 @@
 <script>
-    // import { Spinner } from 'flowbite-svelte';
+    import Icon from '@iconify/svelte';
 </script>
 
 <div
     class="fixed inset-0 z-50 grid h-full w-full place-items-center bg-white/90 backdrop-blur-lg transition"
 >
     <div class="flex flex-col items-center gap-8">
-        <Spinner
-            color="gray"
-            size="12"
-            class="text-center"
-            aria-busy="true"
+        <Icon
+            icon="svg-spinners:blocks-wave"
+            class="text-3xl"
         />
 
         <div class="text-center">

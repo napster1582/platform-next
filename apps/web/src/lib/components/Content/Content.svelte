@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { LinkAppearance } from '@jinen/cms-annotations';
     import escapeHTML from 'escape-html';
     import { Text } from 'slate';
     import Link from '../Link/Link.svelte';
@@ -93,8 +94,10 @@
             <svelte:self nodes={node.children} />
         {:else if node.type === 'link'}
             <Link
-                href={escapeHTML(`${node.url}`)}
-                className="text-inherit"
+                options={{
+                    href: escapeHTML(`${node.url}`),
+                    appearance: LinkAppearance.Inferred,
+                }}
             >
                 <svelte:self nodes={node.children} />
             </Link>

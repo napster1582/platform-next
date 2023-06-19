@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { resolveLinkAppearance, resolveLinkHref, resolveResourceSize } from '$lib/utils';
     import Icon from '@iconify/svelte';
     import type { Header } from '@jinen/cms-annotations';
     import { Popover, PopoverButton, PopoverPanel, Transition } from '@rgossiaux/svelte-headlessui';
@@ -10,7 +11,9 @@
 </script>
 
 {#if content}
-    <header id="jinen-header">
+    <header
+        class="bg-primary-300/60 dark:bg-primary-800/30 border-token sticky inset-x-0 top-0 z-20 h-[70px] text-black shadow-sm backdrop-blur-xl transition duration-300 ease-linear dark:text-white dark:backdrop-blur-xl"
+    >
         <div class="container flex h-full items-center justify-between py-2">
             <div class="flex items-center">
                 {#if content.logo && typeof content.logo === 'object'}
@@ -61,18 +64,24 @@
                                     >
                                         {#each links as { link }}
                                             <Link
-                                                internalLinkReference={link.internalLinkReference
-                                                    ?.value}
-                                                externalLink={link.externalLink}
-                                                text={link.text}
-                                                type={link.type}
-                                                appearance={link.appearance}
-                                                showIcon={link.showIcon}
-                                                icon={link.icon}
-                                                iconSize={link.iconSize}
-                                                openInNewTab={link.openInNewTab}
                                                 class="popover-panel-item"
-                                                on:click={() => close()}
+                                                options={{
+                                                    href: resolveLinkHref({
+                                                        internal: link.internalLinkReference?.value,
+                                                        external: link.externalLink,
+                                                    }),
+                                                    appearance: resolveLinkAppearance({
+                                                        appearance: link.appearance,
+                                                    }),
+                                                    text: link.text,
+                                                    showIcon: link.showIcon,
+                                                    icon: link.icon,
+                                                    iconSize: resolveResourceSize({
+                                                        resource: link.iconSize,
+                                                    }),
+                                                    openInNewTab: link.openInNewTab,
+                                                }}
+                                                on:click={() => close(null)}
                                             />
                                         {/each}
                                     </PopoverPanel>
@@ -80,15 +89,22 @@
                             </Popover>
                         {:else}
                             <Link
-                                internalLinkReference={link.internalLinkReference?.value}
-                                externalLink={link.externalLink}
-                                text={link.text}
-                                type={link.type}
-                                appearance={link.appearance}
-                                showIcon={link.showIcon}
-                                icon={link.icon}
-                                iconSize={link.iconSize}
-                                openInNewTab={link.openInNewTab}
+                                options={{
+                                    href: resolveLinkHref({
+                                        internal: link.internalLinkReference?.value,
+                                        external: link.externalLink,
+                                    }),
+                                    appearance: resolveLinkAppearance({
+                                        appearance: link.appearance,
+                                    }),
+                                    text: link.text,
+                                    showIcon: link.showIcon,
+                                    icon: link.icon,
+                                    iconSize: resolveResourceSize({
+                                        resource: link.iconSize,
+                                    }),
+                                    openInNewTab: link.openInNewTab,
+                                }}
                             />
                         {/if}
                     {/each}
@@ -115,13 +131,3 @@
 {:else}
     Ocurrió un error al intentar cargar el encabezado.
 {/if}
-
-<style lang="postcss">
-    #jinen-header {
-        @apply h-[70px];
-        @apply bg-primary-300/60 dark:bg-primary-800/30 text-black backdrop-blur-xl dark:text-white dark:backdrop-blur-xl;
-        @apply sticky inset-x-0 top-0 z-20;
-        @apply border-token shadow-sm;
-        @apply transition duration-300 ease-linear;
-    }
-</style>

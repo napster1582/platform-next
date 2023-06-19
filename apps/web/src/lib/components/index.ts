@@ -10,4 +10,3 @@ export * from './LoadingOverlay';
 export * from './Logo';
 export * from './Menu';
 export * from './SectionTitle';
-export * from './SocialNetworks';

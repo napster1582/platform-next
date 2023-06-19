@@ -1,14 +1,5 @@
-<script lang="ts">
-    import Link from '../Link/Link.svelte';
-
-    export const href = '';
-    export const imageUrl = '';
-</script>
-
-<Link
-    href="#"
-    className="transform hover:scale-110 hover:grayscale active:scale-90 hover:shadow-2xl rounded-token transition-transform"
-    aClassName="no-underline"
+<div
+    class="rounded-token transform transition-transform hover:scale-110 hover:shadow-2xl hover:grayscale active:scale-90"
 >
     <div class="menu-item relative z-10 flex w-[200px] flex-col">
         <div class="grid h-36 place-items-center pt-7">
@@ -18,26 +9,22 @@
                 </span>
             {/if}
 
-            {#if imageUrl}
-                <img
-                    src={imageUrl}
-                    alt="Logo de opción de menú"
-                    class="w-24"
-                />
+            {#if $$slots.icon}
+                <slot name="icon" />
             {/if}
         </div>
 
         <div class="grid h-36 items-start justify-items-center px-4 pt-6">
             {#if $$slots.description}
                 <div
-                    class="rounded-token text-token line-clamp-3 bg-gradient-to-br from-yellow-300 via-blue-700 to-red-600 p-2 text-center font-semibold text-white"
+                    class="rounded-token text-token line-clamp-3 bg-gradient-to-br from-yellow-500 via-blue-600 to-red-600 p-2 text-center font-semibold text-white"
                 >
                     <slot name="description" />
                 </div>
             {/if}
         </div>
     </div>
-</Link>
+</div>
 
 <style lang="postcss">
     .menu-item {
