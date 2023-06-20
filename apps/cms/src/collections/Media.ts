@@ -32,11 +32,6 @@ export const CollectionMedia = {
                 width: 768,
                 height: 1024,
             },
-            {
-                name: 'hero',
-                width: 1920,
-                height: 1080,
-            },
         ],
         adminThumbnail: 'thumbnail',
     },

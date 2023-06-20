@@ -31,7 +31,10 @@
         {/if}
     </div>
 
-    <span class="line-clamp-2 w-full">
+    <span
+        class="line-clamp-2 w-full"
+        title={options?.text ?? ''}
+    >
         {options?.text ?? ''}
     </span>
 

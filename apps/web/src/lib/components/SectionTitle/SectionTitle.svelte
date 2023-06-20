@@ -11,13 +11,11 @@
 
 <style lang="postcss">
     .jinen-title {
-        @apply relative mb-16 p-3;
+        @apply relative;
         @apply font-black;
-    }
-
-    h1.jinen-title {
-        @apply from-primary-800 via-primary-400 to-primary-100 bg-gradient-to-br bg-clip-text;
-        @apply font-bold text-transparent;
+        @apply from-primary-800 via-primary-400 to-primary-100 bg-gradient-to-br;
+        @apply bg-clip-text text-transparent;
+        @apply mb-4;
     }
 
     h1.jinen-title::before {

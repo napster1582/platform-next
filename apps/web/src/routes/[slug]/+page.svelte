@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Content, Hero, Link, Menu } from '$lib/components';
+    import { Alert, Content, Hero, Img, Link, Media, Menu } from '$lib/components';
     import { domStore } from '$lib/stores';
     import {
         resolveHeroVariant,
@@ -50,16 +50,54 @@
     {#each page?.sections ?? [] as section}
         {#if section}
             <section
-                class="my-12 grid grid-cols-12 gap-4"
+                class="my-24 grid grid-cols-12 gap-x-4 gap-y-12"
                 class:min-h-screen={section.fullSize}
             >
                 {#each section.columns ?? [] as column}
-                    <div
-                        class="border-primary-600 rounded-token border max-md:col-span-12 col-span-{column.width}"
-                    >
+                    <div class="max-md:col-span-12 col-span-{column.width}">
                         {#each column.blocks ?? [] as block}
                             {#if block.blockType === 'content'}
                                 <Content nodes={block.content?.richText ?? []} />
+                            {:else if block.blockType === 'alert'}
+                                <Alert>
+                                    <svelte:fragment slot="title">
+                                        {block.title ?? ''}
+                                    </svelte:fragment>
+
+                                    <svelte:fragment slot="left">
+                                        {#if block.images.showImages}
+                                            {#each block.images.images?.filter((image) => image.position === 'left') ?? [] as { image }}
+                                                {#if typeof image === 'object'}
+                                                    <Img
+                                                        class="w-32"
+                                                        src={image.url}
+                                                        alt={image.alt}
+                                                        loading="lazy"
+                                                    />
+                                                {/if}
+                                            {/each}
+                                        {/if}
+                                    </svelte:fragment>
+
+                                    <svelte:fragment slot="right">
+                                        {#if block.images.showImages}
+                                            {#each block.images.images?.filter((image) => image.position === 'right') ?? [] as { image }}
+                                                {#if typeof image === 'object'}
+                                                    <Img
+                                                        class="w-32"
+                                                        src={image.url}
+                                                        alt={image.alt}
+                                                        loading="lazy"
+                                                    />
+                                                {/if}
+                                            {/each}
+                                        {/if}
+                                    </svelte:fragment>
+
+                                    {block.description ?? ''}
+                                </Alert>
+                            {:else if block.blockType === 'media'}
+                                <Media content={block.media} />
                             {:else if block.blockType === 'link'}
                                 <Link
                                     options={{
@@ -105,8 +143,14 @@
                                     {/each}
                                 </div>
                             {:else}
-                                {column.width} - {block.blockType}
+                                <Alert>
+                                    {JSON.stringify(block, null, 2)}
+                                </Alert>
                             {/if}
+                        {:else}
+                            <Alert>
+                                {JSON.stringify(column, null, 2)}
+                            </Alert>
                         {/each}
                     </div>
                 {/each}
