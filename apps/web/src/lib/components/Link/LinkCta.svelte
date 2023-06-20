@@ -14,7 +14,7 @@
         <span
             class="bg-primary-300 rounded-token text-primary-900 absolute -top-2 left-4 px-2.5 py-0.5 text-center text-xs font-bold"
         >
-            {options?.indicator}
+            {options?.indicator ?? ''}
         </span>
     {/if}
 
@@ -32,7 +32,7 @@
     </div>
 
     <span class="line-clamp-2 w-full">
-        {options?.text}
+        {options?.text ?? ''}
     </span>
 
     <Icon

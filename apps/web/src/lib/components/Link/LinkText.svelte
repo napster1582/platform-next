@@ -10,7 +10,7 @@
 >
     <slot name="icon" />
 
-    {options?.text}
+    {options?.text ?? ''}
 </span>
 
 <style lang="postcss">
