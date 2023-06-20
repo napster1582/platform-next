@@ -62,7 +62,7 @@
     {:else}
         <svelte:component
             this={Component}
-            text={options.text}
+            {options}
         >
             <svelte:fragment slot="icon">
                 {#if options.showIcon}

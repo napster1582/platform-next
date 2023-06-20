@@ -1,5 +1,7 @@
 <script lang="ts">
-    export let text = '';
+    import type { LinkOptions } from './types';
+
+    export let options: LinkOptions;
 </script>
 
 <div
@@ -7,5 +9,6 @@
     class="button button-variant-text"
 >
     <slot name="icon" />
-    {text}
+
+    {options?.text ?? ''}
 </div>

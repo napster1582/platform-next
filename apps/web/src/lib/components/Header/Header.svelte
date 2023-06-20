@@ -80,6 +80,7 @@
                                                 appearance: resolveLinkAppearance({
                                                     appearance: link.appearance,
                                                 }),
+                                                indicator: link.indicator,
                                                 text: link.text,
                                                 showIcon: link.showIcon,
                                                 icon: link.icon,
@@ -104,6 +105,7 @@
                                 appearance: resolveLinkAppearance({
                                     appearance: link.appearance,
                                 }),
+                                indicator: link.indicator,
                                 text: link.text,
                                 showIcon: link.showIcon,
                                 icon: link.icon,

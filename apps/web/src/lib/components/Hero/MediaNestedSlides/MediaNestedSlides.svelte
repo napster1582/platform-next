@@ -108,6 +108,7 @@
                     appearance: resolveLinkAppearance({
                         appearance: items[currentIndex].link?.appearance,
                     }),
+                    indicator: items[currentIndex].link?.indicator,
                     text: items[currentIndex].link?.text,
                     showIcon: items[currentIndex].link?.showIcon,
                     icon: items[currentIndex].link?.icon,

@@ -65,6 +65,16 @@ export const FieldLink: CustomField = (options) =>
                 },
                 {
                     type: 'text',
+                    name: 'indicator',
+                    label: 'Indicador',
+                    maxLength: 30,
+                    admin: {
+                        condition: (_: unknown, siblingData: Record<string, unknown>) =>
+                            siblingData?.appearance === LinkAppearance.Cta,
+                    },
+                },
+                {
+                    type: 'text',
                     name: 'text',
                     label: 'Texto a mostrar',
                     admin: {

@@ -1,13 +1,16 @@
 <script lang="ts">
-    export let text = '';
+    import type { LinkOptions } from './types';
+
+    export let options: LinkOptions;
 </script>
 
 <span
     class="visited:text-primary-800 dark:visited:text-primary-50 flex items-center gap-2 font-medium hover:underline focus:underline"
-    class:link-animated={!text}
+    class:link-animated={!options?.text}
 >
     <slot name="icon" />
-    {text}
+
+    {options?.text}
 </span>
 
 <style lang="postcss">

@@ -5,8 +5,13 @@ export function resolveLinkAppearance({
 }: {
     appearance: string | undefined;
 }): LinkAppearance {
+    if (!appearance) {
+        return LinkAppearance.Text;
+    }
+
     if (!Object.values(LinkAppearance).includes(appearance as LinkAppearance)) {
-        throw new Error(`${appearance} is not part of the enum LinkAppearance`);
+        console.error(`${appearance} is not part of the enum LinkAppearance`);
+        return LinkAppearance.Text;
     }
 
     return appearance as LinkAppearance;

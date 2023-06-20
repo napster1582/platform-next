@@ -92,6 +92,7 @@ export interface Page {
         link?: {
           appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
           type?: 'internal' | 'external';
+          indicator?: string;
           text?: string;
           showIcon: boolean;
           icon: string;
@@ -165,6 +166,7 @@ export interface Page {
             link: {
               appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
               type?: 'internal' | 'external';
+              indicator?: string;
               text?: string;
               showIcon: boolean;
               icon: string;
@@ -198,6 +200,7 @@ export interface Page {
               link: {
                 appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
                 type?: 'internal' | 'external';
+                indicator?: string;
                 text?: string;
                 showIcon: boolean;
                 icon: string;
@@ -411,6 +414,7 @@ export interface Event {
     link?: {
       appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
       type?: 'internal' | 'external';
+      indicator?: string;
       text?: string;
       showIcon: boolean;
       icon: string;
@@ -467,6 +471,7 @@ export interface Header {
     link: {
       appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
       type?: 'internal' | 'external';
+      indicator?: string;
       text?: string;
       showIcon: boolean;
       icon: string;
@@ -482,6 +487,7 @@ export interface Header {
       link: {
         appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
         type?: 'internal' | 'external';
+        indicator?: string;
         text?: string;
         showIcon: boolean;
         icon: string;
@@ -507,6 +513,7 @@ export interface Menu {
     link: {
       appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
       type?: 'internal' | 'external';
+      indicator?: string;
       text?: string;
       showIcon: boolean;
       icon: string;
@@ -536,6 +543,7 @@ export interface Footer {
         link: {
           appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
           type?: 'internal' | 'external';
+          indicator?: string;
           text?: string;
           showIcon: boolean;
           icon: string;
