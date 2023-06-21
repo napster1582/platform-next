@@ -22,9 +22,9 @@
 
 2. Ejecutar aplicaciones.
 
-  ```sh
-  pnpm dev
-  ```
+```sh
+pnpm dev
+```
 
 ## Entornos de desarrollo
 

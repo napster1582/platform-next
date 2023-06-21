@@ -40,9 +40,9 @@ Para comenzar a trabajar en una nueva característica, se deben seguir los sigui
 
 2. Ejecutar aplicaciones.
 
-  ```sh
-  pnpm dev
-  ```
+```sh
+pnpm dev
+```
 
 - Docs (VitePress): <http://localhost:3000>
 - Cms (PayloadCMS): <http://localhost:3001>

@@ -15,4 +15,3 @@ export function removeItem(item: string): void {
 export function clear(): void {
     localStorage.clear();
 }
-

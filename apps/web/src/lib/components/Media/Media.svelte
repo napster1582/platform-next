@@ -17,7 +17,6 @@
 {#if typeof content === 'object'}
     {#if isImage(content.mimeType ?? '')}
         <Img
-            class="w-full"
             src={content.url}
             alt={content.alt}
             loading="lazy"

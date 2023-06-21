@@ -5,7 +5,7 @@
 ---
 
 [![Build Status](https://github.com/JinenGroup/platform-next/actions/workflows/main.yaml/badge.svg)](https://github.com/JinenGroup/platform-next/actions)
-[![GitHub issues open](https://img.shields.io/github/issues/JinenGroup/platform-next.svg?maxAge=2592000)](https://github.com/JinenGroup/platform-next/issues)
+[![GitHub issues open](https://img.shields.io/github/issues/JinenGroup/platform-next.svg)](https://github.com/JinenGroup/platform-next/issues)
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 [![commitizen](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](https://commitizen-tools.github.io/commitizen/)
