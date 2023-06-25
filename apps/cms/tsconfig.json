@@ -1,7 +1,7 @@
 {
+  "extends": "@jinen/tsconfig/base.json",
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "allowJs": true,
     "strict": true,
     "esModuleInterop": true,
@@ -15,10 +15,10 @@
       "@assets/*": ["./assets/*"]
     }
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist", "build"],
   "ts-node": {
     "transpileOnly": true,
     "swc": true
-  }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "build"]
 }

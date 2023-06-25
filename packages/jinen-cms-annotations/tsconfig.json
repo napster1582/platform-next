@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "@jinen/tsconfig/base.json",
   "compilerOptions": {
     "moduleResolution": "nodenext"
   },

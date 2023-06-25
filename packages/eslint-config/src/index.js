@@ -1,13 +1,9 @@
 module.exports = {
     parser: '@typescript-eslint/parser',
     extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'turbo', 'prettier'],
-    plugins: ['svelte3', '@typescript-eslint'],
+    plugins: ['@typescript-eslint'],
     ignorePatterns: ['*.cjs'],
     overrides: [
-        {
-            files: ['*.svelte'],
-            processor: 'svelte3/svelte3',
-        },
         {
             files: ['*.ts'],
             rules: {
@@ -71,9 +67,6 @@ module.exports = {
     ],
     rules: {
         '@typescript-eslint/no-empty-function': 'off',
-    },
-    settings: {
-        'svelte3/typescript': () => require('typescript'),
     },
     parserOptions: {
         sourceType: 'module',

@@ -1,6 +1,6 @@
 import { generateMonthsRange, generateYearsRange, titlecase } from '@jinen/helpers';
 import { CollectionConfig } from 'payload/types';
-import { isAdmin, isUser } from '../access';
+import { isAdmin } from '../access';
 import { FieldLink } from '../fields/Link';
 import { FieldSlug } from '../fields/Slug';
 import { populateAuthor } from '../hooks';
@@ -24,7 +24,7 @@ export const CollectionEvents = {
         listSearchableFields: ['year'],
     },
     access: {
-        read: isAdmin || isUser,
+        read: () => true,
         create: isAdmin,
         update: isAdmin,
         delete: isAdmin,

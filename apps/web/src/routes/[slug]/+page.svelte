@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Alert, Content, Hero, Img, Link, Media, Menu } from '$lib/components';
+    import { Alert, Content, EmbeddedEvents, Hero, Img, Link, Media, Menu } from '$lib/components';
     import { domStore } from '$lib/stores';
     import {
         resolveHeroVariant,
@@ -142,6 +142,8 @@
                                         />
                                     {/each}
                                 </div>
+                            {:else if block.blockType === 'embedded-events'}
+                                <EmbeddedEvents content={block.events} />
                             {:else}
                                 <Alert>
                                     {JSON.stringify(block, null, 2)}

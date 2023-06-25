@@ -1,6 +1,7 @@
 export * from './Alert';
 export * from './Appearance';
 export * from './Content';
+export * from './EmbeddedEvents';
 export * from './Footer';
 export * from './Header';
 export * from './Hero';

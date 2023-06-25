@@ -1,5 +1,5 @@
 {
-  "name": "@jinen/eslint-config-custom",
+  "name": "@jinen/eslint-config",
   "version": "0.0.0",
   "main": "src/index.js",
   "dependencies": {

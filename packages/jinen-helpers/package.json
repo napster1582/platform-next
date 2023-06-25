@@ -21,7 +21,8 @@
     "format": "prettier --write --ignore-path=../../.prettierignore ."
   },
   "devDependencies": {
-    "@jinen/eslint-config-custom": "workspace:^",
+    "@jinen/eslint-config": "workspace:^",
+    "@jinen/tsconfig": "workspace:^",
     "deepmerge": "^4.3.1"
   }
 }
