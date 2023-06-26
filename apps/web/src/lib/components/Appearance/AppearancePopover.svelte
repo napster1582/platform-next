@@ -48,7 +48,7 @@
 
         <div class="button-group button-group-end pb-2">
             <button
-                class="button button-variant-text"
+                class="button button-ghost"
                 on:click={() => {
                     handleReset();
                     close(null);
@@ -60,7 +60,7 @@
             </button>
 
             <button
-                class="button button-variant-contained"
+                class="button button-solid"
                 on:click={() => {
                     close(null);
                 }}

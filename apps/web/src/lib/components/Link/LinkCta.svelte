@@ -8,7 +8,7 @@
 </script>
 
 <div
-    class="rounded-token hover:text-primary-300 relative flex h-[90px] w-full items-center gap-4 bg-gray-950 px-5 py-5 font-semibold text-gray-300 transition-transform hover:scale-[1.01]"
+    class="rounded-token hover:text-primary-600 dark:hover:text-primary-300 bg-token-secondary text-token-primary relative flex h-[90px] w-full items-center gap-4 px-5 py-5 font-semibold transition-transform hover:scale-[1.01]"
 >
     {#if options?.indicator}
         <span

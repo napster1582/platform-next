@@ -2,6 +2,7 @@
     import { Alert, Content, EmbeddedEvents, Hero, Img, Link, Media, Menu } from '$lib/components';
     import { domStore } from '$lib/stores';
     import {
+        resolveEvents,
         resolveHeroVariant,
         resolveLinkAppearance,
         resolveLinkHref,
@@ -143,7 +144,11 @@
                                     {/each}
                                 </div>
                             {:else if block.blockType === 'embedded-events'}
-                                <EmbeddedEvents content={block.events} />
+                                <EmbeddedEvents
+                                    content={resolveEvents({
+                                        events: block.events,
+                                    })}
+                                />
                             {:else}
                                 <Alert>
                                     {JSON.stringify(block, null, 2)}

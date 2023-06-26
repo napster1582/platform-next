@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: [
-        '../../packages/ui/**/*.{js,ts,jsx,tsx,html,svelte}',
-        './**/*.{js,ts,jsx,tsx,html,svelte}',
-    ],
+    content: ['./**/*.{js,ts,jsx,tsx,html,svelte}'],
     safelist: [
         {
             pattern: /(bg|text|col-span)-./,
@@ -108,12 +105,13 @@ module.exports = {
         },
         extend: {
             backgroundColor: {
-                token: 'var(--color-surface)',
-                'accent-token': 'var(--color-surface-accent)',
+                'token-primary': 'var(--color-bg-primary)',
+                'token-secondary': 'var(--color-bg-secondary)',
+                'token-tertiary': 'var(--color-bg-tertiary)',
             },
             textColor: {
-                token: 'var(--color-foreground)',
-                'accent-token': 'var(--color-foreground-accent)',
+                'token-primary': 'var(--color-fg-primary)',
+                'token-secondary': 'var(--color-fg-secondary)',
             },
             borderColor: {
                 token: 'var(--color-border)',
@@ -122,8 +120,9 @@ module.exports = {
                 token: 'var(--color-border)',
             },
             fill: {
-                token: 'var(--color-surface)',
-                'accent-token': 'var(--color-surface-accent)',
+                'token-primary': 'var(--color-bg-primary)',
+                'token-secondary': 'var(--color-bg-secondary)',
+                'token-tertiary': 'var(--color-bg-tertiary)',
             },
             borderRadius: {
                 token: 'var(--rounded)',

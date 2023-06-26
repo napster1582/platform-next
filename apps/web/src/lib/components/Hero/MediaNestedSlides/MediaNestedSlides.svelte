@@ -2,7 +2,6 @@
     import Link from '$lib/components/Link/Link.svelte';
     import { resolveLinkAppearance, resolveLinkHref, resolveResourceSize } from '$lib/utils';
     import { onDestroy, onMount, tick } from 'svelte';
-    import { fade } from 'svelte/transition';
     import type { HeroOptions } from '../types';
     import MediaNestedSlidesInfo from './MediaNestedSlidesInfo.svelte';
     import MediaNestedSlidesPreviews from './MediaNestedSlidesPreviews.svelte';
@@ -17,9 +16,13 @@
 
     let interval: any | null = null;
 
-    onMount(() => options.settings.autoplay && resetInterval());
+    onMount(() => {
+        options.settings.autoplay && resetInterval();
+    });
 
-    onDestroy(() => clearInterval(interval));
+    onDestroy(() => {
+        clearInterval(interval);
+    });
 
     const resetInterval = () => {
         clearInterval(interval);
@@ -69,7 +72,6 @@
 <div
     class="relative w-full overflow-hidden bg-gray-950 bg-cover bg-center bg-no-repeat bg-blend-soft-light xl:h-[800px]"
     style={`background-image: url(${resolveBackground()});`}
-    transition:fade
 >
     <MediaNestedSlidesInfo>
         <svelte:fragment slot="indicators">

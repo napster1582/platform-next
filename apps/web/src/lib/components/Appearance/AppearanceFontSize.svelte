@@ -18,14 +18,15 @@
     }
 </script>
 
-<RadioGroup bind:value={selectedFontSize}>
-    <RadioGroupLabel class="mb-3 block font-semibold">Tamaño de fuente</RadioGroupLabel>
+<RadioGroup
+    class="radio-group"
+    bind:value={selectedFontSize}
+>
+    <RadioGroupLabel class="radio-group-label">Tamaño de fuente</RadioGroupLabel>
 
     {#each fontSizes as size (size.value)}
         <RadioGroupOption
-            class="{size.value === selectedFontSize.value
-                ? 'bg-gray-100 dark:bg-gray-950'
-                : 'bg-token'} rounded-token relative mt-1.5 flex cursor-pointer p-2 font-medium hover:bg-gray-100 dark:hover:bg-gray-950"
+            class={({ checked }) => (checked ? 'radio-group-option active' : 'radio-group-option')}
             value={size}
             let:checked
         >
@@ -39,7 +40,7 @@
                 {#if checked}
                     <div class="flex-shrink-0">
                         <Icon
-                            icon="material-symbols:check-circle"
+                            icon="line-md:circle-to-confirm-circle-twotone-transition"
                             class="text-2xl"
                         />
                     </div>

@@ -22,14 +22,15 @@
     }
 </script>
 
-<RadioGroup bind:value={selectedBorder}>
-    <RadioGroupLabel class="mb-3 block font-semibold">Estilo de bordes</RadioGroupLabel>
+<RadioGroup
+    class="radio-group"
+    bind:value={selectedBorder}
+>
+    <RadioGroupLabel class="radio-group-label">Estilo de bordes</RadioGroupLabel>
 
     {#each borders as border (border.value)}
         <RadioGroupOption
-            class="{border.value === selectedBorder.value
-                ? 'bg-gray-100 dark:bg-gray-950'
-                : 'bg-token'} rounded-token relative mt-1.5 flex cursor-pointer p-2 font-medium hover:bg-gray-100 dark:hover:bg-gray-950"
+            class={({ checked }) => (checked ? 'radio-group-option active' : 'radio-group-option')}
             value={border}
             let:checked
         >
@@ -43,7 +44,7 @@
                 {#if checked}
                     <div class="flex-shrink-0">
                         <Icon
-                            icon="material-symbols:check-circle"
+                            icon="line-md:circle-to-confirm-circle-twotone-transition"
                             class="text-2xl"
                         />
                     </div>

@@ -1,0 +1,38 @@
+.tab-group {
+    .tab-list {
+        @apply flex;
+
+        .tab {
+            @apply w-full;
+            @apply py-5;
+            @apply bg-token-tertiary;
+            @apply border-token border-x border-b;
+            @apply font-semibold;
+
+            &:first-child {
+                @apply rounded-tl-token border-l-transparent;
+            }
+
+            &:last-child {
+                @apply rounded-tr-token border-r-transparent;
+            }
+
+            &:not(.tab-active) + &:not(.tab-active) {
+                @apply border-l-transparent;
+            }
+
+            &.tab-active {
+                @apply bg-token-secondary;
+                @apply border-transparent;
+            }
+        }
+    }
+
+    .tab-panels {
+        .tab-panel {
+            @apply bg-token-secondary;
+            @apply rounded-b-token;
+            @apply p-5;
+        }
+    }
+}

@@ -17,6 +17,7 @@
   "devDependencies": {
     "escape-html": "^1.0.3",
     "slate": "^0.94.1",
+    "@jinen/helpers": "workspace:^",
     "@jinen/web-http": "workspace:^",
     "@jinen/annotations": "workspace:^",
     "@jinen/cms-annotations": "workspace:^",

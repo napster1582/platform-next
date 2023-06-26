@@ -5,7 +5,7 @@
         <div class="border-separate rounded-full border-b-8 border-dashed border-gray-800">
             {#if $$slots.title}
                 <h1
-                    class="text-2xl font-black uppercase text-white sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
+                    class="text-2xl uppercase text-white sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
                 >
                     <slot name="title" />
                 </h1>

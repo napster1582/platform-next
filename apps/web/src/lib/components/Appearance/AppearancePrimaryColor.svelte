@@ -20,14 +20,15 @@
     }
 </script>
 
-<RadioGroup bind:value={selectedColor}>
-    <RadioGroupLabel class="mb-3 block font-semibold">Color de acentuación</RadioGroupLabel>
+<RadioGroup
+    class="radio-group"
+    bind:value={selectedColor}
+>
+    <RadioGroupLabel class="radio-group-label">Color de acentuación</RadioGroupLabel>
 
     {#each colors as color (color.value)}
         <RadioGroupOption
-            class="{color.value === selectedColor.value
-                ? `bg-${color.value}-400 text-black`
-                : 'bg-token hover:bg-gray-100 dark:hover:bg-gray-950'} rounded-token relative mt-1.5 flex cursor-pointer p-2 font-medium"
+            class={({ checked }) => (checked ? 'radio-group-option active' : 'radio-group-option')}
             value={color}
             let:checked
         >
@@ -35,7 +36,7 @@
                 <div class="flex items-center gap-x-2">
                     <Icon
                         icon="line-md:paint-drop-half-filled"
-                        class="text-{color.value}-600"
+                        class="text-{color.value}-500"
                     />
 
                     {color.text}
@@ -44,8 +45,8 @@
                 {#if checked}
                     <div class="flex-shrink-0">
                         <Icon
-                            icon="material-symbols:check-circle"
-                            class="text-2xl text-{color.value}-800"
+                            icon="line-md:circle-to-confirm-circle-twotone-transition"
+                            class="text-2xl text-{color.value}-500"
                         />
                     </div>
                 {/if}

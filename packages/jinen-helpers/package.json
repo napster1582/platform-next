@@ -23,6 +23,6 @@
   "devDependencies": {
     "@jinen/eslint-config": "workspace:^",
     "@jinen/tsconfig": "workspace:^",
-    "deepmerge": "^4.3.1"
+    "@jinen/annotations": "workspace:^"
   }
 }

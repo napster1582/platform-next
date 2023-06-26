@@ -11,7 +11,7 @@
 </script>
 
 <header
-    class="bg-primary-300/60 dark:bg-primary-800/30 border-token sticky inset-x-0 top-0 z-20 h-[70px] text-black shadow-sm backdrop-blur-xl transition duration-300 ease-linear dark:text-white dark:backdrop-blur-xl"
+    class="bg-primary-800/90 sticky inset-x-0 top-0 z-20 h-[70px] text-white shadow-xl backdrop-blur-xl"
 >
     <div class="container flex h-full items-center justify-between py-2">
         <div class="flex items-center">
@@ -38,7 +38,7 @@
                             class="popover"
                             let:open
                         >
-                            <PopoverButton class="popover-button button button-variant-text">
+                            <PopoverButton class="popover-button button button-ghost">
                                 {#if link.icon}
                                     <Icon
                                         icon={link.icon}
@@ -125,7 +125,7 @@
 
             <a
                 href="login"
-                class="button button-variant-contained"
+                class="button button-solid"
             >
                 <Icon
                     icon="line-md:account"

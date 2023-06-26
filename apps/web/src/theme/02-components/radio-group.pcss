@@ -1,0 +1,30 @@
+.radio-group {
+    .radio-group-label {
+        @apply mb-3;
+        @apply block;
+        @apply font-semibold;
+    }
+
+    .radio-group-option {
+        @apply flex;
+        @apply mt-1.5;
+        @apply p-2;
+        @apply relative;
+        @apply rounded-token;
+        @apply cursor-pointer;
+        @apply font-medium;
+        @apply bg-token-tertiary;
+
+        &:hover {
+            @apply bg-token-primary;
+        }
+
+        &:focus {
+            @apply bg-token-primary;
+        }
+
+        &.active {
+            @apply bg-token-primary;
+        }
+    }
+}

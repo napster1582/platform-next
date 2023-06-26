@@ -158,6 +158,9 @@ importers:
       '@jinen/eslint-config':
         specifier: workspace:^
         version: link:../../packages/eslint-config
+      '@jinen/helpers':
+        specifier: workspace:^
+        version: link:../../packages/jinen-helpers
       '@jinen/presets':
         specifier: workspace:^
         version: link:../../packages/presets
@@ -254,15 +257,15 @@ importers:
 
   packages/jinen-helpers:
     devDependencies:
+      '@jinen/annotations':
+        specifier: workspace:^
+        version: link:../jinen-annotations
       '@jinen/eslint-config':
         specifier: workspace:^
         version: link:../eslint-config
       '@jinen/tsconfig':
         specifier: workspace:^
         version: link:../tsconfig
-      deepmerge:
-        specifier: ^4.3.1
-        version: 4.3.1
 
   packages/jinen-web-http:
     devDependencies:

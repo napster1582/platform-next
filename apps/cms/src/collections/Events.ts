@@ -20,7 +20,7 @@ export const CollectionEvents = {
     admin: {
         group: 'Contenido',
         useAsTitle: 'title',
-        defaultColumns: ['title', 'description', 'status', 'year', 'month'],
+        defaultColumns: ['title', 'description', 'year', 'month'],
         listSearchableFields: ['year'],
     },
     access: {
@@ -47,30 +47,6 @@ export const CollectionEvents = {
             type: 'textarea',
             required: true,
             maxLength: 300,
-        },
-        {
-            name: 'status',
-            label: 'Estado',
-            type: 'radio',
-            required: true,
-            options: [
-                {
-                    label: 'En Progreso',
-                    value: 'ongoing',
-                },
-                {
-                    label: 'Pendiente',
-                    value: 'pending',
-                },
-                {
-                    label: 'Finalizado',
-                    value: 'finished',
-                },
-                {
-                    label: 'No Finalizado',
-                    value: 'unfinished',
-                },
-            ],
         },
         {
             type: 'row',

@@ -29,14 +29,15 @@
     }
 </script>
 
-<RadioGroup bind:value={selectedTheme}>
-    <RadioGroupLabel class="mb-3 block font-semibold">Tema</RadioGroupLabel>
+<RadioGroup
+    class="radio-group"
+    bind:value={selectedTheme}
+>
+    <RadioGroupLabel class="radio-group-label">Tema</RadioGroupLabel>
 
     {#each themes as theme (theme.value)}
         <RadioGroupOption
-            class="{theme.value === selectedTheme.value
-                ? 'bg-gray-100 dark:bg-gray-950'
-                : 'bg-token'} rounded-token relative mt-1.5 flex cursor-pointer p-2 font-medium hover:bg-gray-100 dark:hover:bg-gray-950"
+            class={({ checked }) => (checked ? 'radio-group-option active' : 'radio-group-option')}
             value={theme}
             let:checked
         >
@@ -50,7 +51,7 @@
                 {#if checked}
                     <div class="flex-shrink-0">
                         <Icon
-                            icon="material-symbols:check-circle"
+                            icon="line-md:circle-to-confirm-circle-twotone-transition"
                             class="text-2xl"
                         />
                     </div>

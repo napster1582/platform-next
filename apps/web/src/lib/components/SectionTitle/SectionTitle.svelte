@@ -12,7 +12,6 @@
 <style lang="postcss">
     .jinen-title {
         @apply relative;
-        @apply font-black;
         @apply from-primary-800 via-primary-400 to-primary-100 bg-gradient-to-br;
         @apply bg-clip-text text-transparent;
         @apply mb-4;
