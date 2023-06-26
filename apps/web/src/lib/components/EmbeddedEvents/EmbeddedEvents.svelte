@@ -16,7 +16,7 @@
     <TabList class="tab-list">
         {#each years as year}
             <Tab class={({ selected }) => (selected ? 'tab tab-active' : 'tab')}>
-                {year}
+                <span class="font-black">{year} </span>
             </Tab>
         {/each}
     </TabList>
@@ -101,7 +101,13 @@
 <style>
     :global(.tab-active),
     :global(.tab-panel) {
-        background-image: radial-gradient(#f4f4f5 1px, transparent 1px);
+        background-image: radial-gradient(theme('colors.gray.200'), 1px, transparent 1px);
+        background-size: 10px 10px;
+    }
+
+    :global(.dark .tab-active),
+    :global(.dark .tab-panel) {
+        background-image: radial-gradient(theme('colors.gray.700'), 1px, transparent 1px);
         background-size: 10px 10px;
     }
 </style>
