@@ -9,8 +9,6 @@
 
     export let content: Grouped<Event>;
 
-    console.log(content);
-
     $: years = Object.keys(content).sort((a, b) => b.localeCompare(a));
 </script>
 
@@ -30,7 +28,7 @@
                 >
                     {#each content[year] as event}
                         <li
-                            class="rounded-token border-token hover:border-primary-500/30 focus-within:border-primary-500/30 relative border-4 border-dashed p-5 transition-colors duration-300"
+                            class="rounded-token border-token hover:border-primary-500/30 focus-within:border-primary-500/30 bg-token-tertiary relative border-4 border-dashed p-5 transition-colors duration-300"
                         >
                             <div
                                 class="bg-token-secondary border-primary-400 absolute -left-[3.3rem] top-1/2 grid -translate-y-1/2 place-items-center rounded-full border p-1"
