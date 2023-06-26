@@ -1,6 +1,7 @@
 <script lang="ts">
     import { resolveLinkAppearance, resolveLinkHref, resolveResourceSize } from '$lib/utils';
     import type { Footer } from '@jinen/cms-annotations';
+    import { pkg } from '@jinen/helpers';
     import { Badge } from '../Badge';
     import { Content } from '../Content';
     import { Link } from '../Link';
@@ -79,7 +80,9 @@
             </address>
 
             <div class="mt-6 flex justify-center">
-                <Badge class="badge text-gray-950"># v0.0.11-alpha</Badge>
+                <Badge class="badge text-gray-950">
+                    # {pkg().version}
+                </Badge>
             </div>
         </div>
     </div>

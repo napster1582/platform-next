@@ -1,6 +1,6 @@
 <script lang="ts">
     import { navigating } from '$app/stores';
-    import { Footer, Header } from '$lib/components';
+    import { Footer, Header, LoadingOverlay } from '$lib/components';
     import { domStore, loadingStore } from '$lib/stores';
     import { appearanceStore } from '$lib/stores/appearance';
     import { getSystemTheme, setupAppearanceEvents } from '$lib/utils/appearance';
@@ -19,6 +19,10 @@
     setupAppearanceEvents();
 </script>
 
+{#if $loadingStore}
+    <LoadingOverlay />
+{/if}
+
 <div
     id="app"
     class="flex min-h-screen flex-col {themeClass}"
@@ -30,7 +34,10 @@
         <Header content={header} />
     {/if}
 
-    <div class="flex-1">
+    <div
+        class="flex-1"
+        class:mt-[70px]={$domStore.showHeader && header}
+    >
         <slot />
     </div>
 

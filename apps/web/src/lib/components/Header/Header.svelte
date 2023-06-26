@@ -8,10 +8,29 @@
     import { Link } from '../Link';
 
     export let content: Header;
+
+    let currentPosition = 0;
+    let lastPosition = 0;
+    let show = true;
+
+    function handleScroll() {
+        const deltaY = lastPosition - currentPosition;
+        lastPosition = currentPosition;
+
+        if (Math.abs(deltaY) > 5) {
+            show = deltaY > 0;
+        }
+    }
 </script>
 
+<svelte:window
+    bind:scrollY={currentPosition}
+    on:scroll={handleScroll}
+/>
+
 <header
-    class="bg-primary-800/90 sticky inset-x-0 top-0 z-20 h-[70px] text-white shadow-xl backdrop-blur-xl"
+    class="bg-primary-950/95 dark fixed inset-x-0 top-0 z-20 h-[70px] -translate-y-[70px] text-white shadow-2xl backdrop-blur-lg transition-transform duration-300"
+    class:header-visible={show}
 >
     <div class="container flex h-full items-center justify-between py-2">
         <div class="flex items-center">
@@ -137,3 +156,9 @@
         </div>
     </div>
 </header>
+
+<style>
+    .header-visible {
+        @apply translate-y-0;
+    }
+</style>

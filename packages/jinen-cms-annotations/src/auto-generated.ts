@@ -107,6 +107,10 @@ export interface Page {
   };
   sections?: {
     fullSize?: boolean;
+    html?: {
+      before?: string;
+      after?: string;
+    };
     columns?: {
       width?: '12' | '11' | '10' | '9' | '8' | '7' | '6' | '5' | '4' | '3' | '2' | '1';
       blocks?: (
@@ -242,6 +246,7 @@ export interface Page {
     blockName?: string;
     blockType: 'section';
   }[];
+  customCss?: string;
   author?: string | User;
   slug?: string;
   parent?: string | Page;
@@ -386,7 +391,6 @@ export interface Event {
   id: string;
   title: string;
   description: string;
-  status: 'ongoing' | 'pending' | 'finished' | 'unfinished';
   year: '2024' | '2023';
   month:
     | 'enero'

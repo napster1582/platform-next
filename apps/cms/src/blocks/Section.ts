@@ -26,6 +26,31 @@ export const BlockSection = {
             },
         },
         {
+            type: 'group',
+            name: 'html',
+            label: 'HTML',
+            fields: [
+                {
+                    type: 'code',
+                    name: 'before',
+                    label: 'HTML inicial',
+                    admin: {
+                        language: 'html',
+                        description: 'HTML que se muestra antes de la sección.',
+                    },
+                },
+                {
+                    type: 'code',
+                    name: 'after',
+                    label: 'HTML final',
+                    admin: {
+                        language: 'html',
+                        description: 'HTML que se muestra después de la sección.',
+                    },
+                },
+            ],
+        },
+        {
             type: 'array',
             name: 'columns',
             label: 'Columnas',

@@ -4,8 +4,8 @@ import { generateMonthsRange, groupBy } from '@jinen/helpers';
 
 const allMonths = generateMonthsRange({ locales: 'es' });
 
-function sortMonths(a: Event, b: Event) {
-    return allMonths.indexOf(a.month) - allMonths.indexOf(b.month);
+function sortMonthsDescending(a: Event, b: Event) {
+    return allMonths.indexOf(b.month) - allMonths.indexOf(a.month);
 }
 
 export function resolveEvents({ events }: { events: Event[] | string[] }): Grouped<Event> {
@@ -15,7 +15,7 @@ export function resolveEvents({ events }: { events: Event[] | string[] }): Group
     });
 
     for (const year of Object.keys(grouped)) {
-        grouped[year].sort(sortMonths);
+        grouped[year].sort(sortMonthsDescending);
     }
 
     return grouped;

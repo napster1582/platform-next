@@ -14,15 +14,15 @@
         @apply relative;
         @apply from-primary-800 via-primary-400 to-primary-100 bg-gradient-to-br;
         @apply bg-clip-text text-transparent;
-        @apply mb-4;
+        @apply mb-2;
     }
 
-    h1.jinen-title::before {
-        /* content: '';
+    /* h1.jinen-title::before {
+        content: '';
         background-image: url('$lib/assets/svg/0_rope.svg');
-        background-repeat: no-repeat; */
+        background-repeat: no-repeat;
 
-        /* @apply h-[340px] w-full;
-        @apply absolute inset-x-0 bottom-[-167px]; */
-    }
+        @apply h-[340px] w-full;
+        @apply absolute inset-x-0 bottom-[-180px];
+    } */
 </style>

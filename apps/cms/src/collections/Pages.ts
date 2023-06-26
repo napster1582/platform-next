@@ -75,7 +75,7 @@ export const CollectionPages = {
                     ],
                 },
                 {
-                    label: 'Secciones de la página',
+                    label: 'Secciones',
                     fields: [
                         {
                             type: 'blocks',
@@ -87,6 +87,21 @@ export const CollectionPages = {
                             },
                             minRows: 1,
                             blocks: [BlockSection],
+                        },
+                    ],
+                },
+                {
+                    label: 'Estilos',
+                    fields: [
+                        {
+                            type: 'code',
+                            name: 'customCss',
+                            label: 'CSS',
+                            admin: {
+                                language: 'css',
+                                description:
+                                    'CSS personalizado para modificar los estilos predeterminados de la página.',
+                            },
                         },
                     ],
                 },

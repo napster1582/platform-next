@@ -14,18 +14,18 @@
 
     let currentIndex = 0;
 
-    let interval: any | null = null;
+    let interval: ReturnType<typeof setInterval> | null = null;
 
     onMount(() => {
         options.settings.autoplay && resetInterval();
     });
 
     onDestroy(() => {
-        clearInterval(interval);
+        clearInterval(interval as ReturnType<typeof setInterval>);
     });
 
     const resetInterval = () => {
-        clearInterval(interval);
+        clearInterval(interval as ReturnType<typeof setInterval>);
 
         interval = setInterval(() => goNext(), options.settings.duration);
     };

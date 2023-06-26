@@ -12,11 +12,16 @@
     $: years = Object.keys(content).sort((a, b) => b.localeCompare(a));
 </script>
 
-<TabGroup class="tab-group">
+<TabGroup
+    class="tab-group"
+    defaultIndex={1}
+>
     <TabList class="tab-list">
         {#each years as year}
             <Tab class={({ selected }) => (selected ? 'tab tab-active' : 'tab')}>
-                <span class="font-black">{year} </span>
+                <span class="font-black">
+                    {year}
+                </span>
             </Tab>
         {/each}
     </TabList>
@@ -28,7 +33,7 @@
                 >
                     {#each content[year] as event}
                         <li
-                            class="rounded-token border-token hover:border-primary-500/30 focus-within:border-primary-500/30 bg-token-tertiary relative border-4 border-dashed p-5 transition-colors duration-300"
+                            class="rounded-token hover:border-primary-500/30 focus-within:border-primary-500/30 bg-token-tertiary relative border-4 border-solid border-transparent p-5 transition-colors duration-300"
                         >
                             <div
                                 class="bg-token-secondary border-primary-400 absolute -left-[3.3rem] top-1/2 grid -translate-y-1/2 place-items-center rounded-full border p-1"
@@ -99,13 +104,11 @@
 </TabGroup>
 
 <style>
-    :global(.tab-active),
     :global(.tab-panel) {
         background-image: radial-gradient(theme('colors.gray.200'), 1px, transparent 1px);
         background-size: 10px 10px;
     }
 
-    :global(.dark .tab-active),
     :global(.dark .tab-panel) {
         background-image: radial-gradient(theme('colors.gray.700'), 1px, transparent 1px);
         background-size: 10px 10px;
