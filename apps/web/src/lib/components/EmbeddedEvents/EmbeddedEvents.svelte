@@ -97,3 +97,11 @@
         {/each}
     </TabPanels>
 </TabGroup>
+
+<style>
+    :global(.tab-active),
+    :global(.tab-panel) {
+        background-image: radial-gradient(#f4f4f5 1px, transparent 1px);
+        background-size: 10px 10px;
+    }
+</style>
