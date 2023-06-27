@@ -1,6 +1,6 @@
 {
   "name": "@jinen/helpers",
-  "version": "0.1.7-alpha",
+  "version": "0.1.8-alpha",
   "main": "src/index.ts",
   "exports": {
     ".": {

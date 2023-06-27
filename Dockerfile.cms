@@ -12,8 +12,7 @@ RUN npm i -g pnpm
 COPY . .
 
 RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store \
-    pnpm install --frozen-lockfile && \
-    ls -la /app
+    pnpm install --frozen-lockfile 
 
 # ;--------------;
 # ; Runner stage ;

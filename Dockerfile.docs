@@ -13,11 +13,8 @@ RUN apk add --no-cache git \
 
 COPY . .
 
-RUN pnpm install --frozen-lockfile
-
-RUN ls -la .
-
-RUN ls -la /app
+RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store \
+    pnpm install --frozen-lockfile 
 
 # ;--------------;
 # ; Runner stage ;
@@ -25,6 +22,9 @@ RUN ls -la /app
 FROM nginx:stable-alpine as runner
 
 WORKDIR /app
+
+RUN ls -la .
+RUN ls -la /app/apps/docs/src/ 
 
 COPY --from=builder /app/apps/docs/src/.vitepress/dist /usr/share/nginx/html
 
