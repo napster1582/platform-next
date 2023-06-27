@@ -1,38 +1,39 @@
 version: '3.9'
 
 services:
-    docs:
-        image: ghcr.io/jinengroup/platform-next/docs
-        container_name: jinen-docs-production
-        restart: always
-        ports:
-            - '3000:80'        
-    
-    cms:
-        image: ghcr.io/jinengroup/platform-next/cms
-        container_name: jinen-cms-production
-        restart: always
-        environment:            
-            NODE_ENV: production
-            JINEN_DOCS_URL: http://localhost:3000
-            JINEN_CMS_URL: http://localhost:3001
-            JINEN_WEB_URL: http://localhost:3002
-            PAYLOAD_SECRET: my-secret
-            PAYLOAD_CONFIG_PATH: dist/payload.config.js
-            MONGODB_URI: mongodb://user:root@mongo:27017/?authMechanism=DEFAULT
-        ports:
-            - '3001:3001'
-        networks:
-            - jinen-network               
-    
-    web:
-        image: ghcr.io/jinengroup/platform-next/web
-        container_name: jinen-web-production
-        restart: always
-        ports:
-            - '3002:3002'                
+  docs:
+    image: ghcr.io/jinengroup/platform-next/docs
+    container_name: jinen-docs-production
+    restart: always
+    ports:
+      - '3000:80'
+
+  cms:
+    image: ghcr.io/jinengroup/platform-next/cms
+    container_name: jinen-cms-production
+    restart: always
+    environment:
+      JINEN_SERVER_PORT: 3001
+      JINEN_SERVER_URL: http://localhost:3001
+      JINEN_CLIENT_URLS: http://localhost:3000,http://localhost:3002
+      PAYLOAD_SECRET: 46B6C73F93BB1BE56039C5C4605005DD3A39E3DF8C762FB47F6295066EC10223
+      PAYLOAD_CONFIG_PATH: dist/payload-config.js
+      MONGODB_URI: mongodb://user:root@mongo:27017/?authMechanism=DEFAULT
+    ports:
+      - '3001:3001'
+    networks:
+      - jinen-network
+
+  web:
+    image: ghcr.io/jinengroup/platform-next/web
+    container_name: jinen-web-production
+    restart: always
+    environment:
+      VITE_CMS_URL: http://localhost:3001/api
+    ports:
+      - '3002:3002'
 
 networks:
-    jinen-network:
-        external: 
-            name: jinen-network
+  jinen-network:
+    external:
+      name: jinen-network

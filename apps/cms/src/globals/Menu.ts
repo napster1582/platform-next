@@ -1,6 +1,6 @@
 import { GlobalConfig } from 'payload/types';
-import { isAdmin } from '../collections/access';
-import { FieldLink } from '../fields';
+import { isAdmin } from '../access';
+import { FieldLink } from '../fields/Link';
 
 export const GlobalMenu = {
     slug: 'menu',

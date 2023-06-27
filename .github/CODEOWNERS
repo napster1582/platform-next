@@ -1,9 +1,5 @@
 - @juanmesa2097 @JuanRenteM @napster1582
 
-# Apps
-
-/docs/ @juanmesa2097 @JuanRenteM @napster1582
-/apps/api/ @juanmesa2097 @JuanRenteM @napster1582
-/apps/web/ @juanmesa2097 @JuanRenteM @napster1582
-
-# Packages
+# Apps and Packages
+/apps/* @juanmesa2097 @JuanRenteM @napster1582
+/packages/* @juanmesa2097 @JuanRenteM @napster1582

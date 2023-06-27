@@ -7,7 +7,6 @@
     "ardenivanov.svelte-intellisense",
     "angular.ng-template",
     "zixuanchen.vitest-explorer",
-    "ms-playwright.playwright",
-    "antfu.iconify"
+    "ms-playwright.playwright"
   ]
 }

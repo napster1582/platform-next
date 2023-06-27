@@ -16,6 +16,41 @@ export const BlockSection = {
     },
     fields: [
         {
+            type: 'checkbox',
+            name: 'fullSize',
+            label: 'Ocupar el 100% de la ventana gráfica vertical',
+            defaultValue: false,
+            admin: {
+                description:
+                    'Al marcar esta opción, el tamaño vertical de la sección tendrá un tamaño mínimo de 100vh, lo que significa que la sección se ajustará automáticamente al tamaño de la ventana gráfica del usuario y ocupará todo el espacio disponible en la pantalla.',
+            },
+        },
+        {
+            type: 'group',
+            name: 'html',
+            label: 'HTML',
+            fields: [
+                {
+                    type: 'code',
+                    name: 'before',
+                    label: 'HTML inicial',
+                    admin: {
+                        language: 'html',
+                        description: 'HTML que se muestra antes de la sección.',
+                    },
+                },
+                {
+                    type: 'code',
+                    name: 'after',
+                    label: 'HTML final',
+                    admin: {
+                        language: 'html',
+                        description: 'HTML que se muestra después de la sección.',
+                    },
+                },
+            ],
+        },
+        {
             type: 'array',
             name: 'columns',
             label: 'Columnas',
@@ -25,6 +60,7 @@ export const BlockSection = {
             },
             admin: {
                 components: {
+                    /* eslint-disable  @typescript-eslint/no-explicit-any */
                     RowLabel: ({ data }: any) => {
                         return `Columna - Ancho: ${data?.width ?? '12'}`;
                     },

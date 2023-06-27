@@ -1,6 +1,7 @@
 import { GlobalConfig } from 'payload/types';
-import { isAdmin } from '../collections/access';
-import { FieldLink, FieldLinkGroup } from '../fields';
+import { isAdmin } from '../access';
+import { FieldLink } from '../fields/Link';
+import { FieldLinkGroup } from '../fields/LinkGroup';
 
 export const GlobalHeader = {
     slug: 'header',
@@ -32,7 +33,8 @@ export const GlobalHeader = {
             },
             admin: {
                 components: {
-                    RowLabel: ({ data }: { data: any }) => {
+                    /* eslint-disable  @typescript-eslint/no-explicit-any */
+                    RowLabel: ({ data }: any) => {
                         return data?.link?.text || data?.link?.icon;
                     },
                 },

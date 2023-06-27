@@ -1,5 +1,5 @@
 import { Block } from 'payload/types';
-import { FieldLink } from '../fields';
+import { FieldLink } from '../fields/Link';
 
 export const BlockLink = {
     slug: 'link',

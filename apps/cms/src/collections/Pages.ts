@@ -1,8 +1,9 @@
 import { CollectionConfig } from 'payload/types';
-import { BlockSection } from '../blocks';
-import { FieldHero, FieldSlug } from '../fields';
-import { isAdmin, isAdminOrUser } from './access';
-import { populateAuthor } from './hooks';
+import { isAdmin } from '../access';
+import { BlockSection } from '../blocks/Section';
+import { FieldHero } from '../fields/Hero';
+import { FieldSlug } from '../fields/Slug';
+import { populateAuthor } from '../hooks';
 
 export const CollectionPages = {
     slug: 'pages',
@@ -16,7 +17,7 @@ export const CollectionPages = {
         defaultColumns: ['title'],
     },
     access: {
-        read: isAdminOrUser,
+        read: () => true,
         create: isAdmin,
         update: isAdmin,
         delete: isAdmin,
@@ -44,6 +45,7 @@ export const CollectionPages = {
             type: 'checkbox',
             name: 'showMenu',
             label: 'Mostrar menú',
+            defaultValue: false,
         },
         {
             type: 'checkbox',
@@ -61,6 +63,7 @@ export const CollectionPages = {
                             type: 'checkbox',
                             name: 'showHero',
                             label: 'Mostrar sección Hero',
+                            defaultValue: false,
                         },
                         FieldHero({
                             overrides: {
@@ -72,7 +75,7 @@ export const CollectionPages = {
                     ],
                 },
                 {
-                    label: 'Secciones de la página',
+                    label: 'Secciones',
                     fields: [
                         {
                             type: 'blocks',
@@ -84,6 +87,21 @@ export const CollectionPages = {
                             },
                             minRows: 1,
                             blocks: [BlockSection],
+                        },
+                    ],
+                },
+                {
+                    label: 'Estilos',
+                    fields: [
+                        {
+                            type: 'code',
+                            name: 'customCss',
+                            label: 'CSS',
+                            admin: {
+                                language: 'css',
+                                description:
+                                    'CSS personalizado para modificar los estilos predeterminados de la página.',
+                            },
                         },
                     ],
                 },

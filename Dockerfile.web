@@ -1,8 +1,8 @@
 FROM node:20-alpine as base
 
-# ;-------------;
-# ; Build stage ;
-# ;-------------;
+# ;---------------;
+# ; Builder stage ;
+# ;---------------;
 FROM base as builder
 
 WORKDIR /app
@@ -12,14 +12,12 @@ RUN npm i -g pnpm
 COPY . .
 
 RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store \
-    pnpm install --frozen-lockfile && \
-    pnpm web:build && \
-    pnpm prune --prod
+    pnpm install --frozen-lockfile
 
-# ;---------------;
-# ; Runtime stage ;
-# ;---------------;
-FROM base as runtime
+# ;--------------;
+# ; Runner stage ;
+# ;--------------;
+FROM base as runner
 
 WORKDIR /app
 

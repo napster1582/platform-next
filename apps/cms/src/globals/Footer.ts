@@ -1,6 +1,6 @@
 import { GlobalConfig } from 'payload/types';
-import { isAdmin } from '../collections/access';
-import { FieldLinkGroup } from '../fields';
+import { isAdmin } from '../access';
+import { FieldLinkGroup } from '../fields/LinkGroup';
 
 export const GlobalFooter = {
     slug: 'footer',
@@ -23,9 +23,9 @@ export const GlobalFooter = {
             },
             fields: [
                 {
+                    type: 'upload',
                     name: 'logo',
                     label: 'Logo',
-                    type: 'upload',
                     relationTo: 'media',
                     filterOptions: {
                         mimeType: { contains: 'image' },
@@ -43,15 +43,31 @@ export const GlobalFooter = {
             },
             fields: [
                 {
+                    type: 'group',
                     name: 'section',
                     label: 'Sección',
-                    type: 'group',
                     fields: [
                         {
+                            type: 'text',
                             name: 'title',
                             label: 'Título',
-                            type: 'text',
                             required: true,
+                        },
+                        {
+                            type: 'radio',
+                            name: 'layout',
+                            label: 'Disposición',
+                            options: [
+                                {
+                                    label: 'Vertical',
+                                    value: 'vertical',
+                                },
+                                {
+                                    label: 'Horizontal',
+                                    value: 'horizontal',
+                                },
+                            ],
+                            defaultValue: 'vertical',
                         },
                         FieldLinkGroup(),
                     ],

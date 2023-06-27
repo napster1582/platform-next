@@ -1,8 +1,11 @@
-import { generateMonthsRange, generateYearsRange, titlecase } from '@jinen/jinen-helpers';
 import { CollectionConfig } from 'payload/types';
-import { FieldLink, FieldSlug } from '../fields';
-import { isAdmin, isAdminOrUser } from './access';
-import { populateAuthor } from './hooks';
+import { isAdmin } from '../access';
+import { FieldLink } from '../fields/Link';
+import { FieldSlug } from '../fields/Slug';
+import { populateAuthor } from '../hooks';
+import { generateMonthsRange } from '../tmp/jinen-helpers/generate-months-range/generate-months-range';
+import { generateYearsRange } from '../tmp/jinen-helpers/generate-years-range/generate-years-range';
+import { titlecase } from '../tmp/jinen-helpers/titlecase/titlecase';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -19,11 +22,11 @@ export const CollectionEvents = {
     admin: {
         group: 'Contenido',
         useAsTitle: 'title',
-        defaultColumns: ['title', 'description', 'status', 'year', 'month'],
+        defaultColumns: ['title', 'description', 'year', 'month'],
         listSearchableFields: ['year'],
     },
     access: {
-        read: isAdminOrUser,
+        read: () => true,
         create: isAdmin,
         update: isAdmin,
         delete: isAdmin,
@@ -46,30 +49,6 @@ export const CollectionEvents = {
             type: 'textarea',
             required: true,
             maxLength: 300,
-        },
-        {
-            name: 'status',
-            label: 'Estado',
-            type: 'radio',
-            required: true,
-            options: [
-                {
-                    label: 'En Progreso',
-                    value: 'ongoing',
-                },
-                {
-                    label: 'Pendiente',
-                    value: 'pending',
-                },
-                {
-                    label: 'Finalizado',
-                    value: 'finished',
-                },
-                {
-                    label: 'No Finalizado',
-                    value: 'unfinished',
-                },
-            ],
         },
         {
             type: 'row',
@@ -108,6 +87,7 @@ export const CollectionEvents = {
                     type: 'checkbox',
                     name: 'addLink',
                     label: 'Agregar enlace',
+                    defaultValue: false,
                 },
                 FieldLink({
                     overrides: {

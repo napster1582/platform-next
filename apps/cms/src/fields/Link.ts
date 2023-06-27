@@ -1,5 +1,7 @@
 import deepmerge from 'deepmerge';
 import { Field } from 'payload/types';
+import { ResourceSize } from '../tmp/jinen-annotations/resource';
+import { LinkAppearance, LinkType } from '../tmp/jinen-cms-annotations/link';
 
 type CustomField = (options?: { overrides?: Partial<Field> }) => Field;
 
@@ -16,27 +18,31 @@ export const FieldLink: CustomField = (options) =>
                     label: 'Apariencia',
                     options: [
                         {
+                            label: 'Inferido',
+                            value: LinkAppearance.Inferred,
+                        },
+                        {
                             label: 'Texto',
-                            value: 'text',
+                            value: LinkAppearance.Text,
                         },
                         {
                             label: 'CTA',
-                            value: 'cta',
+                            value: LinkAppearance.Cta,
                         },
                         {
-                            label: 'Ícono',
-                            value: 'icon',
+                            label: 'Botón',
+                            value: LinkAppearance.Button,
                         },
                         {
-                            label: 'Botón primario',
-                            value: 'primaryButton',
+                            label: 'Botón (variante texto)',
+                            value: LinkAppearance.ButtonText,
                         },
                         {
-                            label: 'Botón secundario',
-                            value: 'secondaryButton',
+                            label: 'Botón (variante contenida)',
+                            value: LinkAppearance.ButtonContained,
                         },
                     ],
-                    defaultValue: 'text',
+                    defaultValue: LinkAppearance.Text,
                 },
                 {
                     type: 'radio',
@@ -45,16 +51,46 @@ export const FieldLink: CustomField = (options) =>
                     options: [
                         {
                             label: 'Enlace interno',
-                            value: 'internal',
+                            value: LinkType.Internal,
                         },
                         {
                             label: 'URL personalizada',
-                            value: 'external',
+                            value: LinkType.External,
                         },
                     ],
-                    defaultValue: 'internal',
+                    defaultValue: LinkType.Internal,
                     admin: {
                         layout: 'horizontal',
+                    },
+                },
+                {
+                    type: 'text',
+                    name: 'indicator',
+                    label: 'Indicador',
+                    maxLength: 30,
+                    admin: {
+                        condition: (_: unknown, siblingData: Record<string, unknown>) =>
+                            siblingData?.appearance === LinkAppearance.Cta,
+                    },
+                },
+                {
+                    type: 'text',
+                    name: 'text',
+                    label: 'Texto a mostrar',
+                    admin: {
+                        condition: (_: unknown, siblingData: Record<string, unknown>) =>
+                            siblingData?.appearance !== LinkAppearance.Inferred,
+                    },
+                },
+                {
+                    type: 'checkbox',
+                    name: 'showIcon',
+                    label: 'Mostrar ícono',
+                    required: true,
+                    defaultValue: false,
+                    admin: {
+                        condition: (_: unknown, siblingData: Record<string, unknown>) =>
+                            siblingData?.appearance !== LinkAppearance.Inferred,
                     },
                 },
                 {
@@ -62,37 +98,26 @@ export const FieldLink: CustomField = (options) =>
                     fields: [
                         {
                             type: 'text',
-                            name: 'text',
-                            label: 'Texto a mostrar',
-                            required: true,
-                            admin: {
-                                condition: (_: any, siblingData: any) =>
-                                    siblingData?.appearance !== 'icon',
-                            },
-                        },
-                    ],
-                },
-                {
-                    type: 'row',
-                    fields: [
-                        {
-                            type: 'checkbox',
-                            name: 'showIcon',
-                            label: 'Mostrar ícono',
-                            required: true,
-                            admin: {
-                                condition: (_: any, siblingData: any) =>
-                                    siblingData?.appearance !== 'icon',
-                            },
-                        },
-                        {
-                            type: 'text',
                             name: 'icon',
                             label: 'Ícono',
                             required: true,
                             admin: {
-                                condition: (_: any, siblingData: any) =>
-                                    siblingData?.appearance === 'icon' || siblingData?.showIcon,
+                                description: 'https://icones.js.org/',
+                                condition: (_: unknown, siblingData: Record<string, unknown>) =>
+                                    siblingData?.showIcon &&
+                                    siblingData?.appearance !== LinkAppearance.Inferred,
+                            },
+                        },
+                        {
+                            type: 'select',
+                            name: 'iconSize',
+                            label: 'Tamaño del ícono',
+                            options: Object.values(ResourceSize).map((value) => value),
+                            defaultValue: ResourceSize.Md,
+                            admin: {
+                                condition: (_: unknown, siblingData: Record<string, unknown>) =>
+                                    siblingData?.showIcon &&
+                                    siblingData?.appearance !== LinkAppearance.Inferred,
                             },
                         },
                     ],
@@ -108,7 +133,7 @@ export const FieldLink: CustomField = (options) =>
                             required: true,
                             maxDepth: 1,
                             admin: {
-                                condition: (_: any, siblingData: any) =>
+                                condition: (_: unknown, siblingData: Record<string, unknown>) =>
                                     siblingData?.type === 'internal',
                             },
                         },
@@ -118,7 +143,7 @@ export const FieldLink: CustomField = (options) =>
                             label: 'URL',
                             required: true,
                             admin: {
-                                condition: (_: any, siblingData: any) =>
+                                condition: (_: unknown, siblingData: Record<string, unknown>) =>
                                     siblingData?.type === 'external',
                             },
                         },
@@ -126,8 +151,9 @@ export const FieldLink: CustomField = (options) =>
                 },
                 {
                     type: 'checkbox',
-                    name: 'newTab',
+                    name: 'openInNewTab',
                     label: 'Abrir en nueva pestaña',
+                    defaultValue: false,
                 },
             ],
         },

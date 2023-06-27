@@ -1,0 +1,65 @@
+@layer components {
+    .popover {
+        --popover-offset: 10px;
+
+        @apply relative;
+
+        .popover-button {
+            @apply inline-flex items-center gap-2;
+        }
+
+        .popover-panel {
+            @apply absolute left-0 top-full z-20;
+            @apply bg-token-secondary;
+            @apply p-3;
+            @apply text-token-primary;
+            @apply ring-token ring-1;
+            @apply rounded-token shadow-xl;
+            @apply focus:outline-none;
+            @apply flex flex-col gap-y-1.5;
+            @apply max-h-[70vh] overflow-y-auto;
+
+            &.popover-panel-tl {
+                inset: auto auto calc(100% + var(--popover-offset)) 0;
+            }
+
+            &.popover-panel-tr {
+                inset: auto 0 calc(100% + var(--popover-offset)) auto;
+            }
+
+            &.popover-panel-tc {
+                @apply left-1/2 -translate-x-1/2;
+
+                bottom: calc(100% + var(--popover-offset));
+            }
+
+            &.popover-panel-bl {
+                inset: calc(100% + var(--popover-offset)) auto auto 0;
+            }
+
+            &.popover-panel-br {
+                inset: calc(100% + var(--popover-offset)) 0 auto auto;
+            }
+
+            &.popover-panel-bc {
+                @apply left-1/2 -translate-x-1/2;
+
+                top: calc(100% + var(--popover-offset));
+            }
+
+            .popover-panel-item {
+                @apply w-full;
+                @apply flex items-center;
+                @apply px-2 py-1;
+                @apply text-token-primary font-medium;
+                @apply transition-colors;
+                @apply rounded-token;
+
+                &:hover {
+                    @apply bg-primary-700;
+                    @apply text-white;
+                }
+            }
+        }
+    }
+}

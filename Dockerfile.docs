@@ -1,7 +1,9 @@
-# ;-------------;
-# ; Build stage ;
-# ;-------------;
-FROM node:20-alpine as builder
+FROM node:20-alpine as base
+
+# ;---------------;
+# ; Builder stage ;
+# ;---------------;
+FROM base as builder
 
 WORKDIR /app
 
@@ -11,18 +13,16 @@ RUN apk add --no-cache git \
 COPY . .
 
 RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store \
-    pnpm install --frozen-lockfile \ 
-    && pnpm docs:build \
-    && pnpm prune --prod
+    pnpm install --frozen-lockfile
 
-# ;---------------;
-# ; Runtime stage ;
-# ;---------------;
-FROM nginx:stable-alpine
+# ;--------------;
+# ; Runner stage ;
+# ;--------------;
+FROM nginx:stable-alpine as runner
 
 WORKDIR /app
 
-COPY --from=builder /app/docs/.vitepress/dist /usr/share/nginx/html
+COPY --from=builder /app/apps/docs/src/.vitepress/dist /usr/share/nginx/html
 
 EXPOSE 80
 

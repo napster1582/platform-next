@@ -16,6 +16,7 @@ export const FieldLinkGroup: CustomField = (options) =>
             },
             admin: {
                 components: {
+                    /* eslint-disable  @typescript-eslint/no-explicit-any */
                     RowLabel: ({ data, index }: any) => {
                         return data?.link?.text || `Enlace ${String(index).padStart(2, '0')}`;
                     },

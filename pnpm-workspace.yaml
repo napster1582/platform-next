@@ -1,4 +1,6 @@
 packages:
-  - docs
   - 'apps/*'
-  - 'pkg/*'
+  - 'packages/*'
+
+include-workspace-root: false
+

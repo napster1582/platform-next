@@ -1,5 +1,0 @@
-.bg-phantom {
-    background: radial-gradient(theme('colors.blue.900'), theme('colors.black'));
-
-    @apply text-blue-400;
-}

@@ -1,44 +1,45 @@
 version: '3.9'
 
 services:
-    docs:
-        build: 
-            context: .            
-            dockerfile: Dockerfile.docs        
-        container_name: jinen-docs-development
-        restart: always
-        ports:
-            - '3000:80'        
-    
-    cms:
-        build: 
-            context: .            
-            dockerfile: Dockerfile.cms
-        container_name: jinen-cms-development
-        restart: always
-        environment:            
-            NODE_ENV: development
-            JINEN_DOCS_URL: http://localhost:3000
-            JINEN_CMS_URL: http://localhost:3001
-            JINEN_WEB_URL: http://localhost:3002
-            PAYLOAD_SECRET: my-secret            
-            PAYLOAD_CONFIG_PATH: dist/payload.config.js
-            MONGODB_URI: mongodb://user:root@mongo:27017/?authMechanism=DEFAULT
-        ports:
-            - '3001:3001'
-        networks:
-            - jinen-network               
-    
-    web:
-        build: 
-            context: .            
-            dockerfile: Dockerfile.web
-        container_name: jinen-web-development
-        restart: always
-        ports:
-            - '3002:3002'                
+  docs:
+    build:
+      context: .
+      dockerfile: Dockerfile.docs
+    container_name: jinen-docs-development
+    restart: always
+    ports:
+      - '3000:80'
+
+  cms:
+    build:
+      context: .
+      dockerfile: Dockerfile.cms
+    container_name: jinen-cms-development
+    restart: always
+    environment:
+      JINEN_SERVER_PORT: 3001
+      JINEN_SERVER_URL: http://localhost:3001
+      JINEN_CLIENT_URLS: http://localhost:3000,http://localhost:3002
+      PAYLOAD_SECRET: my-secret
+      PAYLOAD_CONFIG_PATH: dist/payload-config.js
+      MONGODB_URI: mongodb://user:root@mongo:27017/?authMechanism=DEFAULT
+    ports:
+      - '3001:3001'
+    networks:
+      - jinen-network
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    container_name: jinen-web-development
+    restart: always
+    environment:
+      VITE_CMS_URL: http://localhost:3001/api
+    ports:
+      - '3002:3002'
 
 networks:
-    jinen-network:
-        external: 
-            name: jinen-network
+  jinen-network:
+    external:
+      name: jinen-network

@@ -17,6 +17,7 @@ export const BlockAccordion = {
             },
             admin: {
                 components: {
+                    /* eslint-disable  @typescript-eslint/no-explicit-any */
                     RowLabel: ({ data }: any) => {
                         return data?.title;
                     },

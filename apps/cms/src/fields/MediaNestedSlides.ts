@@ -23,6 +23,7 @@ export const FieldMediaNestedSlides: CustomField = (options) =>
                     admin: {
                         initCollapsed: true,
                         components: {
+                            /* eslint-disable  @typescript-eslint/no-explicit-any */
                             RowLabel: ({ data }: any) => {
                                 return `[${data?.indicator}] ${data?.title}`;
                             },
@@ -61,6 +62,7 @@ export const FieldMediaNestedSlides: CustomField = (options) =>
                             name: 'show',
                             label: 'Mostrar enlace',
                             type: 'checkbox',
+                            defaultValue: false,
                         },
                         FieldLink({
                             overrides: {

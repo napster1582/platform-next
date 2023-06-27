@@ -1,5 +1,6 @@
 import deepmerge from 'deepmerge';
 import { Field } from 'payload/types';
+import { HeroVariant } from '../tmp/jinen-cms-annotations/hero';
 import { FieldMediaNestedSlides } from './MediaNestedSlides';
 
 type CustomField = (options?: { overrides?: Partial<Field> }) => Field;
@@ -16,11 +17,10 @@ export const FieldHero: CustomField = (options) =>
                     label: 'Variante',
                     type: 'select',
                     required: true,
-                    defaultValue: 'mediaNestedSlides',
                     options: [
                         {
                             label: 'Presentaciones',
-                            value: 'mediaNestedSlides',
+                            value: HeroVariant.MediaNestedSlides,
                         },
                     ],
                 },
@@ -28,7 +28,7 @@ export const FieldHero: CustomField = (options) =>
                     overrides: {
                         admin: {
                             condition: (_, siblingData) =>
-                                siblingData?.variant === 'mediaNestedSlides',
+                                siblingData?.variant === HeroVariant.MediaNestedSlides,
                         },
                     },
                 }),

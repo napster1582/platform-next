@@ -67,8 +67,18 @@ fi
 
 new_version_prefixed="v${new_version}"
 
-# Loop through all package.json files in ./pkg/ directory and update their version numbers
-for package in ./pkg/*/package.json; do
+# Loop through all package.json files in ./apps/ directory and update their version numbers
+for package in ./apps/*/package.json; do
+    # Read current version from package.json
+    version=$(awk -F'"' '/version/{print $4}' "$package")
+
+    # Update package.json with new version
+    sed -i "s/\"version\": \"$version\"/\"version\": \"$new_version\"/" "$package"
+    echo "Updated $package with version $new_version"
+done
+
+# Loop through all package.json files in ./packages/ directory and update their version numbers
+for package in ./packages/*/package.json; do
     # Read current version from package.json
     version=$(awk -F'"' '/version/{print $4}' "$package")
 
