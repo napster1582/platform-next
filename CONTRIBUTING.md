@@ -116,13 +116,13 @@ docker run -p 3000:80 -d ghcr.io/jinengroup/platform-next/docs
 ```sh
 # Local
 
-docker run --network="jinen-network" --env-file envs/development.env -e MONGODB_URI=mongodb://user:root@mongo:27017/?authMechanism=DEFAULT -p 3001:3001 -d jinen-cms
+docker run --network="jinen-network" --env-file apps/cms/.env.development -e MONGODB_URI=mongodb://user:root@mongo:27017/?authMechanism=DEFAULT -p 3001:3001 -d jinen-cms
 ```
 
 ```sh
 # Production
 
-docker run --network="jinen-network" --env-file envs/development.env -e MONGODB_URI=mongodb://user:root@mongo:27017/?authMechanism=DEFAULT -p 3001:3001 -d ghcr.io/jinengroup/platform-next/cms
+docker run --network="jinen-network" --env-file apps/cms/.env.production -e MONGODB_URI=mongodb://user:root@mongo:27017/?authMechanism=DEFAULT -p 3001:3001 -d ghcr.io/jinengroup/platform-next/cms
 ```
 
 **Web:**
@@ -130,13 +130,13 @@ docker run --network="jinen-network" --env-file envs/development.env -e MONGODB_
 ```sh
 # Local
 
-docker run -p 3002:3002 -d jinen-web
+docker run --env-file apps/web/.env.development -p 3002:3002 -d jinen-web
 ```
 
 ```sh
 # Production
 
-docker run -p 3002:3002 -d ghcr.io/jinengroup/platform-next/web
+docker run --env-file apps/web/.env.production -p 3002:3002 -d ghcr.io/jinengroup/platform-next/web
 ```
 
 ### Ejecutar Docker Compose
@@ -157,4 +157,16 @@ export DOCKER_BUILDKIT=1 && docker-compose -f docker-compose.development.yaml up
 
 ```sh
 docker-compose -f docker-compose.production.yaml up -d
+```
+
+### Acceder al shell de la imagen
+
+```sh
+docker run -it image_id sh
+```
+
+### Acceder al shell del contenedor
+
+```sh
+docker exec -ti container_name sh
 ```

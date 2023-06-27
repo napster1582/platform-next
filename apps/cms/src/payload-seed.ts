@@ -1,11 +1,10 @@
 import express from 'express';
 import payload from 'payload';
-import { env } from './env';
 
 (async () => {
     await payload.init({
-        secret: env((schema) => schema.PAYLOAD_SECRET),
-        mongoURL: env((schema) => schema.MONGODB_URI),
+        secret: process.env.PAYLOAD_SECRET || '',
+        mongoURL: process.env.MONGODB_URI || '',
         express: express(),
         onInit: async () => {
             await payload.create({

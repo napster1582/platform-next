@@ -1,13 +1,5 @@
 - @juanmesa2097 @JuanRenteM @napster1582
 
-# Apps
-/apps/docs/ @juanmesa2097 @JuanRenteM @napster1582
-/apps/cms/ @juanmesa2097 @JuanRenteM @napster1582
-/apps/web/ @juanmesa2097 @JuanRenteM @napster1582
-
-# Packages
-/packages/eslint-config/ @juanmesa2097 @JuanRenteM @napster1582
-/packages/presets/ @juanmesa2097 @JuanRenteM @napster1582
-/packages/jinen-helpers/ @juanmesa2097 @JuanRenteM @napster1582
-/packages/jinen-cms-annotations/ @juanmesa2097 @JuanRenteM @napster1582
-/packages/jinen-web-http/ @juanmesa2097 @JuanRenteM @napster1582
+# Apps and Packages
+/apps/* @juanmesa2097 @JuanRenteM @napster1582
+/packages/* @juanmesa2097 @JuanRenteM @napster1582

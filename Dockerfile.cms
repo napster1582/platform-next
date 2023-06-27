@@ -1,8 +1,8 @@
 FROM node:20-alpine as base
 
-# ;-------------;
-# ; Build stage ;
-# ;-------------;
+# ;---------------;
+# ; Builder stage ;
+# ;---------------;
 FROM base as builder
 
 WORKDIR /app
@@ -12,14 +12,12 @@ RUN npm i -g pnpm
 COPY . .
 
 RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store \
-    pnpm install --frozen-lockfile && \
-    pnpm build --filter cms && \
-    pnpm prune --prod
+    pnpm install --frozen-lockfile 
 
-# ;---------------;
-# ; Runtime stage ;
-# ;---------------;
-FROM base as runtime
+# ;--------------;
+# ; Runner stage ;
+# ;--------------;
+FROM base as runner
 
 WORKDIR /app
 
@@ -27,7 +25,9 @@ COPY --from=builder /app/apps/cms/package.json ./
 COPY --from=builder /app/apps/cms/dist ./dist/
 COPY --from=builder /app/apps/cms/build ./build/
 
-RUN npm i -g pnpm && pnpm install --prod
+RUN npm i -g pnpm && pnpm install
+
+ENV PAYLOAD_CONFIG_PATH=dist/payload-config.js
 
 EXPOSE 3001
 

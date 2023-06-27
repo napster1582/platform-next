@@ -1,3 +1,6 @@
 packages:
   - 'apps/*'
   - 'packages/*'
+
+include-workspace-root: false
+

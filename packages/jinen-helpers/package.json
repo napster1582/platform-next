@@ -17,7 +17,8 @@
     }
   },
   "scripts": {
-    "lint": "prettier --check --ignore-path=../../.prettierignore . && eslint \".\"",
+    "build": "tsc",
+    "lint": "eslint .",
     "format": "prettier --write --ignore-path=../../.prettierignore ."
   },
   "devDependencies": {

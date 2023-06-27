@@ -1,7 +1,7 @@
-import { ResourceSize } from '@jinen/annotations';
-import { LinkAppearance, LinkType } from '@jinen/cms-annotations';
 import deepmerge from 'deepmerge';
 import { Field } from 'payload/types';
+import { ResourceSize } from '../tmp/jinen-annotations/resource';
+import { LinkAppearance, LinkType } from '../tmp/jinen-cms-annotations/link';
 
 type CustomField = (options?: { overrides?: Partial<Field> }) => Field;
 

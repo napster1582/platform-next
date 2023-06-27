@@ -1,6 +1,6 @@
-import { HeroVariant } from '@jinen/cms-annotations';
 import deepmerge from 'deepmerge';
 import { Field } from 'payload/types';
+import { HeroVariant } from '../tmp/jinen-cms-annotations/hero';
 import { FieldMediaNestedSlides } from './MediaNestedSlides';
 
 type CustomField = (options?: { overrides?: Partial<Field> }) => Field;

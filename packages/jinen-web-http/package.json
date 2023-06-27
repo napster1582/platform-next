@@ -18,7 +18,7 @@
     }
   },
   "scripts": {
-    "lint": "prettier --check --ignore-path=../../.prettierignore . && eslint \".\"",
+    "lint": "eslint .",
     "format": "prettier --write --ignore-path=../../.prettierignore ."
   },
   "devDependencies": {
