@@ -91,8 +91,6 @@ done
 sed -i "s/\"version\": \"$version\"/\"version\": \"$new_version\"/" package.json
 echo "Updated package.json with version $new_version"
 
-exit
-
 # Commit changes to package.json
 git commit -m "release: bump version to $new_version" --no-verify .
 echo "Commited changes to package.json"

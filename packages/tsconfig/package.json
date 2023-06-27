@@ -1,6 +1,6 @@
 {
   "name": "@jinen/tsconfig",
-  "version": "0.0.12-alpha",
+  "version": "0.1.0-alpha",
   "private": true,
   "publishConfig": {
     "access": "restricted"
