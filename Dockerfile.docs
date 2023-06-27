@@ -8,13 +8,13 @@ FROM base as builder
 WORKDIR /app
 
 RUN apk add --no-cache git \
-    && npm i -g pnpm && \
-    ls -la /app
+    && npm i -g pnpm 
 
 COPY . .
 
 RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store \
-    pnpm install --frozen-lockfile 
+    pnpm install --frozen-lockfile && \
+    pnpm --filter docs build
 
 # ;--------------;
 # ; Runner stage ;
@@ -22,9 +22,6 @@ RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store \
 FROM nginx:stable-alpine as runner
 
 WORKDIR /app
-
-RUN ls -la .
-RUN ls -la /app/apps/docs/src/ 
 
 COPY --from=builder /app/apps/docs/src/.vitepress/dist /usr/share/nginx/html
 

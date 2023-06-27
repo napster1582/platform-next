@@ -1,6 +1,6 @@
 {
   "name": "@jinen/helpers",
-  "version": "0.1.8-alpha",
+  "version": "0.1.9-alpha",
   "main": "src/index.ts",
   "exports": {
     ".": {
@@ -16,8 +16,7 @@
       }
     }
   },
-  "scripts": {
-    "build": "tsc",
+  "scripts": {    
     "lint": "eslint .",
     "format": "prettier --write --ignore-path=../../.prettierignore ."
   },
