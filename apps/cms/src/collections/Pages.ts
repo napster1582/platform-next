@@ -3,7 +3,6 @@ import { isAdmin } from '../access';
 import { BlockSection } from '../blocks/Section';
 import { FieldHero } from '../fields/Hero';
 import { FieldSlug } from '../fields/Slug';
-import { populateAuthor } from '../hooks';
 
 export const CollectionPages = {
     slug: 'pages',
@@ -21,11 +20,6 @@ export const CollectionPages = {
         create: isAdmin,
         update: isAdmin,
         delete: isAdmin,
-    },
-    versions: {
-        drafts: {
-            autosave: true,
-        },
     },
     fields: [
         {
@@ -106,19 +100,6 @@ export const CollectionPages = {
                     ],
                 },
             ],
-        },
-        {
-            type: 'relationship',
-            name: 'author',
-            label: 'Autor',
-            relationTo: 'users',
-            hooks: {
-                beforeChange: [populateAuthor],
-            },
-            admin: {
-                readOnly: true,
-                position: 'sidebar',
-            },
         },
         FieldSlug({
             fieldToUse: 'title',

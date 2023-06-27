@@ -12,11 +12,6 @@ export const GlobalMenu = {
         read: () => true,
         update: isAdmin,
     },
-    versions: {
-        drafts: {
-            autosave: true,
-        },
-    },
     fields: [
         {
             name: 'items',

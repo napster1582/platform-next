@@ -2,7 +2,6 @@ import { CollectionConfig } from 'payload/types';
 import { isAdmin } from '../access';
 import { FieldLink } from '../fields/Link';
 import { FieldSlug } from '../fields/Slug';
-import { populateAuthor } from '../hooks';
 import { generateMonthsRange } from '../tmp/jinen-helpers/generate-months-range/generate-months-range';
 import { generateYearsRange } from '../tmp/jinen-helpers/generate-years-range/generate-years-range';
 import { titlecase } from '../tmp/jinen-helpers/titlecase/titlecase';
@@ -30,11 +29,6 @@ export const CollectionEvents = {
         create: isAdmin,
         update: isAdmin,
         delete: isAdmin,
-    },
-    versions: {
-        drafts: {
-            autosave: true,
-        },
     },
     fields: [
         {
@@ -98,19 +92,6 @@ export const CollectionEvents = {
                     },
                 }),
             ],
-        },
-        {
-            name: 'author',
-            label: 'Autor',
-            relationTo: 'users',
-            type: 'relationship',
-            hooks: {
-                beforeChange: [populateAuthor],
-            },
-            admin: {
-                readOnly: true,
-                position: 'sidebar',
-            },
         },
         FieldSlug({
             fieldToUse: 'title',
