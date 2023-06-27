@@ -67,6 +67,10 @@ fi
 
 new_version_prefixed="v${new_version}"
 
+# Update root package.json with new version
+sed -i "s/\"version\": \"$version\"/\"version\": \"$new_version\"/" "$(pwd)/package.json"
+echo "Updated package.json with version $new_version"
+
 # Loop through all package.json files in ./apps/ directory and update their version numbers
 for package in ./apps/*/package.json; do
     # Read current version from package.json
@@ -86,10 +90,6 @@ for package in ./packages/*/package.json; do
     sed -i "s/\"version\": \"$version\"/\"version\": \"$new_version\"/" "$package"
     echo "Updated $package with version $new_version"
 done
-
-# Update root package.json with new version
-sed -i "s/\"version\": \"$version\"/\"version\": \"$new_version\"/" package.json
-echo "Updated package.json with version $new_version"
 
 # Commit changes to package.json
 git commit -m "release: bump version to $new_version" --no-verify .
