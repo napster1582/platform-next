@@ -1,6 +1,6 @@
 {
   "name": "cms",
-  "version": "0.1.14-alpha",
+  "version": "0.1.15-alpha",
   "private": true,
   "main": "dist/server.js",
   "scripts": {
@@ -36,7 +36,6 @@
     "dotenv": "^16.1.4",
     "express": "^4.17.1",
     "payload": "^1.7.2",
-    "payload-plugin-password-protection": "^0.0.2",
     "react": "^18.2.0",
     "react-router-dom": "^5.3.4",
     "ts-node": "^10.9.1",
