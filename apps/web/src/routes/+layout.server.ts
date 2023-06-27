@@ -1,7 +1,9 @@
-import { VITE_CMS_URL } from '$env/static/private';
+// import { VITE_CMS_URL } from '$env/static/private';
 import type { Footer, Header, Menu } from '@jinen/cms-annotations';
 import { buildRequestOptions } from '@jinen/web-http';
 import { error } from '@sveltejs/kit';
+
+const VITE_CMS_URL = 'http://localhost:3001/api';
 
 export async function load({ fetch }): Promise<{
     header: Header;
