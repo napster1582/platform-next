@@ -1,6 +1,6 @@
 {
   "name": "cms",
-  "version": "0.1.12-alpha",
+  "version": "0.1.13-alpha",
   "private": true,
   "main": "dist/server.js",
   "scripts": {
