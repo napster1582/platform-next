@@ -8,7 +8,8 @@ FROM base as builder
 WORKDIR /app
 
 RUN apk add --no-cache git \
-    && npm i -g pnpm
+    && npm i -g pnpm && \
+    ls -la /app
 
 COPY . .
 
