@@ -1,10 +1,8 @@
-// import { VITE_CMS_URL } from '$env/static/private';
+import { env } from '$env/dynamic/public';
 import type { Page } from '@jinen/cms-annotations';
 import { buildRequestOptions } from '@jinen/web-http';
 import { error } from '@sveltejs/kit';
 import qs from 'qs';
-
-const VITE_CMS_URL = 'http://localhost:3001/api';
 
 export async function load({ params }): Promise<{
     page: Page;
@@ -24,7 +22,7 @@ export async function load({ params }): Promise<{
 
     try {
         const response = await fetch(
-            `${VITE_CMS_URL}/pages${stringifiedQuery}`,
+            `${env.PUBLIC_CMS_URL}/pages${stringifiedQuery}`,
             buildRequestOptions(),
         );
 
@@ -41,10 +39,11 @@ export async function load({ params }): Promise<{
         return {
             page,
         };
-    } catch (errorResponse) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (errorResponse: any) {
         throw error(
             errorResponse?.status ?? 500,
-            `Failed to load data from the CMS: ${errorResponse}`,
+            `Failed to load data from the CMS: ${errorResponse} - ${env.PUBLIC_CMS_URL}`,
         );
     }
 }

@@ -1,9 +1,7 @@
-// import { VITE_CMS_URL } from '$env/static/private';
+import { env } from '$env/dynamic/public';
 import type { Footer, Header, Menu } from '@jinen/cms-annotations';
 import { buildRequestOptions } from '@jinen/web-http';
 import { error } from '@sveltejs/kit';
-
-const VITE_CMS_URL = 'http://localhost:3001/api';
 
 export async function load({ fetch }): Promise<{
     header: Header;
@@ -11,9 +9,9 @@ export async function load({ fetch }): Promise<{
     footer: Footer;
 }> {
     try {
-        const headerResponse = fetch(`${VITE_CMS_URL}/globals/header`, buildRequestOptions());
-        const menuResponse = fetch(`${VITE_CMS_URL}/globals/menu`, buildRequestOptions());
-        const footerResponse = fetch(`${VITE_CMS_URL}/globals/footer`, buildRequestOptions());
+        const headerResponse = fetch(`${env.PUBLIC_CMS_URL}/globals/header`, buildRequestOptions());
+        const menuResponse = fetch(`${env.PUBLIC_CMS_URL}/globals/menu`, buildRequestOptions());
+        const footerResponse = fetch(`${env.PUBLIC_CMS_URL}/globals/footer`, buildRequestOptions());
 
         const validateResponse = async (response: Response) => {
             if (!response.ok) {
@@ -35,10 +33,11 @@ export async function load({ fetch }): Promise<{
             menu: (await responses[1].json()) as Menu,
             footer: (await responses[2].json()) as Footer,
         };
-    } catch (errorResponse) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (errorResponse: any) {
         throw error(
             errorResponse?.status ?? 500,
-            `Failed to load data from the CMS: ${errorResponse}`,
+            `Failed to load data from the CMS: ${errorResponse} - ${env.PUBLIC_CMS_URL}`,
         );
     }
 }

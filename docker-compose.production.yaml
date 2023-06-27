@@ -14,8 +14,8 @@ services:
     restart: always
     environment:
       JINEN_SERVER_PORT: 3001
-      JINEN_SERVER_URL: http://localhost:3001
-      JINEN_CLIENT_URLS: http://localhost:3000,http://localhost:3002
+      JINEN_SERVER_URL: http://cms:3001
+      JINEN_CLIENT_URLS: http://docs:80,http://web:3002
       PAYLOAD_SECRET: 46B6C73F93BB1BE56039C5C4605005DD3A39E3DF8C762FB47F6295066EC10223
       PAYLOAD_CONFIG_PATH: dist/payload-config.js
       MONGODB_URI: mongodb://user:root@mongo:27017/?authMechanism=DEFAULT
@@ -29,7 +29,7 @@ services:
     container_name: jinen-web-production
     restart: always
     environment:
-      VITE_CMS_URL: http://localhost:3001/api
+      PUBLIC_CMS_URL: http://cms:3001/api
     ports:
       - '3002:3002'
 
