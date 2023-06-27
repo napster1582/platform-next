@@ -41,6 +41,10 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
+      - name: List project contents
+        run: |
+          ls -la
+
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@v4

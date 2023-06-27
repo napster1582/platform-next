@@ -41,9 +41,9 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
-      - name: List .vitepress/dist contents
+      - name: List project contents
         run: |
-          ls -la /app/apps/docs/src/.vitepress/dist
+          ls -la
 
       - name: Build and push Docker image
         id: build-and-push
