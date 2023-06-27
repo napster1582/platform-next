@@ -1,6 +1,6 @@
 {
   "name": "@jinen/annotations",
-  "version": "0.1.5-alpha",
+  "version": "0.1.6-alpha",
   "main": "src/index.ts",
   "exports": {
     ".": {

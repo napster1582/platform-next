@@ -13,8 +13,7 @@ RUN apk add --no-cache git \
 
 COPY . .
 
-RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store \
-    pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile && ls -la /app
 
 # ;--------------;
 # ; Runner stage ;
