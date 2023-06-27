@@ -3,7 +3,7 @@
   "version": "0.0.11-alpha",
   "private": true,
   "scripts": {
-    "postinstall": "npx simple-git-hooks",
+    "postinstall": "npx simple-git-hooks && pnpm --filter cms generate:types",
     "build": "pnpm -r --parallel run build",
     "dev": "pnpm -r --parallel run dev",
     "test": "pnpm -r --parallel run test",
