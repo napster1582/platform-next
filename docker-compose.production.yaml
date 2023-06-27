@@ -7,6 +7,8 @@ services:
     restart: always
     ports:
       - '3000:80'
+    networks:
+      - jinen-network
 
   cms:
     image: ghcr.io/jinengroup/platform-next/cms
@@ -32,6 +34,8 @@ services:
       PUBLIC_CMS_URL: http://cms:3001/api
     ports:
       - '3002:3002'
+    networks:
+      - jinen-network
 
 networks:
   jinen-network:

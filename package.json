@@ -1,6 +1,6 @@
 {
   "name": "platform-next",
-  "version": "0.1.11-alpha",
+  "version": "0.1.12-alpha",
   "private": true,
   "scripts": {
     "postinstall": "npx simple-git-hooks && pnpm --filter cms generate:types",
