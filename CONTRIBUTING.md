@@ -156,7 +156,7 @@ export DOCKER_BUILDKIT=1 && docker-compose -f docker-compose.development.yaml up
 **Production:**
 
 ```sh
-docker-compose -f docker-compose.production.yaml up -d
+docker-compose -f docker-compose.production pull && docker-compose -f docker-compose.production.yaml up -d
 ```
 
 ### Acceder al shell de la imagen

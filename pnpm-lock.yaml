@@ -104,9 +104,6 @@ importers:
       dotenv:
         specifier: ^16.1.4
         version: 16.1.4
-      payload-plugin-password-protection:
-        specifier: ^0.0.2
-        version: 0.0.2(payload@1.7.2)(react@18.2.0)
       process:
         specifier: ^0.11.10
         version: 0.11.10
@@ -7622,16 +7619,6 @@ packages:
 
   /pause@0.0.1:
     resolution: {integrity: sha512-KG8UEiEVkR3wGEb4m5yZkVCzigAD+cVEJck2CzYZO37ZGJfctvVptVO192MwrtPhzONn6go8ylnOdMhKqi4nfg==}
-
-  /payload-plugin-password-protection@0.0.2(payload@1.7.2)(react@18.2.0):
-    resolution: {integrity: sha512-LsDc2kpPqPlLLEgrpBKRy7/6jasLmD8eNoGjrfdh4kIkUnGK9Ei5EAe+uUrc1AZjhh1Cjr11zoef/EXRGaKc1w==}
-    peerDependencies:
-      payload: ^0.15.0
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      payload: 1.7.2(monaco-editor@0.38.0)(scheduler@0.23.0)(typescript@5.1.3)
-      react: 18.2.0
-    dev: true
 
   /payload@1.7.2(monaco-editor@0.38.0)(scheduler@0.23.0)(typescript@5.1.3):
     resolution: {integrity: sha512-577DgrstocvKlnBo5ZgXEoH65qtoxP7HozgpgsFqAAgxCxudJ1zlnAAvce5usFxYdkOg6Yj1ezkq2ttLJeZbxA==}

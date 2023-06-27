@@ -247,7 +247,6 @@ export interface Page {
     blockType: 'section';
   }[];
   customCss?: string;
-  author?: string | User;
   slug?: string;
   parent?: string | Page;
   breadcrumbs?: {
@@ -260,7 +259,6 @@ export interface Page {
     title?: string;
     description?: string;
   };
-  _status?: 'draft' | 'published';
   createdAt: string;
   updatedAt: string;
 }
@@ -423,9 +421,7 @@ export interface Event {
       openInNewTab?: boolean;
     };
   };
-  author?: string | User;
   slug?: string;
-  _status?: 'draft' | 'published';
   createdAt: string;
   updatedAt: string;
 }
@@ -523,7 +519,6 @@ export interface Menu {
     };
     id?: string;
   }[];
-  _status?: 'draft' | 'published';
 }
 export interface Footer {
   id: string;
