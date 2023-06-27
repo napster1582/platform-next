@@ -91,6 +91,8 @@ done
 sed -i "s/\"version\": \"$version\"/\"version\": \"$new_version\"/" package.json
 echo "Updated package.json with version $new_version"
 
+exit
+
 # Commit changes to package.json
 git commit -m "release: bump version to $new_version" --no-verify .
 echo "Commited changes to package.json"
@@ -105,8 +107,5 @@ echo "Created git tag $new_version_prefixed"
 
 # Push git tag
 git push origin "$new_version_prefixed"
-
-# Deploy packages to NPM
-# pnpm jinen-*:release
 
 echo "Pushed git tag $new_version_prefixed. Check https://github.com/JinenGroup/platform-next/actions to follow up the active workflow."
