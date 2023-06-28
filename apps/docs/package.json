@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "0.1.24-alpha",
+  "version": "0.1.25-alpha",
   "private": true,
   "scripts": {
     "dev": "vitepress dev src --port 3000",

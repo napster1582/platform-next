@@ -1,6 +1,6 @@
 {
   "name": "@jinen/web-http",
-  "version": "0.1.24-alpha",
+  "version": "0.1.25-alpha",
   "type": "module",
   "main": "src/index.ts",
   "exports": {
