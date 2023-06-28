@@ -25,9 +25,9 @@ export const CollectionEvents = {
     },
     access: {
         read: () => true,
-        create: () => true,
-        update: () => true,
-        delete: () => true,
+        create: () => true, // isAdmin,
+        update: () => true, // isAdmin,
+        delete: () => true, // isAdmin,
     },
     fields: [
         {

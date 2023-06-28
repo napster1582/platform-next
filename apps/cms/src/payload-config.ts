@@ -1,6 +1,5 @@
 import PluginFormBuilder from '@payloadcms/plugin-form-builder';
 import PluginNestedDocs from '@payloadcms/plugin-nested-docs';
-import PluginSearch from '@payloadcms/plugin-search';
 import PluginSeo from '@payloadcms/plugin-seo';
 import { buildConfig } from 'payload/config';
 
@@ -21,6 +20,7 @@ import * as path from 'path';
 export default buildConfig({
     serverURL: process.env.JINEN_SERVER_URL,
     admin: {
+        user: CollectionUsers.slug,
         meta: {
             titleSuffix: '- Jinen CMS',
         },
@@ -43,8 +43,20 @@ export default buildConfig({
         window: 2 * 60 * 1000, // 2 minutes,
         max: 2400, // limit each IP per windowMS
     },
-    cors: process.env.JINEN_CLIENT_URLS?.split(',') ?? [],
-    csrf: process.env.JINEN_CLIENT_URLS?.split(',') ?? [],
+    cors: [
+        'http://localhost',
+        'http://localhost:3000',
+        'http://localhost:3002',
+        'https://docs.jinen.com',
+        'https://jinen.com',
+    ],
+    csrf: [
+        'http://localhost',
+        'http://localhost:3000',
+        'http://localhost:3002',
+        'https://docs.jinen.com',
+        'https://jinen.com',
+    ],
     typescript: {
         outputFile: path.resolve(
             process.cwd(),
@@ -60,15 +72,6 @@ export default buildConfig({
             collections: ['pages'],
             generateLabel: (_, doc) => doc.title as string,
             generateURL: (docs) => docs.reduce((url, doc) => `${url}/${doc.slug}`, ''),
-        }),
-        PluginSearch({
-            collections: ['users', 'pages', 'events'],
-            searchOverrides: {
-                labels: {
-                    singular: 'Resultado de búsqueda',
-                    plural: 'Resultados de búsqueda',
-                },
-            },
         }),
         PluginFormBuilder({
             formOverrides: {

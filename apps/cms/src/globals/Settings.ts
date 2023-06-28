@@ -9,7 +9,7 @@ export const GlobalAppearance = {
     },
     access: {
         read: () => true,
-        update: () => true,
+        update: () => true, // isAdmin,
     },
     fields: [
         FieldColor(),

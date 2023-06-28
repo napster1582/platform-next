@@ -168,5 +168,5 @@ docker run -it image_id sh
 ### Acceder al shell del contenedor
 
 ```sh
-docker exec -ti container_name sh
+docker exec -it container_name sh
 ```

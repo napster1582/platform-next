@@ -9,7 +9,7 @@ export const GlobalFooter = {
     },
     access: {
         read: () => true,
-        update: () => true,
+        update: () => true, // isAdmin,
     },
     fields: [
         {
