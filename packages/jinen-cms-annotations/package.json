@@ -1,6 +1,6 @@
 {
   "name": "@jinen/cms-annotations",
-  "version": "0.1.20-alpha",
+  "version": "0.1.21-alpha",
   "main": "src/index.ts",
   "exports": {
     ".": {
