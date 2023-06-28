@@ -10,9 +10,7 @@ export const GlobalHeader = {
     },
     access: {
         read: () => true,
-        // create: isAdmin,
-        // update: isAdmin,
-        // delete: isAdmin,
+        update: () => true,
     },
     fields: [
         {

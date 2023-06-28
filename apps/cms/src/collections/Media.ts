@@ -12,9 +12,9 @@ export const CollectionMedia = {
     },
     access: {
         read: () => true,
-        // create: isAdmin,
-        // update: isAdmin,
-        // delete: isAdmin,
+        create: () => true,
+        update: () => true,
+        delete: () => true,
     },
     upload: {
         staticURL: '/media',

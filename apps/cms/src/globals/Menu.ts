@@ -9,9 +9,7 @@ export const GlobalMenu = {
     },
     access: {
         read: () => true,
-        // create: isAdmin,
-        // update: isAdmin,
-        // delete: isAdmin,
+        update: () => true,
     },
     fields: [
         {

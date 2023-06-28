@@ -16,9 +16,9 @@ export const CollectionPages = {
     },
     access: {
         read: () => true,
-        // create: isAdmin,
-        // update: isAdmin,
-        // delete: isAdmin,
+        create: () => true,
+        update: () => true,
+        delete: () => true,
     },
     fields: [
         {
