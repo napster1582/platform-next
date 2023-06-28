@@ -34,7 +34,7 @@
                 {/each}
             </div>
 
-            {#each content.sections as { section }}
+            {#each content.sections ?? [] as { section }}
                 <div class="flex flex-col gap-3 md:min-w-[250px]">
                     <h3 class="text-3xl font-bold text-white">{section.title}</h3>
 
@@ -45,7 +45,7 @@
                         class:flex-row={section.layout === 'horizontal'}
                         class:flex-col={section.layout === 'vertical'}
                     >
-                        {#each section.links as { link }}
+                        {#each section.links ?? [] as { link }}
                             <li>
                                 <Link
                                     class="text-primary-300"

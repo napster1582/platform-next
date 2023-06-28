@@ -10,6 +10,7 @@
         resolveResourceSize,
     } from '$lib/utils';
     import type { Menu as CmsMenu, Page as CmsPage } from '@jinen/cms-annotations';
+    import { isEmpty } from '@jinen/helpers';
     import type { PageData } from './$types';
 
     export let data: PageData;
@@ -64,7 +65,7 @@
     />
 {/if}
 
-{#if $domStore.showMenu && menu}
+{#if $domStore.showMenu && menu && !isEmpty(menu)}
     <Menu content={menu} />
 {/if}
 
@@ -151,7 +152,7 @@
                                     />
                                 {:else if block.blockType === 'link-group'}
                                     <div class="flex flex-col gap-y-6">
-                                        {#each block.links as { link }}
+                                        {#each block.links ?? [] as { link }}
                                             <Link
                                                 options={{
                                                     href: resolveLinkHref({

@@ -11,7 +11,7 @@
     id="jinen-menu"
     class="my-12 flex flex-wrap items-center justify-center gap-x-24 gap-y-12 px-6"
 >
-    {#each content.items as item}
+    {#each content.items ?? [] as item}
         <Link
             options={{
                 href: resolveLinkHref({

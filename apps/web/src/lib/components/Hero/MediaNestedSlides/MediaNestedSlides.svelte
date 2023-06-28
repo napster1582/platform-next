@@ -123,6 +123,6 @@
 
     <MediaNestedSlidesPreviews
         bind:this={carouselPreviewsRef}
-        previews={items[currentIndex].previews}
+        previews={items[currentIndex].previews ?? []}
     />
 </div>

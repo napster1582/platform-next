@@ -141,12 +141,6 @@ docker run --env-file apps/web/.env.production -p 3002:3002 -d ghcr.io/jinengrou
 
 ### Ejecutar Docker Compose
 
-**Database:**
-
-```sh
-docker-compose -f docker-compose.database.yaml up -d
-```
-
 **Development:**
 
 ```sh
@@ -156,7 +150,7 @@ export DOCKER_BUILDKIT=1 && docker-compose -f docker-compose.development.yaml up
 **Production:**
 
 ```sh
-docker-compose -f docker-compose.production pull && docker-compose -f docker-compose.production.yaml up -d
+docker-compose -f docker-compose.production.yaml pull && docker-compose -f docker-compose.production.yaml up -d
 ```
 
 ### Acceder al shell de la imagen

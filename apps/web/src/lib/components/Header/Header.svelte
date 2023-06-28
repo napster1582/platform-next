@@ -52,7 +52,7 @@
 
             <nav class="mx-6 flex items-center gap-x-3">
                 {#each content.navbar ?? [] as { link, links }}
-                    {#if links.length}
+                    {#if links?.length}
                         <Popover
                             class="popover"
                             let:open
