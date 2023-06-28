@@ -1,5 +1,5 @@
 import { CollectionConfig } from 'payload/types';
-import { isAdmin, isUser } from '../access';
+import { isAdmin } from '../access';
 
 export const CollectionUsers = {
     slug: 'users',
@@ -13,7 +13,7 @@ export const CollectionUsers = {
     },
     auth: true,
     access: {
-        read: isAdmin || isUser,
+        read: () => true,
         create: isAdmin,
         update: isAdmin,
         delete: isAdmin,

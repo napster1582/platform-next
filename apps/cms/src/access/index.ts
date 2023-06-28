@@ -1,16 +1,16 @@
 import { Access } from 'payload/config';
 import { User } from 'payload/dist/auth';
 
-export const isAdmin: Access = ({ req: { user } }): boolean => {
+export const isAdmin: Access = ({ req }): boolean => {
     console.log(
         'isAdmin',
-        user,
-        checkRole(user, {
+        req,
+        checkRole(req.user, {
             roles: ['admin'],
         }),
     );
 
-    return checkRole(user, {
+    return checkRole(req.user, {
         roles: ['admin'],
     });
 };
