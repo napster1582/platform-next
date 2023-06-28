@@ -1,5 +1,4 @@
 import { GlobalConfig } from 'payload/types';
-import { isAdmin } from '../access';
 import { FieldColor } from '../components/color-picker/config';
 
 export const GlobalAppearance = {
@@ -10,7 +9,9 @@ export const GlobalAppearance = {
     },
     access: {
         read: () => true,
-        update: isAdmin,
+        // create: isAdmin,
+        // update: isAdmin,
+        // delete: isAdmin,
     },
     fields: [
         FieldColor(),

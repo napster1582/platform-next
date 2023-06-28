@@ -1,5 +1,4 @@
 import { GlobalConfig } from 'payload/types';
-import { isAdmin } from '../access';
 import { FieldLinkGroup } from '../fields/LinkGroup';
 
 export const GlobalFooter = {
@@ -10,7 +9,9 @@ export const GlobalFooter = {
     },
     access: {
         read: () => true,
-        update: isAdmin,
+        // create: isAdmin,
+        // update: isAdmin,
+        // delete: isAdmin,
     },
     fields: [
         {

@@ -1,6 +1,5 @@
 import path from 'path';
 import type { CollectionConfig } from 'payload/types';
-import { isAdmin } from '../access';
 
 export const CollectionMedia = {
     slug: 'media',
@@ -13,9 +12,9 @@ export const CollectionMedia = {
     },
     access: {
         read: () => true,
-        create: isAdmin,
-        update: isAdmin,
-        delete: isAdmin,
+        // create: isAdmin,
+        // update: isAdmin,
+        // delete: isAdmin,
     },
     upload: {
         staticURL: '/media',

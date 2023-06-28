@@ -1,5 +1,4 @@
 import { GlobalConfig } from 'payload/types';
-import { isAdmin } from '../access';
 import { FieldLink } from '../fields/Link';
 import { FieldLinkGroup } from '../fields/LinkGroup';
 
@@ -11,7 +10,9 @@ export const GlobalHeader = {
     },
     access: {
         read: () => true,
-        update: isAdmin,
+        // create: isAdmin,
+        // update: isAdmin,
+        // delete: isAdmin,
     },
     fields: [
         {

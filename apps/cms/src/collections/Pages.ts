@@ -1,5 +1,4 @@
 import { CollectionConfig } from 'payload/types';
-import { isAdmin } from '../access';
 import { BlockSection } from '../blocks/Section';
 import { FieldHero } from '../fields/Hero';
 import { FieldSlug } from '../fields/Slug';
@@ -17,9 +16,9 @@ export const CollectionPages = {
     },
     access: {
         read: () => true,
-        create: isAdmin,
-        update: isAdmin,
-        delete: isAdmin,
+        // create: isAdmin,
+        // update: isAdmin,
+        // delete: isAdmin,
     },
     fields: [
         {

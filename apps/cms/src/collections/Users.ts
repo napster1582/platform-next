@@ -1,5 +1,4 @@
 import { CollectionConfig } from 'payload/types';
-import { isAdmin } from '../access';
 
 export const CollectionUsers = {
     slug: 'users',
@@ -14,9 +13,9 @@ export const CollectionUsers = {
     auth: true,
     access: {
         read: () => true,
-        create: isAdmin,
-        update: isAdmin,
-        delete: isAdmin,
+        // create: isAdmin,
+        // update: isAdmin,
+        // delete: isAdmin,
     },
     fields: [
         {

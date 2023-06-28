@@ -1,5 +1,4 @@
 import { CollectionConfig } from 'payload/types';
-import { isAdmin } from '../access';
 import { FieldLink } from '../fields/Link';
 import { FieldSlug } from '../fields/Slug';
 import { generateMonthsRange } from '../tmp/jinen-helpers/generate-months-range/generate-months-range';
@@ -26,9 +25,9 @@ export const CollectionEvents = {
     },
     access: {
         read: () => true,
-        create: () => true,
-        update: isAdmin,
-        delete: isAdmin,
+        // create: isAdmin,
+        // update: isAdmin,
+        // delete: isAdmin,
     },
     fields: [
         {
