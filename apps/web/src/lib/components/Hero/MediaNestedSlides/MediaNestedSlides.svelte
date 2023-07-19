@@ -58,20 +58,22 @@
         carouselPreviewsRef?.resetState();
     };
 
-    const resolveBackground = (): string => {
+    let resolvedBackground = '';
+
+    $: {
         const { background } = items[currentIndex] ?? {};
 
         if (typeof background === 'object') {
-            return background.url ?? '';
+            resolvedBackground = background.url ?? '';
+        } else {
+            resolvedBackground = background ?? '';
         }
-
-        return background ?? '';
-    };
+    }
 </script>
 
 <div
     class="relative w-full overflow-hidden bg-gray-950 bg-cover bg-center bg-no-repeat bg-blend-soft-light xl:h-[800px]"
-    style={`background-image: url(${resolveBackground()});`}
+    style={`background-image: url(${resolvedBackground});`}
 >
     <MediaNestedSlidesInfo>
         <svelte:fragment slot="indicators">

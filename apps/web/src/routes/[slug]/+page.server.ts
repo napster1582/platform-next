@@ -41,7 +41,7 @@ export async function load({ params }): Promise<{
         };
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (errorResponse: any) {
-        console.log('xxxxxxxxxxxxxxxxx', errorResponse);
+        console.error(errorResponse);
 
         throw error(
             errorResponse?.status || 500,

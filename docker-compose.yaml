@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: jinen-mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: jinen
+    ports:
+      - '27017:27017'
+    volumes:
+      - jinen-database:/var/lib/mongo/data
+
+volumes:
+  jinen-database:
+    name: jinen-database
