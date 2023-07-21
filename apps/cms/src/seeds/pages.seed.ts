@@ -2,8 +2,6 @@ import { Payload } from 'payload';
 import homeData from './data/home.json';
 
 const seedHome = async (payload: Payload): Promise<unknown> => {
-    console.log(JSON.stringify(homeData, undefined, 2));
-
     return payload.collections['Pages'].Model.create(homeData);
 };
 
