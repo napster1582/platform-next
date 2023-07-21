@@ -13,8 +13,6 @@
 
     const { header, footer } = data;
 
-    console.log({ header, footer });
-
     $: $loadingStore = !!$navigating;
 
     $: themeClass = $appearanceStore.theme === 'system' ? getSystemTheme() : $appearanceStore.theme;
