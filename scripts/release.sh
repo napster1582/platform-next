@@ -96,7 +96,7 @@ git commit -m "release: bump version to $new_version" --no-verify .
 echo "Commited changes to package.json"
 
 # Push package.json changes
-git push origin HEAD
+git push -f origin HEAD
 echo "Pushed package.json changes"
 
 # Create git tag with new version
@@ -104,6 +104,6 @@ git tag -a "$new_version_prefixed" -m "Release $new_version_prefixed"
 echo "Created git tag $new_version_prefixed"
 
 # Push git tag
-git push origin "$new_version_prefixed"
+git push -f origin "$new_version_prefixed"
 
 echo "Pushed git tag $new_version_prefixed. Check https://github.com/JinenGroup/platform-next/actions to follow up the active workflow."
