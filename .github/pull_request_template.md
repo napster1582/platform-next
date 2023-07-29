@@ -23,11 +23,7 @@ Por favor, verifique si su PR cumple con los siguientes requisitos:
 [ ] Otro... Descripción:
 ```
 
-## ¿Cuál es el comportamiento actual?
-
-<!-- Por favor, describa el comportamiento actual que estás modificando, o enlaza a un problema relevante. -->
-
-Número del issue: N/A
+Número del issue: #0
 
 ## ¿Cuál es el nuevo comportamiento?
 
@@ -39,5 +35,3 @@ Número del issue: N/A
 ```
 
 <!-- Si este PR contiene un cambio que rompe la compatibilidad, por favor, describa el impacto y la ruta de migración para las aplicaciones existentes. -->
-
-## Otra información
