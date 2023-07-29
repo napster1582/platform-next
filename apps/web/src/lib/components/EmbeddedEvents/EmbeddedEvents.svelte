@@ -1,9 +1,13 @@
 <script lang="ts">
-    import { resolveLinkAppearance, resolveLinkHref, resolveResourceSize } from '$lib/utils';
+    import {
+        calculateDuration,
+        resolveLinkAppearance,
+        resolveLinkHref,
+        resolveResourceSize,
+    } from '$lib/utils';
     import Icon from '@iconify/svelte';
     import type { Grouped } from '@jinen/annotations';
     import type { Event } from '@jinen/cms-annotations';
-    import { titlecase } from '@jinen/helpers';
     import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@rgossiaux/svelte-headlessui';
     import { Link } from '../Link';
 
@@ -52,15 +56,71 @@
                                     {event.title}
                                 </h3>
 
-                                <div class="text-token-secondary mt-2 flex items-center gap-2">
+                                <div
+                                    class="text-token-secondary mt-2 flex flex-col gap-x-4 gap-y-2 lg:flex-row lg:items-center"
+                                >
+                                    <div class="flex items-center gap-1">
+                                        <Icon
+                                            icon="openmoji:spiral-calendar"
+                                            class="text-2xl"
+                                        />
+                                        <time>
+                                            {new Date(event.startDate).toLocaleString('es', {
+                                                month: 'short',
+                                                year: 'numeric',
+                                                day: 'numeric',
+                                                hour: 'numeric',
+                                                minute: 'numeric',
+                                                hour12: true,
+                                                hourCycle: 'h12',
+                                                timeZoneName: 'short',
+                                            })}
+                                        </time>
+                                    </div>
+
                                     <Icon
-                                        icon="openmoji:spiral-calendar"
+                                        icon="line-md:arrow-right"
+                                        class="hidden text-2xl lg:inline-block"
+                                    />
+
+                                    <Icon
+                                        icon="line-md:arrow-down"
+                                        class="block text-2xl lg:hidden"
+                                    />
+
+                                    <div class="flex items-center gap-1">
+                                        <Icon
+                                            icon="openmoji:spiral-calendar"
+                                            class="text-2xl"
+                                        />
+                                        <time>
+                                            {new Date(event.endDate).toLocaleString('es', {
+                                                month: 'short',
+                                                year: 'numeric',
+                                                day: 'numeric',
+                                                hour: 'numeric',
+                                                minute: 'numeric',
+                                                hour12: true,
+                                                hourCycle: 'h12',
+                                                timeZoneName: 'short',
+                                            })}
+                                        </time>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4 flex items-center gap-1">
+                                    <Icon
+                                        icon="mdi:timer-sand"
                                         class="text-2xl"
                                     />
 
-                                    <time>
-                                        {titlecase(event.month)}
-                                        {event.year}
+                                    <span>Duración:</span>
+
+                                    <time class="font-semibold">
+                                        {calculateDuration({
+                                            startDate: new Date(event.startDate),
+                                            endDate: new Date(event.endDate),
+                                        })}
                                     </time>
                                 </div>
                             </div>

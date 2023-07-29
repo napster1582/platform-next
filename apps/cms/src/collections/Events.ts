@@ -1,15 +1,6 @@
 import { CollectionConfig } from 'payload/types';
 import { FieldLink } from '../fields/Link';
 import { FieldSlug } from '../fields/Slug';
-import { generateMonthsRange } from '../tmp/jinen-helpers/generate-months-range/generate-months-range';
-import { generateYearsRange } from '../tmp/jinen-helpers/generate-years-range/generate-years-range';
-import { titlecase } from '../tmp/jinen-helpers/titlecase/titlecase';
-
-const CURRENT_YEAR = new Date().getFullYear();
-
-const START_YEAR_FOR_RANGE = 2023;
-
-const END_YEAR_FOR_RANGE = new Date().getFullYear() + 1;
 
 export const CollectionEvents = {
     slug: 'events',
@@ -43,33 +34,40 @@ export const CollectionEvents = {
             required: true,
             maxLength: 300,
         },
+
         {
-            type: 'row',
-            fields: [
-                {
-                    name: 'year',
-                    label: 'Año',
-                    type: 'select',
-                    required: true,
-                    defaultValue: CURRENT_YEAR.toString(),
-                    options: generateYearsRange(START_YEAR_FOR_RANGE, END_YEAR_FOR_RANGE).map(
-                        (year) => ({
-                            label: `${year}`,
-                            value: `${year}`,
-                        }),
-                    ),
+            name: 'startDate',
+            label: 'Fecha inicial',
+            type: 'date',
+            required: true,
+            admin: {
+                date: {
+                    pickerAppearance: 'dayAndTime',
+                    minDate: new Date(),
+                    displayFormat: 'eeee, dd MMMM yyyy hh:mm a OOOO',
                 },
-                {
-                    name: 'month',
-                    label: 'Mes',
-                    type: 'select',
-                    required: true,
-                    options: generateMonthsRange({ locales: 'es' }).map((month) => ({
-                        label: titlecase(month),
-                        value: `${month}`,
-                    })),
+            },
+        },
+        {
+            name: 'endDate',
+            label: 'Fecha final',
+            type: 'date',
+            required: true,
+            admin: {
+                condition: (_, siblingData) => siblingData?.startDate,
+                date: {
+                    pickerAppearance: 'dayAndTime',
+                    minDate: new Date(),
+                    displayFormat: 'eeee, dd MMMM yyyy hh:mm a OOOO',
                 },
-            ],
+            },
+            validate: (value, { siblingData }) => {
+                if (new Date(value) <= new Date(siblingData.startDate)) {
+                    return 'La fecha final no puede ser menor o igual a la fecha inicial.';
+                }
+
+                return true;
+            },
         },
         {
             type: 'group',

@@ -422,20 +422,8 @@ export interface Event {
     id: string;
     title: string;
     description: string;
-    year: '2024' | '2023';
-    month:
-        | 'enero'
-        | 'febrero'
-        | 'marzo'
-        | 'abril'
-        | 'mayo'
-        | 'junio'
-        | 'julio'
-        | 'agosto'
-        | 'septiembre'
-        | 'octubre'
-        | 'noviembre'
-        | 'diciembre';
+    startDate: string;
+    endDate: string;
     linkGroup?: {
         addLink?: boolean;
         link?: {
