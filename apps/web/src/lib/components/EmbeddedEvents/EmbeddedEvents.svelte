@@ -13,12 +13,12 @@
 
     export let content: Grouped<Event>;
 
-    $: years = Object.keys(content).sort((a, b) => b.localeCompare(a));
+    $: years = Object.keys(content).sort((a, b) => a.localeCompare(b));
 </script>
 
 <TabGroup
     class="tab-group"
-    defaultIndex={1}
+    defaultIndex={years.findIndex((year) => year === new Date().getFullYear().toString())}
 >
     <TabList class="tab-list">
         {#each years as year}
