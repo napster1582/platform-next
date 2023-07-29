@@ -37,7 +37,7 @@
                 >
                     {#each content[year] as event}
                         <li
-                            class="rounded-token hover:border-primary-500/30 focus-within:border-primary-500/30 bg-token-tertiary relative border-4 border-solid border-transparent p-5 transition-colors duration-300"
+                            class="rounded-token hover:border-primary-500/30 focus-within:border-primary-500/30 bg-token-primary relative border-4 border-solid border-transparent p-5 transition-colors duration-300"
                         >
                             <div
                                 class="bg-token-secondary border-primary-400 absolute -left-[3.3rem] top-1/2 grid -translate-y-1/2 place-items-center rounded-full border p-1"

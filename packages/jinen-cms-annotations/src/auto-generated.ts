@@ -128,6 +128,7 @@ export interface Page {
     };
     sections?: {
         fullSize?: boolean;
+        alwaysUseDarkTheme?: boolean;
         html?: {
             before?: string;
             after?: string;
