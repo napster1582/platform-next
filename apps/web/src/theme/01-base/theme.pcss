@@ -247,6 +247,16 @@
             --font-size-body: theme('fontSize.lg');
         }
 
+        &:has(#app[data-font-size='xl']) {
+            --font-size-h1: theme('fontSize.6xl');
+            --font-size-h2: theme('fontSize.5xl');
+            --font-size-h3: theme('fontSize.4xl');
+            --font-size-h4: theme('fontSize.3xl');
+            --font-size-h5: theme('fontSize.2xl');
+            --font-size-h6: theme('fontSize.xl');
+            --font-size-body: theme('fontSize.xl');
+        }
+
         @apply bg-token-primary text-token-primary;
     }
 }
