@@ -12,7 +12,7 @@ app.get('/', (_, res) => {
 
 const start = async () => {
     await payload.init({
-        secret: process.env.PAYLOAD_SECRET || '',
+        secret: process.env.PAYLOAD_CONFIG_SECRET || '',
         mongoURL: process.env.MONGODB_URI || '',
         express: app,
         onInit: async () => {
@@ -20,7 +20,7 @@ const start = async () => {
         },
     });
 
-    app.listen(process.env.JINEN_SERVER_PORT || 3000);
+    app.listen(process.env.PAYLOAD_SERVER_PORT || 3000);
 };
 
 start();

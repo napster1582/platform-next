@@ -29,7 +29,7 @@
 />
 
 <header
-    class="bg-primary-950/95 dark fixed inset-x-0 top-0 z-20 h-[70px] -translate-y-[70px] text-white shadow-2xl backdrop-blur-lg transition-transform duration-300"
+    class="bg-primary-700/90 dark fixed inset-x-0 top-0 z-20 h-[70px] -translate-y-[70px] text-white shadow-2xl backdrop-blur-md transition-transform duration-300"
     class:header-visible={show}
 >
     <div class="container flex h-full items-center justify-between py-2">

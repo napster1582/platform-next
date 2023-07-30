@@ -3,7 +3,7 @@ import payload from 'payload';
 
 (async () => {
     await payload.init({
-        secret: process.env.PAYLOAD_SECRET || '',
+        secret: process.env.PAYLOAD_CONFIG_SECRET || '',
         mongoURL: process.env.MONGODB_URI || '',
         express: express(),
         onInit: async () => {

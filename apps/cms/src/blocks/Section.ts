@@ -26,6 +26,16 @@ export const BlockSection = {
             },
         },
         {
+            type: 'checkbox',
+            name: 'alwaysUseDarkTheme',
+            label: 'Usar siempre el Tema Oscuro',
+            defaultValue: false,
+            admin: {
+                description:
+                    'Al marcar esta opción, la sección siempre usará la variante del tema "Oscuro".',
+            },
+        },
+        {
             type: 'group',
             name: 'html',
             label: 'HTML',
