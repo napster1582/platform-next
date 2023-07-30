@@ -1,18 +1,28 @@
-## Lista de verificación para Pull Requests
+# 🌊🌊🌊
 
-Por favor, verifique si su PR cumple con los siguientes requisitos:
+<!-- Incluya el número del issue al que está relacionado este PR. Si este PR cierra el issue, incluya 'Closes #N' -->
 
-- [ ] El mensaje del commit sigue nuestras directrices: <https://github.com/ngneat/transloco/blob/master/CONTRIBUTING.md#commit>
-- [ ] Se han añadido pruebas para los cambios (para correcciones de errores / nuevas características)
-- [ ] Se han añadido / actualizado documentos (para correcciones de errores / nuevas características)
+Closes: #0
 
-## Tipo de Pull Request
+## Lista de verificación
+
+Asegúrese de que su PR cumple con los siguientes requisitos:
+
+- [ ] La implementación sigue las pautas de desarrollo: <https://github.com/JinenGroup/platform-next/blob/trunk/CONTRIBUTING.md>
+- [ ] Se han añadido pruebas que validan los cambios (para correcciones de errores / nuevas características)
+- [ ] Se han añadido o actualizado documentos relevantes (para correcciones de errores / nuevas características)
+- [ ] Los cambios no generan nuevas advertencias o errores de linter
+- [ ] Se han eliminado los `console.log` innecesarios
+- [ ] Los cambios no introducen ninguna vulnerabilidad de seguridad
+- [ ] Los cambios son compatibles con los navegadores / plataformas principales
+
+## Categoría
 
 ¿Qué tipo de cambio introduce este PR?
 
-<!-- Por favor, marque con "x" la opción que corresponda a este PR. -->
+<!-- Marque con "x" la opción que corresponda a este PR. -->
 
-```
+```sh
 [ ] Corrección de errores
 [ ] Nueva característica
 [ ] Actualización de estilo de código (formato, variables locales)
@@ -20,18 +30,41 @@ Por favor, verifique si su PR cumple con los siguientes requisitos:
 [ ] Cambios relacionados con la compilación
 [ ] Cambios relacionados con CI
 [ ] Cambios en el contenido de la documentación
+[ ] Cambios en la interfaz de usuario
+[ ] Cambios en la arquitectura del proyecto
+[ ] Cambios en la configuración del proyecto
+[ ] Mejoras de rendimiento
+[ ] Mejoras de accesibilidad
 [ ] Otro... Descripción:
 ```
 
-Número del issue: #0
+## Aplicaciones afectadas
 
-## ¿Cuál es el nuevo comportamiento?
+<!-- Marque con "x" las aplicaciones que se ven afectadas por los cambios. -->
+
+```sh
+[ ] docs
+[ ] cms
+[ ] web
+```
+
+## 📝 Descripción
+
+<!-- Proporcione una descripción detallada de los cambios propuestos en este PR -->
+
+## 📝 Contexto adicional
+
+<!-- Proporcione cualquier contexto adicional sobre el problema que se está resolviendo. Si es posible, incluya capturas de pantalla para ayudar a explicar los cambios realizados. -->
+
+## 📝 Impacto en el rendimiento
+
+<!-- Si los cambios en este PR afectan el rendimiento de la aplicación, proporcione detalles sobre las pruebas de rendimiento realizadas y los resultados obtenidos. -->
 
 ## ¿Este PR introduce un cambio que rompe la compatibilidad (BREAKING-CHANGE)?
 
-```
+```sh
 [ ] Sí
 [ ] No
 ```
 
-<!-- Si este PR contiene un cambio que rompe la compatibilidad, por favor, describa el impacto y la ruta de migración para las aplicaciones existentes. -->
+<!-- Si este PR contiene un cambio que rompe la compatibilidad, describa el impacto y la ruta de migración para las aplicaciones existentes. -->

@@ -7,7 +7,7 @@ body:
     id: search-issues
     attributes:
       label: ¿Existe algún issue para esto?
-      description: Por favor, busque en la pestaña de issues para ver si ya existe uno para la característica que está solicitando.
+      description: Por favor, busque en la pestaña de issues para verificar si ya existe uno para la característica que está solicitando.
       options:
         - label: He buscado en los issues existentes.
           required: true
@@ -15,21 +15,21 @@ body:
   - type: textarea
     id: current-behavior
     attributes:
-      label: Describa el problema que está experimentando.
+      label: Describa el problema que está experimentando
     validations:
       required: true
 
   - type: textarea
     id: expected-behavior
     attributes:
-      label: Describa el comportamiento esperado.
+      label: Describa el comportamiento esperado
     validations:
       required: true
 
   - type: textarea
     id: reproduction
     attributes:
-      label: Proporcione un enlace a una reproducción mínima del problema.
+      label: Proporcione un enlace a una reproducción mínima del problema
       value: '[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/fork/github/JinenGroup/platform-next)'
       render: markdown
     validations:
@@ -52,9 +52,9 @@ body:
       label: Proporcione la aplicación en la que descubrió el problema
       multiple: true
       options:
-        - CMS
+        - Docs
+        - Cms
         - Web
-        - Base de datos
 
   - type: dropdown
     id: browser
@@ -83,15 +83,14 @@ body:
     id: other
     attributes:
       label: Contexto adicional
-      placeholder: Proporcione cualquier enlace o referencia que nos dé más contexto sobre el problema que está experimentando.
-      description: Puede adjuntar archivos arrastrándolos dentro del campo.
+      placeholder: Proporcione cualquier contexto adicional sobre el problema que está experimentando. Si es posible, incluya capturas de pantalla.
     validations:
       required: false
 
   - type: dropdown
     id: contribution
     attributes:
-      label: ¿Le gustaría realizar un pull-request para esta característica?
+      label: ¿Le gustaría realizar un pull-request para corregir el Bug?
       options:
         - 'Sí 🚀'
         - 'No'
