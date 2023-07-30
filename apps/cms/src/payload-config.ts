@@ -17,8 +17,10 @@ import { Logo } from './components/Logo';
 
 import * as path from 'path';
 
+const CLIENTS = [process.env.PAYLOAD_CLIENT_URL || '*'];
+
 export default buildConfig({
-    serverURL: process.env.JINEN_SERVER_URL,
+    serverURL: process.env.PAYLOAD_SERVER_URL,
     admin: {
         user: CollectionUsers.slug,
         meta: {
@@ -43,20 +45,8 @@ export default buildConfig({
         window: 2 * 60 * 1000, // 2 minutes,
         max: 2400, // limit each IP per windowMS
     },
-    cors: [
-        'http://localhost',
-        'http://localhost:3000',
-        'http://localhost:3002',
-        'https://docs.jinen.com',
-        'https://jinen.com',
-    ],
-    csrf: [
-        'http://localhost',
-        'http://localhost:3000',
-        'http://localhost:3002',
-        'https://docs.jinen.com',
-        'https://jinen.com',
-    ],
+    cors: CLIENTS as string[],
+    csrf: CLIENTS as string[],
     typescript: {
         outputFile: path.resolve(
             process.cwd(),
@@ -99,7 +89,8 @@ export default buildConfig({
             /* eslint-disable  @typescript-eslint/no-explicit-any */
             generateTitle: ({ doc }: any) => `jinen.com — ${doc['title']?.value}: [Descripción]`,
             /* eslint-disable  @typescript-eslint/no-explicit-any */
-            generateURL: ({ doc }: any) => `https://jinen.com/${doc['fields']['slug']?.value}`,
+            generateURL: ({ doc }: any) =>
+                `${process.env.PAYLOAD_CLIENT_URL ?? ''}/${doc['fields']['slug']?.value}`,
         }),
     ],
 });

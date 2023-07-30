@@ -5,9 +5,10 @@
     import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@rgossiaux/svelte-headlessui';
 
     const fontSizes: Datalist<WritableAppearance['fontSize']> = [
-        { value: 'sm', text: 'Pequeño' },
-        { value: 'md', text: 'Mediano' },
+        { value: 'sm', text: 'Pequeña' },
+        { value: 'md', text: 'Mediana' },
         { value: 'lg', text: 'Grande' },
+        { value: 'xl', text: 'Extra grande' },
     ];
 
     let selectedFontSize =

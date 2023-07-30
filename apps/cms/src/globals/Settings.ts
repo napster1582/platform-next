@@ -1,5 +1,5 @@
 import { GlobalConfig } from 'payload/types';
-import { FieldColor } from '../components/color-picker/config';
+import { FieldColor } from '../components/ColorPicker/config';
 
 export const GlobalAppearance = {
     slug: 'appearance',

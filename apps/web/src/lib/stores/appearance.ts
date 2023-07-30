@@ -9,7 +9,7 @@ import { writable } from 'svelte/store';
 export type WritableAppearance = {
     theme: 'system' | 'light' | 'dark';
     primaryColor: 'blue' | 'green' | 'red' | 'yellow' | 'purple';
-    fontSize: 'sm' | 'md' | 'lg';
+    fontSize: 'sm' | 'md' | 'lg' | 'xl';
     borderRadius: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
 };
 

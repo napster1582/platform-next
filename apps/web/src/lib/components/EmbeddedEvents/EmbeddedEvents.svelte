@@ -1,20 +1,24 @@
 <script lang="ts">
-    import { resolveLinkAppearance, resolveLinkHref, resolveResourceSize } from '$lib/utils';
+    import {
+        calculateDuration,
+        resolveLinkAppearance,
+        resolveLinkHref,
+        resolveResourceSize,
+    } from '$lib/utils';
     import Icon from '@iconify/svelte';
     import type { Grouped } from '@jinen/annotations';
     import type { Event } from '@jinen/cms-annotations';
-    import { titlecase } from '@jinen/helpers';
     import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@rgossiaux/svelte-headlessui';
     import { Link } from '../Link';
 
     export let content: Grouped<Event>;
 
-    $: years = Object.keys(content).sort((a, b) => b.localeCompare(a));
+    $: years = Object.keys(content).sort((a, b) => a.localeCompare(b));
 </script>
 
 <TabGroup
     class="tab-group"
-    defaultIndex={1}
+    defaultIndex={years.findIndex((year) => year === new Date().getFullYear().toString())}
 >
     <TabList class="tab-list">
         {#each years as year}
@@ -33,7 +37,7 @@
                 >
                     {#each content[year] as event}
                         <li
-                            class="rounded-token hover:border-primary-500/30 focus-within:border-primary-500/30 bg-token-tertiary relative border-4 border-solid border-transparent p-5 transition-colors duration-300"
+                            class="rounded-token hover:border-primary-500/30 focus-within:border-primary-500/30 bg-token-primary relative border-4 border-solid border-transparent p-5 transition-colors duration-300"
                         >
                             <div
                                 class="bg-token-secondary border-primary-400 absolute -left-[3.3rem] top-1/2 grid -translate-y-1/2 place-items-center rounded-full border p-1"
@@ -52,15 +56,71 @@
                                     {event.title}
                                 </h3>
 
-                                <div class="text-token-secondary mt-2 flex items-center gap-2">
+                                <div
+                                    class="text-token-secondary mt-2 flex flex-col gap-x-4 gap-y-2 lg:flex-row lg:items-center"
+                                >
+                                    <div class="flex items-center gap-1">
+                                        <Icon
+                                            icon="openmoji:spiral-calendar"
+                                            class="text-2xl"
+                                        />
+                                        <time>
+                                            {new Date(event.startDate).toLocaleString('es', {
+                                                month: 'short',
+                                                year: 'numeric',
+                                                day: 'numeric',
+                                                hour: 'numeric',
+                                                minute: 'numeric',
+                                                hour12: true,
+                                                hourCycle: 'h12',
+                                                timeZoneName: 'short',
+                                            })}
+                                        </time>
+                                    </div>
+
                                     <Icon
-                                        icon="openmoji:spiral-calendar"
+                                        icon="line-md:arrow-right"
+                                        class="hidden text-2xl lg:inline-block"
+                                    />
+
+                                    <Icon
+                                        icon="line-md:arrow-down"
+                                        class="block text-2xl lg:hidden"
+                                    />
+
+                                    <div class="flex items-center gap-1">
+                                        <Icon
+                                            icon="openmoji:spiral-calendar"
+                                            class="text-2xl"
+                                        />
+                                        <time>
+                                            {new Date(event.endDate).toLocaleString('es', {
+                                                month: 'short',
+                                                year: 'numeric',
+                                                day: 'numeric',
+                                                hour: 'numeric',
+                                                minute: 'numeric',
+                                                hour12: true,
+                                                hourCycle: 'h12',
+                                                timeZoneName: 'short',
+                                            })}
+                                        </time>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4 flex items-center gap-1">
+                                    <Icon
+                                        icon="mdi:timer-sand"
                                         class="text-2xl"
                                     />
 
-                                    <time>
-                                        {titlecase(event.month)}
-                                        {event.year}
+                                    <span>Duración:</span>
+
+                                    <time class="font-semibold">
+                                        {calculateDuration({
+                                            startDate: new Date(event.startDate),
+                                            endDate: new Date(event.endDate),
+                                        })}
                                     </time>
                                 </div>
                             </div>
