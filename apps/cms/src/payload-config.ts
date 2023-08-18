@@ -45,8 +45,8 @@ export default buildConfig({
         window: 2 * 60 * 1000, // 2 minutes,
         max: 2400, // limit each IP per windowMS
     },
-    cors: CLIENTS as string[],
-    csrf: CLIENTS as string[],
+    cors: CLIENTS,
+    csrf: CLIENTS,
     typescript: {
         outputFile: path.resolve(
             process.cwd(),
