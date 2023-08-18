@@ -7,482 +7,169 @@
  */
 
 export interface Config {
-    collections: {
-        users: User;
-        media: Media;
-        pages: Page;
-        events: Event;
-        forms: Form;
-        'form-submissions': FormSubmission;
-    };
-    globals: {
-        header: Header;
-        menu: Menu;
-        footer: Footer;
-    };
+  collections: {
+    users: User;
+    media: Media;
+    pages: Page;
+    events: Event;
+    forms: Form;
+    'form-submissions': FormSubmission;
+  };
+  globals: {
+    header: Header;
+    menu: Menu;
+    footer: Footer;
+  };
 }
 export interface User {
-    id: string;
-    names: string;
-    lastNames: string;
-    role: 'admin' | 'user';
-    updatedAt: string;
-    createdAt: string;
-    email: string;
-    resetPasswordToken?: string;
-    resetPasswordExpiration?: string;
-    salt?: string;
-    hash?: string;
-    loginAttempts?: number;
-    lockUntil?: string;
-    password?: string;
+  id: string;
+  names: string;
+  lastNames: string;
+  role: 'admin' | 'user';
+  updatedAt: string;
+  createdAt: string;
+  email: string;
+  resetPasswordToken?: string;
+  resetPasswordExpiration?: string;
+  salt?: string;
+  hash?: string;
+  loginAttempts?: number;
+  lockUntil?: string;
+  password?: string;
 }
 export interface Media {
-    id: string;
-    alt: string;
-    updatedAt: string;
-    createdAt: string;
-    url?: string;
-    filename?: string;
-    mimeType?: string;
-    filesize?: number;
-    width?: number;
-    height?: number;
-    sizes?: {
-        thumbnail?: {
-            url?: string;
-            width?: number;
-            height?: number;
-            mimeType?: string;
-            filesize?: number;
-            filename?: string;
-        };
-        portrait?: {
-            url?: string;
-            width?: number;
-            height?: number;
-            mimeType?: string;
-            filesize?: number;
-            filename?: string;
-        };
+  id: string;
+  alt: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
+  sizes?: {
+    thumbnail?: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
     };
+    portrait?: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+  };
 }
 export interface Page {
-    id: string;
-    title: string;
-    showHeader?: boolean;
-    showMenu?: boolean;
-    showFooter?: boolean;
-    showHero?: boolean;
-    hero?: {
-        variant: 'mediaNestedSlides';
-        mediaNestedSlides?: {
-            items?: {
-                indicator: string;
-                title: string;
-                description?: string;
-                background?: string | Media;
-                show?: boolean;
-                link?: {
-                    appearance?:
-                        | 'inferred'
-                        | 'text'
-                        | 'cta'
-                        | 'button'
-                        | 'buttonText'
-                        | 'buttonContained';
-                    type?: 'internal' | 'external';
-                    indicator?: string;
-                    text?: string;
-                    showIcon: boolean;
-                    icon: string;
-                    iconSize?:
-                        | 'xs'
-                        | 'sm'
-                        | 'md'
-                        | 'lg'
-                        | 'xl'
-                        | '2xl'
-                        | '3xl'
-                        | '4xl'
-                        | '5xl'
-                        | '6xl'
-                        | '7xl'
-                        | '8xl'
-                        | '9xl';
-                    internalLinkReference: {
-                        value: string | Page;
-                        relationTo: 'pages';
-                    };
-                    externalLink: string;
-                    openInNewTab?: boolean;
-                };
-                previews?: {
-                    title: string;
-                    background: string | Media;
-                    id?: string;
-                }[];
-                id?: string;
-            }[];
-        };
-    };
-    sections?: {
-        fullSize?: boolean;
-        alwaysUseDarkTheme?: boolean;
-        html?: {
-            before?: string;
-            after?: string;
-        };
-        columns?: {
-            width?: '12' | '11' | '10' | '9' | '8' | '7' | '6' | '5' | '4' | '3' | '2' | '1';
-            blocks?: (
-                | {
-                      items?: {
-                          title?: string;
-                          content?: {
-                              [k: string]: unknown;
-                          }[];
-                          expanded?: boolean;
-                          id?: string;
-                      }[];
-                      id?: string;
-                      blockName?: string;
-                      blockType: 'accordion';
-                  }
-                | {
-                      title?: string;
-                      description: string;
-                      images: {
-                          showImages: boolean;
-                          images?: {
-                              position?: 'left' | 'right';
-                              image?: string | Media;
-                              id?: string;
-                          }[];
-                      };
-                      id?: string;
-                      blockName?: string;
-                      blockType: 'alert';
-                  }
-                | {
-                      content?: {
-                          richText?: {
-                              [k: string]: unknown;
-                          }[];
-                      };
-                      id?: string;
-                      blockName?: string;
-                      blockType: 'content';
-                  }
-                | {
-                      media: string | Media;
-                      id?: string;
-                      blockName?: string;
-                      blockType: 'media';
-                  }
-                | {
-                      link: {
-                          appearance?:
-                              | 'inferred'
-                              | 'text'
-                              | 'cta'
-                              | 'button'
-                              | 'buttonText'
-                              | 'buttonContained';
-                          type?: 'internal' | 'external';
-                          indicator?: string;
-                          text?: string;
-                          showIcon: boolean;
-                          icon: string;
-                          iconSize?:
-                              | 'xs'
-                              | 'sm'
-                              | 'md'
-                              | 'lg'
-                              | 'xl'
-                              | '2xl'
-                              | '3xl'
-                              | '4xl'
-                              | '5xl'
-                              | '6xl'
-                              | '7xl'
-                              | '8xl'
-                              | '9xl';
-                          internalLinkReference: {
-                              value: string | Page;
-                              relationTo: 'pages';
-                          };
-                          externalLink: string;
-                          openInNewTab?: boolean;
-                      };
-                      id?: string;
-                      blockName?: string;
-                      blockType: 'link';
-                  }
-                | {
-                      links?: {
-                          link: {
-                              appearance?:
-                                  | 'inferred'
-                                  | 'text'
-                                  | 'cta'
-                                  | 'button'
-                                  | 'buttonText'
-                                  | 'buttonContained';
-                              type?: 'internal' | 'external';
-                              indicator?: string;
-                              text?: string;
-                              showIcon: boolean;
-                              icon: string;
-                              iconSize?:
-                                  | 'xs'
-                                  | 'sm'
-                                  | 'md'
-                                  | 'lg'
-                                  | 'xl'
-                                  | '2xl'
-                                  | '3xl'
-                                  | '4xl'
-                                  | '5xl'
-                                  | '6xl'
-                                  | '7xl'
-                                  | '8xl'
-                                  | '9xl';
-                              internalLinkReference: {
-                                  value: string | Page;
-                                  relationTo: 'pages';
-                              };
-                              externalLink: string;
-                              openInNewTab?: boolean;
-                          };
-                          id?: string;
-                      }[];
-                      id?: string;
-                      blockName?: string;
-                      blockType: 'link-group';
-                  }
-                | {
-                      form: string | Form;
-                      id?: string;
-                      blockName?: string;
-                      blockType: 'embedded-form';
-                  }
-                | {
-                      events: string[] | Event[];
-                      id?: string;
-                      blockName?: string;
-                      blockType: 'embedded-events';
-                  }
-            )[];
-            id?: string;
-        }[];
-        id?: string;
-        blockName?: string;
-        blockType: 'section';
-    }[];
-    customCss?: string;
-    slug?: string;
-    parent?: string | Page;
-    breadcrumbs?: {
-        doc?: string | Page;
-        url?: string;
-        label?: string;
-        id?: string;
-    }[];
-    meta?: {
-        title?: string;
+  id: string;
+  title: string;
+  showHeader?: boolean;
+  showMenu?: boolean;
+  showFooter?: boolean;
+  showHero?: boolean;
+  hero?: {
+    variant: 'mediaNestedSlides';
+    mediaNestedSlides?: {
+      items?: {
+        indicator: string;
+        title: string;
         description?: string;
-    };
-    updatedAt: string;
-    createdAt: string;
-}
-export interface Form {
-    id: string;
-    title: string;
-    fields?: (
-        | {
-              name: string;
-              label?: string;
-              width?: number;
-              defaultValue?: string;
-              required?: boolean;
-              id?: string;
-              blockName?: string;
-              blockType: 'text';
-          }
-        | {
-              name: string;
-              label?: string;
-              width?: number;
-              defaultValue?: string;
-              required?: boolean;
-              id?: string;
-              blockName?: string;
-              blockType: 'textarea';
-          }
-        | {
-              name: string;
-              label?: string;
-              width?: number;
-              defaultValue?: string;
-              options?: {
-                  label: string;
-                  value: string;
-                  id?: string;
-              }[];
-              required?: boolean;
-              id?: string;
-              blockName?: string;
-              blockType: 'select';
-          }
-        | {
-              name: string;
-              label?: string;
-              width?: number;
-              required?: boolean;
-              id?: string;
-              blockName?: string;
-              blockType: 'email';
-          }
-        | {
-              name: string;
-              label?: string;
-              width?: number;
-              required?: boolean;
-              id?: string;
-              blockName?: string;
-              blockType: 'state';
-          }
-        | {
-              name: string;
-              label?: string;
-              width?: number;
-              required?: boolean;
-              id?: string;
-              blockName?: string;
-              blockType: 'country';
-          }
-        | {
-              name: string;
-              label?: string;
-              width?: number;
-              defaultValue?: number;
-              required?: boolean;
-              id?: string;
-              blockName?: string;
-              blockType: 'number';
-          }
-        | {
-              name: string;
-              label?: string;
-              width?: number;
-              required?: boolean;
-              defaultValue?: boolean;
-              id?: string;
-              blockName?: string;
-              blockType: 'checkbox';
-          }
-        | {
-              message?: {
-                  [k: string]: unknown;
-              }[];
-              id?: string;
-              blockName?: string;
-              blockType: 'message';
-          }
-    )[];
-    submitButtonLabel?: string;
-    confirmationType?: 'message' | 'redirect';
-    confirmationMessage: {
-        [k: string]: unknown;
-    }[];
-    redirect?: {
-        type?: 'reference' | 'custom';
-        reference: {
+        background?: string | Media;
+        show?: boolean;
+        link?: {
+          appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
+          type?: 'internal' | 'external';
+          indicator?: string;
+          text?: string;
+          showIcon: boolean;
+          icon: string;
+          iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl';
+          internalLinkReference: {
             value: string | Page;
             relationTo: 'pages';
+          };
+          externalLink: string;
+          openInNewTab?: boolean;
         };
-        url: string;
-    };
-    emails?: {
-        emailTo?: string;
-        cc?: string;
-        bcc?: string;
-        replyTo?: string;
-        emailFrom?: string;
-        subject: string;
-        message?: {
-            [k: string]: unknown;
+        previews?: {
+          title: string;
+          background: string | Media;
+          id?: string;
         }[];
         id?: string;
-    }[];
-    updatedAt: string;
-    createdAt: string;
-}
-export interface Event {
-    id: string;
-    title: string;
-    description: string;
-    startDate: string;
-    endDate: string;
-    linkGroup?: {
-        addLink?: boolean;
-        link?: {
-            appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
-            type?: 'internal' | 'external';
-            indicator?: string;
-            text?: string;
-            showIcon: boolean;
-            icon: string;
-            iconSize?:
-                | 'xs'
-                | 'sm'
-                | 'md'
-                | 'lg'
-                | 'xl'
-                | '2xl'
-                | '3xl'
-                | '4xl'
-                | '5xl'
-                | '6xl'
-                | '7xl'
-                | '8xl'
-                | '9xl';
-            internalLinkReference: {
-                value: string | Page;
-                relationTo: 'pages';
-            };
-            externalLink: string;
-            openInNewTab?: boolean;
-        };
+      }[];
     };
-    slug?: string;
-    updatedAt: string;
-    createdAt: string;
-}
-export interface FormSubmission {
-    id: string;
-    form: string | Form;
-    submissionData?: {
-        field: string;
-        value: string;
-        id?: string;
-    }[];
-    updatedAt: string;
-    createdAt: string;
-}
-export interface Header {
-    id: string;
-    logo?: string | Media;
-    navbar?: {
-        link: {
-            appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
-            type?: 'internal' | 'external';
-            indicator?: string;
-            text?: string;
-            showIcon: boolean;
-            icon: string;
-            iconSize?:
+  };
+  sections?: {
+    fullSize?: boolean;
+    alwaysUseDarkTheme?: boolean;
+    html?: {
+      before?: string;
+      after?: string;
+    };
+    columns?: {
+      width?: '12' | '11' | '10' | '9' | '8' | '7' | '6' | '5' | '4' | '3' | '2' | '1';
+      blocks?: (
+        | {
+            items?: {
+              title?: string;
+              content?: {
+                [k: string]: unknown;
+              }[];
+              expanded?: boolean;
+              id?: string;
+            }[];
+            id?: string;
+            blockName?: string;
+            blockType: 'accordion';
+          }
+        | {
+            title?: string;
+            description: string;
+            images: {
+              showImages: boolean;
+              images?: {
+                position?: 'left' | 'right';
+                image?: string | Media;
+                id?: string;
+              }[];
+            };
+            id?: string;
+            blockName?: string;
+            blockType: 'alert';
+          }
+        | {
+            content?: {
+              richText?: {
+                [k: string]: unknown;
+              }[];
+            };
+            id?: string;
+            blockName?: string;
+            blockType: 'content';
+          }
+        | {
+            media: string | Media;
+            id?: string;
+            blockName?: string;
+            blockType: 'media';
+          }
+        | {
+            link: {
+              appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
+              type?: 'internal' | 'external';
+              indicator?: string;
+              text?: string;
+              showIcon: boolean;
+              icon: string;
+              iconSize?:
                 | 'xs'
                 | 'sm'
                 | 'md'
@@ -496,149 +183,354 @@ export interface Header {
                 | '7xl'
                 | '8xl'
                 | '9xl';
-            internalLinkReference: {
+              internalLinkReference: {
                 value: string | Page;
                 relationTo: 'pages';
+              };
+              externalLink: string;
+              openInNewTab?: boolean;
             };
-            externalLink: string;
-            openInNewTab?: boolean;
-        };
-        links?: {
-            link: {
-                appearance?:
-                    | 'inferred'
-                    | 'text'
-                    | 'cta'
-                    | 'button'
-                    | 'buttonText'
-                    | 'buttonContained';
+            id?: string;
+            blockName?: string;
+            blockType: 'link';
+          }
+        | {
+            links?: {
+              link: {
+                appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
                 type?: 'internal' | 'external';
                 indicator?: string;
                 text?: string;
                 showIcon: boolean;
                 icon: string;
                 iconSize?:
-                    | 'xs'
-                    | 'sm'
-                    | 'md'
-                    | 'lg'
-                    | 'xl'
-                    | '2xl'
-                    | '3xl'
-                    | '4xl'
-                    | '5xl'
-                    | '6xl'
-                    | '7xl'
-                    | '8xl'
-                    | '9xl';
+                  | 'xs'
+                  | 'sm'
+                  | 'md'
+                  | 'lg'
+                  | 'xl'
+                  | '2xl'
+                  | '3xl'
+                  | '4xl'
+                  | '5xl'
+                  | '6xl'
+                  | '7xl'
+                  | '8xl'
+                  | '9xl';
                 internalLinkReference: {
-                    value: string | Page;
-                    relationTo: 'pages';
+                  value: string | Page;
+                  relationTo: 'pages';
                 };
                 externalLink: string;
                 openInNewTab?: boolean;
-            };
+              };
+              id?: string;
+            }[];
             id?: string;
+            blockName?: string;
+            blockType: 'link-group';
+          }
+        | {
+            form: string | Form;
+            id?: string;
+            blockName?: string;
+            blockType: 'embedded-form';
+          }
+        | {
+            events: string[] | Event[];
+            id?: string;
+            blockName?: string;
+            blockType: 'embedded-events';
+          }
+      )[];
+      id?: string;
+    }[];
+    id?: string;
+    blockName?: string;
+    blockType: 'section';
+  }[];
+  customCss?: string;
+  slug?: string;
+  parent?: string | Page;
+  breadcrumbs?: {
+    doc?: string | Page;
+    url?: string;
+    label?: string;
+    id?: string;
+  }[];
+  meta?: {
+    title?: string;
+    description?: string;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+export interface Form {
+  id: string;
+  title: string;
+  fields?: (
+    | {
+        name: string;
+        label?: string;
+        width?: number;
+        defaultValue?: string;
+        required?: boolean;
+        id?: string;
+        blockName?: string;
+        blockType: 'text';
+      }
+    | {
+        name: string;
+        label?: string;
+        width?: number;
+        defaultValue?: string;
+        required?: boolean;
+        id?: string;
+        blockName?: string;
+        blockType: 'textarea';
+      }
+    | {
+        name: string;
+        label?: string;
+        width?: number;
+        defaultValue?: string;
+        options?: {
+          label: string;
+          value: string;
+          id?: string;
+        }[];
+        required?: boolean;
+        id?: string;
+        blockName?: string;
+        blockType: 'select';
+      }
+    | {
+        name: string;
+        label?: string;
+        width?: number;
+        required?: boolean;
+        id?: string;
+        blockName?: string;
+        blockType: 'email';
+      }
+    | {
+        name: string;
+        label?: string;
+        width?: number;
+        required?: boolean;
+        id?: string;
+        blockName?: string;
+        blockType: 'state';
+      }
+    | {
+        name: string;
+        label?: string;
+        width?: number;
+        required?: boolean;
+        id?: string;
+        blockName?: string;
+        blockType: 'country';
+      }
+    | {
+        name: string;
+        label?: string;
+        width?: number;
+        defaultValue?: number;
+        required?: boolean;
+        id?: string;
+        blockName?: string;
+        blockType: 'number';
+      }
+    | {
+        name: string;
+        label?: string;
+        width?: number;
+        required?: boolean;
+        defaultValue?: boolean;
+        id?: string;
+        blockName?: string;
+        blockType: 'checkbox';
+      }
+    | {
+        message?: {
+          [k: string]: unknown;
         }[];
         id?: string;
+        blockName?: string;
+        blockType: 'message';
+      }
+  )[];
+  submitButtonLabel?: string;
+  confirmationType?: 'message' | 'redirect';
+  confirmationMessage: {
+    [k: string]: unknown;
+  }[];
+  redirect?: {
+    type?: 'reference' | 'custom';
+    reference: {
+      value: string | Page;
+      relationTo: 'pages';
+    };
+    url: string;
+  };
+  emails?: {
+    emailTo?: string;
+    cc?: string;
+    bcc?: string;
+    replyTo?: string;
+    emailFrom?: string;
+    subject: string;
+    message?: {
+      [k: string]: unknown;
     }[];
-    updatedAt?: string;
-    createdAt?: string;
+    id?: string;
+  }[];
+  updatedAt: string;
+  createdAt: string;
+}
+export interface Event {
+  id: string;
+  title: string;
+  description: string;
+  startDate: string;
+  endDate: string;
+  linkGroup?: {
+    addLink?: boolean;
+    link?: {
+      appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
+      type?: 'internal' | 'external';
+      indicator?: string;
+      text?: string;
+      showIcon: boolean;
+      icon: string;
+      iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl';
+      internalLinkReference: {
+        value: string | Page;
+        relationTo: 'pages';
+      };
+      externalLink: string;
+      openInNewTab?: boolean;
+    };
+  };
+  slug?: string;
+  updatedAt: string;
+  createdAt: string;
+}
+export interface FormSubmission {
+  id: string;
+  form: string | Form;
+  submissionData?: {
+    field: string;
+    value: string;
+    id?: string;
+  }[];
+  updatedAt: string;
+  createdAt: string;
+}
+export interface Header {
+  id: string;
+  logo?: string | Media;
+  navbar?: {
+    link: {
+      appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
+      type?: 'internal' | 'external';
+      indicator?: string;
+      text?: string;
+      showIcon: boolean;
+      icon: string;
+      iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl';
+      internalLinkReference: {
+        value: string | Page;
+        relationTo: 'pages';
+      };
+      externalLink: string;
+      openInNewTab?: boolean;
+    };
+    links?: {
+      link: {
+        appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
+        type?: 'internal' | 'external';
+        indicator?: string;
+        text?: string;
+        showIcon: boolean;
+        icon: string;
+        iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl';
+        internalLinkReference: {
+          value: string | Page;
+          relationTo: 'pages';
+        };
+        externalLink: string;
+        openInNewTab?: boolean;
+      };
+      id?: string;
+    }[];
+    id?: string;
+  }[];
+  updatedAt?: string;
+  createdAt?: string;
 }
 export interface Menu {
-    id: string;
-    items?: {
-        title?: string;
-        icon?: string | Media;
-        description?: string;
-        link: {
-            appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
-            type?: 'internal' | 'external';
-            indicator?: string;
-            text?: string;
-            showIcon: boolean;
-            icon: string;
-            iconSize?:
-                | 'xs'
-                | 'sm'
-                | 'md'
-                | 'lg'
-                | 'xl'
-                | '2xl'
-                | '3xl'
-                | '4xl'
-                | '5xl'
-                | '6xl'
-                | '7xl'
-                | '8xl'
-                | '9xl';
-            internalLinkReference: {
-                value: string | Page;
-                relationTo: 'pages';
-            };
-            externalLink: string;
-            openInNewTab?: boolean;
-        };
-        id?: string;
-    }[];
-    updatedAt?: string;
-    createdAt?: string;
+  id: string;
+  items?: {
+    title?: string;
+    icon?: string | Media;
+    description?: string;
+    link: {
+      appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
+      type?: 'internal' | 'external';
+      indicator?: string;
+      text?: string;
+      showIcon: boolean;
+      icon: string;
+      iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl';
+      internalLinkReference: {
+        value: string | Page;
+        relationTo: 'pages';
+      };
+      externalLink: string;
+      openInNewTab?: boolean;
+    };
+    id?: string;
+  }[];
+  updatedAt?: string;
+  createdAt?: string;
 }
 export interface Footer {
-    id: string;
-    logos?: {
-        logo?: string | Media;
-        id?: string;
-    }[];
-    sections?: {
-        section: {
-            title: string;
-            layout?: 'vertical' | 'horizontal';
-            links?: {
-                link: {
-                    appearance?:
-                        | 'inferred'
-                        | 'text'
-                        | 'cta'
-                        | 'button'
-                        | 'buttonText'
-                        | 'buttonContained';
-                    type?: 'internal' | 'external';
-                    indicator?: string;
-                    text?: string;
-                    showIcon: boolean;
-                    icon: string;
-                    iconSize?:
-                        | 'xs'
-                        | 'sm'
-                        | 'md'
-                        | 'lg'
-                        | 'xl'
-                        | '2xl'
-                        | '3xl'
-                        | '4xl'
-                        | '5xl'
-                        | '6xl'
-                        | '7xl'
-                        | '8xl'
-                        | '9xl';
-                    internalLinkReference: {
-                        value: string | Page;
-                        relationTo: 'pages';
-                    };
-                    externalLink: string;
-                    openInNewTab?: boolean;
-                };
-                id?: string;
-            }[];
+  id: string;
+  logos?: {
+    logo?: string | Media;
+    id?: string;
+  }[];
+  sections?: {
+    section: {
+      title: string;
+      layout?: 'vertical' | 'horizontal';
+      links?: {
+        link: {
+          appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
+          type?: 'internal' | 'external';
+          indicator?: string;
+          text?: string;
+          showIcon: boolean;
+          icon: string;
+          iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl';
+          internalLinkReference: {
+            value: string | Page;
+            relationTo: 'pages';
+          };
+          externalLink: string;
+          openInNewTab?: boolean;
         };
         id?: string;
-    }[];
-    contact?: {
-        content?: {
-            [k: string]: unknown;
-        }[];
+      }[];
     };
-    updatedAt?: string;
-    createdAt?: string;
+    id?: string;
+  }[];
+  contact?: {
+    content?: {
+      [k: string]: unknown;
+    }[];
+  };
+  updatedAt?: string;
+  createdAt?: string;
 }
