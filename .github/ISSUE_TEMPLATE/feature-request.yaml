@@ -32,13 +32,3 @@ body:
       placeholder: Proporcione cualquier enlace o referencia que nos dé más contexto sobre el problema que está experimentando.
     validations:
       required: false
-
-  - type: dropdown
-    id: contribution
-    attributes:
-      label: ¿Le gustaría realizar un pull-request para esta característica?
-      options:
-        - 'Sí 🚀'
-        - 'No'
-    validations:
-      required: true

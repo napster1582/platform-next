@@ -86,13 +86,3 @@ body:
       placeholder: Proporcione cualquier contexto adicional sobre el problema que está experimentando. Si es posible, incluya capturas de pantalla.
     validations:
       required: false
-
-  - type: dropdown
-    id: contribution
-    attributes:
-      label: ¿Le gustaría realizar un pull-request para corregir el Bug?
-      options:
-        - 'Sí 🚀'
-        - 'No'
-    validations:
-      required: true
