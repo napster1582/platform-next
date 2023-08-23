@@ -1,69 +1,69 @@
 @layer components {
-    .listbox {
-        --listbox-offset: 10px;
+	.listbox {
+		--listbox-offset: 10px;
 
-        @apply relative;
+		@apply relative;
 
-        .listbox-button {
-            @apply inline-flex items-center gap-2;
-        }
+		.listbox-button {
+			@apply inline-flex items-center gap-2;
+		}
 
-        .listbox-options {
-            @apply absolute left-0 top-full z-10;
-            @apply bg-token-secondary;
-            @apply overflow-hidden;
-            @apply px-2 py-1.5;
-            @apply ring-token ring-1;
-            @apply rounded-token shadow-xl;
-            @apply focus:outline-none;
-            @apply flex flex-col gap-y-1.5;
+		.listbox-options {
+			@apply absolute left-0 top-full z-10;
+			@apply bg-token-secondary;
+			@apply overflow-hidden;
+			@apply px-2 py-1.5;
+			@apply ring-token ring-1;
+			@apply rounded-token shadow-xl;
+			@apply focus:outline-none;
+			@apply flex flex-col gap-y-1.5;
 
-            &.listbox-options-tl {
-                inset: auto auto calc(100% + var(--listbox-offset)) 0;
-            }
+			&.listbox-options-tl {
+				inset: auto auto calc(100% + var(--listbox-offset)) 0;
+			}
 
-            &.listbox-options-tr {
-                inset: auto 0 calc(100% + var(--listbox-offset)) auto;
-            }
+			&.listbox-options-tr {
+				inset: auto 0 calc(100% + var(--listbox-offset)) auto;
+			}
 
-            &.listbox-options-tc {
-                @apply left-1/2 -translate-x-1/2;
+			&.listbox-options-tc {
+				@apply left-1/2 -translate-x-1/2;
 
-                bottom: calc(100% + var(--listbox-offset));
-            }
+				bottom: calc(100% + var(--listbox-offset));
+			}
 
-            &.listbox-options-bl {
-                inset: calc(100% + var(--listbox-offset)) auto auto 0;
-            }
+			&.listbox-options-bl {
+				inset: calc(100% + var(--listbox-offset)) auto auto 0;
+			}
 
-            &.listbox-options-br {
-                inset: calc(100% + var(--listbox-offset)) 0 auto auto;
-            }
+			&.listbox-options-br {
+				inset: calc(100% + var(--listbox-offset)) 0 auto auto;
+			}
 
-            &.listbox-options-bc {
-                @apply left-1/2 -translate-x-1/2;
+			&.listbox-options-bc {
+				@apply left-1/2 -translate-x-1/2;
 
-                top: calc(100% + var(--listbox-offset));
-            }
+				top: calc(100% + var(--listbox-offset));
+			}
 
-            .listbox-options-item {
-                @apply w-full;
-                @apply flex items-center;
-                @apply px-2 py-1;
-                @apply text-token-primary;
-                @apply transition-colors;
-                @apply rounded-token;
+			.listbox-options-item {
+				@apply w-full;
+				@apply flex items-center;
+				@apply px-2 py-1;
+				@apply text-token-primary;
+				@apply transition-colors;
+				@apply rounded-token;
 
-                &.listbox-options-item-active {
-                    @apply bg-primary-500;
-                    @apply text-white;
-                }
+				&.listbox-options-item-active {
+					@apply bg-primary-500;
+					@apply text-white;
+				}
 
-                &.listbox-options-item-selected {
-                    @apply bg-primary-500;
-                    @apply text-white;
-                }
-            }
-        }
-    }
+				&.listbox-options-item-selected {
+					@apply bg-primary-500;
+					@apply text-white;
+				}
+			}
+		}
+	}
 }

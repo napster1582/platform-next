@@ -1,3 +1,3 @@
 export enum HeroVariant {
-    MediaNestedSlides = 'mediaNestedSlides',
+	MediaNestedSlides = 'mediaNestedSlides',
 }

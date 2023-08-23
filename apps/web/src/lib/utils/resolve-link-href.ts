@@ -1,19 +1,19 @@
 import type { Page } from '@jinen/cms-annotations';
 
 export function resolveLinkHref({
-    internal,
-    external,
+	internal,
+	external,
 }: {
-    internal: string | Page | undefined;
-    external: string | undefined;
+	internal: string | Page | undefined;
+	external: string | undefined;
 }): string {
-    if (internal) {
-        return (typeof internal === 'object' ? internal.slug : internal) ?? '';
-    }
+	if (internal) {
+		return (typeof internal === 'object' ? internal.slug : internal) ?? '';
+	}
 
-    if (external) {
-        return external;
-    }
+	if (external) {
+		return external;
+	}
 
-    return '';
+	return '';
 }

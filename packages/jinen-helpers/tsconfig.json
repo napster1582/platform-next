@@ -1,8 +1,8 @@
 {
-  "extends": "@jinen/tsconfig/base.json",
-  "compilerOptions": {
-    "resolveJsonModule": true,
-    "outDir": "./dist"
-  },
-  "include": ["src/**/*"]
+	"extends": "@jinen/tsconfig/base.json",
+	"compilerOptions": {
+		"resolveJsonModule": true,
+		"outDir": "./dist"
+	},
+	"include": ["src/**/*"]
 }

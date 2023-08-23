@@ -1,12 +1,12 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 declare global {
-    namespace app {
-        // interface Error {}
-        // interface Locals {}
-        // interface PageData {}
-        // interface Platform {}
-    }
+	namespace app {
+		// interface Error {}
+		// interface Locals {}
+		// interface PageData {}
+		// interface Platform {}
+	}
 }
 
 export {};

@@ -1,4 +1,3 @@
-export * from './appearance';
 export * from './calculate-duration';
 export * from './local-storage';
 export * from './resolve-events';

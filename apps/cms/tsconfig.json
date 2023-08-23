@@ -1,22 +1,22 @@
 {
-  "compilerOptions": {
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "allowJs": true,
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "jsx": "react",
-    "resolveJsonModule": true,
-    "paths": {
-      "payload/generated-types": ["../../packages/jinen-cms-annotations/src/auto-generated.ts"]
-    }
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "build"],
-  "ts-node": {
-    "transpileOnly": true,
-    "swc": true
-  }
+	"compilerOptions": {
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+		"allowJs": true,
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"outDir": "./dist",
+		"rootDir": "./src",
+		"jsx": "react",
+		"resolveJsonModule": true,
+		"paths": {
+			"payload/generated-types": ["../../packages/jinen-cms-annotations/src/auto-generated.ts"]
+		}
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules", "dist", "build"],
+	"ts-node": {
+		"transpileOnly": true,
+		"swc": true
+	}
 }

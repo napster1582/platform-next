@@ -1,4 +1,4 @@
 {
-  "extends": "@jinen/tsconfig/base.json",
-  "include": ["src/**/*"]
+	"extends": "@jinen/tsconfig/base.json",
+	"include": ["src/**/*"]
 }
