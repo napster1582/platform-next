@@ -128,7 +128,7 @@
 								</div>
 							</div>
 
-							<p class="text-token-secondary prose mt-5 text-justify font-semibold">
+							<p class="text-token-secondary prose mt-5 text-justify">
 								<Balancer>
 									{event.description}
 								</Balancer>

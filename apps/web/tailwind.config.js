@@ -153,6 +153,9 @@ export default {
 				h6: 'var(--font-size-h6)',
 				body: 'var(--font-size-body)',
 			},
+			screens: {
+				'3xl': '1600px',
+			},
 		},
 	},
 	plugins: [require('@tailwindcss/typography')],

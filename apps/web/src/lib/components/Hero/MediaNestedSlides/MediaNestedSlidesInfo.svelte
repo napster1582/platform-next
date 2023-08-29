@@ -1,27 +1,24 @@
 <script lang="ts">
-	import Balancer from 'svelte-wrap-balancer';
 </script>
 
-<div class="container relative flex h-full w-full flex-wrap gap-y-6">
-	<div class="flex h-fit w-full items-center py-12 xl:max-w-[55%] xl:self-center xl:pr-6 xl:pt-0">
+<div class="container relative flex h-full w-full flex-wrap gap-y-6 px-6">
+	<div
+		class="flex h-full 3xl:items-center justify-center flex-col 3xl:flex-row py-12 3xl:py-0 3xl:max-w-[50%] 3xl:self-center 3xl:pr-6 3xl:pt-0"
+	>
 		<slot name="indicators" />
 
-		<div class="border-separate rounded-full border-b-8 border-dashed border-gray-800">
+		<div class="xl:max-w-xl 3xl:mt-0 mt-12">
 			{#if $$slots.title}
 				<h1
-					class="text-2xl uppercase text-white sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
+					class="text-2xl uppercase text-white sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl line-clamp-3"
 				>
-					<Balancer>
-						<slot name="title" />
-					</Balancer>
+					<slot name="title" />
 				</h1>
 			{/if}
 
 			{#if $$slots.description}
-				<p class="mt-12 text-xl text-white">
-					<Balancer>
-						<slot name="description" />
-					</Balancer>
+				<p class="mt-12 text-xl text-white line-clamp-4">
+					<slot name="description" />
 				</p>
 			{/if}
 
