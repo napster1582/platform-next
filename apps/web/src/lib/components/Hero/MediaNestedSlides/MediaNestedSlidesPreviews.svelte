@@ -18,7 +18,7 @@
 		scrollToActive(0);
 	}
 
-	async function go(index: number) {
+	async function goTo(index: number) {
 		currentIndex = index;
 
 		scrollToActive();
@@ -51,7 +51,7 @@
 	function scrollToActive(index?: number) {
 		if (containerRef) {
 			const activeElement = containerRef.querySelector(
-				`[data-index="${index || currentIndex}"]`,
+				`[data-preview-index="${index || currentIndex}"]`,
 			);
 
 			if (activeElement) {
@@ -79,15 +79,15 @@
 			class="flex snap-x snap-mandatory flex-nowrap overflow-x-hidden xl:gap-x-6 xl:py-20 xl:pl-6 xl:pr-[100%]"
 			bind:this={containerRef}
 		>
-			{#each previews as preview, index}
+			{#each previews as preview, index (preview.id)}
 				<div
 					class="h-full w-full shrink-0 snap-start xl:w-[350px] 2xl:w-[400px] 3xl:w-[450px]"
 					class:xl:opacity-0={index < currentIndex && direction === 1}
-					data-index={index}
+					data-preview-index={index}
 				>
 					<button
-						class="group relative h-[400px] w-full overflow-hidden shadow-2xl transition xl:h-[300px] xl:skew-y-12 xl:rounded-token xl:hover:skew-y-3 xl:hover:scale-110 2xl:h-[350px] 3xl:h-[400px]"
-						on:click={() => go(index)}
+						class="group relative h-[400px] w-full overflow-hidden rounded-token shadow-2xl transition xl:h-[300px] xl:skew-y-12 xl:hover:skew-y-3 xl:hover:scale-110 2xl:h-[350px] 3xl:h-[400px]"
+						on:click={() => goTo(index)}
 					>
 						<div
 							class="absolute inset-x-0 top-0 w-full bg-white/5 py-1 text-lg font-semibold capitalize text-white backdrop-blur-xl"

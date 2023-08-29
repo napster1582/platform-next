@@ -1,6 +1,3 @@
-<script lang="ts">
-</script>
-
 <div class="container relative flex h-full w-full flex-wrap gap-y-6 px-6">
 	<div
 		class="flex h-full flex-col justify-center py-12 3xl:max-w-[50%] 3xl:flex-row 3xl:items-center 3xl:self-center 3xl:py-0 3xl:pr-6 3xl:pt-0"
