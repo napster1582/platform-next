@@ -74,19 +74,19 @@
 </script>
 
 {#if previews?.length}
-	<div class="xl:absolute xl:left-1/2 xl:top-1/2 xl:max-w-[50%] xl:-translate-y-1/2">
+	<div class="xl:absolute xl:right-0 xl:top-1/2 xl:max-w-[50%] xl:-translate-y-1/2">
 		<div
-			class="flex snap-x snap-mandatory flex-nowrap overflow-x-hidden xl:py-20 xl:pl-6 xl:pr-[100%] xl:gap-x-6"
+			class="flex snap-x snap-mandatory flex-nowrap overflow-x-hidden xl:gap-x-6 xl:py-20 xl:pl-6 xl:pr-[100%]"
 			bind:this={containerRef}
 		>
 			{#each previews as preview, index}
 				<div
-					class="w-full shrink-0 snap-start xl:w-[350px] 2xl:w-[400px] 3xl:w-[450px] h-full"
+					class="h-full w-full shrink-0 snap-start xl:w-[350px] 2xl:w-[400px] 3xl:w-[450px]"
 					class:xl:opacity-0={index < currentIndex && direction === 1}
 					data-index={index}
 				>
 					<button
-						class="xl:rounded-token group relative h-[400px] xl:h-[300px] 2xl:h-[350px] 3xl:h-[400px] w-full overflow-hidden shadow-2xl transition xl:skew-y-12 xl:hover:skew-y-3 xl:hover:scale-110"
+						class="group relative h-[400px] w-full overflow-hidden shadow-2xl transition xl:h-[300px] xl:skew-y-12 xl:rounded-token xl:hover:skew-y-3 xl:hover:scale-110 2xl:h-[350px] 3xl:h-[400px]"
 						on:click={() => go(index)}
 					>
 						<div

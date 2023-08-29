@@ -78,14 +78,14 @@
 	<MediaNestedSlidesInfo>
 		<svelte:fragment slot="indicators">
 			<ul
-				class="overflow-y-auto flex 3xl:flex-col 3xl:justify-center 3xl:border-l border-white/10 border-t 3xl:h-full 3xl:mr-12 w-full 3xl:w-auto gap-6 gap-y-16"
+				class="flex w-full gap-6 gap-y-16 overflow-y-auto border-t border-white/10 3xl:mr-12 3xl:h-full 3xl:w-auto 3xl:flex-col 3xl:justify-center 3xl:border-l"
 			>
 				{#each items as item, index}
 					<li class="relative -left-0 text-white">
 						<button
 							class="{index === currentIndex
 								? 'bg-white text-black'
-								: 'bg-black text-white'} rounded-token border px-1 py-0.5 font-medium text-sm hover:opacity-80"
+								: 'bg-black text-white'} rounded-token border px-1 py-0.5 text-sm font-medium hover:opacity-80"
 							on:click={() => go(index)}
 						>
 							{item.indicator}
