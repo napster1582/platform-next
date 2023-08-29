@@ -8,29 +8,10 @@
 	import { ThemeCustomizer } from '../theme-customizer';
 
 	export let content: Header;
-
-	let currentPosition = 0;
-	let lastPosition = 0;
-	let show = true;
-
-	function handleScroll() {
-		const deltaY = lastPosition - currentPosition;
-		lastPosition = currentPosition;
-
-		if (Math.abs(deltaY) > 5) {
-			show = deltaY > 0;
-		}
-	}
 </script>
 
-<svelte:window
-	bind:scrollY={currentPosition}
-	on:scroll={handleScroll}
-/>
-
 <header
-	class="bg-primary-700/90 dark fixed inset-x-0 top-0 z-20 h-[65px] -translate-y-[65px] text-white shadow-2xl backdrop-blur-md transition-transform duration-300"
-	class:header-visible={show}
+	class="dark fixed inset-x-0 top-0 z-20 h-[65px] bg-primary-700/90 text-white shadow-lg backdrop-blur-md transition-transform duration-300"
 >
 	<div class="container flex h-full items-center justify-between py-2">
 		<div class="flex items-center">
@@ -156,9 +137,3 @@
 		</div>
 	</div>
 </header>
-
-<style>
-	.header-visible {
-		@apply translate-y-0;
-	}
-</style>

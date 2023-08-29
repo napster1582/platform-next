@@ -22,7 +22,7 @@ export function getThemeMode(): ThemeMode {
 export function setThemeMode(mode: ThemeMode) {
 	if (!browser) return;
 
-	document.documentElement.classList.remove('dark', 'light');
+	document.documentElement.classList.remove('system', 'dark', 'light');
 	document.documentElement.classList.add(
 		mode === 'system'
 			? window.matchMedia('(prefers-color-scheme: dark)').matches

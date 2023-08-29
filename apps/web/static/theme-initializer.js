@@ -3,12 +3,20 @@ const THEME_COLOR_KEY = 'jinenThemeColor';
 const THEME_FONT_SIZE_KEY = 'jinenThemeFontSize';
 const THEME_RADIUS_KEY = 'jinenThemeRadius';
 
+const DEFAULT_MODE = 'system';
 const DEFAULT_COLOR = 'blue';
 const DEFAULT_FONT_SIZE = 'md';
 const DEFAULT_RADIUS = 'lg';
 
 function handleLocalStorage({ key, defaultValue }) {
-	const storedValue = localStorage.getItem(key);
+	let storedValue = localStorage.getItem(key);
+
+	try {
+		storedValue = JSON.parse(storedValue || '{}');
+	} catch {
+		// eslint-disable-next-line no-self-assign
+		storedValue = storedValue;
+	}
 
 	if (!storedValue) {
 		localStorage.setItem(key, defaultValue);
@@ -20,9 +28,15 @@ function handleLocalStorage({ key, defaultValue }) {
 
 const mode = handleLocalStorage({
 	key: THEME_MODE_KEY,
-	defaultValue: window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
+	defaultValue: DEFAULT_MODE,
 });
-document.documentElement.classList.add(mode);
+document.documentElement.classList.add(
+	mode === 'system'
+		? window.matchMedia('(prefers-color-scheme: dark)').matches
+			? 'dark'
+			: 'light'
+		: mode,
+);
 
 const color = handleLocalStorage({
 	key: THEME_COLOR_KEY,

@@ -74,19 +74,19 @@
 </script>
 
 {#if previews?.length}
-	<div class="xl:absolute xl:right-0 xl:top-1/2 xl:max-w-[50%] xl:-translate-y-1/2">
+	<div class="flex h-full flex-col justify-center xl:absolute xl:right-0 xl:top-0 xl:max-w-[50%]">
 		<div
-			class="flex snap-x snap-mandatory flex-nowrap overflow-x-hidden xl:gap-x-6 xl:py-20 xl:pl-6 xl:pr-[100%]"
+			class="flex snap-x snap-mandatory flex-nowrap overflow-x-hidden xl:py-20 xl:pr-[50%]"
 			bind:this={containerRef}
 		>
 			{#each previews as preview, index (preview.id)}
 				<div
-					class="h-full w-full shrink-0 snap-start xl:w-[350px] 2xl:w-[400px] 3xl:w-[450px]"
+					class="h-full w-full shrink-0 snap-start xl:w-[450px] xl:px-2"
 					class:xl:opacity-0={index < currentIndex && direction === 1}
 					data-preview-index={index}
 				>
 					<button
-						class="group relative h-[400px] w-full overflow-hidden rounded-token shadow-2xl transition xl:h-[300px] xl:skew-y-12 xl:hover:skew-y-3 xl:hover:scale-110 2xl:h-[350px] 3xl:h-[400px]"
+						class="group relative h-[300px] w-full cursor-default overflow-hidden rounded-token shadow-md grayscale-[50%] transition xl:h-[400px] xl:skew-y-6 xl:hover:skew-y-0"
 						on:click={() => goTo(index)}
 					>
 						<div
@@ -106,7 +106,9 @@
 			{/each}
 		</div>
 
-		<div class="flex items-center justify-between px-3 py-3 xl:mt-6 xl:px-6">
+		<div
+			class="flex items-center justify-between rounded-token bg-white/5 px-3 py-3 backdrop-blur-md xl:mt-6 xl:bg-transparent xl:px-6"
+		>
 			<div class="flex gap-3">
 				{#if previews.length > 1}
 					<button

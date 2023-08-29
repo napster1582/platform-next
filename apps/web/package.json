@@ -19,6 +19,7 @@
 		"date-fns": "^2.30.0",
 		"escape-html": "^1.0.3",
 		"isomorphic-dompurify": "^1.8.0",
+		"micro-memoize": "^4.1.2",
 		"qs": "^6.11.2",
 		"slate": "^0.94.1",
 		"svelte-local-storage-store": "^0.6.0",
