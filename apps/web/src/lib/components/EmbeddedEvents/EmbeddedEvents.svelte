@@ -9,7 +9,6 @@
 	import type { Grouped } from '@jinen/annotations';
 	import type { Event } from '@jinen/cms-annotations';
 	import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@rgossiaux/svelte-headlessui';
-	import Balancer from 'svelte-wrap-balancer';
 	import { Link } from '../Link';
 
 	export let content: Grouped<Event>;
@@ -34,33 +33,31 @@
 		{#each years as year}
 			<TabPanel class="tab-panel">
 				<ul
-					class="border-primary-500/30 mx-auto flex max-w-2xl flex-col gap-y-16 border-l-4 py-24 pl-7"
+					class="mx-auto flex max-w-2xl flex-col gap-y-16 border-l-4 border-primary-500/30 py-24 pl-7"
 				>
 					{#each content[year] as event}
 						<li
-							class="rounded-token hover:border-primary-500/30 focus-within:border-primary-500/30 bg-token-primary relative border-4 border-solid border-transparent p-5 transition-colors duration-300"
+							class="relative rounded-token border-4 border-solid border-transparent bg-token-primary p-5 transition-colors duration-300 focus-within:border-primary-500/30 hover:border-primary-500/30"
 						>
 							<div
-								class="bg-token-secondary border-primary-400 absolute -left-[3.3rem] top-1/2 grid -translate-y-1/2 place-items-center rounded-full border p-1"
+								class="absolute -left-[3.3rem] top-1/2 grid -translate-y-1/2 place-items-center rounded-full border border-primary-400 bg-token-secondary p-1"
 							>
 								<Icon
 									icon="line-md:check-list-3-filled"
-									class="text-primary-400 text-3xl"
+									class="text-3xl text-primary-400"
 								/>
 							</div>
 
-							<div class="border-token border-b pb-5">
+							<div class="border-b border-token pb-5">
 								<h3
 									class="line-clamp-1"
 									title={event.title}
 								>
-									<Balancer>
-										{event.title}
-									</Balancer>
+									{event.title}
 								</h3>
 
 								<div
-									class="text-token-secondary mt-2 flex flex-col gap-x-4 gap-y-2 lg:flex-row lg:items-center"
+									class="mt-2 flex flex-col gap-x-4 gap-y-2 text-token-secondary lg:flex-row lg:items-center"
 								>
 									<div class="flex items-center gap-1">
 										<Icon
@@ -128,10 +125,8 @@
 								</div>
 							</div>
 
-							<p class="text-token-secondary prose mt-5 text-justify">
-								<Balancer>
-									{event.description}
-								</Balancer>
+							<p class="prose mt-5 text-justify text-token-secondary">
+								{event.description}
 							</p>
 
 							{#if event.linkGroup && event.linkGroup.addLink}

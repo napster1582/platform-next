@@ -26,13 +26,14 @@ export const CollectionEvents = {
 			label: 'Título',
 			type: 'text',
 			required: true,
+			maxLength: 60,
 		},
 		{
 			name: 'description',
 			label: 'Descripción',
 			type: 'textarea',
 			required: true,
-			maxLength: 300,
+			maxLength: 600,
 		},
 
 		{
