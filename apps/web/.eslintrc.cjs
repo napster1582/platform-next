@@ -1,13 +1,25 @@
 module.exports = {
-    extends: ['@jinen/eslint-config'],
-    plugins: ['svelte3'],
-    overrides: [
-        {
-            files: ['*.svelte'],
-            processor: 'svelte3/svelte3',
-        },
-    ],
-    settings: {
-        'svelte3/typescript': () => require('typescript'),
-    },
+	extends: ['@jinen/eslint-config', 'plugin:svelte/recommended'],
+	parser: '@typescript-eslint/parser',
+	overrides: [
+		{
+			files: ['*.svelte'],
+			parser: 'svelte-eslint-parser',
+			parserOptions: {
+				parser: '@typescript-eslint/parser',
+			},
+		},
+	],
+	settings: {
+		svelte: {
+			kit: {
+				files: {
+					routes: 'src/routes',
+				},
+			},
+		},
+	},
+	rules: {
+		'svelte/no-at-html-tags': 'off',
+	},
 };

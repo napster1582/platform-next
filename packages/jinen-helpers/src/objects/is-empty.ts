@@ -1,7 +1,7 @@
 export function isEmpty<ObjectType extends object | null | undefined>(obj: ObjectType): boolean {
-    if (typeof obj !== 'object') {
-        return true;
-    }
+	if (typeof obj !== 'object') {
+		return true;
+	}
 
-    return obj === undefined || obj === null || Object.entries(obj).length === 0;
+	return obj === undefined || obj === null || Object.entries(obj).length === 0;
 }

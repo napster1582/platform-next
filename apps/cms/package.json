@@ -1,49 +1,50 @@
 {
-  "name": "cms",
-  "version": "0.2.0-alpha",
-  "private": true,
-  "main": "dist/server.js",
-  "scripts": {
-    "dev": "cross-env PAYLOAD_CONFIG_PATH=src/payload-config.ts nodemon",
-    "build:payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload-config.ts payload build",
-    "build:server": "tsc",
-    "build": "npm run copyfiles && npm run build:payload && npm run build:server",
-    "serve": "cross-env PAYLOAD_CONFIG_PATH=dist/payload-config.js NODE_ENV=production node dist/server.js",
-    "seed": "cross-env PAYLOAD_CONFIG_PATH=src/payload-config.ts ts-node src/seed.ts",
-    "copyfiles": "copyfiles -u 1 \"src/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png}\" dist/",
-    "generate:types": "cross-env PAYLOAD_CONFIG_PATH=src/payload-config.ts payload generate:types",
-    "lint": "eslint .",
-    "format": "prettier --write --ignore-path=../../.prettierignore ."
-  },
-  "dependencies": {
-    "express": "^4.18.2",
-    "payload": "latest",
-    "styled-components": "6.0.0-rc.3"
-  },
-  "devDependencies": {
-    "@payloadcms/plugin-form-builder": "^1.0.15",
-    "@payloadcms/plugin-nested-docs": "^1.0.6",
-    "@payloadcms/plugin-seo": "^1.0.13",
-    "@types/express": "^4.17.17",
-    "@types/node": "^18.17.6",
-    "@types/react": "^18.2.20",
-    "@types/react-router-dom": "^5.3.3",
-    "copyfiles": "^2.4.1",
-    "cross-env": "^7.0.3",
-    "deepmerge": "^4.3.1",
-    "dotenv": "^16.3.1",
-    "express": "^4.17.1",
-    "payload": "^1.7.2",
-    "process": "^0.11.10",
-    "react": "^18.2.0",
-    "react-router-dom": "^5.3.4",
-    "nodemon": "^2.0.6",
-    "ts-node": "^10.9.1",
-    "zod": "^3.22.1"
-  },
-  "peerDependencies": {
-    "dotenv": "^16.1.4",
-    "react": "^18.2.0",
-    "react-router-dom": "^5.3.4"
-  }
+	"name": "cms",
+	"version": "0.2.0-alpha",
+	"private": true,
+	"main": "dist/server.js",
+	"scripts": {
+		"dev": "cross-env PAYLOAD_CONFIG_PATH=src/payload-config.ts nodemon",
+		"build:payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload-config.ts payload build",
+		"build:server": "tsc",
+		"build": "npm run copyfiles && npm run build:payload && npm run build:server",
+		"serve": "cross-env PAYLOAD_CONFIG_PATH=dist/payload-config.js NODE_ENV=production node dist/server.js",
+		"seed": "cross-env PAYLOAD_CONFIG_PATH=src/payload-config.ts ts-node src/seed.ts",
+		"copyfiles": "copyfiles -u 1 \"src/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png}\" dist/",
+		"generate:types": "cross-env PAYLOAD_CONFIG_PATH=src/payload-config.ts payload generate:types",
+		"lint": "eslint .",
+		"format": "prettier --write --ignore-path=../../.prettierignore ."
+	},
+	"dependencies": {
+		"express": "^4.18.2",
+		"payload": "latest",
+		"styled-components": "6.0.0-rc.3"
+	},
+	"devDependencies": {
+		"@payloadcms/plugin-form-builder": "^1.0.15",
+		"@payloadcms/plugin-nested-docs": "^1.0.6",
+		"@payloadcms/plugin-seo": "^1.0.13",
+		"@types/express": "^4.17.17",
+		"@types/node": "^18.17.12",
+		"@types/react": "^18.2.21",
+		"@types/react-router-dom": "^5.3.3",
+		"copyfiles": "^2.4.1",
+		"cross-env": "^7.0.3",
+		"deepmerge": "^4.3.1",
+		"dotenv": "^16.3.1",
+		"express": "^4.17.1",
+		"nodemon": "^2.0.22",
+		"payload": "^1.7.2",
+		"payload-webp": "^1.1.6",
+		"process": "^0.11.10",
+		"react": "^18.2.0",
+		"react-router-dom": "^5.3.4",
+		"ts-node": "^10.9.1",
+		"zod": "^3.22.2"
+	},
+	"peerDependencies": {
+		"dotenv": "^16.1.4",
+		"react": "^18.2.0",
+		"react-router-dom": "^5.3.4"
+	}
 }

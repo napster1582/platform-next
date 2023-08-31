@@ -1,49 +1,46 @@
 {
-  "name": "platform-next",
-  "version": "0.2.0-alpha",
-  "private": true,
-  "scripts": {
-    "postinstall": "npx simple-git-hooks && pnpm --filter cms generate:types",
-    "build": "pnpm -r --parallel run build",
-    "dev": "pnpm -r --parallel run dev",
-    "test": "pnpm -r --parallel run test",
-    "lint": "pnpm -r --parallel run lint",
-    "format": "pnpm -r --parallel run format"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged",
-    "commit-msg": "pnpm commitlint --edit $1"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,vue,svelte}": [
-      "pnpm format",
-      "pnpm lint"
-    ],
-    "*.{html,json,md,yml,yaml}": [
-      "pnpm format"
-    ]
-  },
-  "devDependencies": {
-    "@commitlint/config-conventional": "^17.7.0",
-    "@iconify/svelte": "^3.1.4",
-    "@jinen/eslint-config": "workspace:^",
-    "@jinen/tsconfig": "workspace:^",
-    "@tailwindcss/typography": "^0.5.9",
-    "@types/escape-html": "^1.0.2",
-    "autoprefixer": "^10.4.15",
-    "commitlint": "^17.7.1",
-    "eslint": "^8.47.0",
-    "lint-staged": "^14.0.0",
-    "postcss": "^8.4.28",
-    "prettier": "^3.0.2",
-    "prettier-plugin-svelte": "^3.0.3",
-    "prettier-plugin-tailwindcss": "^0.5.3",
-    "simple-git-hooks": "^2.9.0",
-    "tailwindcss": "^3.3.3",
-    "typescript": "^5.1.6"
-  },
-  "engines": {
-    "node": ">=v20.0.0"
-  },
-  "packageManager": "pnpm@7.15.0"
+	"name": "platform-next",
+	"version": "0.2.0-alpha",
+	"private": true,
+	"scripts": {
+		"postinstall": "npx simple-git-hooks && pnpm --filter cms generate:types",
+		"build": "pnpm -r --parallel run build",
+		"dev": "pnpm -r --parallel run dev",
+		"test": "pnpm -r --parallel run test",
+		"lint": "pnpm -r --parallel run lint",
+		"format": "pnpm -r --parallel run format"
+	},
+	"simple-git-hooks": {
+		"pre-commit": "pnpm lint-staged",
+		"commit-msg": "pnpm commitlint --edit $1"
+	},
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx,vue,svelte}": [
+			"pnpm format",
+			"pnpm lint"
+		],
+		"*.{html,json,md,yml,yaml}": [
+			"pnpm format"
+		]
+	},
+	"devDependencies": {
+		"@changesets/cli": "^2.26.2",
+		"@commitlint/config-conventional": "^17.7.0",
+		"@jinen/eslint-config": "workspace:^",
+		"@jinen/tsconfig": "workspace:^",
+		"commitlint": "^17.7.1",
+		"eslint": "^8.48.0",
+		"lint-staged": "^14.0.1",
+		"prettier": "^3.0.3",
+		"simple-git-hooks": "^2.9.0",
+		"typescript": "^5.2.2",
+		"micro-memoize": "^4.1.2"
+	},
+	"engines": {
+		"node": ">=v20.0.0"
+	},
+	"packageManager": "pnpm@7.15.0",
+	"resolutions": {
+		"sharp": "latest"
+	}
 }

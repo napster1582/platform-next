@@ -1,0 +1,31 @@
+{
+	"name": "@jinen/web-resolvers",
+	"version": "0.2.0-alpha",
+	"type": "module",
+	"main": "src/index.ts",
+	"exports": {
+		".": {
+			"serve": {
+				"types": "./dist/index.js",
+				"require": "./dist/index.js",
+				"import": "./dist/index.js"
+			},
+			"default": {
+				"types": "./src/index.ts",
+				"require": "./src/index.ts",
+				"import": "./src/index.ts"
+			}
+		}
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"format": "prettier --write --ignore-path=../../.prettierignore ."
+	},
+	"devDependencies": {
+		"@jinen/eslint-config": "workspace:^",
+		"@jinen/tsconfig": "workspace:^",
+		"@jinen/annotations": "workspace:^",
+		"@jinen/cms-annotations": "workspace:^",
+		"@jinen/helpers": "workspace:^"
+	}
+}
