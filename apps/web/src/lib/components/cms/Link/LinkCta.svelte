@@ -1,7 +1,7 @@
 <script lang="ts">
 	import imageWaterWave from '$lib/assets/images/animated/water-wave.png';
 	import Icon from '@iconify/svelte';
-	import { Img } from '../../Img';
+	import { Img } from '../../img';
 	import type { LinkOptions } from './types';
 
 	export let options: LinkOptions;

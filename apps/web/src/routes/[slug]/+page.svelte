@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { Img } from '$lib/components/Img';
-	import { Alert } from '$lib/components/cms/Alert';
-	import { Content } from '$lib/components/cms/Content';
-	import { EmbeddedEvents } from '$lib/components/cms/EmbeddedEvents';
-	import { Hero } from '$lib/components/cms/Hero';
 	import { Link } from '$lib/components/cms/Link';
-	import { Media } from '$lib/components/cms/Media';
-	import { Menu } from '$lib/components/cms/Menu';
+	import { Alert } from '$lib/components/cms/alert';
+	import { Content } from '$lib/components/cms/content';
+	import { EmbeddedEvents } from '$lib/components/cms/embedded-events';
+	import { Hero } from '$lib/components/cms/hero';
+	import { Media } from '$lib/components/cms/media';
+	import { Menu } from '$lib/components/cms/menu';
+	import { Img } from '$lib/components/img';
+	import { Metadata } from '$lib/components/metadata';
 	import { domStore } from '$lib/stores/dom';
 	import { resolveEvents } from '$lib/utils/resolve-events';
 	import { resolveHeroVariant } from '$lib/utils/resolve-hero-variant';
@@ -15,7 +16,7 @@
 	import { resolveResourceSize } from '$lib/utils/resolve-resource-size';
 	import type { Menu as CmsMenu, Page as CmsPage } from '@jinen/cms-annotations';
 	import { isEmpty } from '@jinen/helpers';
-	import { sanitize } from 'isomorphic-dompurify';
+	import DOMPurify from 'isomorphic-dompurify';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -46,14 +47,10 @@
 	}
 </script>
 
-<svelte:head>
-	<title>{page?.meta?.title ?? ''}</title>
-
-	<meta
-		name="description"
-		content={page?.meta?.description ?? ''}
-	/>
-</svelte:head>
+<Metadata
+	title={page?.meta?.title ?? ''}
+	description={page?.meta?.description ?? ''}
+/>
 
 {#if page?.showHero && page?.hero}
 	<Hero
@@ -85,7 +82,7 @@
 			>
 				<div class="section-content">
 					{#if section.html?.before}
-						{@html sanitize(section.html?.before)}
+						{@html DOMPurify.sanitize(section.html?.before)}
 					{/if}
 
 					<div class="container my-12 grid grid-cols-12 gap-x-8 gap-y-16">
@@ -109,7 +106,7 @@
 														{#if typeof image === 'object'}
 															<Img
 																class="w-32"
-																src={image.url}
+																src={image.sizes?.thumbnail?.url}
 																alt={image.alt}
 																loading="lazy"
 															/>
@@ -124,7 +121,7 @@
 														{#if typeof image === 'object'}
 															<Img
 																class="w-32"
-																src={image.url}
+																src={image.sizes?.thumbnail?.url}
 																alt={image.alt}
 																loading="lazy"
 															/>
@@ -204,7 +201,7 @@
 					</div>
 
 					{#if section.html?.after}
-						{@html sanitize(section.html?.after)}
+						{@html DOMPurify.sanitize(section.html?.after)}
 					{/if}
 				</div>
 			</section>
