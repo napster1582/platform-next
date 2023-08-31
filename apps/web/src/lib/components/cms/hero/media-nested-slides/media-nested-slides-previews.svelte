@@ -76,6 +76,7 @@
 				<div
 					class="h-full w-full shrink-0 snap-start xl:w-[450px] xl:px-2"
 					class:xl:opacity-0={index < currentIndex && direction === 1}
+					title={preview.title}
 					data-preview-index={index}
 				>
 					<button
@@ -83,7 +84,7 @@
 						on:click={() => goTo(index)}
 					>
 						<div
-							class="absolute inset-x-0 top-0 w-full bg-white/5 py-1 text-lg font-semibold capitalize text-white backdrop-blur-xl"
+							class="absolute inset-x-0 top-0 line-clamp-1 w-full bg-white/5 py-1 text-lg font-semibold capitalize text-white backdrop-blur-xl"
 						>
 							{preview.title}
 						</div>
