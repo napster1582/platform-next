@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { resolveLinkHref } from '$lib/utils/resolve-link';
+	import { resolveMediaSource } from '$lib/utils/resolve-media';
 	import { LinkAppearance, type Menu } from '@jinen/cms-annotations';
 	import { Link } from '../Link';
 	import MenuItem from './menu-item.svelte';
@@ -34,7 +35,7 @@
 				<svelte:fragment slot="icon">
 					{#if item.icon && typeof item.icon === 'object'}
 						<img
-							src={item.icon?.url}
+							src={resolveMediaSource({ media: item.icon })}
 							alt={item.icon?.alt}
 							class="w-24"
 						/>

@@ -26,11 +26,6 @@ export const CollectionMedia = {
 				width: 480,
 				height: 320,
 			},
-			{
-				name: 'portrait',
-				width: 768,
-				height: 1024,
-			},
 		],
 		adminThumbnail: 'thumbnail',
 	},

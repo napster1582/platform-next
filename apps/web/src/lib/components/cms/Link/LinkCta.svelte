@@ -25,7 +25,7 @@
 			<Img
 				class="w-full"
 				src={imageWaterWave}
-				alt="Olas rompientes en el mar"
+				alt="Olas animadas"
 				loading="lazy"
 			/>
 		{/if}

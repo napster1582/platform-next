@@ -6,7 +6,7 @@
 </script>
 
 <img
-	class="w-full rounded-token {className}"
+	class="h-full w-full rounded-token object-cover {className}"
 	{src}
 	{alt}
 	{loading}

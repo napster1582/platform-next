@@ -11,9 +11,10 @@
 	import { Metadata } from '$lib/components/metadata';
 	import { domStore } from '$lib/stores/dom';
 	import { resolveEvents } from '$lib/utils/resolve-events';
-	import { resolveHeroVariant } from '$lib/utils/resolve-hero-variant';
+	import { resolveHeroVariant } from '$lib/utils/resolve-hero';
 	import { resolveLinkAppearance, resolveLinkHref } from '$lib/utils/resolve-link';
-	import { resolveResourceSize } from '$lib/utils/resolve-resource-size';
+	import { resolveMediaSource } from '$lib/utils/resolve-media';
+	import { resolveResourceSize } from '$lib/utils/resolve-resource';
 	import type { Menu as CmsMenu, Page as CmsPage } from '@jinen/cms-annotations';
 	import { isEmpty } from '@jinen/helpers';
 	import DOMPurify from 'isomorphic-dompurify';
@@ -106,7 +107,10 @@
 														{#if typeof image === 'object'}
 															<Img
 																class="w-32"
-																src={image.sizes?.thumbnail?.url}
+																src={resolveMediaSource({
+																	media: image,
+																	size: 'thumbnail',
+																})}
 																alt={image.alt}
 																loading="lazy"
 															/>
@@ -121,7 +125,10 @@
 														{#if typeof image === 'object'}
 															<Img
 																class="w-32"
-																src={image.sizes?.thumbnail?.url}
+																src={resolveMediaSource({
+																	media: image,
+																	size: 'thumbnail',
+																})}
 																alt={image.alt}
 																loading="lazy"
 															/>

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolveMediaSource } from '$lib/utils/resolve-media';
 	import type { Media } from '@jinen/cms-annotations';
 	import { Img } from '../../img';
 	import { Video } from '../../video';
@@ -17,7 +18,7 @@
 {#if typeof content === 'object'}
 	{#if isImage(content.mimeType ?? '')}
 		<Img
-			src={content.url}
+			src={resolveMediaSource({ media: content })}
 			alt={content.alt}
 			loading="lazy"
 		/>

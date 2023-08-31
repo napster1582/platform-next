@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { calculateDuration } from '$lib/utils/calculate-duration';
 	import { resolveLinkAppearance, resolveLinkHref } from '$lib/utils/resolve-link';
-	import { resolveResourceSize } from '$lib/utils/resolve-resource-size';
+	import { resolveResourceSize } from '$lib/utils/resolve-resource';
 	import Icon from '@iconify/svelte';
 	import type { Grouped } from '@jinen/annotations';
 	import type { Event } from '@jinen/cms-annotations';

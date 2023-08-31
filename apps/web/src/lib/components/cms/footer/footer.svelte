@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { Img } from '$lib/components/img';
 	import { resolveLinkAppearance, resolveLinkHref } from '$lib/utils/resolve-link';
-	import { resolveResourceSize } from '$lib/utils/resolve-resource-size';
+	import { resolveMediaSource } from '$lib/utils/resolve-media';
+	import { resolveResourceSize } from '$lib/utils/resolve-resource';
 	import type { Footer } from '@jinen/cms-annotations';
 	import { pkg } from '@jinen/helpers';
 	import { Badge } from '../../badge';
@@ -28,7 +29,7 @@
 				{#each content.logos ?? [] as { logo }}
 					{#if typeof logo === 'object'}
 						<Img
-							src={logo.sizes?.thumbnail?.url}
+							src={resolveMediaSource({ media: logo, size: 'thumbnail' })}
 							alt={logo.alt}
 							class="w-28"
 						/>

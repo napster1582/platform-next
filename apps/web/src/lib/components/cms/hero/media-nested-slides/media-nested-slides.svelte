@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { resolveResourceSize } from '$lib/utils/resolve-resource-size';
+	import { resolveResourceSize } from '$lib/utils/resolve-resource';
 	import Icon from '@iconify/svelte';
 	import { resolveLinkAppearance, resolveLinkHref } from '../../../../utils/resolve-link';
 	import { Link } from '../../Link';

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolveMediaSource } from '$lib/utils/resolve-media';
 	import Icon from '@iconify/svelte';
 	import { onMount } from 'svelte';
 	import type { HeroMediaNestedSlidesPreview } from '../types';
@@ -15,7 +16,7 @@
 	export function resetState() {
 		currentIndex = 0;
 
-		scrollToActive(0);
+		scrollToActive();
 	}
 
 	async function goTo(index: number) {
@@ -48,10 +49,10 @@
 		scrollToActive();
 	}
 
-	function scrollToActive(index?: number) {
+	function scrollToActive() {
 		if (containerRef) {
 			const activeElement = containerRef.querySelector(
-				`[data-preview-index="${index || currentIndex}"]`,
+				`[data-preview-index="${currentIndex}"]`,
 			);
 
 			if (activeElement) {
@@ -63,23 +64,15 @@
 			}
 		}
 	}
-
-	const resolveBackground = (preview: HeroMediaNestedSlidesPreview): string => {
-		if (typeof preview.background === 'object') {
-			return preview.background.sizes?.thumbnail?.url ?? '';
-		}
-
-		return preview.background ?? '';
-	};
 </script>
 
 {#if previews?.length}
-	<div class="flex h-full flex-col justify-center xl:absolute xl:right-0 xl:top-0 xl:max-w-[50%]">
+	<div class="flex h-full flex-col justify-center xl:absolute xl:right-0 xl:top-0 xl:max-w-[45%]">
 		<div
-			class="flex snap-x snap-mandatory flex-nowrap overflow-x-hidden xl:py-20 xl:pr-[50%]"
+			class="flex snap-x snap-mandatory flex-nowrap overflow-x-hidden xl:py-20 xl:pr-[45%]"
 			bind:this={containerRef}
 		>
-			{#each previews as preview, index (preview.id)}
+			{#each previews as preview, index}
 				<div
 					class="h-full w-full shrink-0 snap-start xl:w-[450px] xl:px-2"
 					class:xl:opacity-0={index < currentIndex && direction === 1}
@@ -96,7 +89,10 @@
 						</div>
 
 						<img
-							src={resolveBackground(preview)}
+							src={resolveMediaSource({
+								media: preview.background,
+								size: 'thumbnail',
+							})}
 							alt="Carousel preview item"
 							loading="lazy"
 							class="h-full w-full object-cover"

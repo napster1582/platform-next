@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { resolveLinkAppearance, resolveLinkHref } from '$lib/utils/resolve-link';
-	import { resolveResourceSize } from '$lib/utils/resolve-resource-size';
+	import { resolveMediaSource } from '$lib/utils/resolve-media';
+	import { resolveResourceSize } from '$lib/utils/resolve-resource';
 	import Icon from '@iconify/svelte';
 	import { LinkAppearance, type Header } from '@jinen/cms-annotations';
 	import { Popover, PopoverButton, PopoverPanel, Transition } from '@rgossiaux/svelte-headlessui';
@@ -25,7 +26,7 @@
 					}}
 				>
 					<Img
-						src={content.logo.url}
+						src={resolveMediaSource({ media: content.logo, size: 'thumbnail' })}
 						alt={content.logo.alt}
 						class="w-12"
 					/>
