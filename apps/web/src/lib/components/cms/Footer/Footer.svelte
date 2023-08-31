@@ -3,9 +3,9 @@
 	import { resolveResourceSize } from '$lib/utils/resolve-resource-size';
 	import type { Footer } from '@jinen/cms-annotations';
 	import { pkg } from '@jinen/helpers';
-	import { Badge } from '../Badge';
-	import { Link } from '../Link';
-	import { Content } from '../cms/Content';
+	import { Badge } from '../../Badge';
+	import { Link } from '../../Link';
+	import { Content } from '../Content';
 
 	export let content: Footer;
 </script>

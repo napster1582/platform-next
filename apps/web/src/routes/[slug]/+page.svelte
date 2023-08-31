@@ -5,9 +5,9 @@
 	import { Img } from '$lib/components/Img';
 	import { Link } from '$lib/components/Link';
 	import { Media } from '$lib/components/Media';
-	import { Menu } from '$lib/components/Menu';
 	import { Content } from '$lib/components/cms/Content';
 	import { Hero } from '$lib/components/cms/Hero';
+	import { Menu } from '$lib/components/cms/Menu';
 	import { domStore } from '$lib/stores/dom';
 	import { resolveEvents } from '$lib/utils/resolve-events';
 	import { resolveHeroVariant } from '$lib/utils/resolve-hero-variant';

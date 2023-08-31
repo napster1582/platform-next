@@ -4,9 +4,9 @@
 	import Icon from '@iconify/svelte';
 	import { LinkAppearance, type Header } from '@jinen/cms-annotations';
 	import { Popover, PopoverButton, PopoverPanel, Transition } from '@rgossiaux/svelte-headlessui';
-	import { Img } from '../Img';
-	import { Link } from '../Link';
-	import { ThemeCustomizer } from '../theme-customizer';
+	import { Img } from '../../Img';
+	import { Link } from '../../Link';
+	import { ThemeCustomizer } from '../../theme-customizer';
 
 	export let content: Header;
 </script>
