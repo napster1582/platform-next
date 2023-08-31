@@ -1,10 +1,13 @@
 <script lang="ts">
 	import { Img } from '$lib/components/img';
-	import { resolveLinkAppearance, resolveLinkHref } from '$lib/utils/resolve-link';
-	import { resolveMediaSource } from '$lib/utils/resolve-media';
-	import { resolveResourceSize } from '$lib/utils/resolve-resource';
 	import type { Footer } from '@jinen/cms-annotations';
 	import { pkg } from '@jinen/helpers';
+	import {
+		resolveLinkAppearance,
+		resolveLinkHref,
+		resolveMediaSource,
+		resolveResourceSize,
+	} from '@jinen/web-resolvers';
 	import { Badge } from '../../badge';
 	import { Link } from '../Link';
 	import { Content } from '../content';

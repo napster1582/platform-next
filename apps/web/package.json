@@ -19,7 +19,6 @@
 		"date-fns": "^2.30.0",
 		"escape-html": "^1.0.3",
 		"isomorphic-dompurify": "^1.8.0",
-		"micro-memoize": "^4.1.2",
 		"qs": "^6.11.2",
 		"slate": "^0.94.1"
 	},
@@ -29,6 +28,7 @@
 		"@jinen/eslint-config": "workspace:^",
 		"@jinen/helpers": "workspace:^",
 		"@jinen/web-http": "workspace:^",
+		"@jinen/web-resolvers": "workspace:^",
 		"@neoconfetti/svelte": "^1.0.0",
 		"@playwright/test": "^1.37.1",
 		"@rgossiaux/svelte-headlessui": "^2.0.0",

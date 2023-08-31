@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { resolveMediaSource } from '$lib/utils/resolve-media';
 	import Icon from '@iconify/svelte';
+	import { resolveMediaSource } from '@jinen/web-resolvers';
 	import { onMount } from 'svelte';
 	import type { HeroMediaNestedSlidesPreview } from '../types';
 

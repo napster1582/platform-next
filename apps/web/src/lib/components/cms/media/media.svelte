@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { resolveMediaSource } from '$lib/utils/resolve-media';
 	import type { Media } from '@jinen/cms-annotations';
+	import { resolveMediaSource } from '@jinen/web-resolvers';
 	import { Img } from '../../img';
 	import { Video } from '../../video';
 

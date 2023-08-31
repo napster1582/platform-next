@@ -4,6 +4,7 @@ import { buildRequestOptions } from '@jinen/web-http';
 import { error } from '@sveltejs/kit';
 import qs from 'qs';
 
+/** @type {import('./$types').PageLoad} */
 export async function load({ params }): Promise<{
 	page: Page;
 }> {

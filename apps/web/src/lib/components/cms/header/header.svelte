@@ -1,9 +1,12 @@
 <script lang="ts">
-	import { resolveLinkAppearance, resolveLinkHref } from '$lib/utils/resolve-link';
-	import { resolveMediaSource } from '$lib/utils/resolve-media';
-	import { resolveResourceSize } from '$lib/utils/resolve-resource';
 	import Icon from '@iconify/svelte';
 	import { LinkAppearance, type Header } from '@jinen/cms-annotations';
+	import {
+		resolveLinkAppearance,
+		resolveLinkHref,
+		resolveMediaSource,
+		resolveResourceSize,
+	} from '@jinen/web-resolvers';
 	import { Popover, PopoverButton, PopoverPanel, Transition } from '@rgossiaux/svelte-headlessui';
 	import { Img } from '../../img';
 	import { ThemeCustomizer } from '../../theme-customizer';

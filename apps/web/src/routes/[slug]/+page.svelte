@@ -10,13 +10,16 @@
 	import { Img } from '$lib/components/img';
 	import { Metadata } from '$lib/components/metadata';
 	import { domStore } from '$lib/stores/dom';
-	import { resolveEvents } from '$lib/utils/resolve-events';
-	import { resolveHeroVariant } from '$lib/utils/resolve-hero';
-	import { resolveLinkAppearance, resolveLinkHref } from '$lib/utils/resolve-link';
-	import { resolveMediaSource } from '$lib/utils/resolve-media';
-	import { resolveResourceSize } from '$lib/utils/resolve-resource';
 	import type { Menu as CmsMenu, Page as CmsPage } from '@jinen/cms-annotations';
 	import { isEmpty } from '@jinen/helpers';
+	import {
+		resolveEvents,
+		resolveHeroVariant,
+		resolveLinkAppearance,
+		resolveLinkHref,
+		resolveMediaSource,
+		resolveResourceSize,
+	} from '@jinen/web-resolvers';
 	import DOMPurify from 'isomorphic-dompurify';
 	import type { PageData } from './$types';
 

@@ -1,7 +1,10 @@
 <script lang="ts">
-	import { resolveResourceSize } from '$lib/utils/resolve-resource';
 	import Icon from '@iconify/svelte';
-	import { resolveLinkAppearance, resolveLinkHref } from '../../../../utils/resolve-link';
+	import {
+		resolveLinkAppearance,
+		resolveLinkHref,
+		resolveResourceSize,
+	} from '@jinen/web-resolvers';
 	import { Link } from '../../Link';
 	import type { HeroOptions } from '../types';
 	import MediaNestedSlidesInfo from './media-nested-slides-info.svelte';

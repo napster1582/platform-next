@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { resolveLinkHref } from '$lib/utils/resolve-link';
-	import { resolveMediaSource } from '$lib/utils/resolve-media';
 	import { LinkAppearance, type Menu } from '@jinen/cms-annotations';
+	import { resolveLinkHref, resolveMediaSource } from '@jinen/web-resolvers';
 	import { Link } from '../Link';
 	import MenuItem from './menu-item.svelte';
 

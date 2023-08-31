@@ -3,6 +3,7 @@ import type { Footer, Header, Menu } from '@jinen/cms-annotations';
 import { buildRequestOptions } from '@jinen/web-http';
 import { error } from '@sveltejs/kit';
 
+/** @type {import('./$types').PageLoad} */
 export async function load({ fetch }): Promise<{
 	header: Header;
 	menu: Menu;
