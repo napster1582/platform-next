@@ -6,9 +6,13 @@ export const resolveMediaSource = memoize(
 		media,
 		size,
 	}: {
-		media: Media | string;
+		media: Media | string | undefined;
 		size?: 'thumbnail'; // TODO: Investigate way to infer this keys from Media["sizes"]
 	}): string => {
+		if (!media) {
+			return '';
+		}
+
 		if (typeof media === 'string') {
 			return media;
 		}

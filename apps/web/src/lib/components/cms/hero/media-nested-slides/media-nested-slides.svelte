@@ -3,6 +3,7 @@
 	import {
 		resolveLinkAppearance,
 		resolveLinkHref,
+		resolveMediaSource,
 		resolveResourceSize,
 	} from '@jinen/web-resolvers';
 	import { Link } from '../../Link';
@@ -17,8 +18,6 @@
 
 	$: items = options.source?.mediaNestedSlides?.items ?? [];
 	$: item = items[currentIndex];
-	$: backgroundImageUrl =
-		typeof item.background === 'object' ? item.background.url : item.background;
 
 	async function goTo(index: number) {
 		currentIndex = index;
@@ -32,7 +31,7 @@
 >
 	<div
 		class="relative h-full w-full overflow-hidden bg-black/90 bg-cover bg-fixed bg-center bg-no-repeat bg-blend-soft-light"
-		style={`background-image: url(${backgroundImageUrl});`}
+		style={`background-image: url(${resolveMediaSource({ media: item.background })});`}
 	>
 		<div class="container grid h-full grid-cols-1 py-6 xl:grid-cols-2">
 			<MediaNestedSlidesInfo>
