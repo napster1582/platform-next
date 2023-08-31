@@ -84,7 +84,7 @@ export const FieldMediaNestedSlides: CustomField = (options) =>
 									name: 'title',
 									label: 'Título',
 									type: 'text',
-									maxLength: 20,
+									maxLength: 40,
 									required: true,
 								},
 								{
