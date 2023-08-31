@@ -1,14 +1,18 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { Alert, Content, EmbeddedEvents, Hero, Img, Link, Media, Menu } from '$lib/components';
-	import { domStore } from '$lib/stores';
-	import {
-		resolveEvents,
-		resolveHeroVariant,
-		resolveLinkAppearance,
-		resolveLinkHref,
-		resolveResourceSize,
-	} from '$lib/utils';
+	import { Alert } from '$lib/components/Alert';
+	import { EmbeddedEvents } from '$lib/components/EmbeddedEvents';
+	import { Img } from '$lib/components/Img';
+	import { Link } from '$lib/components/Link';
+	import { Media } from '$lib/components/Media';
+	import { Menu } from '$lib/components/Menu';
+	import { Content } from '$lib/components/cms/Content';
+	import { Hero } from '$lib/components/cms/Hero';
+	import { domStore } from '$lib/stores/dom';
+	import { resolveEvents } from '$lib/utils/resolve-events';
+	import { resolveHeroVariant } from '$lib/utils/resolve-hero-variant';
+	import { resolveLinkAppearance, resolveLinkHref } from '$lib/utils/resolve-link';
+	import { resolveResourceSize } from '$lib/utils/resolve-resource-size';
 	import type { Menu as CmsMenu, Page as CmsPage } from '@jinen/cms-annotations';
 	import { isEmpty } from '@jinen/helpers';
 	import { sanitize } from 'isomorphic-dompurify';

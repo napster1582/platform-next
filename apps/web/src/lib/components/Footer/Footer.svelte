@@ -1,10 +1,11 @@
 <script lang="ts">
-	import { resolveLinkAppearance, resolveLinkHref, resolveResourceSize } from '$lib/utils';
+	import { resolveLinkAppearance, resolveLinkHref } from '$lib/utils/resolve-link';
+	import { resolveResourceSize } from '$lib/utils/resolve-resource-size';
 	import type { Footer } from '@jinen/cms-annotations';
 	import { pkg } from '@jinen/helpers';
 	import { Badge } from '../Badge';
-	import { Content } from '../Content';
 	import { Link } from '../Link';
+	import { Content } from '../cms/Content';
 
 	export let content: Footer;
 </script>

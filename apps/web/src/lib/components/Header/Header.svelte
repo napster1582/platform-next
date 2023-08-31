@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { resolveLinkAppearance, resolveLinkHref, resolveResourceSize } from '$lib/utils';
+	import { resolveLinkAppearance, resolveLinkHref } from '$lib/utils/resolve-link';
+	import { resolveResourceSize } from '$lib/utils/resolve-resource-size';
 	import Icon from '@iconify/svelte';
 	import { LinkAppearance, type Header } from '@jinen/cms-annotations';
 	import { Popover, PopoverButton, PopoverPanel, Transition } from '@rgossiaux/svelte-headlessui';

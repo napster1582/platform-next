@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { navigating } from '$app/stores';
-	import { Footer, Header, LoadingOverlay } from '$lib/components';
-	import { domStore, loadingStore } from '$lib/stores';
+	import { Footer } from '$lib/components/Footer';
+	import { Header } from '$lib/components/Header';
+	import { LoadingOverlay } from '$lib/components/LoadingOverlay';
+	import { domStore } from '$lib/stores/dom';
+	import { loadingStore } from '$lib/stores/loading';
 	import { isEmpty } from '@jinen/helpers';
 	import type { LayoutData } from './$types';
 

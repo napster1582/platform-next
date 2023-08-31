@@ -2,8 +2,8 @@
 	import { LinkAppearance } from '@jinen/cms-annotations';
 	import escapeHTML from 'escape-html';
 	import { Text } from 'slate';
-	import Link from '../Link/Link.svelte';
-	import { SectionTitle } from '../SectionTitle';
+	import Link from '../../Link/Link.svelte';
+	import { SectionTitle } from '../../SectionTitle';
 
 	export let nodes: Array<{
 		[k: string]: unknown | Array<unknown>;
