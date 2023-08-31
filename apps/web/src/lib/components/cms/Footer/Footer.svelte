@@ -1,11 +1,12 @@
 <script lang="ts">
+	import { Img } from '$lib/components/Img';
 	import { resolveLinkAppearance, resolveLinkHref } from '$lib/utils/resolve-link';
 	import { resolveResourceSize } from '$lib/utils/resolve-resource-size';
 	import type { Footer } from '@jinen/cms-annotations';
 	import { pkg } from '@jinen/helpers';
 	import { Badge } from '../../Badge';
-	import { Link } from '../../Link';
 	import { Content } from '../Content';
+	import { Link } from '../Link';
 
 	export let content: Footer;
 </script>
@@ -26,7 +27,7 @@
 			<div class="flex max-w-[300px] flex-wrap items-center gap-6">
 				{#each content.logos ?? [] as { logo }}
 					{#if typeof logo === 'object'}
-						<img
+						<Img
 							src={logo.url}
 							alt={logo.alt}
 							class="w-28"

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { resolveLinkHref } from '$lib/utils/resolve-link';
 	import { LinkAppearance, type Menu } from '@jinen/cms-annotations';
-	import { Link } from '../../Link';
+	import { Link } from '../Link';
 	import MenuItem from './MenuItem.svelte';
 
 	export let content: Menu;

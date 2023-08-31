@@ -2,7 +2,7 @@
 	import { resolveResourceSize } from '$lib/utils/resolve-resource-size';
 	import Icon from '@iconify/svelte';
 	import { resolveLinkAppearance, resolveLinkHref } from '../../../../utils/resolve-link';
-	import { Link } from '../../../Link';
+	import { Link } from '../../Link';
 	import type { HeroOptions } from '../types';
 	import MediaNestedSlidesInfo from './MediaNestedSlidesInfo.svelte';
 	import MediaNestedSlidesPreviews from './MediaNestedSlidesPreviews.svelte';

@@ -12,7 +12,7 @@
 <style lang="postcss">
 	.jinen-title {
 		@apply relative;
-		@apply from-primary-800 via-primary-400 to-primary-100 bg-gradient-to-br;
+		@apply bg-gradient-to-br from-primary-800 via-primary-400 to-primary-100;
 		@apply bg-clip-text text-transparent;
 		@apply mb-2;
 	}

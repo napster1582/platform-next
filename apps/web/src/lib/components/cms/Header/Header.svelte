@@ -5,8 +5,8 @@
 	import { LinkAppearance, type Header } from '@jinen/cms-annotations';
 	import { Popover, PopoverButton, PopoverPanel, Transition } from '@rgossiaux/svelte-headlessui';
 	import { Img } from '../../Img';
-	import { Link } from '../../Link';
 	import { ThemeCustomizer } from '../../theme-customizer';
+	import { Link } from '../Link';
 
 	export let content: Header;
 </script>

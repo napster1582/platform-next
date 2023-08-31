@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Media } from '@jinen/cms-annotations';
-	import { Img } from '../Img';
-	import { Video } from '../Video';
+	import { Img } from '../../Img';
+	import { Video } from '../../Video';
 
 	export let content: Media | string;
 

@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { Alert } from '$lib/components/Alert';
-	import { EmbeddedEvents } from '$lib/components/EmbeddedEvents';
 	import { Img } from '$lib/components/Img';
-	import { Link } from '$lib/components/Link';
-	import { Media } from '$lib/components/Media';
+	import { Alert } from '$lib/components/cms/Alert';
 	import { Content } from '$lib/components/cms/Content';
+	import { EmbeddedEvents } from '$lib/components/cms/EmbeddedEvents';
 	import { Hero } from '$lib/components/cms/Hero';
+	import { Link } from '$lib/components/cms/Link';
+	import { Media } from '$lib/components/cms/Media';
 	import { Menu } from '$lib/components/cms/Menu';
 	import { domStore } from '$lib/stores/dom';
 	import { resolveEvents } from '$lib/utils/resolve-events';
