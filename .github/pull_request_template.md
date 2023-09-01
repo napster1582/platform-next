@@ -8,14 +8,14 @@ Closes: #0
 
 Asegúrese de que su PR cumple con los siguientes requisitos:
 
-- [ ] La implementación sigue las pautas de desarrollo:
-  - <https://github.com/JinenGroup/platform-next/blob/trunk/CONTRIBUTING.md>
-- [ ] Se han añadido pruebas que validan los cambios (para correcciones de errores / nuevas características)
-- [ ] Se han añadido o actualizado documentos relevantes (para correcciones de errores / nuevas características)
-- [ ] Los cambios no generan nuevas advertencias o errores de linter
-- [ ] Los cambios no incluyen `console.log` innecesarios
-- [ ] Los cambios no introducen ninguna vulnerabilidad de seguridad
-- [ ] Los cambios son compatibles con los navegadores / plataformas principales
+-   [ ] La implementación sigue las pautas de desarrollo:
+    -   <https://github.com/JinenGroup/platform-next/blob/trunk/CONTRIBUTING.md>
+-   [ ] Se han añadido pruebas que validan los cambios (para correcciones de errores / nuevas características)
+-   [ ] Se han añadido o actualizado documentos relevantes (para correcciones de errores / nuevas características)
+-   [ ] Los cambios no generan nuevas advertencias o errores de linter
+-   [ ] Los cambios no incluyen `console.log` innecesarios
+-   [ ] Los cambios no introducen ninguna vulnerabilidad de seguridad
+-   [ ] Los cambios son compatibles con los navegadores / plataformas principales
 
 ## Categoría
 
@@ -43,25 +43,13 @@ Asegúrese de que su PR cumple con los siguientes requisitos:
 
 <!-- Marque con "x" las aplicaciones que se ven afectadas por los cambios. -->
 
-- [ ] `docs`
-- [ ] `cms`
-- [ ] `web`
+-   [ ] `docs`
+-   [ ] `cms`
+-   [ ] `web`
 
-## 📝 Descripción
+## Descripción
 
-<!-- Proporcione una descripción detallada de los cambios propuestos en este PR -->
-
-## 📝 Contexto adicional
-
-<!-- Proporcione cualquier contexto adicional sobre el problema que se está resolviendo. Si es posible, incluya capturas de pantalla para ayudar a explicar los cambios realizados. -->
-
-<!-- ELIMINAR ESTA SECCIÓN SI NO APLICA -->
-
-## 📝 Impacto en el rendimiento
-
-<!-- Si los cambios en este PR afectan el rendimiento de la aplicación, proporcione detalles sobre las pruebas de rendimiento realizadas y los resultados obtenidos. -->
-
-<!-- ELIMINAR ESTA SECCIÓN SI NO APLICA -->
+<!-- Proporcione una descripción de los cambios propuestos en este PR -->
 
 ## ¿Este PR introduce un cambio que rompe la compatibilidad (BREAKING-CHANGE)?
 
