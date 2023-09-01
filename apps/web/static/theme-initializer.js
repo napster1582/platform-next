@@ -31,11 +31,7 @@ const mode = handleLocalStorage({
 	defaultValue: DEFAULT_MODE,
 });
 document.documentElement.classList.add(
-	mode === 'system'
-		? window.matchMedia('(prefers-color-scheme: dark)').matches
-			? 'dark'
-			: 'light'
-		: mode,
+	mode === 'system' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : mode,
 );
 
 const color = handleLocalStorage({
