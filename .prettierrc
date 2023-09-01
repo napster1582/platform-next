@@ -8,7 +8,7 @@
 	"endOfLine": "auto",
 	"overrides": [
 		{
-			"files": ["*.md", "*.json", "*.yml", "*.yaml"],
+			"files": ["*.md", "*.yml", "*.yaml"],
 			"options": {
 				"tabWidth": 2
 			}

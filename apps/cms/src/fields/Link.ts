@@ -18,31 +18,35 @@ export const FieldLink: CustomField = (options) =>
 					label: 'Apariencia',
 					options: [
 						{
-							label: 'Inferido',
-							value: LinkAppearance.Inferred,
+							label: 'Sin diseño',
+							value: LinkAppearance.NoDesign,
 						},
 						{
-							label: 'Texto',
-							value: LinkAppearance.Text,
+							label: 'Hipervínculo',
+							value: LinkAppearance.Hyperlink,
 						},
 						{
-							label: 'CTA',
+							label: 'Texto, Ícono o Ambos',
+							value: LinkAppearance.TextIcon,
+						},
+						{
+							label: 'CTA (Call to Action)',
 							value: LinkAppearance.Cta,
 						},
 						{
-							label: 'Botón',
-							value: LinkAppearance.Button,
+							label: 'Botón primario',
+							value: LinkAppearance.ButtonPrimary,
+						},
+						{
+							label: 'Botón secundario',
+							value: LinkAppearance.ButtonSecondary,
 						},
 						{
 							label: 'Botón (variante texto)',
 							value: LinkAppearance.ButtonText,
 						},
-						{
-							label: 'Botón (variante contenida)',
-							value: LinkAppearance.ButtonContained,
-						},
 					],
-					defaultValue: LinkAppearance.Text,
+					defaultValue: LinkAppearance.Hyperlink,
 				},
 				{
 					type: 'radio',
@@ -79,7 +83,7 @@ export const FieldLink: CustomField = (options) =>
 					label: 'Texto a mostrar',
 					admin: {
 						condition: (_: unknown, siblingData: Record<string, unknown>) =>
-							siblingData?.appearance !== LinkAppearance.Inferred,
+							siblingData?.appearance !== LinkAppearance.NoDesign,
 					},
 				},
 				{
@@ -90,7 +94,7 @@ export const FieldLink: CustomField = (options) =>
 					defaultValue: false,
 					admin: {
 						condition: (_: unknown, siblingData: Record<string, unknown>) =>
-							siblingData?.appearance !== LinkAppearance.Inferred,
+							siblingData?.appearance !== LinkAppearance.NoDesign,
 					},
 				},
 				{
@@ -105,7 +109,7 @@ export const FieldLink: CustomField = (options) =>
 								description: 'https://icones.js.org/',
 								condition: (_: unknown, siblingData: Record<string, unknown>) =>
 									siblingData?.showIcon &&
-									siblingData?.appearance !== LinkAppearance.Inferred,
+									siblingData?.appearance !== LinkAppearance.NoDesign,
 							},
 						},
 						{
@@ -117,7 +121,7 @@ export const FieldLink: CustomField = (options) =>
 							admin: {
 								condition: (_: unknown, siblingData: Record<string, unknown>) =>
 									siblingData?.showIcon &&
-									siblingData?.appearance !== LinkAppearance.Inferred,
+									siblingData?.appearance !== LinkAppearance.NoDesign,
 							},
 						},
 					],

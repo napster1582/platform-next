@@ -6,7 +6,7 @@
 
 <div
 	role="button"
-	class="button button-solid"
+	class="button button-primary"
 >
 	<slot name="icon" />
 

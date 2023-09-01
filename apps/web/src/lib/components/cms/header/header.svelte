@@ -2,12 +2,7 @@
 	import { env } from '$env/dynamic/public';
 	import Icon from '@iconify/svelte';
 	import { LinkAppearance, type Header } from '@jinen/cms-annotations';
-	import {
-		resolveLinkAppearance,
-		resolveLinkHref,
-		resolveMediaSource,
-		resolveResourceSize,
-	} from '@jinen/web-resolvers';
+	import { resolveLinkHref, resolveMediaSource, resolveResourceSize } from '@jinen/web-resolvers';
 	import { Popover, PopoverButton, PopoverPanel, Transition } from '@rgossiaux/svelte-headlessui';
 	import { Img } from '../../img';
 	import { ThemeCustomizer } from '../../theme-customizer';
@@ -26,7 +21,7 @@
 					class="overflow-hidden"
 					options={{
 						href: '/',
-						appearance: LinkAppearance.Inferred,
+						appearance: LinkAppearance.NoDesign,
 					}}
 				>
 					<Img
@@ -44,7 +39,7 @@
 							class="popover"
 							let:open
 						>
-							<PopoverButton class="popover-button button button-ghost">
+							<PopoverButton class="popover-button button button-text">
 								{#if link.icon}
 									<Icon
 										icon={link.icon}
@@ -83,9 +78,7 @@
 													internal: link.internalLinkReference?.value,
 													external: link.externalLink,
 												}),
-												appearance: resolveLinkAppearance({
-													appearance: link.appearance,
-												}),
+												appearance: LinkAppearance.NoDesign,
 												indicator: link.indicator,
 												text: link.text,
 												showIcon: link.showIcon,
@@ -108,9 +101,7 @@
 									internal: link.internalLinkReference?.value,
 									external: link.externalLink,
 								}),
-								appearance: resolveLinkAppearance({
-									appearance: link.appearance,
-								}),
+								appearance: LinkAppearance.ButtonText,
 								indicator: link.indicator,
 								text: link.text,
 								showIcon: link.showIcon,
@@ -130,7 +121,7 @@
 			<ThemeCustomizer />
 
 			<a
-				class="button button-solid"
+				class="button button-primary"
 				href={env.PUBLIC_CMS_URL + '/admin/login'}
 				aria-label="Ingresar"
 			>

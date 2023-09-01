@@ -94,7 +94,7 @@ export interface Page {
         background?: string | Media;
         show?: boolean;
         link?: {
-          appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
+          appearance?: 'noDesign' | 'text' | 'hyperlink' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
           type?: 'internal' | 'external';
           indicator?: string;
           text?: string;
@@ -173,7 +173,14 @@ export interface Page {
           }
         | {
             link: {
-              appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
+              appearance?:
+                | 'noDesign'
+                | 'text'
+                | 'hyperlink'
+                | 'cta'
+                | 'buttonPrimary'
+                | 'buttonSecondary'
+                | 'buttonText';
               type?: 'internal' | 'external';
               indicator?: string;
               text?: string;
@@ -207,7 +214,14 @@ export interface Page {
         | {
             links?: {
               link: {
-                appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
+                appearance?:
+                  | 'noDesign'
+                  | 'text'
+                  | 'hyperlink'
+                  | 'cta'
+                  | 'buttonPrimary'
+                  | 'buttonSecondary'
+                  | 'buttonText';
                 type?: 'internal' | 'external';
                 indicator?: string;
                 text?: string;
@@ -407,7 +421,7 @@ export interface Event {
   linkGroup?: {
     addLink?: boolean;
     link?: {
-      appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
+      appearance?: 'noDesign' | 'text' | 'hyperlink' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
       type?: 'internal' | 'external';
       indicator?: string;
       text?: string;
@@ -442,7 +456,7 @@ export interface Header {
   logo?: string | Media;
   navbar?: {
     link: {
-      appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
+      appearance?: 'noDesign' | 'text' | 'hyperlink' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
       type?: 'internal' | 'external';
       indicator?: string;
       text?: string;
@@ -458,7 +472,7 @@ export interface Header {
     };
     links?: {
       link: {
-        appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
+        appearance?: 'noDesign' | 'text' | 'hyperlink' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
         type?: 'internal' | 'external';
         indicator?: string;
         text?: string;
@@ -486,7 +500,7 @@ export interface Menu {
     icon?: string | Media;
     description?: string;
     link: {
-      appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
+      appearance?: 'noDesign' | 'text' | 'hyperlink' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
       type?: 'internal' | 'external';
       indicator?: string;
       text?: string;
@@ -517,7 +531,7 @@ export interface Footer {
       layout?: 'vertical' | 'horizontal';
       links?: {
         link: {
-          appearance?: 'inferred' | 'text' | 'cta' | 'button' | 'buttonText' | 'buttonContained';
+          appearance?: 'noDesign' | 'text' | 'hyperlink' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
           type?: 'internal' | 'external';
           indicator?: string;
           text?: string;

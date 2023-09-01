@@ -96,7 +96,7 @@
 			<Link
 				options={{
 					href: escapeHTML(`${node.url}`),
-					appearance: LinkAppearance.Inferred,
+					appearance: LinkAppearance.Hyperlink,
 				}}
 			>
 				<svelte:self nodes={node.children} />

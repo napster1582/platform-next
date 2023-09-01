@@ -25,12 +25,12 @@ export const resolveLinkHref = memoize(
 export const resolveLinkAppearance = memoize(
 	({ appearance }: { appearance: string | undefined }): LinkAppearance => {
 		if (!appearance) {
-			return LinkAppearance.Text;
+			return LinkAppearance.Hyperlink;
 		}
 
 		if (!Object.values(LinkAppearance).includes(appearance as LinkAppearance)) {
 			console.error(`${appearance} is not part of the enum LinkAppearance`);
-			return LinkAppearance.Text;
+			return LinkAppearance.Hyperlink;
 		}
 
 		return appearance as LinkAppearance;

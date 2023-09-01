@@ -1,8 +1,9 @@
 export enum LinkAppearance {
-	Inferred = 'inferred',
-	Text = 'text',
+	NoDesign = 'noDesign',
+	Hyperlink = 'hyperlink',
+	TextIcon = 'textIcon',
 	Cta = 'cta',
-	Button = 'button',
+	ButtonPrimary = 'buttonPrimary',
+	ButtonSecondary = 'buttonSecondary',
 	ButtonText = 'buttonText',
-	ButtonContained = 'buttonContained',
 }
