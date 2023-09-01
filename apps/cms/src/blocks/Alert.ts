@@ -28,8 +28,6 @@ export const BlockAlert = {
 					type: 'checkbox',
 					name: 'showImages',
 					label: 'Mostrar imágenes',
-					required: true,
-					defaultValue: false,
 				},
 				{
 					type: 'array',

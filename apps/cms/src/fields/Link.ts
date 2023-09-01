@@ -91,7 +91,6 @@ export const FieldLink: CustomField = (options) =>
 					name: 'showIcon',
 					label: 'Mostrar ícono',
 					required: true,
-					defaultValue: false,
 					admin: {
 						condition: (_: unknown, siblingData: Record<string, unknown>) =>
 							siblingData?.appearance !== LinkAppearance.NoDesign,
@@ -157,7 +156,6 @@ export const FieldLink: CustomField = (options) =>
 					type: 'checkbox',
 					name: 'openInNewTab',
 					label: 'Abrir en nueva pestaña',
-					defaultValue: false,
 				},
 			],
 		},

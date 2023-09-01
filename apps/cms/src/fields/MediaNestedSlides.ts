@@ -12,6 +12,36 @@ export const FieldMediaNestedSlides: CustomField = (options) =>
 			type: 'group',
 			fields: [
 				{
+					label: 'Configuración',
+					type: 'collapsible',
+					fields: [
+						{
+							name: 'enableExternalAutoTransitions',
+							label: 'Habilitar transiciones automáticas para los elementos externos',
+							type: 'checkbox',
+						},
+						{
+							name: 'enableInternalAutoTransitions',
+							label: 'Habilitar transiciones automáticas para los elementos internos',
+							type: 'checkbox',
+						},
+						{
+							name: 'autoTransitionDuration',
+							label: 'Duración de transición automática (segundos)',
+							type: 'number',
+							required: true,
+							defaultValue: 8,
+							admin: {
+								description:
+									'Especifique la duración de cada transición en segundos (e.g., 6, 10, 15, etc). Si habilita las dos opciones anteriores, las transiciones se alternarán en ciclos compuestos que incluyen elementos externos e internos.',
+								condition: (_: unknown, siblingData: Record<string, unknown>) =>
+									siblingData.enableExternalAutoTransitions ||
+									siblingData.enableInternalAutoTransitions,
+							},
+						},
+					],
+				},
+				{
 					name: 'items',
 					label: 'Elementos',
 					labels: {
@@ -62,7 +92,6 @@ export const FieldMediaNestedSlides: CustomField = (options) =>
 							name: 'show',
 							label: 'Mostrar enlace',
 							type: 'checkbox',
-							defaultValue: false,
 						},
 						FieldLink({
 							overrides: {

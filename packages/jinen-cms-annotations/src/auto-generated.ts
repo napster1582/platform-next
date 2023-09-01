@@ -87,6 +87,9 @@ export interface Page {
   hero?: {
     variant: 'mediaNestedSlides';
     mediaNestedSlides?: {
+      enableExternalAutoTransitions?: boolean;
+      enableInternalAutoTransitions?: boolean;
+      autoTransitionDuration: number;
       items?: {
         indicator: string;
         title: string;
@@ -94,7 +97,14 @@ export interface Page {
         background?: string | Media;
         show?: boolean;
         link?: {
-          appearance?: 'noDesign' | 'text' | 'hyperlink' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
+          appearance?:
+            | 'noDesign'
+            | 'hyperlink'
+            | 'textIcon'
+            | 'cta'
+            | 'buttonPrimary'
+            | 'buttonSecondary'
+            | 'buttonText';
           type?: 'internal' | 'external';
           indicator?: string;
           text?: string;
@@ -143,8 +153,8 @@ export interface Page {
         | {
             title?: string;
             description: string;
-            images: {
-              showImages: boolean;
+            images?: {
+              showImages?: boolean;
               images?: {
                 position?: 'left' | 'right';
                 image?: string | Media;
@@ -175,8 +185,8 @@ export interface Page {
             link: {
               appearance?:
                 | 'noDesign'
-                | 'text'
                 | 'hyperlink'
+                | 'textIcon'
                 | 'cta'
                 | 'buttonPrimary'
                 | 'buttonSecondary'
@@ -216,8 +226,8 @@ export interface Page {
               link: {
                 appearance?:
                   | 'noDesign'
-                  | 'text'
                   | 'hyperlink'
+                  | 'textIcon'
                   | 'cta'
                   | 'buttonPrimary'
                   | 'buttonSecondary'
@@ -421,7 +431,7 @@ export interface Event {
   linkGroup?: {
     addLink?: boolean;
     link?: {
-      appearance?: 'noDesign' | 'text' | 'hyperlink' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
+      appearance?: 'noDesign' | 'hyperlink' | 'textIcon' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
       type?: 'internal' | 'external';
       indicator?: string;
       text?: string;
@@ -456,7 +466,7 @@ export interface Header {
   logo?: string | Media;
   navbar?: {
     link: {
-      appearance?: 'noDesign' | 'text' | 'hyperlink' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
+      appearance?: 'noDesign' | 'hyperlink' | 'textIcon' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
       type?: 'internal' | 'external';
       indicator?: string;
       text?: string;
@@ -472,7 +482,7 @@ export interface Header {
     };
     links?: {
       link: {
-        appearance?: 'noDesign' | 'text' | 'hyperlink' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
+        appearance?: 'noDesign' | 'hyperlink' | 'textIcon' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
         type?: 'internal' | 'external';
         indicator?: string;
         text?: string;
@@ -500,7 +510,7 @@ export interface Menu {
     icon?: string | Media;
     description?: string;
     link: {
-      appearance?: 'noDesign' | 'text' | 'hyperlink' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
+      appearance?: 'noDesign' | 'hyperlink' | 'textIcon' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
       type?: 'internal' | 'external';
       indicator?: string;
       text?: string;
@@ -531,7 +541,14 @@ export interface Footer {
       layout?: 'vertical' | 'horizontal';
       links?: {
         link: {
-          appearance?: 'noDesign' | 'text' | 'hyperlink' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
+          appearance?:
+            | 'noDesign'
+            | 'hyperlink'
+            | 'textIcon'
+            | 'cta'
+            | 'buttonPrimary'
+            | 'buttonSecondary'
+            | 'buttonText';
           type?: 'internal' | 'external';
           indicator?: string;
           text?: string;
