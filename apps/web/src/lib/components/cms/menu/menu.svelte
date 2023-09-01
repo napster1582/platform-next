@@ -18,7 +18,7 @@
 					internal: item.link.internalLinkReference?.value,
 					external: item.link.externalLink,
 				}),
-				appearance: LinkAppearance.Inferred,
+				appearance: LinkAppearance.NoDesign,
 				openInNewTab: item.link.openInNewTab,
 			}}
 		>

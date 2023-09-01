@@ -1,12 +1,12 @@
 {
-  "recommendations": [
-    "esbenp.prettier-vscode",
-    "dbaeumer.vscode-eslint",
-    "prisma.prisma",
-    "svelte.svelte-vscode",
-    "ardenivanov.svelte-intellisense",
-    "angular.ng-template",
-    "zixuanchen.vitest-explorer",
-    "ms-playwright.playwright"
-  ]
+	"recommendations": [
+		"esbenp.prettier-vscode",
+		"dbaeumer.vscode-eslint",
+		"prisma.prisma",
+		"svelte.svelte-vscode",
+		"ardenivanov.svelte-intellisense",
+		"angular.ng-template",
+		"zixuanchen.vitest-explorer",
+		"ms-playwright.playwright"
+	]
 }

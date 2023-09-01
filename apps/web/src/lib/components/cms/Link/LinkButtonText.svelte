@@ -6,7 +6,7 @@
 
 <div
 	role="button"
-	class="button button-ghost"
+	class="button button-text"
 >
 	<slot name="icon" />
 

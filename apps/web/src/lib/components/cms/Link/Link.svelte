@@ -2,11 +2,12 @@
 	import Icon from '@iconify/svelte';
 	import { ResourceSize } from '@jinen/annotations';
 	import { LinkAppearance } from '@jinen/cms-annotations';
-	import LinkButton from './LinkButton.svelte';
-	import LinkButtonContained from './LinkButtonContained.svelte';
+	import LinkButtonContained from './LinkButtonPrimary.svelte';
+	import LinkButton from './LinkButtonSecondary.svelte';
 	import LinkButtonText from './LinkButtonText.svelte';
 	import LinkCta from './LinkCta.svelte';
-	import LinkText from './LinkText.svelte';
+	import LinkHyperlink from './LinkHyperlink.svelte';
+	import LinkTextIcon from './LinkTextIcon.svelte';
 	import type { LinkOptions } from './types';
 
 	export let options: LinkOptions;
@@ -24,20 +25,22 @@
 
 	$: Component = (() => {
 		switch (options.appearance) {
-			case LinkAppearance.Inferred:
+			case LinkAppearance.NoDesign:
 				return null;
-			case LinkAppearance.Text:
-				return LinkText;
+			case LinkAppearance.Hyperlink:
+				return LinkHyperlink;
+			case LinkAppearance.TextIcon:
+				return LinkTextIcon;
 			case LinkAppearance.Cta:
 				return LinkCta;
-			case LinkAppearance.Button:
+			case LinkAppearance.ButtonPrimary:
+				return LinkButtonContained;
+			case LinkAppearance.ButtonSecondary:
 				return LinkButton;
 			case LinkAppearance.ButtonText:
 				return LinkButtonText;
-			case LinkAppearance.ButtonContained:
-				return LinkButtonContained;
 			default:
-				console.error(`${options.appearance} is not yet supported.`);
+				console.error(`${options.appearance} is not yet supported.`, options);
 				return null;
 		}
 	})();
@@ -53,7 +56,7 @@
 	{...$$restProps}
 	on:click
 >
-	{#if options.appearance === LinkAppearance.Inferred}
+	{#if options.appearance === LinkAppearance.NoDesign}
 		{#if $$slots.default}
 			<slot />
 		{:else}

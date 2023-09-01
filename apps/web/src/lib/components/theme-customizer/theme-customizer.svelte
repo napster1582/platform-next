@@ -40,11 +40,11 @@
 			<AppearanceTheme />
 		</div>
 
-		<hr class="border-token my-4" />
+		<hr class="my-4 border-token" />
 
 		<div class="button-group button-group-end pb-2">
 			<button
-				class="button button-ghost"
+				class="button button-text"
 				on:click={() => {
 					resetTheme();
 					close(null);
@@ -56,7 +56,7 @@
 			</button>
 
 			<button
-				class="button button-solid"
+				class="button button-primary"
 				on:click={() => {
 					close(null);
 				}}

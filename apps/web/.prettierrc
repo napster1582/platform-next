@@ -9,12 +9,6 @@
 	"plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
 	"overrides": [
 		{
-			"files": ["*.md", "*.json", "*.yml", "*.yaml"],
-			"options": {
-				"tabWidth": 2
-			}
-		},
-		{
 			"files": "*.svelte",
 			"options": { "parser": "svelte" }
 		}

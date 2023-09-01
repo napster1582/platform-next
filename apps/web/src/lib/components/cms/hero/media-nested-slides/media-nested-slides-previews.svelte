@@ -51,9 +51,7 @@
 
 	function scrollToActive() {
 		if (containerRef) {
-			const activeElement = containerRef.querySelector(
-				`[data-preview-index="${currentIndex}"]`,
-			);
+			const activeElement = containerRef.querySelector(`[data-preview-index="${currentIndex}"]`);
 
 			if (activeElement) {
 				activeElement.scrollIntoView({
@@ -67,7 +65,7 @@
 </script>
 
 {#if previews?.length}
-	<div class="flex h-full flex-col justify-center xl:absolute xl:right-0 xl:top-0 xl:max-w-[45%]">
+	<div class="mt-6 flex h-full flex-col justify-center xl:absolute xl:right-0 xl:top-0 xl:max-w-[45%]">
 		<div
 			class="flex snap-x snap-mandatory flex-nowrap overflow-x-hidden xl:py-20 xl:pr-[45%]"
 			bind:this={containerRef}
