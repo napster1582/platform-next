@@ -23,7 +23,7 @@ export async function load({ params }): Promise<{
 
 	try {
 		const response = await fetch(
-			`${env.PUBLIC_CMS_URL}/pages${stringifiedQuery}`,
+			`${env.PUBLIC_CMS_URL}/api/pages${stringifiedQuery}`,
 			buildRequestOptions(),
 		);
 

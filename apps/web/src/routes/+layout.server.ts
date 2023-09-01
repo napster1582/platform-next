@@ -10,9 +10,15 @@ export async function load({ fetch }): Promise<{
 	footer: Footer;
 }> {
 	try {
-		const headerResponse = fetch(`${env.PUBLIC_CMS_URL}/globals/header`, buildRequestOptions());
-		const menuResponse = fetch(`${env.PUBLIC_CMS_URL}/globals/menu`, buildRequestOptions());
-		const footerResponse = fetch(`${env.PUBLIC_CMS_URL}/globals/footer`, buildRequestOptions());
+		const headerResponse = fetch(
+			`${env.PUBLIC_CMS_URL}/api/globals/header`,
+			buildRequestOptions(),
+		);
+		const menuResponse = fetch(`${env.PUBLIC_CMS_URL}/api/globals/menu`, buildRequestOptions());
+		const footerResponse = fetch(
+			`${env.PUBLIC_CMS_URL}/api/globals/footer`,
+			buildRequestOptions(),
+		);
 
 		const validateResponse = async (response: Response) => {
 			if (!response.ok) {

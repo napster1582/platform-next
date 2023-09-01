@@ -48,7 +48,7 @@ services:
     container_name: jinen-web-production
     restart: always
     environment:
-      PUBLIC_CMS_URL: http://cms:3001/api
+      PUBLIC_CMS_URL: http://cms:3001
     depends_on:
       - cms
     ports:
