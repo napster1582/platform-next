@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { env } from '$env/dynamic/public';
 	import Icon from '@iconify/svelte';
 	import { LinkAppearance, type Header } from '@jinen/cms-annotations';
 	import {
@@ -130,7 +131,7 @@
 
 			<a
 				class="button button-solid"
-				href="login"
+				href={env.PUBLIC_CMS_URL + '/admin/login'}
 				aria-label="Ingresar"
 			>
 				<Icon

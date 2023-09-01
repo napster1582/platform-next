@@ -23,7 +23,7 @@ export async function load({ params }): Promise<{
 
 	try {
 		const response = await fetch(
-			`${env.PUBLIC_CMS_URL}/pages${stringifiedQuery}`,
+			`${env.PUBLIC_CMS_URL}/api/pages${stringifiedQuery}`,
 			buildRequestOptions(),
 		);
 
@@ -42,8 +42,6 @@ export async function load({ params }): Promise<{
 		};
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	} catch (errorResponse: any) {
-		console.error(errorResponse);
-
 		throw error(
 			errorResponse?.status || 500,
 			`Failed to load data from the CMS: ${errorResponse} - ${env.PUBLIC_CMS_URL}`,
