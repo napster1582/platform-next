@@ -8,14 +8,14 @@ Closes: #0
 
 Asegúrese de que su PR cumple con los siguientes requisitos:
 
--   [ ] La implementación sigue las pautas de desarrollo:
-    -   <https://github.com/JinenGroup/platform-next/blob/trunk/CONTRIBUTING.md>
--   [ ] Se han añadido pruebas que validan los cambios (para correcciones de errores / nuevas características)
--   [ ] Se han añadido o actualizado documentos relevantes (para correcciones de errores / nuevas características)
--   [ ] Los cambios no generan nuevas advertencias o errores de linter
--   [ ] Los cambios no incluyen `console.log` innecesarios
--   [ ] Los cambios no introducen ninguna vulnerabilidad de seguridad
--   [ ] Los cambios son compatibles con los navegadores / plataformas principales
+- [ ] La implementación sigue las pautas de desarrollo:
+  - <https://github.com/JinenGroup/platform-next/blob/trunk/CONTRIBUTING.md>
+- [ ] Se han añadido pruebas que validan los cambios (para correcciones de errores / nuevas características)
+- [ ] Se han añadido o actualizado documentos relevantes (para correcciones de errores / nuevas características)
+- [ ] Los cambios no generan nuevas advertencias o errores de linter
+- [ ] Los cambios no incluyen `console.log` innecesarios
+- [ ] Los cambios no introducen ninguna vulnerabilidad de seguridad
+- [ ] Los cambios son compatibles con los navegadores / plataformas principales
 
 ## Categoría
 
@@ -43,9 +43,9 @@ Asegúrese de que su PR cumple con los siguientes requisitos:
 
 <!-- Marque con "x" las aplicaciones que se ven afectadas por los cambios. -->
 
--   [ ] `docs`
--   [ ] `cms`
--   [ ] `web`
+- [ ] `docs`
+- [ ] `cms`
+- [ ] `web`
 
 ## Descripción
 
