@@ -50,6 +50,7 @@ module.exports = {
 					{
 						selector: 'memberLike',
 						format: ['strictCamelCase', 'UPPER_CASE'],
+						filter: { regex: '^[0-9]', match: false },
 					},
 					{
 						selector: 'memberLike',

@@ -62,10 +62,6 @@
 			variant: resolveHeroVariant({
 				variant: page?.hero.variant,
 			}),
-			settings: {
-				autoplay: false,
-				duration: 6000,
-			},
 			source: page?.hero,
 		}}
 	/>

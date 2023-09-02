@@ -2,10 +2,6 @@ import type { HeroVariant, Media, Page } from '@jinen/cms-annotations';
 
 export type HeroOptions = {
 	variant: HeroVariant;
-	settings: {
-		autoplay: boolean;
-		duration: number;
-	};
 	source: Page['hero'];
 };
 
