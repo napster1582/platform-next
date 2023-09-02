@@ -1,52 +1,85 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import { resolveMediaSource } from '@jinen/web-resolvers';
-	import { onMount } from 'svelte';
+	import { createEventDispatcher, onDestroy, onMount } from 'svelte';
 	import type { HeroMediaNestedSlidesPreview } from '../types';
 
 	export let previews: HeroMediaNestedSlidesPreview[];
+	export let autoTransitionsEnabled: boolean;
+	export let autoTransitionsDuration: number;
+
+	const dispatch = createEventDispatcher<{
+		transitioned: {
+			currentIndex: number;
+			currentDirection: 'back' | 'forth' | null;
+			cycleCompleted: boolean;
+		};
+	}>();
 
 	let containerRef: HTMLDivElement | null = null;
-
 	let currentIndex = 0;
-	let direction = 0;
+	let currentDirection: 'back' | 'forth' | null = null;
+	let autoTransitionInterval: ReturnType<typeof setInterval> | null = null;
 
-	onMount(() => scrollToActive());
+	onMount(() => {
+		resetAutoTransitions();
+		scrollToActive();
+	});
+
+	onDestroy(() => {
+		if (autoTransitionInterval) {
+			clearInterval(autoTransitionInterval);
+		}
+	});
+
+	export function resetAutoTransitions() {
+		if (autoTransitionsEnabled) {
+			if (autoTransitionInterval) {
+				clearInterval(autoTransitionInterval);
+			}
+
+			autoTransitionInterval = setInterval(goNext, autoTransitionsDuration);
+		}
+	}
 
 	export function resetState() {
 		currentIndex = 0;
+		currentDirection = null;
 
 		scrollToActive();
+		resetAutoTransitions();
 	}
 
-	async function goTo(index: number) {
+	function goTo(index: number) {
 		currentIndex = index;
+		currentDirection = null;
 
 		scrollToActive();
+		resetAutoTransitions();
 	}
 
-	async function goBack() {
-		direction = -1;
-
-		currentIndex -= 1;
+	function goBack() {
+		currentIndex--;
+		currentDirection = 'back';
 
 		if (currentIndex < 0) {
 			currentIndex = previews.length - 1;
 		}
 
 		scrollToActive();
+		resetAutoTransitions();
 	}
 
-	async function goNext() {
-		direction = 1;
-
-		currentIndex += 1;
+	function goNext() {
+		currentIndex++;
+		currentDirection = 'forth';
 
 		if (currentIndex === previews.length) {
 			currentIndex = 0;
 		}
 
 		scrollToActive();
+		resetAutoTransitions();
 	}
 
 	function scrollToActive() {
@@ -60,6 +93,12 @@
 					block: 'nearest',
 				});
 			}
+
+			dispatch('transitioned', {
+				currentIndex,
+				currentDirection,
+				cycleCompleted: currentIndex === 0 && currentDirection === 'forth',
+			});
 		}
 	}
 </script>
@@ -73,7 +112,7 @@
 			{#each previews as preview, index}
 				<div
 					class="h-full w-full shrink-0 snap-start xl:w-[450px] xl:px-2"
-					class:xl:opacity-0={index < currentIndex && direction === 1}
+					class:xl:opacity-0={index < currentIndex && currentDirection === 'forth'}
 					title={preview.title}
 					data-preview-index={index}
 				>

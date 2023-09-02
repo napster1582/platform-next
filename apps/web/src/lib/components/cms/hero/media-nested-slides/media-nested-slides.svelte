@@ -6,24 +6,100 @@
 		resolveMediaSource,
 		resolveResourceSize,
 	} from '@jinen/web-resolvers';
+	import { onDestroy, onMount } from 'svelte';
+	import ProgressBar from '../../../progress-bar/progress-bar.svelte';
 	import { Link } from '../../Link';
 	import type { HeroOptions } from '../types';
 	import MediaNestedSlidesInfo from './media-nested-slides-info.svelte';
 	import MediaNestedSlidesPreviews from './media-nested-slides-previews.svelte';
 
+	const DEFAULT_AUTO_TRANSITION_DURATION = 8000 as const;
+
 	export let options: HeroOptions;
 
 	let carouselPreviewsRef: MediaNestedSlidesPreviews | null = null;
 	let currentIndex = 0;
+	let completedCycles = 0;
+	let autoTransitionInterval: ReturnType<typeof setInterval> | null = null;
 
-	$: items = options.source?.mediaNestedSlides?.items ?? [];
+	$: content = options.source?.mediaNestedSlides;
+	$: items = content?.items ?? [];
 	$: item = items[currentIndex];
+	$: autoTransitionDuration = content?.autoTransitionDuration
+		? content.autoTransitionDuration * 1000
+		: DEFAULT_AUTO_TRANSITION_DURATION;
 
-	async function goTo(index: number) {
+	onMount(() => {
+		resetAutoTransitions();
+
+		if (!content?.enableInternalAutoTransitions) {
+			startAutoTransitions();
+		}
+	});
+
+	onDestroy(() => {
+		if (autoTransitionInterval) {
+			clearInterval(autoTransitionInterval);
+		}
+	});
+
+	function resetAutoTransitions() {
+		completedCycles = 0;
+
+		if (autoTransitionInterval) {
+			clearInterval(autoTransitionInterval);
+			autoTransitionInterval = null;
+		}
+	}
+
+	function startAutoTransitions() {
+		if (content?.enableExternalAutoTransitions) {
+			autoTransitionInterval = setInterval(goNext, autoTransitionDuration);
+		}
+	}
+
+	function handlePreviewsTransitioning(
+		event: CustomEvent<{
+			currentIndex: number;
+			currentDirection: 'back' | 'forth' | null;
+			cycleCompleted: boolean;
+		}>,
+	) {
+		console.log(
+			event.detail,
+			content?.enableExternalAutoTransitions,
+			completedCycles,
+			content?.internalAutoTransitionCycles,
+		);
+
+		if (event.detail.cycleCompleted) {
+			completedCycles++;
+		}
+
+		if (
+			content?.enableExternalAutoTransitions &&
+			completedCycles === content?.internalAutoTransitionCycles
+		) {
+			goNext();
+		}
+	}
+
+	function goTo(index: number) {
+		resetAutoTransitions();
 		currentIndex = index;
 		carouselPreviewsRef?.resetState();
 	}
+
+	function goNext() {
+		resetAutoTransitions();
+		currentIndex = (currentIndex + 1) % items.length;
+		carouselPreviewsRef?.resetState();
+	}
 </script>
+
+{#if content?.enableExternalAutoTransitions && content?.showExternalProgressIndicator}
+	<ProgressBar value={((currentIndex + 1) / items.length) * 100}></ProgressBar>
+{/if}
 
 <div
 	id="media-nested-slides"
@@ -96,6 +172,9 @@
 			<MediaNestedSlidesPreviews
 				bind:this={carouselPreviewsRef}
 				previews={item.previews ?? []}
+				autoTransitionsEnabled={content?.enableInternalAutoTransitions ?? false}
+				autoTransitionsDuration={autoTransitionDuration}
+				on:transitioned={handlePreviewsTransitioning}
 			/>
 		</div>
 	</div>

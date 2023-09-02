@@ -21,9 +21,31 @@ export const FieldMediaNestedSlides: CustomField = (options) =>
 							type: 'checkbox',
 						},
 						{
-							name: 'enableInternalAutoTransitions',
-							label: 'Habilitar transiciones automáticas para los elementos internos',
-							type: 'checkbox',
+							type: 'row',
+							fields: [
+								{
+									name: 'enableInternalAutoTransitions',
+									label: 'Habilitar transiciones automáticas para los elementos internos',
+									type: 'checkbox',
+								},
+								{
+									name: 'internalAutoTransitionCycles',
+									label: 'Cantidad de ciclos de transición',
+									type: 'number',
+									min: 1,
+									max: 5,
+									required: true,
+									defaultValue: 1,
+									admin: {
+										description:
+											'Especifique la cantidad de ciclos de transiciones para los elementos internos.',
+										condition: (
+											_: unknown,
+											siblingData: Record<string, unknown>,
+										) => siblingData.enableInternalAutoTransitions,
+									},
+								},
+							],
 						},
 						{
 							name: 'autoTransitionDuration',
@@ -36,6 +58,30 @@ export const FieldMediaNestedSlides: CustomField = (options) =>
 									'Especifique la duración de cada transición en segundos (e.g., 6, 10, 15, etc). Si habilita las dos opciones anteriores, las transiciones se alternarán en ciclos compuestos que incluyen elementos externos e internos.',
 								condition: (_: unknown, siblingData: Record<string, unknown>) =>
 									siblingData.enableExternalAutoTransitions ||
+									siblingData.enableInternalAutoTransitions,
+							},
+						},
+						{
+							name: 'showExternalProgressIndicator',
+							label: 'Mostrar indicador de progreso para los elementos externos',
+							type: 'checkbox',
+							defaultValue: true,
+							admin: {
+								description:
+									'Muestra indicador de progreso cuando la transición automática de elementos externos está habilitada.',
+								condition: (_: unknown, siblingData: Record<string, unknown>) =>
+									siblingData.enableExternalAutoTransitions,
+							},
+						},
+						{
+							name: 'showInternalProgressIndicator',
+							label: 'Mostrar indicador de progreso para los elementos internos',
+							type: 'checkbox',
+							defaultValue: true,
+							admin: {
+								description:
+									'Muestra indicador de progreso cuando la transición automática de elementos internos está habilitada.',
+								condition: (_: unknown, siblingData: Record<string, unknown>) =>
 									siblingData.enableInternalAutoTransitions,
 							},
 						},

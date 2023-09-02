@@ -89,7 +89,10 @@ export interface Page {
     mediaNestedSlides?: {
       enableExternalAutoTransitions?: boolean;
       enableInternalAutoTransitions?: boolean;
+      internalAutoTransitionCycles: number;
       autoTransitionDuration: number;
+      showExternalProgressIndicator?: boolean;
+      showInternalProgressIndicator?: boolean;
       items?: {
         indicator: string;
         title: string;

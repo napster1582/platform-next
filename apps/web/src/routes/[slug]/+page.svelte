@@ -105,8 +105,8 @@
 											</svelte:fragment>
 
 											<svelte:fragment slot="left">
-												{#if block.images.showImages}
-													{#each block.images.images?.filter((image) => image.position === 'left') ?? [] as { image }}
+												{#if block.images?.showImages}
+													{#each block.images?.images?.filter((image) => image.position === 'left') ?? [] as { image }}
 														{#if typeof image === 'object'}
 															<Img
 																class="w-32"
@@ -123,8 +123,8 @@
 											</svelte:fragment>
 
 											<svelte:fragment slot="right">
-												{#if block.images.showImages}
-													{#each block.images.images?.filter((image) => image.position === 'right') ?? [] as { image }}
+												{#if block.images?.showImages}
+													{#each block.images?.images?.filter((image) => image.position === 'right') ?? [] as { image }}
 														{#if typeof image === 'object'}
 															<Img
 																class="w-32"
@@ -148,8 +148,7 @@
 										<Link
 											options={{
 												href: resolveLinkHref({
-													internal:
-														block.link?.internalLinkReference?.value,
+													internal: block.link?.internalLinkReference?.value,
 													external: block.link?.externalLink,
 												}),
 												appearance: resolveLinkAppearance({
@@ -171,8 +170,7 @@
 												<Link
 													options={{
 														href: resolveLinkHref({
-															internal:
-																link?.internalLinkReference?.value,
+															internal: link?.internalLinkReference?.value,
 															external: link?.externalLink,
 														}),
 														appearance: resolveLinkAppearance({
