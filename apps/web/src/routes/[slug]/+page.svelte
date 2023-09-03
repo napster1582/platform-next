@@ -68,7 +68,9 @@
 {/if}
 
 {#if $domStore.showMenu && menu && !isEmpty(menu)}
-	<Menu content={menu} />
+	<div class="mt-32">
+		<Menu content={menu} />
+	</div>
 {/if}
 
 <main>

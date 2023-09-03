@@ -16,22 +16,18 @@
 
 	import '@splidejs/svelte-splide/css';
 
-	const DEFAULT_AUTO_TRANSITION_DURATION = 8000 as const;
-
 	export let options: HeroOptions;
 
 	$: content = options.source?.mediaNestedSlides;
 	$: slides = content?.items ?? [];
-	$: autoTransitionDuration = content?.autoTransitionDuration
-		? content.autoTransitionDuration * 1000
-		: DEFAULT_AUTO_TRANSITION_DURATION;
+	// $: autoTransitionDuration = content?.autoTransitionDuration
+	// 	? content.autoTransitionDuration * 1000
+	// 	: DEFAULT_AUTO_TRANSITION_DURATION;
 
 	let slidesRef: Splide;
 	let slidesThumbnailsRef: SplideSlide;
 
-	console.log(autoTransitionDuration);
-
-	const slidesOptions = defaultSlidesOptions({ interval: autoTransitionDuration });
+	const slidesOptions = defaultSlidesOptions({ interval: 7000 });
 	const slidesThumbnailsOptions = defaultSlidesThumbnailsOptions();
 	const slidesNestedOptions = defaultSlidesNestedOptions();
 
@@ -42,112 +38,111 @@
 	});
 </script>
 
-<div class="mb-32">
-	<Splide
-		bind:this={slidesRef}
-		options={slidesOptions}
-		hasTrack={false}
-	>
-		<div class="relative">
-			<div class="absolute right-0 top-0 z-10 w-full">
-				<SlidesControls />
-			</div>
+<Splide
+	bind:this={slidesRef}
+	options={slidesOptions}
+	hasTrack={false}
+>
+	<div class="relative">
+		<div class="absolute right-0 top-0 z-10 w-full">
+			<SlidesControls />
+		</div>
 
-			<SplideTrack>
+		<SplideTrack>
+			{#each slides as slide}
+				<SplideSlide>
+					<div
+						class="relative h-full cursor-grab bg-black/95 bg-cover bg-center bg-no-repeat pt-16 bg-blend-soft-light active:cursor-grabbing xl:pt-0"
+						style={`background-image: url(${resolveMediaSource({
+							media: slide.background,
+						})});`}
+					>
+						<div
+							class="container grid h-full grid-cols-1 items-center gap-12 py-6 xl:grid-cols-2"
+						>
+							<SlidesInfo>
+								<svelte:fragment slot="title">
+									{slide.title}
+								</svelte:fragment>
+
+								<svelte:fragment slot="description">
+									{slide.description}
+								</svelte:fragment>
+
+								<svelte:fragment slot="link">
+									<Link
+										class="text-primary-300"
+										options={{
+											href: resolveLinkHref({
+												internal: slide.link?.internalLinkReference?.value,
+												external: slide.link?.externalLink,
+											}),
+											appearance: LinkAppearance.ButtonPrimary,
+											indicator: slide.link?.indicator,
+											text: slide.link?.text,
+											showIcon: slide.link?.showIcon,
+											icon: slide.link?.icon,
+											iconSize: resolveResourceSize({
+												resource: slide.link?.iconSize,
+											}),
+											openInNewTab: slide.link?.openInNewTab,
+										}}
+									/>
+								</svelte:fragment>
+							</SlidesInfo>
+
+							{#if slide.previews?.length}
+								<div class="overflow-hidden rounded-token">
+									<SlidesNested
+										previews={slide.previews}
+										options={slidesNestedOptions}
+									/>
+								</div>
+							{/if}
+						</div>
+					</div>
+				</SplideSlide>
+			{/each}
+		</SplideTrack>
+	</div>
+
+	<div class="bottom-0 w-full xl:absolute">
+		<div class="splide__progress">
+			<div class="splide__progress__bar" />
+		</div>
+	</div>
+
+	<div class="top-[calc(100%-40px)] w-full xl:absolute">
+		<div class="thumbnails">
+			<Splide
+				bind:this={slidesThumbnailsRef}
+				options={slidesThumbnailsOptions}
+			>
 				{#each slides as slide}
 					<SplideSlide>
 						<div
-							class="relative h-full cursor-grab bg-black/95 bg-cover bg-center bg-no-repeat pt-16 bg-blend-soft-light active:cursor-grabbing xl:pt-0"
+							class="relative grid h-full place-items-center rounded-token bg-cover bg-center bg-no-repeat"
 							style={`background-image: url(${resolveMediaSource({
 								media: slide.background,
 							})});`}
 						>
-							<div
-								class="container grid h-full grid-cols-1 items-center gap-12 py-6 xl:grid-cols-2"
+							<span
+								class="line-clamp-1 rounded-token bg-white/30 px-2 py-0.5 text-center font-semibold text-black backdrop-blur-md"
 							>
-								<SlidesInfo>
-									<svelte:fragment slot="title">
-										{slide.title}
-									</svelte:fragment>
-
-									<svelte:fragment slot="description">
-										{slide.description}
-									</svelte:fragment>
-
-									<svelte:fragment slot="link">
-										<Link
-											class="text-primary-300"
-											options={{
-												href: resolveLinkHref({
-													internal: slide.link?.internalLinkReference?.value,
-													external: slide.link?.externalLink,
-												}),
-												appearance: LinkAppearance.ButtonPrimary,
-												indicator: slide.link?.indicator,
-												text: slide.link?.text,
-												showIcon: slide.link?.showIcon,
-												icon: slide.link?.icon,
-												iconSize: resolveResourceSize({
-													resource: slide.link?.iconSize,
-												}),
-												openInNewTab: slide.link?.openInNewTab,
-											}}
-										/>
-									</svelte:fragment>
-								</SlidesInfo>
-
-								{#if slide.previews?.length}
-									<div class="overflow-hidden rounded-token">
-										<SlidesNested
-											previews={slide.previews}
-											options={slidesNestedOptions}
-										/>
-									</div>
-								{/if}
-							</div>
+								{slide.indicator}
+							</span>
 						</div>
 					</SplideSlide>
 				{/each}
-			</SplideTrack>
+			</Splide>
 		</div>
-
-		<div class="bottom-0 w-full xl:absolute">
-			<div class="splide__progress">
-				<div class="splide__progress__bar" />
-			</div>
-		</div>
-
-		<div class="top-[calc(100%-40px)] w-full xl:absolute">
-			<div class="thumbnails">
-				<Splide
-					bind:this={slidesThumbnailsRef}
-					options={slidesThumbnailsOptions}
-				>
-					{#each slides as slide}
-						<SplideSlide>
-							<div
-								class="relative grid h-full place-items-center rounded-token bg-cover bg-center bg-no-repeat"
-								style={`background-image: url(${resolveMediaSource({
-									media: slide.background,
-								})});`}
-							>
-								<span
-									class="line-clamp-1 rounded-token bg-white/30 px-2 py-0.5 text-center font-semibold text-black backdrop-blur-md"
-								>
-									{slide.indicator}
-								</span>
-							</div>
-						</SplideSlide>
-					{/each}
-				</Splide>
-			</div>
-		</div>
-	</Splide>
-</div>
+	</div>
+</Splide>
 
 <style lang="postcss">
 	:global(.splide__pagination__page) {
-		border-radius: theme('borderRadius.token') !important;
+		/* TODO: fix */
+		/* border-radius: theme('borderRadius.token') !important; */
 		background-color: theme('backgroundColor.white') !important;
 
 		&.is-active {
@@ -156,7 +151,8 @@
 	}
 
 	:global(.splide__arrow) {
-		border-radius: theme('borderRadius.token') !important;
+		/* TODO: fix */
+		/* border-radius: theme('borderRadius.token') !important; */
 		background-color: theme('backgroundColor.primary.400') !important;
 
 		&:disabled {
@@ -171,9 +167,14 @@
 	.thumbnails :global(.splide__slide.is-visible) {
 		border: none !important;
 		@apply opacity-30;
+		@apply transition;
+
+		&:hover {
+			@apply scale-105 opacity-60;
+		}
 
 		&.is-active {
-			@apply opacity-100 blur-none;
+			@apply opacity-100;
 		}
 	}
 </style>

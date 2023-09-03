@@ -20,11 +20,16 @@
 		"@splidejs/splide-extension-auto-scroll": "^0.5.3",
 		"@splidejs/splide-extension-grid": "^0.4.1",
 		"@splidejs/svelte-splide": "^0.2.9",
+		"bits-ui": "^0.5.6",
+		"clsx": "^2.0.0",
 		"date-fns": "^2.30.0",
 		"escape-html": "^1.0.3",
 		"isomorphic-dompurify": "^1.8.0",
+		"lucide-svelte": "^0.274.0",
 		"qs": "^6.11.2",
-		"slate": "^0.94.1"
+		"slate": "^0.94.1",
+		"tailwind-merge": "^1.14.0",
+		"tailwind-variants": "^0.1.14"
 	},
 	"devDependencies": {
 		"@jinen/annotations": "workspace:^",

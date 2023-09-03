@@ -15,6 +15,7 @@ module.exports = {
 		'yarn.lock',
 
 		// Jinen
+		'/apps/web/src/lib/components/ui/',
 		'/packages/jinen-cms-annotations/src/auto-generated.ts',
 	],
 	overrides: [
