@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { Link } from '$lib/components/cms/Link';
-	import { Alert } from '$lib/components/cms/alert';
-	import { Content } from '$lib/components/cms/content';
-	import { EmbeddedEvents } from '$lib/components/cms/embedded-events';
-	import { Hero } from '$lib/components/cms/hero';
-	import { Media } from '$lib/components/cms/media';
-	import { Menu } from '$lib/components/cms/menu';
 	import { Img } from '$lib/components/img';
 	import { Metadata } from '$lib/components/metadata';
+	import { Link } from '$lib/components/ui-cms/Link';
+	import { Alert } from '$lib/components/ui-cms/alert';
+	import { Content } from '$lib/components/ui-cms/content';
+	import { EmbeddedEvents } from '$lib/components/ui-cms/embedded-events';
+	import { Hero } from '$lib/components/ui-cms/hero';
+	import { Media } from '$lib/components/ui-cms/media';
+	import { Menu } from '$lib/components/ui-cms/menu';
 	import { domStore } from '$lib/stores/dom';
 	import type { Menu as CmsMenu, Page as CmsPage } from '@jinen/cms-annotations';
 	import { isEmpty } from '@jinen/helpers';

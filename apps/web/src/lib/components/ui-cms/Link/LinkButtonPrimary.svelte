@@ -1,14 +1,12 @@
 <script lang="ts">
+	import { Button } from '$lib/components/ui/button';
 	import type { LinkOptions } from './types';
 
 	export let options: LinkOptions;
 </script>
 
-<div
-	role="button"
-	class="button button-text"
->
+<Button variant="default">
 	<slot name="icon" />
 
 	{options?.text ?? ''}
-</div>
+</Button>

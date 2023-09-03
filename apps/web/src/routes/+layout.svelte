@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { navigating } from '$app/stores';
-	import { Footer } from '$lib/components/cms/footer';
-	import { Header } from '$lib/components/cms/header';
+	import { Footer } from '$lib/components/ui-cms/footer';
+	import { Header } from '$lib/components/ui-cms/header';
 	import { domStore } from '$lib/stores/dom';
 	import { loadingStore } from '$lib/stores/loading';
 	import { isEmpty } from '@jinen/helpers';

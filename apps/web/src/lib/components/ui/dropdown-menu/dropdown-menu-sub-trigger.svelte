@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { DropdownMenu as DropdownMenuPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils";
+	import { DropdownMenu as DropdownMenuPrimitive } from "bits-ui";
 	import { ChevronRight } from "lucide-svelte";
 
 	type $$Props = DropdownMenuPrimitive.SubTriggerProps & {
@@ -15,7 +15,7 @@
 
 <DropdownMenuPrimitive.SubTrigger
 	class={cn(
-		"flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[highlighted]:bg-accent data-[state=open]:bg-accent",
+		"flex cursor-default select-none items-center rounded-token px-2 py-1.5 text-sm outline-none data-[highlighted]:bg-accent data-[state=open]:bg-accent",
 		inset && "pl-8",
 		className
 	)}

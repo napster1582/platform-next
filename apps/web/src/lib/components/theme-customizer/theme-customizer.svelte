@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import { resetTheme } from '$lib/utils/theme';
 	import Icon from '@iconify/svelte';
 	import { Popover, PopoverButton, PopoverPanel } from '@rgossiaux/svelte-headlessui';
@@ -14,7 +14,7 @@
 >
 	<PopoverButton class="popover-button button">
 		<Icon
-			icon="line-md:paint-drop-half-filled-twotone"
+			icon="lucide:paintbrush"
 			class="text-xl"
 		/>
 
@@ -40,7 +40,7 @@
 			<AppearanceTheme />
 		</div>
 
-		<hr class="my-4 border-token" />
+		<hr class="border-token my-4" />
 
 		<div class="button-group button-group-end pb-2">
 			<button
@@ -67,4 +67,4 @@
 			</button>
 		</div>
 	</PopoverPanel>
-</Popover>
+</Popover> -->

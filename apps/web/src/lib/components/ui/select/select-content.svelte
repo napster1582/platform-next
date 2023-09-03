@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Select as SelectPrimitive } from "bits-ui";
 	import { cn, flyAndScale } from "$lib/utils";
+	import { Select as SelectPrimitive } from "bits-ui";
 	import { scale } from "svelte/transition";
 
 	type $$Props = SelectPrimitive.ContentProps;
@@ -24,7 +24,7 @@
 	{outTransition}
 	{outTransitionConfig}
 	class={cn(
-		"relative z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md outline-none",
+		"relative z-50 min-w-[8rem] overflow-hidden rounded-token border bg-popover text-popover-foreground shadow-md outline-none",
 		className
 	)}
 	{...$$restProps}

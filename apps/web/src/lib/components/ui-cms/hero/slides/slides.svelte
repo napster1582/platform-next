@@ -141,18 +141,21 @@
 
 <style lang="postcss">
 	:global(.splide__pagination__page) {
-		/* TODO: fix */
-		/* border-radius: theme('borderRadius.token') !important; */
+		border-radius: theme('borderRadius.token') !important;
 		background-color: theme('backgroundColor.white') !important;
 
+		&:hover {
+			@apply scale-150;
+		}
+
 		&.is-active {
+			@apply scale-150;
 			background-color: theme('backgroundColor.primary.300') !important;
 		}
 	}
 
 	:global(.splide__arrow) {
-		/* TODO: fix */
-		/* border-radius: theme('borderRadius.token') !important; */
+		border-radius: theme('borderRadius.token') !important;
 		background-color: theme('backgroundColor.primary.400') !important;
 
 		&:disabled {

@@ -1,5 +1,5 @@
-<script lang="ts">
-	import type { Datalist } from '$lib/types';
+<!-- <script lang="ts">
+	import type { Datalist } from '$lib/types/data-list';
 	import type { ThemeMode } from '$lib/types/theme';
 	import { getThemeMode, setThemeMode } from '$lib/utils/theme';
 	import Icon from '@iconify/svelte';
@@ -60,4 +60,4 @@
 			</div>
 		</RadioGroupOption>
 	{/each}
-</RadioGroup>
+</RadioGroup> -->

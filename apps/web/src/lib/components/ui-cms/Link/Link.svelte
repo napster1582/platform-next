@@ -2,8 +2,8 @@
 	import Icon from '@iconify/svelte';
 	import { ResourceSize } from '@jinen/annotations';
 	import { LinkAppearance } from '@jinen/cms-annotations';
-	import LinkButtonContained from './LinkButtonPrimary.svelte';
-	import LinkButton from './LinkButtonSecondary.svelte';
+	import LinkButtonPrimary from './LinkButtonPrimary.svelte';
+	import LinkButtonSecondary from './LinkButtonSecondary.svelte';
 	import LinkButtonText from './LinkButtonText.svelte';
 	import LinkCta from './LinkCta.svelte';
 	import LinkHyperlink from './LinkHyperlink.svelte';
@@ -34,9 +34,9 @@
 			case LinkAppearance.Cta:
 				return LinkCta;
 			case LinkAppearance.ButtonPrimary:
-				return LinkButtonContained;
+				return LinkButtonPrimary;
 			case LinkAppearance.ButtonSecondary:
-				return LinkButton;
+				return LinkButtonSecondary;
 			case LinkAppearance.ButtonText:
 				return LinkButtonText;
 			default:
@@ -53,8 +53,8 @@
 	{tabindex}
 	aria-label={ariaLabel}
 	aria-disabled={isDisabled}
-	{...$$restProps}
 	on:click
+	{...$$restProps}
 >
 	{#if options.appearance === LinkAppearance.NoDesign}
 		{#if $$slots.default}

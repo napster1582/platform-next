@@ -5,7 +5,7 @@ export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	safelist: [
 		{
-			pattern: /(bg|text|col-span)-./,
+			pattern: /(bg|text|grid-cols|col-span)-./,
 		},
 	],
 	darkMode: 'class',
@@ -45,9 +45,6 @@ export default {
 			},
 			borderRadius: {
 				token: 'var(--radius)',
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)',
 			},
 			colors: {
 				transparent: 'transparent',

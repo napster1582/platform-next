@@ -1,20 +1,25 @@
 <script lang="ts">
 	import { env } from '$env/dynamic/public';
+	import Button from '$lib/components/ui/button/button.svelte';
+	import { cn } from '$lib/utils';
 	import Icon from '@iconify/svelte';
 	import { LinkAppearance, type Header } from '@jinen/cms-annotations';
 	import { resolveLinkHref, resolveMediaSource, resolveResourceSize } from '@jinen/web-resolvers';
 	import { Popover, PopoverButton, PopoverPanel, Transition } from '@rgossiaux/svelte-headlessui';
 	import { Img } from '../../img';
-	import { ThemeCustomizer } from '../../theme-customizer';
+	import { ThemeCustomizer as ThemeCustomizerx } from '../../theme-customizerx';
 	import { Link } from '../Link';
 
 	export let content: Header;
+
+	// TODO: take this flag to the CMS
+	const useContainer = false;
 </script>
 
 <header
 	class="dark fixed inset-x-0 top-0 z-20 h-[65px] bg-primary-700/90 text-white shadow-lg backdrop-blur-md transition-transform duration-300"
 >
-	<div class="container flex h-full items-center justify-between py-2">
+	<div class={cn('flex h-full items-center justify-between', useContainer ? 'container' : 'px-6')}>
 		<div class="flex items-center">
 			{#if content.logo && typeof content.logo === 'object'}
 				<Link
@@ -118,20 +123,20 @@
 		</div>
 
 		<div class="flex items-center gap-x-2">
-			<ThemeCustomizer />
+			<ThemeCustomizerx />
 
-			<a
-				class="button button-primary"
+			<Button
 				href={env.PUBLIC_CMS_URL + '/admin/login'}
+				variant="default"
 				aria-label="Ingresar"
 			>
 				<Icon
 					icon="line-md:account"
-					class="text-xl"
+					class="text-lg"
 				/>
 
-				<span class="hidden md:inline"> Ingresar </span>
-			</a>
+				Ingresar
+			</Button>
 		</div>
 	</div>
 </header>
