@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Img } from '$lib/components/img';
 	import { Badge } from '$lib/components/ui/badge';
 	import type { Footer } from '@jinen/cms-annotations';
 	import { pkg } from '@jinen/helpers';
@@ -12,7 +11,7 @@
 	import { Link } from '../Link';
 	import { Content } from '../content';
 
-	export let content: Footer;
+	export let footer: Footer;
 </script>
 
 <footer id="jinen-footer">
@@ -28,19 +27,19 @@
 
 	<div class="container py-24 text-gray-200">
 		<div class="flex flex-wrap justify-between gap-24">
-			<div class="flex max-w-[300px] flex-wrap items-center gap-6">
-				{#each content.logos ?? [] as { logo }}
+			<div class="flex max-w-[300px] flex-wrap items-center gap-x-3 gap-y-6">
+				{#each footer.logos ?? [] as { logo }}
 					{#if typeof logo === 'object'}
-						<Img
+						<img
 							src={resolveMediaSource({ media: logo, size: 'thumbnail' })}
 							alt={logo.alt}
-							class="w-28"
+							class="h-28 w-28 object-cover"
 						/>
 					{/if}
 				{/each}
 			</div>
 
-			{#each content.sections ?? [] as { section }}
+			{#each footer.sections ?? [] as { section }}
 				<div class="flex flex-col gap-3 md:min-w-[250px]">
 					<h3 class="text-3xl font-bold text-white">{section.title}</h3>
 
@@ -82,7 +81,7 @@
 	<div class="border-t border-gray-900 bg-black">
 		<div class="container py-6">
 			<address class="text-center text-gray-300">
-				<Content nodes={content.contact?.content ?? []} />
+				<Content nodes={footer.contact?.content ?? []} />
 			</address>
 
 			<div class="mt-6 flex justify-center">

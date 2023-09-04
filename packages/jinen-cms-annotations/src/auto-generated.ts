@@ -190,6 +190,7 @@ export interface Page {
           }
         | {
             media: string | Media;
+            decoration?: 'simpleFrame';
             id?: string;
             blockName?: string;
             blockType: 'media';

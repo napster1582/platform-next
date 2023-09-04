@@ -4,14 +4,14 @@
 	import { Link } from '../Link';
 	import MenuItem from './menu-item.svelte';
 
-	export let content: Menu;
+	export let menu: Menu;
 </script>
 
 <nav
 	id="jinen-menu"
 	class="my-12 flex flex-wrap items-center justify-center gap-24 px-6"
 >
-	{#each content.items ?? [] as item}
+	{#each menu.items ?? [] as item}
 		<Link
 			options={{
 				href: resolveLinkHref({

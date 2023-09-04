@@ -5,7 +5,8 @@
 	import { Img } from '../../img';
 	import { Video } from '../../video';
 
-	export let content: Media | string;
+	export let media: Media | string;
+	export let decoration: 'simpleFrame' | undefined;
 
 	function isImage(mimeType: string) {
 		return mimeType.startsWith('image/');
@@ -16,17 +17,21 @@
 	}
 </script>
 
-{#if typeof content === 'object'}
-	{#if isImage(content.mimeType ?? '')}
-		<Img
-			src={resolveMediaSource({ media: content })}
-			alt={content.alt}
-			loading="lazy"
-			class={cn('image-frame-fancy')}
-		/>
-	{:else if isVideo(content.mimeType ?? '')}
-		<Video src={content.url} />
-	{/if}
+{#if typeof media === 'object'}
+	<div class="flex h-auto w-full flex-col">
+		{#if isImage(media.mimeType ?? '')}
+			<Img
+				src={resolveMediaSource({ media: media })}
+				alt={media.alt}
+				loading="lazy"
+				class={cn({
+					'media-frame-simple': decoration === 'simpleFrame',
+				})}
+			/>
+		{:else if isVideo(media.mimeType ?? '')}
+			<Video src={media.url} />
+		{/if}
+	</div>
 {:else}
-	MimeType no soportado ({content})
+	MimeType no soportado ({media})
 {/if}

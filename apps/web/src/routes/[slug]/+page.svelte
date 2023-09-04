@@ -67,7 +67,7 @@
 
 {#if $domStore.showMenu && menu && !isEmpty(menu)}
 	<div class="mt-32">
-		<Menu content={menu} />
+		<Menu {menu} />
 	</div>
 {/if}
 
@@ -89,7 +89,7 @@
 						{#each section.columns ?? [] as column}
 							<div
 								id={'c-' + column.id}
-								class="max-md:col-span-12 col-span-{column.width}"
+								class="grid grid-cols-1 gap-y-8 max-md:col-span-12 col-span-{column.width}"
 							>
 								{#each column.blocks ?? [] as block}
 									{#if block.blockType === 'content'}
@@ -105,7 +105,10 @@
 											</svelte:fragment>
 										</Alert>
 									{:else if block.blockType === 'media'}
-										<Media content={block.media} />
+										<Media
+											media={block.media}
+											decoration={block.decoration}
+										/>
 									{:else if block.blockType === 'link'}
 										<Link
 											options={{
@@ -152,7 +155,7 @@
 										</div>
 									{:else if block.blockType === 'embedded-events'}
 										<EmbeddedEvents
-											content={resolveEvents({
+											events={resolveEvents({
 												events: block.events,
 											})}
 										/>

@@ -1,16 +1,21 @@
 <script lang="ts">
 	import { env } from '$env/dynamic/public';
 	import Button from '$lib/components/ui/button/button.svelte';
+	import {
+		DropdownMenu,
+		DropdownMenuContent,
+		DropdownMenuGroup,
+		DropdownMenuItem,
+		DropdownMenuTrigger,
+	} from '$lib/components/ui/dropdown-menu';
 	import { cn } from '$lib/utils';
 	import Icon from '@iconify/svelte';
 	import { LinkAppearance, type Header } from '@jinen/cms-annotations';
 	import { resolveLinkHref, resolveMediaSource, resolveResourceSize } from '@jinen/web-resolvers';
-	import { Popover, PopoverButton, PopoverPanel, Transition } from '@rgossiaux/svelte-headlessui';
-	import { Img } from '../../img';
 	import { ThemeCustomizer } from '../../theme-customizer';
 	import { Link } from '../Link';
 
-	export let content: Header;
+	export let header: Header;
 
 	// TODO: take this flag to the CMS
 	const useContainer = false;
@@ -21,7 +26,7 @@
 >
 	<div class={cn('flex h-full items-center justify-between', useContainer ? 'container' : 'px-6')}>
 		<div class="flex items-center">
-			{#if content.logo && typeof content.logo === 'object'}
+			{#if header.logo && typeof header.logo === 'object'}
 				<Link
 					class="overflow-hidden"
 					options={{
@@ -29,76 +34,69 @@
 						appearance: LinkAppearance.NoDesign,
 					}}
 				>
-					<Img
-						src={resolveMediaSource({ media: content.logo, size: 'thumbnail' })}
-						alt={content.logo.alt}
-						class="w-12"
+					<img
+						src={resolveMediaSource({ media: header.logo, size: 'thumbnail' })}
+						alt={header.logo.alt}
+						class="h-10 w-16 object-cover"
 					/>
 				</Link>
 			{/if}
 
 			<nav class="mx-6 flex items-center gap-x-2">
-				{#each content.navbar ?? [] as { link, links }}
+				{#each header.navbar ?? [] as { link, links }}
 					{#if links?.length}
-						<Popover
-							class="popover"
-							let:open
-						>
-							<PopoverButton class="popover-button button button-text">
-								{#if link.icon}
-									<Icon
-										icon={link.icon}
-										class="text-{link.iconSize}"
-									/>
-								{/if}
-
-								{link.text}
-
-								{#if open}
-									<Icon icon="ph:caret-up" />
-								{:else}
-									<Icon icon="ph:caret-down" />
-								{/if}
-							</PopoverButton>
-
-							<Transition
-								show={open}
-								enter="transition duration-100 ease-out"
-								enterFrom="transform scale-95 opacity-0"
-								enterTo="transform scale-100 opacity-100"
-								leave="transition duration-75 ease-out"
-								leaveFrom="transform scale-100 opacity-100"
-								leaveTo="transform scale-95 opacity-0"
+						<DropdownMenu positioning={{ placement: 'bottom-start' }}>
+							<DropdownMenuTrigger
+								asChild
+								let:builder
 							>
-								<PopoverPanel
-									class="popover-panel popover-panel-bl min-w-[200px]"
-									static
-									let:close
+								<Button
+									builders={[builder]}
+									variant="ghost"
 								>
-									{#each links as { link }}
-										<Link
-											class="popover-panel-item"
-											options={{
-												href: resolveLinkHref({
-													internal: link.internalLinkReference?.value,
-													external: link.externalLink,
-												}),
-												appearance: LinkAppearance.NoDesign,
-												indicator: link.indicator,
-												text: link.text,
-												showIcon: link.showIcon,
-												icon: link.icon,
-												iconSize: resolveResourceSize({
-													resource: link.iconSize,
-												}),
-												openInNewTab: link.openInNewTab,
-											}}
-											on:click={() => close(null)}
+									{#if link.icon}
+										<Icon
+											icon={link.icon}
+											class="text-{link.iconSize}"
 										/>
+									{/if}
+
+									{link.text}
+
+									{#if builder['data-state'] === 'open'}
+										<Icon icon="ph:caret-up" />
+									{:else}
+										<Icon icon="ph:caret-down" />
+									{/if}
+								</Button>
+							</DropdownMenuTrigger>
+							<DropdownMenuContent class="w-64">
+								<DropdownMenuGroup>
+									{#each links ?? [] as { link }}
+										<DropdownMenuItem>
+											<Link
+												class="popover-panel-item"
+												options={{
+													href: resolveLinkHref({
+														internal: link.internalLinkReference?.value,
+														external: link.externalLink,
+													}),
+													appearance: LinkAppearance.NoDesign,
+													indicator: link.indicator,
+													text: link.text,
+													showIcon: link.showIcon,
+													icon: link.icon,
+													iconSize: resolveResourceSize({
+														resource: link.iconSize,
+													}),
+													openInNewTab: link.openInNewTab,
+												}}
+											/>
+										</DropdownMenuItem>
 									{/each}
-								</PopoverPanel>
-							</Transition>
-						</Popover>
+								</DropdownMenuGroup>
+							</DropdownMenuContent>
+						</DropdownMenu>
 					{:else}
 						<Link
 							options={{

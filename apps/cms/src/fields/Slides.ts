@@ -40,7 +40,6 @@ export const FieldSlides: CustomField = (options) =>
 							name: 'resetProgress',
 							label: 'Restablecer progreso',
 							type: 'checkbox',
-							defaultValue: true,
 							admin: {
 								description:
 									'Si está activado, se restablecerá el progreso de las diapositivas después de pausarlas.',

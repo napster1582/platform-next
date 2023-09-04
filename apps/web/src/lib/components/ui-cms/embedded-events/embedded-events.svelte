@@ -6,6 +6,7 @@
 		AccordionTrigger,
 	} from '$lib/components/ui/accordion';
 	import { Badge } from '$lib/components/ui/badge';
+	import { cn } from '$lib/utils';
 	import { calculateDuration } from '$lib/utils/calculate-duration';
 	import Icon from '@iconify/svelte';
 	import type { Grouped } from '@jinen/annotations';
@@ -13,31 +14,38 @@
 	import { resolveLinkAppearance, resolveLinkHref, resolveResourceSize } from '@jinen/web-resolvers';
 	import { Link } from '../Link';
 
-	export let content: Grouped<Event>;
+	export let events: Grouped<Event>;
 
-	const currentYear = new Date().getFullYear().toString();
+	let toggledYear = new Date().getFullYear().toString();
 
-	$: years = Object.keys(content).sort((a, b) => b.localeCompare(a));
+	$: years = Object.keys(events).sort((a, b) => b.localeCompare(a));
 </script>
 
 <Accordion
-	multiple
-	value={[currentYear]}
+	bind:value={toggledYear}
 	class="my-12 w-full"
 >
 	{#each years as year}
 		<AccordionItem value={year}>
-			<AccordionTrigger>
-				<div class="flex items-center gap-x-6">
+			<AccordionTrigger
+				class={cn({
+					'bg-gradient-to-tr from-transparent to-primary-950/40': year === toggledYear,
+				})}
+			>
+				<div
+					class={cn('flex items-center gap-x-6 transition-transform', {
+						'translate-x-12': year === toggledYear,
+					})}
+				>
 					<span
-						class="bg-gradient-to-r from-primary to-primary-950 bg-clip-text text-2xl font-bold text-transparent md:text-4xl lg:text-6xl xl:text-8xl"
+						class="bg-gradient-to-r from-primary to-primary-950 bg-clip-text text-6xl font-bold text-transparent md:text-8xl"
 					>
-						>
 						{year}
 					</span>
 
 					<Badge variant="outline">
-						{content[year].length} eventos
+						{events[year].length}
+						{events[year].length === 1 ? 'evento' : 'eventos'}
 					</Badge>
 				</div>
 			</AccordionTrigger>
@@ -46,7 +54,7 @@
 					<ul
 						class="mx-auto flex max-w-2xl flex-col gap-y-16 border-primary-500/30 py-24 md:border-l-4 md:pl-7"
 					>
-						{#each content[year] as event}
+						{#each events[year] as event}
 							<li
 								class="bg-primary-gradient relative rounded-token border-4 border-primary-500/30 p-5"
 							>

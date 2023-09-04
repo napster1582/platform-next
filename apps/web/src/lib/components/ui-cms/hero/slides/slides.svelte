@@ -35,7 +35,7 @@
 >
 	<div class="relative">
 		<div class="absolute right-0 top-0 z-10 w-full">
-			<SlidesControls showAutoplayController={true} />
+			<SlidesControls showAutoplayController={options?.source?.slides?.settings.autoplay} />
 		</div>
 
 		<SplideTrack>

@@ -1,9 +1,7 @@
 <script lang="ts">
-	import { navigating } from '$app/stores';
 	import { Footer } from '$lib/components/ui-cms/footer';
 	import { Header } from '$lib/components/ui-cms/header';
 	import { domStore } from '$lib/stores/dom';
-	import { loadingStore } from '$lib/stores/loading';
 	import { isEmpty } from '@jinen/helpers';
 	import type { LayoutData } from './$types';
 
@@ -12,8 +10,6 @@
 	export let data: LayoutData;
 
 	const { header, footer } = data;
-
-	$: $loadingStore = !!$navigating;
 </script>
 
 <div
@@ -21,7 +17,7 @@
 	class="flex min-h-screen flex-col"
 >
 	{#if $domStore.showHeader && header && !isEmpty(header)}
-		<Header content={header} />
+		<Header {header} />
 	{/if}
 
 	<div
@@ -32,6 +28,6 @@
 	</div>
 
 	{#if $domStore.showFooter && footer && !isEmpty(footer)}
-		<Footer content={footer} />
+		<Footer {footer} />
 	{/if}
 </div>
