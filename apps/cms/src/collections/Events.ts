@@ -79,7 +79,6 @@ export const CollectionEvents = {
 					type: 'checkbox',
 					name: 'addLink',
 					label: 'Agregar enlace',
-					defaultValue: false,
 				},
 				FieldLink({
 					overrides: {

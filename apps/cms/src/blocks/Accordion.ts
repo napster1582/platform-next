@@ -39,7 +39,6 @@ export const BlockAccordion = {
 					type: 'checkbox',
 					name: 'expanded',
 					label: 'Expandido',
-					defaultValue: false,
 				},
 			],
 		},

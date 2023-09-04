@@ -15,6 +15,7 @@ module.exports = {
 		'yarn.lock',
 
 		// Jinen
+		'/apps/web/src/lib/components/ui/',
 		'/packages/jinen-cms-annotations/src/auto-generated.ts',
 	],
 	overrides: [
@@ -50,6 +51,7 @@ module.exports = {
 					{
 						selector: 'memberLike',
 						format: ['strictCamelCase', 'UPPER_CASE'],
+						filter: { regex: '^[0-9]', match: false },
 					},
 					{
 						selector: 'memberLike',

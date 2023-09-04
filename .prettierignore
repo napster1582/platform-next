@@ -16,4 +16,5 @@ package-lock.json
 yarn.lock
 
 # Ignore Jinen files
+/apps/web/src/lib/components/ui
 /packages/jinen-cms-annotations/src/auto-generated.ts

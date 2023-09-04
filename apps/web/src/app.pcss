@@ -1,19 +1,110 @@
+/* TODO: temporal */
 /* base */
 @import url('./theme/tailwind/base.pcss');
 @import url('./theme/01-base/theme.pcss');
-@import url('./theme/01-base/document.pcss');
 @import url('./theme/01-base/heading.pcss');
 
+/* TODO: temporal */
 /* components */
 @import url('./theme/tailwind/components.pcss');
 @import url('./theme/02-components/button.pcss');
-@import url('./theme/02-components/button-group.pcss');
-@import url('./theme/02-components/popover.pcss');
-@import url('./theme/02-components/listbox.pcss');
-@import url('./theme/02-components/badge.pcss');
-@import url('./theme/02-components/radio-group.pcss');
-@import url('./theme/02-components/tab-group.pcss');
 
+/* TODO: temporal */
 /* utilities */
 @import url('./theme/tailwind/utilities.pcss');
-@import url('./theme/03-utilities/text.pcss');
+
+/* 
+# ;---------------;
+# ; COLOR SCHEMES ;
+# ;---------------;
+*/
+@import url('./theme/color-schemes/zinc.postcss');
+@import url('./theme/color-schemes/slate.postcss');
+@import url('./theme/color-schemes/stone.postcss');
+@import url('./theme/color-schemes/gray.postcss');
+@import url('./theme/color-schemes/neutral.postcss');
+@import url('./theme/color-schemes/red.postcss');
+@import url('./theme/color-schemes/rose.postcss');
+@import url('./theme/color-schemes/orange.postcss');
+@import url('./theme/color-schemes/green.postcss');
+@import url('./theme/color-schemes/blue.postcss');
+@import url('./theme/color-schemes/yellow.postcss');
+@import url('./theme/color-schemes/violet.postcss');
+
+/* 
+# ;---------;
+# ; EFFECTS ;
+# ;---------;
+*/
+@import url('./theme/effects/gradients.pcss');
+@import url('./theme/effects/media-frame-simple.pcss');
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+
+	html {
+		font-synthesis: none;
+		font-variation-settings: normal;
+		text-rendering: optimizelegibility;
+		text-size-adjust: 100%;
+		tab-size: 4;
+		color-scheme: light dark;
+
+		@apply font-sans text-body font-normal leading-6;
+		@apply antialiased;
+	}
+
+	/* Mobile tap highlight */
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color */
+	html {
+		-webkit-tap-highlight-color: rgba(128, 128, 128, 0.5);
+	}
+
+	body {
+		font-feature-settings:
+			'rlig' 1,
+			'calt' 1;
+
+		@apply bg-background text-foreground transition-colors;
+	}
+
+	html,
+	body {
+		@apply h-full;
+	}
+
+	/* === Scrollbars === */
+	::-webkit-scrollbar {
+		@apply w-2;
+		@apply h-2;
+	}
+
+	::-webkit-scrollbar-track {
+		@apply !bg-muted;
+	}
+
+	::-webkit-scrollbar-thumb {
+		@apply rounded-sm !bg-muted-foreground/30;
+	}
+
+	/* Firefox */
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color#browser_compatibility */
+	html {
+		scrollbar-color: hsl(215.4 16.3% 46.9% / 0.3);
+	}
+
+	html.dark {
+		scrollbar-color: hsl(215.4 16.3% 56.9% / 0.3);
+	}
+
+	.hide-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+
+	.hide-scrollbar {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+}

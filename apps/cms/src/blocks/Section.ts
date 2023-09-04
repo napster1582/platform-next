@@ -19,7 +19,6 @@ export const BlockSection = {
 			type: 'checkbox',
 			name: 'fullSize',
 			label: 'Ocupar el 100% de la ventana gráfica vertical',
-			defaultValue: false,
 			admin: {
 				description:
 					'Al marcar esta opción, el tamaño vertical de la sección tendrá un tamaño mínimo de 100vh, lo que significa que la sección se ajustará automáticamente al tamaño de la ventana gráfica del usuario y ocupará todo el espacio disponible en la pantalla.',
@@ -29,7 +28,6 @@ export const BlockSection = {
 			type: 'checkbox',
 			name: 'alwaysUseDarkTheme',
 			label: 'Usar siempre el Tema Oscuro',
-			defaultValue: false,
 			admin: {
 				description:
 					'Al marcar esta opción, la sección siempre usará la variante del tema "Oscuro".',

@@ -85,16 +85,29 @@ export interface Page {
   showFooter?: boolean;
   showHero?: boolean;
   hero?: {
-    variant: 'mediaNestedSlides';
-    mediaNestedSlides?: {
-      items?: {
+    variant: 'slides';
+    slides?: {
+      settings: {
+        rewind?: boolean;
+        autoplay?: boolean;
+        resetProgress?: boolean;
+        interval: number;
+      };
+      elements?: {
         indicator: string;
         title: string;
         description?: string;
         background?: string | Media;
-        show?: boolean;
+        hasLink?: boolean;
         link?: {
-          appearance?: 'noDesign' | 'text' | 'hyperlink' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
+          appearance?:
+            | 'noDesign'
+            | 'hyperlink'
+            | 'textIcon'
+            | 'cta'
+            | 'buttonPrimary'
+            | 'buttonSecondary'
+            | 'buttonText';
           type?: 'internal' | 'external';
           indicator?: string;
           text?: string;
@@ -108,8 +121,26 @@ export interface Page {
           externalLink: string;
           openInNewTab?: boolean;
         };
-        previews?: {
-          title: string;
+        childrenSettings: {
+          rewind?: boolean;
+          drag?: boolean;
+          wheel?: boolean;
+          autoScroll?: boolean;
+          gap: number;
+          perPage: number;
+          perMove: number;
+          grid?:
+            | {
+                [k: string]: unknown;
+              }
+            | unknown[]
+            | string
+            | number
+            | boolean
+            | null;
+        };
+        children?: {
+          description: string;
           background: string | Media;
           id?: string;
         }[];
@@ -143,14 +174,6 @@ export interface Page {
         | {
             title?: string;
             description: string;
-            images: {
-              showImages: boolean;
-              images?: {
-                position?: 'left' | 'right';
-                image?: string | Media;
-                id?: string;
-              }[];
-            };
             id?: string;
             blockName?: string;
             blockType: 'alert';
@@ -167,6 +190,7 @@ export interface Page {
           }
         | {
             media: string | Media;
+            decoration?: 'simpleFrame';
             id?: string;
             blockName?: string;
             blockType: 'media';
@@ -175,8 +199,8 @@ export interface Page {
             link: {
               appearance?:
                 | 'noDesign'
-                | 'text'
                 | 'hyperlink'
+                | 'textIcon'
                 | 'cta'
                 | 'buttonPrimary'
                 | 'buttonSecondary'
@@ -216,8 +240,8 @@ export interface Page {
               link: {
                 appearance?:
                   | 'noDesign'
-                  | 'text'
                   | 'hyperlink'
+                  | 'textIcon'
                   | 'cta'
                   | 'buttonPrimary'
                   | 'buttonSecondary'
@@ -421,7 +445,7 @@ export interface Event {
   linkGroup?: {
     addLink?: boolean;
     link?: {
-      appearance?: 'noDesign' | 'text' | 'hyperlink' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
+      appearance?: 'noDesign' | 'hyperlink' | 'textIcon' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
       type?: 'internal' | 'external';
       indicator?: string;
       text?: string;
@@ -456,7 +480,7 @@ export interface Header {
   logo?: string | Media;
   navbar?: {
     link: {
-      appearance?: 'noDesign' | 'text' | 'hyperlink' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
+      appearance?: 'noDesign' | 'hyperlink' | 'textIcon' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
       type?: 'internal' | 'external';
       indicator?: string;
       text?: string;
@@ -472,7 +496,7 @@ export interface Header {
     };
     links?: {
       link: {
-        appearance?: 'noDesign' | 'text' | 'hyperlink' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
+        appearance?: 'noDesign' | 'hyperlink' | 'textIcon' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
         type?: 'internal' | 'external';
         indicator?: string;
         text?: string;
@@ -500,7 +524,7 @@ export interface Menu {
     icon?: string | Media;
     description?: string;
     link: {
-      appearance?: 'noDesign' | 'text' | 'hyperlink' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
+      appearance?: 'noDesign' | 'hyperlink' | 'textIcon' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
       type?: 'internal' | 'external';
       indicator?: string;
       text?: string;
@@ -531,7 +555,14 @@ export interface Footer {
       layout?: 'vertical' | 'horizontal';
       links?: {
         link: {
-          appearance?: 'noDesign' | 'text' | 'hyperlink' | 'cta' | 'buttonPrimary' | 'buttonSecondary' | 'buttonText';
+          appearance?:
+            | 'noDesign'
+            | 'hyperlink'
+            | 'textIcon'
+            | 'cta'
+            | 'buttonPrimary'
+            | 'buttonSecondary'
+            | 'buttonText';
           type?: 'internal' | 'external';
           indicator?: string;
           text?: string;
