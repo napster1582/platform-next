@@ -28,35 +28,33 @@
 	];
 </script>
 
-<div class="flex flex-1 flex-col gap-y-4 md:gap-y-6">
-	<div class="gap-y1">
-		<Label class="text-xs">Modo</Label>
+<div class="flex flex-1 flex-col space-y-1">
+	<Label class="text-xs">Modo</Label>
 
-		<div class="grid grid-cols-{columns} gap-2">
-			{#each modes as mode (mode.value)}
-				{@const isActive = $themeConfig.mode === mode.value}
+	<div class="grid grid-cols-{columns} gap-2">
+		{#each modes as mode (mode.value)}
+			{@const isActive = $themeConfig.mode === mode.value}
 
-				<Button
-					variant="outline"
-					size="sm"
-					class={cn('', isActive && 'border-2 border-zinc-700 dark:border-white')}
-					on:click={() => {
-						themeConfig.update((prev) => ({
-							...prev,
-							mode: mode.value,
-						}));
-					}}
-				>
-					{#if mode.icon}
-						<Icon
-							icon={mode.icon}
-							class="text-xl"
-						/>
-					{/if}
+			<Button
+				variant="outline"
+				size="sm"
+				class={cn('', isActive && 'border-2 border-zinc-700 dark:border-white')}
+				on:click={() => {
+					themeConfig.update((prev) => ({
+						...prev,
+						mode: mode.value,
+					}));
+				}}
+			>
+				{#if mode.icon}
+					<Icon
+						icon={mode.icon}
+						class="text-xl"
+					/>
+				{/if}
 
-					{mode.text}
-				</Button>
-			{/each}
-		</div>
+				{mode.text}
+			</Button>
+		{/each}
 	</div>
 </div>

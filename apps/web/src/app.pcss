@@ -8,21 +8,15 @@
 /* components */
 @import url('./theme/tailwind/components.pcss');
 @import url('./theme/02-components/button.pcss');
-@import url('./theme/02-components/button-group.pcss');
-@import url('./theme/02-components/popover.pcss');
-@import url('./theme/02-components/listbox.pcss');
-@import url('./theme/02-components/badge.pcss');
-@import url('./theme/02-components/radio-group.pcss');
-@import url('./theme/02-components/tab-group.pcss');
 
 /* TODO: temporal */
 /* utilities */
 @import url('./theme/tailwind/utilities.pcss');
 
 /* 
-# ;--------;
-# ; THEMES ;
-# ;--------;
+# ;---------------;
+# ; COLOR SCHEMES ;
+# ;---------------;
 */
 @import url('./theme/color-schemes/zinc.postcss');
 @import url('./theme/color-schemes/slate.postcss');
@@ -36,6 +30,14 @@
 @import url('./theme/color-schemes/blue.postcss');
 @import url('./theme/color-schemes/yellow.postcss');
 @import url('./theme/color-schemes/violet.postcss');
+
+/* 
+# ;---------;
+# ; EFFECTS ;
+# ;---------;
+*/
+@import url('./theme/effects/image-frames.pcss');
+@import url('./theme/effects/gradients.pcss');
 
 @layer base {
 	* {
@@ -65,7 +67,7 @@
 			'rlig' 1,
 			'calt' 1;
 
-		@apply bg-background text-foreground;
+		@apply bg-background text-foreground transition-colors;
 	}
 
 	html,

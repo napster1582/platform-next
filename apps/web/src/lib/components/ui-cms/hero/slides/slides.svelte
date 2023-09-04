@@ -5,11 +5,9 @@
 	import { onMount } from 'svelte';
 	import { Link } from '../../Link';
 	import type { HeroOptions } from '../types';
-	import {
-		defaultSlidesNestedOptions,
-		defaultSlidesOptions,
-		defaultSlidesThumbnailsOptions,
-	} from './slides';
+	import { createNestedSlidesSettings } from './createNestedSlidesSettings';
+	import { createSlidesSettings } from './createSlidesSettings';
+	import { createThumbnailsSettings } from './createThumbnailsSettings';
 	import SlidesControls from './slides-controls.svelte';
 	import SlidesInfo from './slides-info.svelte';
 	import SlidesNested from './slides-nested.svelte';
@@ -18,18 +16,10 @@
 
 	export let options: HeroOptions;
 
-	$: content = options.source?.mediaNestedSlides;
-	$: slides = content?.items ?? [];
-	// $: autoTransitionDuration = content?.autoTransitionDuration
-	// 	? content.autoTransitionDuration * 1000
-	// 	: DEFAULT_AUTO_TRANSITION_DURATION;
+	$: slides = options?.source?.slides?.elements ?? [];
 
 	let slidesRef: Splide;
 	let slidesThumbnailsRef: SplideSlide;
-
-	const slidesOptions = defaultSlidesOptions({ interval: 7000 });
-	const slidesThumbnailsOptions = defaultSlidesThumbnailsOptions();
-	const slidesNestedOptions = defaultSlidesNestedOptions();
 
 	onMount(() => {
 		if (slidesRef && slidesThumbnailsRef) {
@@ -40,12 +30,12 @@
 
 <Splide
 	bind:this={slidesRef}
-	options={slidesOptions}
 	hasTrack={false}
+	options={createSlidesSettings(options?.source?.slides?.settings)}
 >
 	<div class="relative">
 		<div class="absolute right-0 top-0 z-10 w-full">
-			<SlidesControls />
+			<SlidesControls showAutoplayController={true} />
 		</div>
 
 		<SplideTrack>
@@ -70,32 +60,34 @@
 								</svelte:fragment>
 
 								<svelte:fragment slot="link">
-									<Link
-										class="text-primary-300"
-										options={{
-											href: resolveLinkHref({
-												internal: slide.link?.internalLinkReference?.value,
-												external: slide.link?.externalLink,
-											}),
-											appearance: LinkAppearance.ButtonPrimary,
-											indicator: slide.link?.indicator,
-											text: slide.link?.text,
-											showIcon: slide.link?.showIcon,
-											icon: slide.link?.icon,
-											iconSize: resolveResourceSize({
-												resource: slide.link?.iconSize,
-											}),
-											openInNewTab: slide.link?.openInNewTab,
-										}}
-									/>
+									{#if slide.hasLink}
+										<Link
+											class="text-primary-300"
+											options={{
+												href: resolveLinkHref({
+													internal: slide.link?.internalLinkReference?.value,
+													external: slide.link?.externalLink,
+												}),
+												appearance: LinkAppearance.ButtonPrimary,
+												indicator: slide.link?.indicator,
+												text: slide.link?.text,
+												showIcon: slide.link?.showIcon,
+												icon: slide.link?.icon,
+												iconSize: resolveResourceSize({
+													resource: slide.link?.iconSize,
+												}),
+												openInNewTab: slide.link?.openInNewTab,
+											}}
+										/>
+									{/if}
 								</svelte:fragment>
 							</SlidesInfo>
 
-							{#if slide.previews?.length}
+							{#if slide.children?.length}
 								<div class="overflow-hidden rounded-token">
 									<SlidesNested
-										previews={slide.previews}
-										options={slidesNestedOptions}
+										elements={slide.children}
+										options={createNestedSlidesSettings(slide.childrenSettings)}
 									/>
 								</div>
 							{/if}
@@ -116,7 +108,7 @@
 		<div class="thumbnails">
 			<Splide
 				bind:this={slidesThumbnailsRef}
-				options={slidesThumbnailsOptions}
+				options={createThumbnailsSettings(options?.source?.slides?.settings)}
 			>
 				{#each slides as slide}
 					<SplideSlide>

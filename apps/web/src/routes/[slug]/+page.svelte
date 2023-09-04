@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { Img } from '$lib/components/img';
 	import { Metadata } from '$lib/components/metadata';
 	import { Link } from '$lib/components/ui-cms/Link';
 	import { Alert } from '$lib/components/ui-cms/alert';
@@ -17,7 +16,6 @@
 		resolveHeroVariant,
 		resolveLinkAppearance,
 		resolveLinkHref,
-		resolveMediaSource,
 		resolveResourceSize,
 	} from '@jinen/web-resolvers';
 	import DOMPurify from 'isomorphic-dompurify';
@@ -102,43 +100,9 @@
 												{block.title ?? ''}
 											</svelte:fragment>
 
-											<svelte:fragment slot="left">
-												{#if block.images?.showImages}
-													{#each block.images?.images?.filter((image) => image.position === 'left') ?? [] as { image }}
-														{#if typeof image === 'object'}
-															<Img
-																class="w-32"
-																src={resolveMediaSource({
-																	media: image,
-																	size: 'thumbnail',
-																})}
-																alt={image.alt}
-																loading="lazy"
-															/>
-														{/if}
-													{/each}
-												{/if}
+											<svelte:fragment slot="description">
+												{block.description ?? ''}
 											</svelte:fragment>
-
-											<svelte:fragment slot="right">
-												{#if block.images?.showImages}
-													{#each block.images?.images?.filter((image) => image.position === 'right') ?? [] as { image }}
-														{#if typeof image === 'object'}
-															<Img
-																class="w-32"
-																src={resolveMediaSource({
-																	media: image,
-																	size: 'thumbnail',
-																})}
-																alt={image.alt}
-																loading="lazy"
-															/>
-														{/if}
-													{/each}
-												{/if}
-											</svelte:fragment>
-
-											{block.description ?? ''}
 										</Alert>
 									{:else if block.blockType === 'media'}
 										<Media content={block.media} />

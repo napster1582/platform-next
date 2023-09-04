@@ -85,20 +85,20 @@ export interface Page {
   showFooter?: boolean;
   showHero?: boolean;
   hero?: {
-    variant: 'mediaNestedSlides';
-    mediaNestedSlides?: {
-      enableExternalAutoTransitions?: boolean;
-      enableInternalAutoTransitions?: boolean;
-      internalAutoTransitionCycles: number;
-      autoTransitionDuration: number;
-      showExternalProgressIndicator?: boolean;
-      showInternalProgressIndicator?: boolean;
-      items?: {
+    variant: 'slides';
+    slides?: {
+      settings: {
+        rewind?: boolean;
+        autoplay?: boolean;
+        resetProgress?: boolean;
+        interval: number;
+      };
+      elements?: {
         indicator: string;
         title: string;
         description?: string;
         background?: string | Media;
-        show?: boolean;
+        hasLink?: boolean;
         link?: {
           appearance?:
             | 'noDesign'
@@ -121,8 +121,26 @@ export interface Page {
           externalLink: string;
           openInNewTab?: boolean;
         };
-        previews?: {
-          title: string;
+        childrenSettings: {
+          rewind?: boolean;
+          drag?: boolean;
+          wheel?: boolean;
+          autoScroll?: boolean;
+          gap: number;
+          perPage: number;
+          perMove: number;
+          grid?:
+            | {
+                [k: string]: unknown;
+              }
+            | unknown[]
+            | string
+            | number
+            | boolean
+            | null;
+        };
+        children?: {
+          description: string;
           background: string | Media;
           id?: string;
         }[];
@@ -156,14 +174,6 @@ export interface Page {
         | {
             title?: string;
             description: string;
-            images?: {
-              showImages?: boolean;
-              images?: {
-                position?: 'left' | 'right';
-                image?: string | Media;
-                id?: string;
-              }[];
-            };
             id?: string;
             blockName?: string;
             blockType: 'alert';

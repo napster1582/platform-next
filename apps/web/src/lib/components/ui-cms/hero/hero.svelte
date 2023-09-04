@@ -7,7 +7,7 @@
 
 	$: Component = (() => {
 		switch (options.variant) {
-			case HeroVariant.MediaNestedSlides:
+			case HeroVariant.Slides:
 				return Slides;
 			default:
 				console.error(`${options.variant} is not yet supported.`);
@@ -16,7 +16,9 @@
 	})();
 </script>
 
-<svelte:component
-	this={Component}
-	{options}
-/>
+{#if options.source?.slides?.settings}
+	<svelte:component
+		this={Component}
+		{options}
+	/>
+{/if}

@@ -7,7 +7,7 @@
 	import { resolveLinkHref, resolveMediaSource, resolveResourceSize } from '@jinen/web-resolvers';
 	import { Popover, PopoverButton, PopoverPanel, Transition } from '@rgossiaux/svelte-headlessui';
 	import { Img } from '../../img';
-	import { ThemeCustomizer as ThemeCustomizerx } from '../../theme-customizerx';
+	import { ThemeCustomizer } from '../../theme-customizer';
 	import { Link } from '../Link';
 
 	export let content: Header;
@@ -123,7 +123,7 @@
 		</div>
 
 		<div class="flex items-center gap-x-2">
-			<ThemeCustomizerx />
+			<ThemeCustomizer />
 
 			<Button
 				href={env.PUBLIC_CMS_URL + '/admin/login'}

@@ -17,28 +17,26 @@
 	];
 </script>
 
-<div class="flex flex-1 flex-col gap-y-4 md:gap-y-6">
-	<div class="gap-y1">
-		<Label class="text-xs">Radio</Label>
+<div class="flex flex-1 flex-col space-y-1">
+	<Label class="text-xs">Radio</Label>
 
-		<div class="grid grid-cols-{columns} gap-2">
-			{#each radii as radius (radius.value)}
-				{@const isActive = $themeConfig.radius === radius.value}
+	<div class="grid grid-cols-{columns} gap-2">
+		{#each radii as radius (radius.value)}
+			{@const isActive = $themeConfig.radius === radius.value}
 
-				<Button
-					variant="outline"
-					size="sm"
-					class={cn('', isActive && 'border-2 border-zinc-700 dark:border-white')}
-					on:click={() => {
-						themeConfig.update((prev) => ({
-							...prev,
-							radius: radius.value,
-						}));
-					}}
-				>
-					{radius.text}
-				</Button>
-			{/each}
-		</div>
+			<Button
+				variant="outline"
+				size="sm"
+				class={cn('', isActive && 'border-2 border-zinc-700 dark:border-white')}
+				on:click={() => {
+					themeConfig.update((prev) => ({
+						...prev,
+						radius: radius.value,
+					}));
+				}}
+			>
+				{radius.text}
+			</Button>
+		{/each}
 	</div>
 </div>

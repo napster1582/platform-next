@@ -7,7 +7,7 @@
 		<slot name="description" />
 	</p>
 
-	<div class="button-group mt-6">
+	<div class="mt-6">
 		<slot name="link" />
 	</div>
 </div>

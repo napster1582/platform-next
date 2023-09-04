@@ -48,7 +48,7 @@
 					>
 						{#each content[year] as event}
 							<li
-								class="back relative rounded-token border-4 border-solid border-primary-500/30 bg-gradient-to-br from-primary-950/10 to-primary-950 p-5 transition-colors focus-within:border-primary-500/30"
+								class="bg-primary-gradient relative rounded-token border-4 border-primary-500/30 p-5"
 							>
 								<div
 									class="absolute -left-[3.3rem] top-1/2 grid -translate-y-1/2 place-items-center rounded-full border border-primary-400 bg-token-secondary p-1"
@@ -141,7 +141,7 @@
 								</p>
 
 								{#if event.linkGroup && event.linkGroup.addLink}
-									<div class="button-group mt-5">
+									<div class="mt-5">
 										<Link
 											class="text-primary-300"
 											options={{

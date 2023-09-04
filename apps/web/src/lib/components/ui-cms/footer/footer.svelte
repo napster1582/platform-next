@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Img } from '$lib/components/img';
+	import { Badge } from '$lib/components/ui/badge';
 	import type { Footer } from '@jinen/cms-annotations';
 	import { pkg } from '@jinen/helpers';
 	import {
@@ -8,7 +9,6 @@
 		resolveMediaSource,
 		resolveResourceSize,
 	} from '@jinen/web-resolvers';
-	import { Badge } from '../../badge';
 	import { Link } from '../Link';
 	import { Content } from '../content';
 
@@ -86,7 +86,7 @@
 			</address>
 
 			<div class="mt-6 flex justify-center">
-				<Badge class="badge text-gray-950">
+				<Badge>
 					# {pkg().version}
 				</Badge>
 			</div>

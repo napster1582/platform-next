@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { cn } from '$lib/utils';
 	import type { Media } from '@jinen/cms-annotations';
 	import { resolveMediaSource } from '@jinen/web-resolvers';
 	import { Img } from '../../img';
@@ -21,6 +22,7 @@
 			src={resolveMediaSource({ media: content })}
 			alt={content.alt}
 			loading="lazy"
+			class={cn('image-frame-fancy')}
 		/>
 	{:else if isVideo(content.mimeType ?? '')}
 		<Video src={content.url} />

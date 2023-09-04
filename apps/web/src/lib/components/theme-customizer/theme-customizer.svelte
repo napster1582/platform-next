@@ -1,70 +1,66 @@
-<!-- <script lang="ts">
-	import { resetTheme } from '$lib/utils/theme';
+<script lang="ts">
+	import { Button } from '$lib/components/ui/button';
+	import { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';
+	import { defaultThemeConfig, themeConfig } from '$lib/stores/theme-config';
 	import Icon from '@iconify/svelte';
-	import { Popover, PopoverButton, PopoverPanel } from '@rgossiaux/svelte-headlessui';
-	import AppearancePrimaryColor from './theme-color.svelte';
-	import AppearanceFontSize from './theme-font-size.svelte';
-	import AppearanceTheme from './theme-mode.svelte';
-	import AppearanceBorderRadius from './theme-radius.svelte';
+	import ThemeCustomizerColor from './theme-customizer-color.svelte';
+	import ThemeCustomizerFontSize from './theme-customizer-font-size.svelte';
+	import ThemeCustomizerMode from './theme-customizer-mode.svelte';
+	import ThemeCustomizerMotion from './theme-customizer-motion.svelte';
+	import ThemeCustomizerRadius from './theme-customizer-radius.svelte';
 </script>
 
-<Popover
-	class="popover"
-	let:open
->
-	<PopoverButton class="popover-button button">
-		<Icon
-			icon="lucide:paintbrush"
-			class="text-xl"
-		/>
-
-		Personalizar
-
-		{#if open}
-			<Icon icon="ph:caret-up" />
-		{:else}
-			<Icon icon="ph:caret-down" />
-		{/if}
-	</PopoverButton>
-
-	<PopoverPanel
-		class="popover-panel popover-panel-br"
-		let:close
+<Popover positioning={{ placement: 'bottom-end' }}>
+	<PopoverTrigger
+		asChild
+		let:builder
 	>
-		<div
-			class="grid grid-cols-[repeat(1,_minmax(250px,_1fr))] gap-6 md:grid-cols-[repeat(2,_minmax(250px,_1fr))] lg:grid-cols-[repeat(3,_minmax(250px,_1fr))] xl:grid-cols-[repeat(4,_minmax(250px,_1fr))]"
+		<Button
+			builders={[builder]}
+			class="button text-white"
 		>
-			<AppearancePrimaryColor />
-			<AppearanceBorderRadius />
-			<AppearanceFontSize />
-			<AppearanceTheme />
+			<Icon
+				icon="material-symbols:settings-account-box-outline"
+				class="text-lg"
+			/>
+
+			Preferencias
+
+			{#if builder['data-state'] === 'open'}
+				<Icon icon="ph:caret-up" />
+			{:else}
+				<Icon icon="ph:caret-down" />
+			{/if}
+		</Button>
+	</PopoverTrigger>
+	<PopoverContent class="max-h-[calc(100%-100px)] w-96 overflow-y-auto py-6">
+		<div class="flex flex-col gap-y-4 md:gap-y-6">
+			<div class="flex items-start justify-between gap-2">
+				<div class="space-y-1">
+					<div class="font-semibold leading-none tracking-tight">Personalizar</div>
+					<div class="text-xs text-muted-foreground">
+						Elija un diseño que se ajuste a sus gustos.
+					</div>
+				</div>
+
+				<Button
+					variant="ghost"
+					size="icon"
+					on:click={() => {
+						themeConfig.set(defaultThemeConfig);
+					}}
+				>
+					<Icon icon="radix-icons:reset" />
+
+					<span class="sr-only"> Restablecer </span>
+				</Button>
+			</div>
+
+			<ThemeCustomizerFontSize />
+			<ThemeCustomizerMotion />
+			<ThemeCustomizerColor columns={3} />
+			<ThemeCustomizerRadius columns={5} />
+			<ThemeCustomizerMode columns={3} />
 		</div>
-
-		<hr class="border-token my-4" />
-
-		<div class="button-group button-group-end pb-2">
-			<button
-				class="button button-text"
-				on:click={() => {
-					resetTheme();
-					close(null);
-				}}
-			>
-				<Icon icon="line-md:check-list-3-filled" />
-
-				Restablecer
-			</button>
-
-			<button
-				class="button button-primary"
-				on:click={() => {
-					close(null);
-				}}
-			>
-				<Icon icon="line-md:clipboard-check" />
-
-				Aceptar
-			</button>
-		</div>
-	</PopoverPanel>
-</Popover> -->
+	</PopoverContent>
+</Popover>
