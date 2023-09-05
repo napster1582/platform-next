@@ -28,7 +28,6 @@ COPY --from=builder /app/apps/cms/build ./build
 
 RUN npm i -g pnpm && pnpm install
 
-ENV NODE_ENV=production
 ENV PAYLOAD_CONFIG_PATH=dist/payload-config.js
 
 EXPOSE 3001

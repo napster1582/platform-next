@@ -116,13 +116,13 @@ docker run -p 3000:80 -d ghcr.io/jinengroup/platform-next/docs
 ```sh
 # Local
 
-docker run --network="jinen-network" --env-file apps/cms/.env.development -e MONGODB_URI=mongodb://user:root@mongo:27017/?authMechanism=DEFAULT -p 3001:3001 -d jinen-cms
+docker run --network="jinen-network" --env-file apps/cms/.env -p 3001:3001 -d jinen-cms
 ```
 
 ```sh
 # Production
 
-docker run --network="jinen-network" --env-file apps/cms/.env.production -e MONGODB_URI=mongodb://user:root@mongo:27017/?authMechanism=DEFAULT -p 3001:3001 -d ghcr.io/jinengroup/platform-next/cms
+docker run --network="jinen-network" --env-file apps/cms/.env -p 3001:3001 -d ghcr.io/jinengroup/platform-next/cms
 ```
 
 **Web:**

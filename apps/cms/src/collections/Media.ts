@@ -20,13 +20,6 @@ export const CollectionMedia = {
 		staticURL: '/media',
 		staticDir: path.resolve(__dirname, '../../media'),
 		mimeTypes: ['image/*', 'audio/*', 'video/*', 'application/pdf'],
-		imageSizes: [
-			{
-				name: 'thumbnail',
-				width: 480,
-				height: 320,
-			},
-		],
 		adminThumbnail: 'thumbnail',
 	},
 	fields: [

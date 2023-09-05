@@ -1,7 +1,6 @@
 import PluginFormBuilder from '@payloadcms/plugin-form-builder';
 import PluginNestedDocs from '@payloadcms/plugin-nested-docs';
 import PluginSeo from '@payloadcms/plugin-seo';
-import PluginWebp from 'payload-webp';
 import { buildConfig } from 'payload/config';
 
 import { CollectionEvents } from './collections/Events';
@@ -95,7 +94,5 @@ export default buildConfig({
 			generateURL: ({ doc }: any) =>
 				`${process.env.PAYLOAD_CLIENT_URL ?? ''}/${doc['fields']['slug']?.value}`,
 		}),
-
-		PluginWebp(),
 	],
 });

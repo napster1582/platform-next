@@ -40,24 +40,6 @@ export interface User {
 export interface Media {
   id: string;
   alt: string;
-  webp?: {
-    filename?: string;
-    filesize?: number;
-    width?: number;
-    mimeType?: string;
-    height?: number;
-    url?: string;
-    sizes?: {
-      thumbnail?: {
-        filename?: string;
-        filesize?: number;
-        width?: number;
-        mimeType?: string;
-        height?: number;
-        url?: string;
-      };
-    };
-  };
   updatedAt: string;
   createdAt: string;
   url?: string;
@@ -66,16 +48,6 @@ export interface Media {
   filesize?: number;
   width?: number;
   height?: number;
-  sizes?: {
-    thumbnail?: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-  };
 }
 export interface Page {
   id: string;
