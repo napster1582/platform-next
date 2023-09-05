@@ -16,10 +16,10 @@
 
 	export let options: HeroOptions;
 
-	$: slides = options?.source?.slides?.elements ?? [];
-
 	let slidesRef: Splide;
 	let slidesThumbnailsRef: SplideSlide;
+
+	$: slides = options?.source?.slides?.elements ?? [];
 
 	onMount(() => {
 		if (slidesRef && slidesThumbnailsRef) {
@@ -42,7 +42,7 @@
 			{#each slides as slide}
 				<SplideSlide>
 					<div
-						class="relative h-full cursor-grab bg-black/95 bg-cover bg-center bg-no-repeat pt-16 bg-blend-soft-light active:cursor-grabbing xl:pt-0"
+						class="relative h-full cursor-grab bg-black/75 bg-cover bg-center bg-no-repeat pt-16 bg-blend-soft-light active:cursor-grabbing xl:pt-0"
 						style={`background-image: url(${resolveMediaSource({
 							media: slide.background,
 						})});`}
@@ -84,7 +84,7 @@
 							</SlidesInfo>
 
 							{#if slide.children?.length}
-								<div class="overflow-hidden rounded-token">
+								<div class="rounded-token overflow-hidden">
 									<SlidesNested
 										elements={slide.children}
 										options={createNestedSlidesSettings(slide.childrenSettings)}
@@ -113,13 +113,13 @@
 				{#each slides as slide}
 					<SplideSlide>
 						<div
-							class="relative grid h-full place-items-center rounded-token bg-cover bg-center bg-no-repeat"
+							class="rounded-token relative grid h-full place-items-center bg-cover bg-center bg-no-repeat"
 							style={`background-image: url(${resolveMediaSource({
 								media: slide.background,
 							})});`}
 						>
 							<span
-								class="line-clamp-1 rounded-token bg-white/30 px-2 py-0.5 text-center font-semibold text-black backdrop-blur-md"
+								class="rounded-token line-clamp-1 bg-white/30 px-2 py-0.5 text-center font-semibold text-black backdrop-blur-md"
 							>
 								{slide.indicator}
 							</span>
@@ -156,7 +156,7 @@
 	}
 
 	:global(.splide__progress__bar) {
-		@apply h-2 rounded-token bg-gradient-to-r from-yellow-500 via-blue-600 to-red-800;
+		@apply rounded-token h-2 bg-gradient-to-r from-yellow-500 via-blue-600 to-red-800;
 	}
 
 	.thumbnails :global(.splide__slide.is-visible) {
