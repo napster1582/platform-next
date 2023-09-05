@@ -38,13 +38,13 @@
 		"payload-webp": "^1.1.6",
 		"process": "^0.11.10",
 		"react": "^18.2.0",
-		"react-router-dom": "^5.3.4",
+		"react-router-dom": "^6.15.0",
 		"ts-node": "^10.9.1",
 		"zod": "^3.22.2"
 	},
 	"peerDependencies": {
 		"dotenv": "^16.1.4",
 		"react": "^18.2.0",
-		"react-router-dom": "^5.3.4"
+		"react-router-dom": "^6.15.0"
 	}
 }
