@@ -1,6 +1,6 @@
 {
 	"name": "@jinen/eslint-config",
-	"version": "0.4.1-alpha",
+	"version": "0.4.2-alpha",
 	"main": "src/index.js",
 	"dependencies": {
 		"@typescript-eslint/eslint-plugin": "^6.4.0",
