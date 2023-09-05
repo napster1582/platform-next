@@ -33,7 +33,7 @@
 		"deepmerge": "^4.3.1",
 		"dotenv": "^16.3.1",
 		"express": "^4.17.1",
-		"nodemon": "^2.0.22",
+		"nodemon": "^3.0.1",
 		"payload": "^1.7.2",
 		"payload-webp": "^1.1.6",
 		"process": "^0.11.10",
