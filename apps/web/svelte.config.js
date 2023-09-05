@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-vercel';
+import adapter from '@sveltejs/adapter-node';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 import { dirname, join } from 'path';
 
@@ -13,7 +13,10 @@ const config = {
 	}),
 
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			precompress: false,
+			polyfill: true,
+		}),
 
 		csp: {
 			directives: {
