@@ -31,7 +31,7 @@
 				{#each footer.logos ?? [] as { logo }}
 					{#if typeof logo === 'object'}
 						<img
-							src={resolveMediaSource({ media: logo, size: 'thumbnail' })}
+							src={resolveMediaSource({ media: logo })}
 							alt={logo.alt}
 							class="h-28 w-28 object-cover"
 						/>

@@ -130,13 +130,13 @@ docker run --network="jinen-network" --env-file apps/cms/.env -p 3001:3001 -d gh
 ```sh
 # Local
 
-docker run --env-file apps/web/.env.development -p 3002:3002 -d jinen-web
+docker run --env-file apps/web/.env -p 3002:3002 -d jinen-web
 ```
 
 ```sh
 # Production
 
-docker run --env-file apps/web/.env.production -p 3002:3002 -d ghcr.io/jinengroup/platform-next/web
+docker run --env-file apps/web/.env -p 3002:3002 -d ghcr.io/jinengroup/platform-next/web
 ```
 
 ### Ejecutar Docker Compose

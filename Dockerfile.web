@@ -12,7 +12,7 @@ RUN npm i -g pnpm
 COPY . .
 
 RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store \
-    pnpm install --frozen-lockfile  && \
+    pnpm install --frozen-lockfile && \
     pnpm --filter web build
 
 # ;--------------;
@@ -22,10 +22,10 @@ FROM base as runner
 
 WORKDIR /app
 
-COPY --from=builder /app/apps/web/package.json /app/apps/web/build ./build/
+COPY --from=builder /app/ .
 
 ENV PORT=3002
 
 EXPOSE 3002
 
-CMD ["node", "build/index.js"]
+CMD ["node", "apps/web/build/index.js"]
