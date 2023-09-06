@@ -6,7 +6,6 @@
 	import ThemeCustomizerColor from './theme-customizer-color.svelte';
 	import ThemeCustomizerFontSize from './theme-customizer-font-size.svelte';
 	import ThemeCustomizerMode from './theme-customizer-mode.svelte';
-	import ThemeCustomizerMotion from './theme-customizer-motion.svelte';
 	import ThemeCustomizerRadius from './theme-customizer-radius.svelte';
 </script>
 
@@ -20,7 +19,7 @@
 			class="button text-white"
 		>
 			<Icon
-				icon="material-symbols:settings-account-box-outline"
+				icon="solar:gallery-edit-linear"
 				class="text-lg"
 			/>
 
@@ -38,7 +37,7 @@
 			<div class="flex items-start justify-between gap-2">
 				<div class="space-y-1">
 					<div class="font-semibold leading-none tracking-tight">Personalizar</div>
-					<div class="text-xs text-muted-foreground">
+					<div class="text-muted-foreground text-xs">
 						Elija un diseño que se ajuste a sus gustos.
 					</div>
 				</div>
@@ -57,8 +56,7 @@
 			</div>
 
 			<ThemeCustomizerFontSize />
-			<ThemeCustomizerMotion />
-			<ThemeCustomizerColor columns={3} />
+			<ThemeCustomizerColor columns={1} />
 			<ThemeCustomizerRadius columns={5} />
 			<ThemeCustomizerMode columns={3} />
 		</div>

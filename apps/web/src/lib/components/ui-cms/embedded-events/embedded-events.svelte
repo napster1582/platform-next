@@ -60,7 +60,7 @@
 								class="bg-primary-gradient rounded-token border-primary-500/30 relative border-4 p-5"
 							>
 								<div
-									class="border-primary-400 bg-token-secondary absolute -left-[3.3rem] top-1/2 grid -translate-y-1/2 place-items-center rounded-full border p-1"
+									class="border-accent bg-accent absolute -left-[3.3rem] top-1/2 grid -translate-y-1/2 place-items-center rounded-full border p-1"
 								>
 									<Icon
 										icon="line-md:check-list-3-filled"
