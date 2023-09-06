@@ -22,7 +22,7 @@
 </script>
 
 <header
-	class="dark fixed inset-x-0 top-0 z-20 h-[65px] bg-primary-700/90 text-white shadow-lg backdrop-blur-md transition-transform duration-300"
+	class="bg-primary-700/90 dark fixed inset-x-0 top-0 z-20 h-[65px] text-white shadow-lg backdrop-blur-md transition-transform duration-300"
 >
 	<div class={cn('flex h-full items-center justify-between', useContainer ? 'container' : 'px-6')}>
 		<div class="flex items-center">
@@ -35,9 +35,9 @@
 					}}
 				>
 					<img
-						src={resolveMediaSource({ media: header.logo, size: 'thumbnail' })}
+						src={resolveMediaSource({ media: header.logo })}
 						alt={header.logo.alt}
-						class="h-10 w-16 object-cover"
+						class="h-full w-14 object-contain"
 					/>
 				</Link>
 			{/if}
@@ -72,7 +72,7 @@
 							</DropdownMenuTrigger>
 							<DropdownMenuContent class="w-64">
 								<DropdownMenuGroup>
-									{#each links ?? [] as { link }}
+									{#each links as { link }}
 										<DropdownMenuItem>
 											<Link
 												class="popover-panel-item"
