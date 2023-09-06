@@ -5,7 +5,7 @@ FROM node:20-alpine as base
 # ;---------------;
 FROM base as builder
 
-WORKDIR /app
+WORKDIR /jinen-docs-build
 
 RUN apk add --no-cache git \
     && npm i -g pnpm 
@@ -13,7 +13,7 @@ RUN apk add --no-cache git \
 COPY . .
 
 RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store \
-    pnpm install --frozen-lockfile && \
+    pnpm install --frozen-lockfile --ignore-scripts && \
     pnpm --filter docs build
 
 # ;--------------;
@@ -21,9 +21,9 @@ RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store \
 # ;--------------;
 FROM nginx:stable-alpine as runner
 
-WORKDIR /app
+WORKDIR /jinen-docs-run
 
-COPY --from=builder /app/apps/docs/src/.vitepress/dist /usr/share/nginx/html
+COPY --from=builder /jinen-docs-build/apps/docs/src/.vitepress/dist /usr/share/nginx/html
 
 EXPOSE 80
 

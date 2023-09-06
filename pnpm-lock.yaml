@@ -49,13 +49,18 @@ importers:
         version: 4.18.2
       payload:
         specifier: latest
+<<<<<<< HEAD
         version: 1.14.0(@types/react@18.2.21)(typescript@5.2.2)
+=======
+        version: 1.15.3(@types/react@18.2.21)(typescript@5.2.2)
+>>>>>>> 5cab805fa2da351a932564d68d4c51403b1c458c
       styled-components:
         specifier: 6.0.7
         version: 6.0.7(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@payloadcms/plugin-form-builder':
         specifier: ^1.0.15
+<<<<<<< HEAD
         version: 1.0.15(payload@1.14.0)(react@18.2.0)
       '@payloadcms/plugin-nested-docs':
         specifier: ^1.0.6
@@ -63,6 +68,15 @@ importers:
       '@payloadcms/plugin-seo':
         specifier: ^1.0.13
         version: 1.0.13(payload@1.14.0)(react@18.2.0)
+=======
+        version: 1.0.15(payload@1.15.3)(react@18.2.0)
+      '@payloadcms/plugin-nested-docs':
+        specifier: ^1.0.6
+        version: 1.0.6(payload@1.15.3)(react@18.2.0)
+      '@payloadcms/plugin-seo':
+        specifier: ^1.0.13
+        version: 1.0.13(payload@1.15.3)(react@18.2.0)
+>>>>>>> 5cab805fa2da351a932564d68d4c51403b1c458c
       '@types/express':
         specifier: ^4.17.17
         version: 4.17.17
@@ -3577,7 +3591,7 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
 
-  /@payloadcms/plugin-form-builder@1.0.15(payload@1.14.0)(react@18.2.0):
+  /@payloadcms/plugin-form-builder@1.0.15(payload@1.15.3)(react@18.2.0):
     resolution: {integrity: sha512-lr6TnO95rbr3Zcjgc157pEJ5P2OpTdz13QKqSfESjdAGAinhfYtM903jgAfLVCV16o2MyyOjpEMMt9kuwx3LOQ==}
     peerDependencies:
       payload: ^0.18.5 || ^1.0.0
@@ -3585,27 +3599,27 @@ packages:
     dependencies:
       deepmerge: 4.3.1
       escape-html: 1.0.3
-      payload: 1.14.0(@types/react@18.2.21)(typescript@5.2.2)
+      payload: 1.15.3(@types/react@18.2.21)(typescript@5.2.2)
       react: 18.2.0
     dev: true
 
-  /@payloadcms/plugin-nested-docs@1.0.6(payload@1.14.0)(react@18.2.0):
+  /@payloadcms/plugin-nested-docs@1.0.6(payload@1.15.3)(react@18.2.0):
     resolution: {integrity: sha512-+rPMWYYjxxIQeCO+MFlfsj4baLaK3S7RzP4dGouWcCtORbZEXbVPUGXgWWNyAP3FolQh4YDEgFVB4PHyIa+O/A==}
     peerDependencies:
       payload: ^0.18.5 || ^1.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      payload: 1.14.0(@types/react@18.2.21)(typescript@5.2.2)
+      payload: 1.15.3(@types/react@18.2.21)(typescript@5.2.2)
       react: 18.2.0
     dev: true
 
-  /@payloadcms/plugin-seo@1.0.13(payload@1.14.0)(react@18.2.0):
+  /@payloadcms/plugin-seo@1.0.13(payload@1.15.3)(react@18.2.0):
     resolution: {integrity: sha512-GPIyGTe6vU8GRFMYhNoUDrGWxm0uiqfIQQSsAuZjEM6YGFozo/AnpnjcT6VS/led/7HRFF8ijOy82l0VaLNC3w==}
     peerDependencies:
       payload: ^0.18.5 || ^1.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      payload: 1.14.0(@types/react@18.2.21)(typescript@5.2.2)
+      payload: 1.15.3(@types/react@18.2.21)(typescript@5.2.2)
       react: 18.2.0
     dev: true
 
@@ -9563,8 +9577,8 @@ packages:
   /pause@0.0.1:
     resolution: {integrity: sha512-KG8UEiEVkR3wGEb4m5yZkVCzigAD+cVEJck2CzYZO37ZGJfctvVptVO192MwrtPhzONn6go8ylnOdMhKqi4nfg==}
 
-  /payload@1.14.0(@types/react@18.2.21)(typescript@5.2.2):
-    resolution: {integrity: sha512-2FjYIAsMHRsP/THGmDMarWhHN7N88KvLwP8Hmpl2AzuMxoBsz0EXy0tHhsbS9OXtoPURNy+/bHsUPdUPTlZs8A==}
+  /payload@1.15.3(@types/react@18.2.21)(typescript@5.2.2):
+    resolution: {integrity: sha512-mNJHFpNWp/MG6ewQ6tsfpmkf7m4X65CJQAPAfoRF7FGkKQ/Pliwd4eCUFgNtD0LhVDAhZQhx+DlLKOgScdzypQ==}
     engines: {node: '>=14', yarn: '>=1.22 <2'}
     hasBin: true
     dependencies:

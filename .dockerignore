@@ -1,51 +1,47 @@
-# Ignore node_modules
-node_modules
+# Ignore node_modules for all packages
+**/node_modules
 
-# Ignore any file or directory that starts with a dot
-.*
+# Ignore build directories for all packages
+**/build
+**/dist
+**/.svelte-kit
 
-# Ignore development files
-*.log
-*.swp
-*.bak
-*.backup
-*.tmp
+# Ignore package-lock.json or yarn.lock files
+**/package-lock.json
+**/yarn.lock
 
-# Ignore test files
-test
-tests
-*.test.*
-*.spec.*
+# Ignore development and editor-specific files
+**/.git
+**/.idea
+**/.vscode
+**/.DS_Store
+**/*.iml
+**/*.log
+**/*.tmp
+**/*.swp
+**/*.swo
+**/*.bak
+**/*.bak.*
+**/*.backup
+**/*~
 
-# Ignore build files
-dist
-build
-*.map
-*.tsbuildinfo
-
-# Ignore package manager cache
-.pnpm-store
-.yarn-cache
+# Ignore tests
+**/test
+**/tests
+**/*.test.*
+**/*.spec.*
 
 # Ignore configuration files
-/envs
-
-# Ignore editor files
-.vscode
-.idea
-*.iml
+**/*.env
+commitlint.config.cjs
+.eslintrc.cjs
+.prettierrc
 
 # Ignore Github files
-.github
+/.github
 
 # Ignore k8s files
 /charts
-
-# Ignore documentation files
-CHANGELOG
-LICENSE
-AUTHORS
-CONTRIBUTORS
 
 # Ignore version control files
 .git
@@ -54,9 +50,26 @@ CONTRIBUTORS
 .hg
 .bzr
 
+# Ignore Docker files
+Dockerfile.docs
+Dockerfile.cms
+Dockerfile.web
+docker-compose.yaml
+docker-compose.development.yaml
+docker-compose.production.yaml
+
 # Ignore OS-specific files
 .DS_Store
 Thumbs.db
 
-# Ignore svelte-kit files
-.svelte-kit
+# Ignore documentation files
+CHANGELOG
+LICENSE
+AUTHORS
+CONTRIBUTORS
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md
+README.md
+
+# Ignore custom scripts
+/scripts

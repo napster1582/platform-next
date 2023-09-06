@@ -17,8 +17,8 @@ services:
       - jinen-network
 
   docs:
-    image: ghcr.io/jinengroup/platform-next/docs
-    container_name: jinen-docs-production
+    image: ghcr.io/jinengroup/platform-next/docs:latest
+    container_name: jinen-production-docs
     restart: always
     ports:
       - '3000:80'
@@ -26,15 +26,14 @@ services:
       - jinen-network
 
   cms:
-    image: ghcr.io/jinengroup/platform-next/cms
-    container_name: jinen-cms-production
+    image: ghcr.io/jinengroup/platform-next/cms:latest
+    container_name: jinen-production-cms
     restart: always
     environment:
-      NODE_ENV: production
-      PAYLOAD_SERVER_PORT: 3001
+      PORT: 3001
       PAYLOAD_SERVER_URL: http://localhost:3001
+      PAYLOAD_CLIENT_URL: http://web:3002
       PAYLOAD_CONFIG_SECRET: 46B6C73F93BB1BE56039C5C4605005DD3A39E3DF8C762FB47F6295066EC10223
-      PAYLOAD_CONFIG_PATH: dist/payload-config.js
       MONGODB_URI: mongodb://user:root@mongo:27017/?authMechanism=DEFAULT
     ports:
       - '3001:3001'
@@ -45,10 +44,11 @@ services:
       - jinen-network
 
   web:
-    image: ghcr.io/jinengroup/platform-next/web
-    container_name: jinen-web-production
+    image: ghcr.io/jinengroup/platform-next/web:latest
+    container_name: jinen-production-web
     restart: always
     environment:
+      PORT: 3002
       PUBLIC_CMS_URL: http://cms:3001
     depends_on:
       - cms

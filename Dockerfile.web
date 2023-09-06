@@ -9,6 +9,7 @@ WORKDIR /app
 
 RUN npm i -g pnpm
 
+COPY .npmrc package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY . .
 
 RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store \
@@ -22,9 +23,11 @@ FROM base as runner
 
 WORKDIR /app
 
-COPY --from=builder /app/ .
+COPY --from=builder /app/.npmrc /app/package.json /app/pnpm-lock.yaml /app/pnpm-workspace.yaml ./
+COPY --from=builder /app/node_modules ./node_modules/
+COPY --from=builder /app/apps/web ./apps/web/
 
-ENV PORT=3002
+ENV NODE_ENV=production
 
 EXPOSE 3002
 
