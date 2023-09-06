@@ -10,15 +10,10 @@
 	export let columns: LayoutColumn = 1;
 
 	const colors: Datalist<ThemeConfig['color']> = [
-		{ value: 'zinc', text: 'Zinc' },
-		{ value: 'stone', text: 'Stone' },
-		{ value: 'blue', text: 'Blue' },
-		{ value: 'violet', text: 'Violet' },
-		{ value: 'green', text: 'Green' },
-		{ value: 'yellow', text: 'Yellow' },
-		{ value: 'orange', text: 'Orange' },
-		{ value: 'red', text: 'Red' },
-		{ value: 'rose', text: 'Rose' },
+		{ value: 'yellow', text: 'Amarillo' },
+		{ value: 'blue', text: 'Azul' },
+		{ value: 'red', text: 'Rojo' },
+		// { value: 'green', text: 'Verde' },
 	];
 </script>
 

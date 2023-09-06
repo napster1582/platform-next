@@ -42,7 +42,7 @@
 			{#each slides as slide}
 				<SplideSlide>
 					<div
-						class="relative h-full cursor-grab bg-black/75 bg-cover bg-center bg-no-repeat pt-16 bg-blend-soft-light active:cursor-grabbing xl:pt-0"
+						class="relative h-full cursor-grab bg-black/80 bg-cover bg-center bg-no-repeat pt-16 bg-blend-soft-light active:cursor-grabbing xl:pt-0"
 						style={`background-image: url(${resolveMediaSource({
 							media: slide.background,
 						})});`}
