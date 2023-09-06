@@ -20,7 +20,7 @@ const start = async () => {
 		},
 	});
 
-	app.listen(process.env.PAYLOAD_SERVER_PORT || 3000);
+	app.listen(process.env.PORT || 3000);
 };
 
 start();

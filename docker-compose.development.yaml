@@ -20,7 +20,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.docs
-    container_name: jinen-docs-development
+    container_name: jinen-development-docs
     restart: always
     ports:
       - '3000:80'
@@ -31,14 +31,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.cms
-    container_name: jinen-cms-development
+    container_name: jinen-development-cms
     restart: always
     environment:
-      NODE_ENV: development
-      PAYLOAD_SERVER_PORT: 3001
+      PORT: 3001
       PAYLOAD_SERVER_URL: http://localhost:3001
+      PAYLOAD_CLIENT_URL: http://web:3002
       PAYLOAD_CONFIG_SECRET: my-secret
-      PAYLOAD_CONFIG_PATH: dist/payload-config.js
       MONGODB_URI: mongodb://user:root@mongo:27017/?authMechanism=DEFAULT
     ports:
       - '3001:3001'
@@ -52,9 +51,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.web
-    container_name: jinen-web-development
+    container_name: jinen-development-web
     restart: always
     environment:
+      PORT: 3002
       PUBLIC_CMS_URL: http://cms:3001
     depends_on:
       - cms
